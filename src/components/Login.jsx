@@ -1,37 +1,37 @@
-import { Container, Row, Col, Form, Button } from "react-bootstrap"
+import { Form, Button } from "react-bootstrap"
 // import { Navigate, useNavigate } from "react-router-dom"
 
 //TODO
 //disable button if username is empty
-//center all
-//forms=>smaller
 
 const Login = () => {
   // const navigate = useNavigate()
   // const handleSubmit = () => {
-  //   navigate("/")
+  //   navigate("/home")
   // }
 
   return (
-    <Container>
-      <Form>
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label>User name</Form.Label>
-          <Form.Control type="text" />
+    <Form className="login-container">
+      <div className="login-modal">
+        <h4 className="mb-3">Login</h4>
+        <Form.Group>
+          <Form.Control type="text" placeholder="Username" />
         </Form.Group>
 
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" />
+        <Form.Group>
+          <Form.Control type="password" placeholder="Password" />
         </Form.Group>
-        <Form.Group controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Remember me" />
+
+        <Form.Group>
+          <Form.Check type="checkbox" label="Remember me" className="login-small-font" />
         </Form.Group>
+        <p className="login-small-font">Forgot the password?</p>
+
         <Button variant="primary" type="submit">
           Enter
         </Button>
-      </Form>
-    </Container>
+      </div>
+    </Form>
   )
 }
 

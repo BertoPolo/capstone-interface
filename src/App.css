@@ -1,18 +1,22 @@
 /* Login start */
-.App-header {
-  background-color: #282c34;
+
+.login-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-.App {
+  font-size: calc(8px + 2vmin);
   text-align: center;
 }
+.login-modal {
+  border: 2px solid rgba(0, 0, 0, 0.089);
+  padding: 4rem;
+}
 
+.login-small-font {
+  font-size: calc(1px + 2vmin);
+}
 /* Login end */
 
 /* Navbar start */
