@@ -4,6 +4,8 @@ import "bootstrap-icons/font/bootstrap-icons.css"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Login from "./components/Login"
 import Home from "./components/Home"
+import CreateUser from "./components/CreateUser"
+// import ForgotPassword from "./components/ForgotPassword"
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
+          <Route path="/newUser" element={<CreateUser />} />
+          {/* <Route path="/forgotPassword" element={<ForgotPassword />} /> */}
           <Route path="/home" element={<Home />} />
         </Routes>
       </BrowserRouter>
