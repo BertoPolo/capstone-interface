@@ -7,7 +7,12 @@ const Home = (props) => {
 
   return (
     <Container>
-      <div className="App" dangerouslySetInnerHTML={{ __html: iframeSource }}></div>
+      <h2>(user)'s Routes</h2>
+
+      <div>
+        <h4>Route Argelès-Gazost</h4>
+        <div className="App" dangerouslySetInnerHTML={{ __html: iframeSource }}></div>
+      </div>
     </Container>
   )
 }
