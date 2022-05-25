@@ -1,4 +1,4 @@
-import { Container } from "react-bootstrap"
+import { Container, ProgressBar, Button, Row, Col } from "react-bootstrap"
 const Home = (props) => {
   const {
     iframeSource = `
@@ -8,11 +8,25 @@ const Home = (props) => {
   return (
     <Container>
       <h2>(user)'s Routes</h2>
+      <Row>
+        <Col xs={8}>
+          <div>
+            <h4>Route Argelès-Gazost</h4>
+            <Button variant="danger">
+              <b>-</b>
+            </Button>
+            <ProgressBar animated now={20} />
+            <Button variant="success">
+              <b>+</b>
+            </Button>
 
-      <div>
-        <h4>Route Argelès-Gazost</h4>
-        <div className="App" dangerouslySetInnerHTML={{ __html: iframeSource }}></div>
-      </div>
+            <div className="App" dangerouslySetInnerHTML={{ __html: iframeSource }}></div>
+          </div>
+        </Col>
+        <Col className="border-left">
+          <h4>Reviews</h4>
+        </Col>
+      </Row>
     </Container>
   )
 }

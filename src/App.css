@@ -33,5 +33,7 @@ h1 {
 /* Navbar end */
 
 /* Home start*/
-
+.progress {
+  width: 20vw;
+}
 /* Home end*/
