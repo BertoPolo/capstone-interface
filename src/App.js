@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Login from "./components/Login"
 import Home from "./components/Home"
 import CreateUser from "./components/CreateUser"
+import NotFound from "./components/NotFound"
 // import ForgotPassword from "./components/ForgotPassword"
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
     <div className="">
       <BrowserRouter>
         <Routes>
+          <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Login />} />
           <Route path="/newUser" element={<CreateUser />} />
           {/* <Route path="/forgotPassword" element={<ForgotPassword />} /> */}
