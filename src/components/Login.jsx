@@ -32,11 +32,11 @@ const Login = () => {
         </Link>
 
         {usernameInput && passwordInput ? (
-          <Button variant="primary" type="submit" onClick={() => handleSubmit}>
+          <Button variant="primary" onClick={() => handleSubmit}>
             Enter
           </Button>
         ) : (
-          <Button variant="secondary" type="submit" disabled>
+          <Button variant="secondary" disabled>
             Enter
           </Button>
         )}
