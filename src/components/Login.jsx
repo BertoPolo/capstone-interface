@@ -32,7 +32,7 @@ const Login = () => {
         </Link>
 
         {usernameInput && passwordInput ? (
-          <Button variant="primary" onClick={() => handleSubmit}>
+          <Button variant="primary" onClick={() => handleSubmit()}>
             Enter
           </Button>
         ) : (
@@ -41,7 +41,7 @@ const Login = () => {
           </Button>
         )}
       </div>
-      <Link className="login-small-font d-block mb-3" to="/newUser">
+      <Link className="login-small-font d-block mb-3 mt-2" to="/newUser">
         <b> Not registered yet?</b>
       </Link>
     </Form>

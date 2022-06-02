@@ -7,6 +7,9 @@ import TheRoute from "./components/TheRoute"
 import Home from "./components/Home"
 import CreateUser from "./components/CreateUser"
 import NotFound from "./components/NotFound"
+import AddNewRoute from "./components/AddNewRoute"
+// import Profile from "./components/Profile"
+
 // import ForgotPassword from "./components/ForgotPassword"
 
 function App() {
@@ -17,9 +20,11 @@ function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Login />} />
           <Route path="/newUser" element={<CreateUser />} />
+          {/* <Route path="/profile" element={<Profile />} /> */}
           {/* <Route path="/forgotPassword" element={<ForgotPassword />} /> */}
           <Route path="/Home" element={<Home />} />
           <Route path="/route" element={<TheRoute />} />
+          <Route path="/addRoute" element={<AddNewRoute />} />
         </Routes>
       </BrowserRouter>
     </div>

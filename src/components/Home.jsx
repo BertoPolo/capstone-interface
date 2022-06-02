@@ -1,5 +1,13 @@
 import { Button } from "react-bootstrap"
+import MyNavbar from "./MyNavbar"
+
 const Home = () => {
-  return <Button>check this Route!</Button>
+  return (
+    <>
+      <MyNavbar />
+
+      <Button>check this Route!</Button>
+    </>
+  )
 }
 export default Home
