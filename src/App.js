@@ -9,7 +9,6 @@ import CreateUser from "./components/CreateUser"
 import NotFound from "./components/NotFound"
 import AddNewRoute from "./components/AddNewRoute"
 // import Profile from "./components/Profile"
-
 // import ForgotPassword from "./components/ForgotPassword"
 
 function App() {
