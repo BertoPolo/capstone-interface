@@ -13,15 +13,15 @@ const Login = () => {
   }
 
   return (
-    <Form className="login-container">
+    <Form className="login-container" onSubmit={handleSubmit}>
       <div className="login-modal">
         <h4 className="mb-3">Login</h4>
         <Form.Group>
-          <Form.Control type="text" placeholder="Username" onChange={(e) => setUsernameInput(e.target.value)} />
+          <Form.Control type="text" placeholder="Username" value={usernameInput} onChange={(e) => setUsernameInput(e.target.value)} />
         </Form.Group>
 
         <Form.Group>
-          <Form.Control type="password" placeholder="Password" onChange={(e) => setPasswordInput(e.target.value)} />
+          <Form.Control type="password" placeholder="Password" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
         </Form.Group>
 
         <Form.Group>
@@ -32,7 +32,7 @@ const Login = () => {
         </Link>
 
         {usernameInput && passwordInput ? (
-          <Button variant="primary" onClick={() => handleSubmit()}>
+          <Button variant="primary" type="submit" >
             Enter
           </Button>
         ) : (

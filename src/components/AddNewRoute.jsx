@@ -2,9 +2,10 @@
 //ask A point "+" Country
 //ask B point "+" Country
 
-import { Container, Button, Form } from "react-bootstrap"
+import {  Button, Form } from "react-bootstrap"
 import MyNavbar from "./MyNavbar"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 /* FECT HERE : 
 https://www.google.com/maps/embed/v1/directions
@@ -17,6 +18,9 @@ https://www.google.com/maps/embed/v1/directions
  */
 const AddNewRoute = () => {
   const [wantStop, setWantStop] = useState(false)
+
+  const navigate=useNavigate()
+
   return (
     <>
       <MyNavbar />
@@ -41,14 +45,24 @@ const AddNewRoute = () => {
           <Form.Control type="text" placeholder="Destination City" />
         </Form.Group>
 
-        <Button className="">Add stop</Button>
-        <Button>Remove last stop</Button>
+        {wantStop ?
+        <Button className="" disabled >Add stop</Button>
+        :
+        <Button className="" onClick={()=>setWantStop(true)}>Add stop</Button>
+        }
 
+        {wantStop ?
+        <Button onClick={()=>setWantStop(false)}>Remove last stop</Button>
+        :
+        <Button disabled>Remove last stop</Button>
+        }
+
+        
         <div>
           <Button variant="success" type="submit">
             Submit
           </Button>
-          <Button variant="danger">Cancel</Button>
+          <Button variant="danger" onClick={()=>navigate("/home")}>Cancel</Button>
         </div>
       </Form>
       {/* </Container> */}

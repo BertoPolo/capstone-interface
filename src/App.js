@@ -10,10 +10,12 @@ import NotFound from "./components/NotFound"
 import AddNewRoute from "./components/AddNewRoute"
 // import Profile from "./components/Profile"
 // import ForgotPassword from "./components/ForgotPassword"
+// import { Provider } from "react-redux"
 
 function App() {
   return (
     <div className="">
+      {/* <Provider store={configureStore}> */}
       <BrowserRouter>
         <Routes>
           <Route path="*" element={<NotFound />} />
@@ -21,11 +23,12 @@ function App() {
           <Route path="/newUser" element={<CreateUser />} />
           {/* <Route path="/profile" element={<Profile />} /> */}
           {/* <Route path="/forgotPassword" element={<ForgotPassword />} /> */}
-          <Route path="/Home" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/route" element={<TheRoute />} />
           <Route path="/addRoute" element={<AddNewRoute />} />
         </Routes>
       </BrowserRouter>
+      {/* </Provider> */}
     </div>
   )
 }

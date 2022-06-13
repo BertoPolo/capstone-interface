@@ -1,4 +1,6 @@
 import { Container, ProgressBar, Button, Row, Col, Form } from "react-bootstrap"
+import MyNavbar from "./MyNavbar"
+
 const TheRoute = (props) => {
   const {
     iframeSource = `
@@ -6,15 +8,18 @@ const TheRoute = (props) => {
   } = props
 
   return (
-    <Container>
-      <h2>(user)'s Routes</h2>
+    <>
+    <MyNavbar/>
+
+    <Container className="">
+      <h2>(user)'s Route</h2>
       <Row>
         <Col xs={8}>
           <div>
-            <h4>Route Argelès-Gazost</h4>
-            <ProgressBar animated now={20} />
+            <h4>Route Argelès-Gazost - Pont d'Espagne</h4>
+            <span>Rate</span> <ProgressBar animated now={20} />
 
-            <div className="App" dangerouslySetInnerHTML={{ __html: iframeSource }}></div>
+            <div className="" dangerouslySetInnerHTML={{ __html: iframeSource }}></div>
           </div>
         </Col>
         <Col className="border-left">
@@ -44,6 +49,7 @@ const TheRoute = (props) => {
         </Col>
       </Row>
     </Container>
+    </>
   )
 }
 
