@@ -11,10 +11,10 @@ const TheRoute = (props) => {
     <>
     <MyNavbar/>
 
-    <Container className="">
+    <Container className="bg-main">
       <h2>(user)'s Route</h2>
       <Row>
-        <Col xs={8}>
+        <Col xs={8} >
           <div>
             <h4>Route Argelès-Gazost - Pont d'Espagne</h4>
             <span>Rate</span> <ProgressBar animated now={20} />

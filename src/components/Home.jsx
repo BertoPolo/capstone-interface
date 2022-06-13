@@ -14,7 +14,7 @@ const Home = () => {
 
       <Form inline>
           <FormControl type="text" placeholder="Which country?" className="mr-sm-2" />
-          <Button variant="outline-success" onClick={()=>navigate("/route")}>Search</Button>
+          <Button variant="outline-success" onClick={()=>navigate("/countryList")}>Search</Button>
         </Form>
 
       

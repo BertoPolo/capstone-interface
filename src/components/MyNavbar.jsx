@@ -8,10 +8,10 @@ const MyNavbar = () => {
   };
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="dark" expand="lg">
       <Navbar.Brand href="/home">Rate My Route</Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
+      <Navbar.Toggle  />
+      <Navbar.Collapse i>
         <Nav className="mr-auto">
           {/* <Nav.Link href="/profile">Profile</Nav.Link> */}
           <Nav.Link href="/addRoute">Add a Route</Nav.Link>

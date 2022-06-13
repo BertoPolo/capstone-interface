@@ -8,6 +8,8 @@ import Home from "./components/Home"
 import CreateUser from "./components/CreateUser"
 import NotFound from "./components/NotFound"
 import AddNewRoute from "./components/AddNewRoute"
+import CountryList from "./components/CountryList"
+
 // import Profile from "./components/Profile"
 // import ForgotPassword from "./components/ForgotPassword"
 // import { Provider } from "react-redux"
@@ -24,6 +26,7 @@ function App() {
           {/* <Route path="/profile" element={<Profile />} /> */}
           {/* <Route path="/forgotPassword" element={<ForgotPassword />} /> */}
           <Route path="/home" element={<Home />} />
+          <Route path="/countryList" element={<CountryList />} />
           <Route path="/route" element={<TheRoute />} />
           <Route path="/addRoute" element={<AddNewRoute />} />
         </Routes>

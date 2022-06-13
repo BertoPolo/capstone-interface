@@ -6,6 +6,11 @@ h1 {
   font-size: larger;
 }
 /* 404 NOT FOUND end */
+/* Global start */
+.bg-main{
+  background-color: #b6b2b2;
+}
+/* Global end */
 
 /* Login start */
 
@@ -37,3 +42,9 @@ h1 {
   width: 20vw;
 }
 /* Home end*/
+
+/* CountryList start */
+.pointer{
+  cursor: pointer;
+}
+/* CountryList end */
