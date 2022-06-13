@@ -8,10 +8,10 @@ const MyNavbar = () => {
   };
 
   return (
-    <Navbar bg="dark" expand="lg">
+    <Navbar bg="light" expand="lg">
       <Navbar.Brand href="/home">Rate My Route</Navbar.Brand>
       <Navbar.Toggle  />
-      <Navbar.Collapse i>
+      <Navbar.Collapse >
         <Nav className="mr-auto">
           {/* <Nav.Link href="/profile">Profile</Nav.Link> */}
           <Nav.Link href="/addRoute">Add a Route</Nav.Link>
@@ -24,10 +24,11 @@ const MyNavbar = () => {
           </Nav.Link>
         </Nav>
 
-        <Form inline>
-          <FormControl type="text" placeholder="Search by country?" className="mr-sm-2" />
+        <Form inline className="">
+          <FormControl type="text" placeholder="Search by country?" className="" />
           <Button variant="outline-success">Search </Button>
         </Form>
+
       </Navbar.Collapse>
     </Navbar>
   )

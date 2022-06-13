@@ -12,7 +12,7 @@ const Home = () => {
 
       <p>brief into to website?</p>
 
-      <Form inline>
+      <Form inline className="d-flex justify-content-center ">
           <FormControl type="text" placeholder="Which country?" className="mr-sm-2" />
           <Button variant="outline-success" onClick={()=>navigate("/countryList")}>Search</Button>
         </Form>

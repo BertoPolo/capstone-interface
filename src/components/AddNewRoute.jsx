@@ -2,47 +2,78 @@
 //ask A point "+" Country
 //ask B point "+" Country
 
-import {  Button, Form } from "react-bootstrap"
+import { Button, Form } from "react-bootstrap"
 import MyNavbar from "./MyNavbar"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 /* FECT HERE : 
-https://www.google.com/maps/embed/v1/directions
-  ?key=YOUR_API_KEY
-  &origin=Oslo+Norway
-  &destination=Telemark+Norway
-  &waypoints=London+England    =>verify
-  &avoid=tolls|highways
+
+wantStop ? https://www.google.com/maps/embed/v1/directions?key=${process.env.GOOGLE_KEY}&origin=${originCity}+{originCountry}&waypoints=${optCity}+${optCountry}&destination=${destinationCity}+${destinationCountry} : "https://www.google.com/maps/embed/v1/directions?key=${process.env.GOOGLE_KEY}&origin=${originCity}+{originCountry}&destination=${destinationCity}+${destinationCountry}"
 
  */
 const AddNewRoute = () => {
   const [wantStop, setWantStop] = useState(false)
 
+  const [optCity, setOptCity] = useState("")
+  const [optCountry,setOptCountry] = useState("")
+  const [originCity, setOriginCity] = useState("")
+  const [originCountry, setOriginCountry] = useState("")
+  const [destinationCity, setDestinationCity] = useState("")
+  const [destinationCountry, setDestinationCountry] = useState("")
+
+  const [map,setMap]=useState("")
+
+  
   const navigate=useNavigate()
+
+
+  const getMap = async (e) => {
+    e.preventDefault();
+
+  let response
+
+  wantStop ?
+     response = await fetch(`https://www.google.com/maps/embed/v1/directions?key=${process.env.GOOGLE_KEY}&origin=${originCity}+{originCountry}&waypoints=${optCity}+${optCountry}&destination=${destinationCity}+${destinationCountry}`)
+    :
+     response = await fetch(`https://www.google.com/maps/embed/v1/directions?key=${process.env.GOOGLE_KEY}&origin=${originCity}+{originCountry}&destination=${destinationCity}+${destinationCountry}`)
+    
+    const data = await response.json()
+
+    setMap(data)
+    console.log(data)
+    
+  }
+
+  // value={originCountry} 
+  // value={originCity}
+  // value={optCountry}
+  // value={optCity}
+  // value={destinationCountry} 
+  // value={destinationCity}
 
   return (
     <>
       <MyNavbar />
       {/* <Container> */}
-      <Form className="login-container">
+      <Form className="login-container" onSubmit={getMap}>
         <h4 className="mb-3">Create a new route</h4>
 
         <Form.Group>
-          <Form.Control type="text" placeholder="Origin Country" />
-          <Form.Control type="text" placeholder="Origin City" />
+          <Form.Control type="text" placeholder="Origin Country" onChange={setOriginCountry} />
+          <Form.Control type="text" placeholder="Origin City"  onChange={setOriginCity} />
         </Form.Group>
 
         {wantStop && (
           <Form.Group>
-            <Form.Control type="text" placeholder="Stop's Country" />
-            <Form.Control type="text" placeholder="Stop's City" />
+            <Form.Control type="text" placeholder="Stop's Country"  onChange={setOptCountry}/>
+            <Form.Control type="text" placeholder="Stop's City"  onChange={setOptCity} />
           </Form.Group>
         )}
 
         <Form.Group>
-          <Form.Control type="text" placeholder="Destination Country" />
-          <Form.Control type="text" placeholder="Destination City" />
+          <Form.Control type="text" placeholder="Destination Country"  onChange={setDestinationCountry}/>
+          <Form.Control type="text" placeholder="Destination City"   onChange={setDestinationCity} />
         </Form.Group>
 
         {wantStop ?
@@ -57,13 +88,13 @@ const AddNewRoute = () => {
         <Button disabled>Remove last stop</Button>
         }
 
-        
         <div>
           <Button variant="success" type="submit">
             Submit
           </Button>
-          <Button variant="danger" onClick={()=>navigate("/home")}>Cancel</Button>
+          <Button variant="danger"  onClick={()=>navigate("/home")}>Cancel</Button>
         </div>
+
       </Form>
       {/* </Container> */}
     </>
