@@ -48,3 +48,9 @@ h1 {
   cursor: pointer;
 }
 /* CountryList end */
+
+/* The Route start */
+.fullVH{
+  height: 88vh;
+}
+/* The Route end*/

@@ -20,14 +20,19 @@ const AddNewRoute = () => {
   const dispatch=useDispatch()
  
   const navigate=useNavigate()
- 
-  const mapURL = `https://www.google.com/maps/embed/v1/directions?key=${process.env.React_APP_GOOGLE_KEY}&origin=${originCity}+${originCountry}&destination=${destinationCity}+${destinationCountry}`
+
+ let mapURL
+
+  wantStop ? 
+   mapURL = `https://www.google.com/maps/embed/v1/directions?key=${process.env.React_APP_GOOGLE_KEY}&origin=${originCity}+${originCountry}&waypoints=${optCity}+${optCountry}&destination=${destinationCity}+${destinationCountry}` 
+  :
+   mapURL = `https://www.google.com/maps/embed/v1/directions?key=${process.env.React_APP_GOOGLE_KEY}&origin=${originCity}+${originCountry}&destination=${destinationCity}+${destinationCountry}`
 
   //onSubmit create a POST to save it to DB
   const handleSubmit = (e)=> {
     e.preventDefault()
     dispatch(changeMap(mapURL))
-    // navigate("/route")
+    navigate("/route")
     console.log(map)
   }
 
