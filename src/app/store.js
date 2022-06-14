@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import generalPropertiesReducer from '../slices/general/generalProperties'
+import generalPropertiesReducer from '../components/slices/general/generalPropertiesSlice'
 
 export default configureStore({
   reducer: {

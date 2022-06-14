@@ -1,7 +1,6 @@
 import { Container, ProgressBar, Button, Row, Col, Form } from "react-bootstrap"
 import { useSelector } from "react-redux"
 import MyNavbar from "./MyNavbar"
-import { changeMap } from "./slices/general/generalProperties"
 
 
 
@@ -12,7 +11,8 @@ import { changeMap } from "./slices/general/generalProperties"
     // } = props
     
     const TheRoute = () => {
-      const map=useSelector((state) => state.generalProperties.map)
+      
+      const map=useSelector((state) => state.generalProperties.map)      
       
   return (
     <>

@@ -1,17 +1,11 @@
-//ask for cities on the route to show wheather
-//ask A point "+" Country
-//ask B point "+" Country
-
 import { Button, Form } from "react-bootstrap"
 import MyNavbar from "./MyNavbar"
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, } from "react-router-dom"
+import { useDispatch,useSelector } from "react-redux"
+import { changeMap } from "./slices/general/generalPropertiesSlice"
 
-/* FECT HERE : 
 
-wantStop ? https://www.google.com/maps/embed/v1/directions?key=${process.env.GOOGLE_KEY}&origin=${originCity}+{originCountry}&waypoints=${optCity}+${optCountry}&destination=${destinationCity}+${destinationCountry} : "https://www.google.com/maps/embed/v1/directions?key=${process.env.GOOGLE_KEY}&origin=${originCity}+{originCountry}&destination=${destinationCity}+${destinationCountry}"
-
- */
 const AddNewRoute = () => {
   const [wantStop, setWantStop] = useState(false)
 
@@ -21,45 +15,49 @@ const AddNewRoute = () => {
   const [originCountry, setOriginCountry] = useState("")
   const [destinationCity, setDestinationCity] = useState("")
   const [destinationCountry, setDestinationCountry] = useState("")
+
+  
+
+  const map=useSelector((state) => state.generalProperties.map)
+  const dispatch=useDispatch()
  
   const navigate=useNavigate()
  
-   const map = `https://www.google.com/maps/embed/v1/directions?key=${process.env.GOOGLE_KEY}&origin=${originCity}+${originCountry}&destination=${destinationCity}+${destinationCountry}`
-    
+  const mapURL = `https://www.google.com/maps/embed/v1/directions?key=${process.env.GOOGLE_KEY}&origin=${originCity}+${originCountry}&destination=${destinationCity}+${destinationCountry}`
 
   //onSubmit create a POST to save it to DB
+  const handleSubmit = (e)=> {
+    e.preventDefault()
+    dispatch(changeMap(mapURL))
+    // navigate("/route")
+    console.log(map)
+  }
 
 
-  // value={originCountry} 
-  // value={originCity}
-  // value={optCountry}
-  // value={optCity}
-  // value={destinationCountry} 
-  // value={destinationCity}
 
   return (
     <>
      
       <MyNavbar />
       {/* <Container> */}
-      <Form className="login-container" onSubmit={navigate("/route")}>
+      <Form className="login-container" onSubmit={handleSubmit}>
         <h4 className="mb-3">Create a new route</h4>
 
         <Form.Group>
-          <Form.Control type="text" placeholder="Origin Country" onChange={setOriginCountry} />
-          <Form.Control type="text" placeholder="Origin City"  onChange={setOriginCity} />
+          <Form.Control type="text" placeholder="Origin Country" value={originCountry} onChange={(e)=>setOriginCountry(e.target.value)} />
+          <Form.Control type="text" placeholder="Origin City" value={originCity} onChange={(e)=>setOriginCity(e.target.value)} />
         </Form.Group>
 
         {wantStop && (
           <Form.Group>
-            <Form.Control type="text" placeholder="Stop's Country"  onChange={setOptCountry}/>
-            <Form.Control type="text" placeholder="Stop's City"  onChange={setOptCity} />
+            <Form.Control type="text" placeholder="Stop's Country" value={optCountry} onChange={(e)=>setOptCountry(e.target.value)}/>
+            <Form.Control type="text" placeholder="Stop's City" value={optCity} onChange={(e)=>setOptCity(e.target.value)} />
           </Form.Group>
         )}
 
         <Form.Group>
-          <Form.Control type="text" placeholder="Destination Country"  onChange={setDestinationCountry}/>
-          <Form.Control type="text" placeholder="Destination City"   onChange={setDestinationCity} />
+          <Form.Control type="text" placeholder="Destination Country" value={destinationCountry} onChange={(e)=>setDestinationCountry(e.target.value)}/>
+          <Form.Control type="text" placeholder="Destination City" value={destinationCity}  onChange={(e)=>setDestinationCity(e.target.value)} />
         </Form.Group>
 
         {wantStop ?
@@ -83,13 +81,10 @@ const AddNewRoute = () => {
 
       </Form>
       {/* </Container> */}
-
-     
- 
-
-
     </>
   )
 }
 
 export default AddNewRoute
+
+ 

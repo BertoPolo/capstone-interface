@@ -12,11 +12,8 @@ import CountryList from "./components/CountryList"
 import { Provider } from "react-redux"
 import configureStore from "./app/store";
 
-
-
 // import Profile from "./components/Profile"
 // import ForgotPassword from "./components/ForgotPassword"
-// import { Provider } from "react-redux"
 
 function App() {
   return (
@@ -39,6 +36,5 @@ function App() {
     </div>
   )
 }
-// on route =>  need path and element .... for 404  put path "*"
 
 export default App
