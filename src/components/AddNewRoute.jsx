@@ -16,14 +16,12 @@ const AddNewRoute = () => {
   const [destinationCity, setDestinationCity] = useState("")
   const [destinationCountry, setDestinationCountry] = useState("")
 
-  
-
   const map=useSelector((state) => state.generalProperties.map)
   const dispatch=useDispatch()
  
   const navigate=useNavigate()
  
-  const mapURL = `https://www.google.com/maps/embed/v1/directions?key=${process.env.GOOGLE_KEY}&origin=${originCity}+${originCountry}&destination=${destinationCity}+${destinationCountry}`
+  const mapURL = `https://www.google.com/maps/embed/v1/directions?key=${process.env.React_APP_GOOGLE_KEY}&origin=${originCity}+${originCountry}&destination=${destinationCity}+${destinationCountry}`
 
   //onSubmit create a POST to save it to DB
   const handleSubmit = (e)=> {
