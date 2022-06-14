@@ -17,12 +17,12 @@ import MyNavbar from "./MyNavbar"
     <MyNavbar/>
 
     <Container className="bg-main fullVH">
-      <h2>(user)'s Route</h2>
+      <h2 className="d-flex justify-content-center">(user)'s Route</h2>
       <Row>
-        <Col xs={8} >
-          <div>
+        <Col xs={8} className="d-flex justify-content-center" >
+          <div >
             <h4>Route Argelès-Gazost - Pont d'Espagne</h4>
-            <span>Rate</span> <ProgressBar animated now={20} />
+            <span className="mt-4">Rate</span> <ProgressBar animated now={20} />
 
             <iframe
             style={{width:600, height:450, border:0, frameBorder:0}}
@@ -32,7 +32,6 @@ import MyNavbar from "./MyNavbar"
             allowFullScreen>
             </iframe>
 
-            {/* <div className="" dangerouslySetInnerHTML={{ __html: iframeSource }}></div> */}
           </div>
         </Col>
         <Col className="border-left">

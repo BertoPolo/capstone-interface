@@ -28,6 +28,8 @@ const AddNewRoute = () => {
   :
    mapURL = `https://www.google.com/maps/embed/v1/directions?key=${process.env.React_APP_GOOGLE_KEY}&origin=${originCity}+${originCountry}&destination=${destinationCity}+${destinationCountry}`
 
+//&avoid=tolls|highways|ferries
+
   //onSubmit create a POST to save it to DB
   const handleSubmit = (e)=> {
     e.preventDefault()
