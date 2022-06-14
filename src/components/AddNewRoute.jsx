@@ -21,29 +21,14 @@ const AddNewRoute = () => {
   const [originCountry, setOriginCountry] = useState("")
   const [destinationCity, setDestinationCity] = useState("")
   const [destinationCountry, setDestinationCountry] = useState("")
-
-  const [map,setMap]=useState("")
-
-  
+ 
   const navigate=useNavigate()
-
-
-  const getMap = async (e) => {
-    e.preventDefault();
-
-  let response
-
-  wantStop ?
-     response = await fetch(`https://www.google.com/maps/embed/v1/directions?key=${process.env.GOOGLE_KEY}&origin=${originCity}+{originCountry}&waypoints=${optCity}+${optCountry}&destination=${destinationCity}+${destinationCountry}`)
-    :
-     response = await fetch(`https://www.google.com/maps/embed/v1/directions?key=${process.env.GOOGLE_KEY}&origin=${originCity}+{originCountry}&destination=${destinationCity}+${destinationCountry}`)
+ 
+   const map = `https://www.google.com/maps/embed/v1/directions?key=${process.env.GOOGLE_KEY}&origin=${originCity}+${originCountry}&destination=${destinationCity}+${destinationCountry}`
     
-    const data = await response.json()
 
-    setMap(data)
-    console.log(data)
-    
-  }
+  //onSubmit create a POST to save it to DB
+
 
   // value={originCountry} 
   // value={originCity}
@@ -54,9 +39,10 @@ const AddNewRoute = () => {
 
   return (
     <>
+     
       <MyNavbar />
       {/* <Container> */}
-      <Form className="login-container" onSubmit={getMap}>
+      <Form className="login-container" onSubmit={navigate("/route")}>
         <h4 className="mb-3">Create a new route</h4>
 
         <Form.Group>
@@ -97,6 +83,11 @@ const AddNewRoute = () => {
 
       </Form>
       {/* </Container> */}
+
+     
+ 
+
+
     </>
   )
 }

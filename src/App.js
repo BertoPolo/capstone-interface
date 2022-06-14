@@ -9,6 +9,10 @@ import CreateUser from "./components/CreateUser"
 import NotFound from "./components/NotFound"
 import AddNewRoute from "./components/AddNewRoute"
 import CountryList from "./components/CountryList"
+import { Provider } from "react-redux"
+import configureStore from "./app/store";
+
+
 
 // import Profile from "./components/Profile"
 // import ForgotPassword from "./components/ForgotPassword"
@@ -16,8 +20,8 @@ import CountryList from "./components/CountryList"
 
 function App() {
   return (
-    <div className="">
-      {/* <Provider store={configureStore}> */}
+    <div >
+      <Provider store={configureStore}>
       <BrowserRouter>
         <Routes>
           <Route path="*" element={<NotFound />} />
@@ -31,7 +35,7 @@ function App() {
           <Route path="/addRoute" element={<AddNewRoute />} />
         </Routes>
       </BrowserRouter>
-      {/* </Provider> */}
+      </Provider>
     </div>
   )
 }
