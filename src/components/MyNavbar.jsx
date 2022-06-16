@@ -25,7 +25,7 @@ const MyNavbar = () => {
         </Nav>
 
         <Form inline className="">
-          <FormControl type="text" placeholder="Search by country?" className="" />
+          <FormControl type="text" placeholder="Search" className="" />
           <Button variant="outline-success">Search </Button>
         </Form>
 

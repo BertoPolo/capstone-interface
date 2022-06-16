@@ -9,8 +9,12 @@ const CountryList = () => {
         <>
             <MyNavbar/>
             <Container>
+                <b>country name</b>
                 <ListGroup>
-      <ListGroup.Item className="pointer" onClick={()=>navigate("/route")}>le fraaaaaaance</ListGroup.Item>
+      <ListGroup.Item className="pointer" onClick={()=>navigate("/route")}>route name  65</ListGroup.Item>
+      <ListGroup.Item className="pointer" onClick={()=>navigate("/route")}>route name  1</ListGroup.Item>
+      <ListGroup.Item className="pointer" onClick={()=>navigate("/route")}>route name 3 </ListGroup.Item>
+      <ListGroup.Item className="pointer" onClick={()=>navigate("/route")}>route name  2</ListGroup.Item>
     
     </ListGroup>
     

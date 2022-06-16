@@ -13,7 +13,9 @@ const Login = () => {
   }
 
   return (
+    <>
     <Form className="login-container" onSubmit={handleSubmit}>
+    TITLE with animated shadows 
       <div className="login-modal">
         <h4 className="mb-3">Login</h4>
         <Form.Group>
@@ -42,9 +44,10 @@ const Login = () => {
         )}
       </div>
       <Link className="login-small-font d-block mb-3 mt-2" to="/newUser">
-        <b> Not registered yet?</b>
+        <b> Join Us!</b>
       </Link>
     </Form>
+    </>
   )
 }
 

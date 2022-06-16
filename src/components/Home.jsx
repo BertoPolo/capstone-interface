@@ -10,7 +10,7 @@ const Home = () => {
     <>
       <MyNavbar />
 
-      <p>brief into to website?</p>
+      <b>carousel with route photos- and below country's name</b>
 
       <Form inline className="d-flex justify-content-center ">
           <FormControl type="text" placeholder="Which country?" className="mr-sm-2" />
