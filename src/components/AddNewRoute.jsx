@@ -27,8 +27,9 @@ const AddNewRoute = () => {
    mapURL = `https://www.google.com/maps/embed/v1/directions?key=${process.env.React_APP_GOOGLE_KEY}&origin=${originCity}+${originCountry}&waypoints=${optCity}+${optCountry}&destination=${destinationCity}+${destinationCountry}` 
   :
    mapURL = `https://www.google.com/maps/embed/v1/directions?key=${process.env.React_APP_GOOGLE_KEY}&origin=${originCity}+${originCountry}&destination=${destinationCity}+${destinationCountry}`
-
+//search a way to combine option, SWITCH i think its not so good, cause are individual cases,cant be combined
 //&avoid=tolls|highways|ferries
+
 
   //onSubmit create a POST to save it to DB
   const handleSubmit = (e)=> {
