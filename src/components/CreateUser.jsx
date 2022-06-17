@@ -17,7 +17,7 @@ const CreateUser = () => {
       <h4 className="mb-3">Registration</h4>
 
       <Form.Group>
-        <Form.Control type="text" placeholder="Name" onChange={(e) => setNameInput(e.target.value)} />
+        <Form.Control type="text" placeholder="Username" onChange={(e) => setNameInput(e.target.value)} />
       </Form.Group>
 
       <Form.Group>
@@ -25,12 +25,18 @@ const CreateUser = () => {
       </Form.Group>
 
       <Form.Group>
-        <Form.Control type="text" placeholder="Username" onChange={(e) => setUsernameInput(e.target.value)} />
+        <Form.Control type="file" placeholder="Profile Image" onChange={(e) => setBikeInput(e.target.value)} />
       </Form.Group>
 
       <Form.Group>
         <Form.Control type="password" placeholder="Password" onChange={(e) => setPasswordInput(e.target.value)} />
       </Form.Group>
+
+      <Form.Group>
+      <label htmlFor="">Which type of do you want to be?</label>
+          <Form.Check type="checkbox" label="Normal user" className="login-small-font" />
+          <Form.Check type="checkbox" label="Garage" className="login-small-font" />
+        </Form.Group>
 
       <div>
         {usernameInput && passwordInput && nameInput && bikeInput ? (

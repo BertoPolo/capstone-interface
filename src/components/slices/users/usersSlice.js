@@ -6,6 +6,7 @@ const citiesSlice = createSlice({
     initialState:{
         type: "",//user/garageUser 
         // token:"",
+        userName:"",
         garageReviews:[],
         garageDescription:"",
         garageAddress:"",
@@ -16,6 +17,12 @@ const citiesSlice = createSlice({
     },
     reducers:{
 
+    defineName:(state,action)=>{
+        return{
+            ...state,
+            userName:action.payload,
+        }
+},
     defineTypeUser:(state,action)=>{
         return{
             ...state,
@@ -80,4 +87,4 @@ const citiesSlice = createSlice({
 }})
 
 export default citiesSlice.reducer
-export const {addGarageReviews,defineTypeUser,changeGarageDescription,changeGarageAdresss,addFavRoutes,changeBike,changeAvatar,addFriendList} = citiesSlice.actions
+export const {defineName,addGarageReviews,defineTypeUser,changeGarageDescription,changeGarageAdresss,addFavRoutes,changeBike,changeAvatar,addFriendList} = citiesSlice.actions

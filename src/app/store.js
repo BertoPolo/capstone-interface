@@ -1,9 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import generalPropertiesReducer from '../components/slices/general/generalPropertiesSlice'
+import citiesSlice from '../components/slices/cities/citiesSlice'
+import usersSlice from '../components/slices/users/usersSlice'
+import routesSlice from '../components/slices/routes/routesSlice'
 
 export default configureStore({
   reducer: {
-    generalProperties: generalPropertiesReducer,
-   
+    citiesSlice: citiesSlice,
+    usersSlice: usersSlice,
+    routesSlice: routesSlice,
   },
 })

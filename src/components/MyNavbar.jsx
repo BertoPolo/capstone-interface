@@ -2,10 +2,10 @@ import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap"
 // import { Link } from "react-router-dom"
 const MyNavbar = () => {
 
-  const handleLogOut = () => {
-    window.location.href = "/login";
-    localStorage.removeItem("token");
-  };
+  // const handleLogOut = () => {
+  //   window.location.href = "/login";
+  //   localStorage.removeItem("token");
+  // };
 
   return (
     <Navbar bg="light" expand="lg">
