@@ -44,8 +44,12 @@ import MyNavbar from "./MyNavbar"
             { wantStop && <span>{optStopCity} WEATHER ICON</span>}
             <span>{destinationCity} WEATHER ICON</span>
           </div>
+          
           <h6>Description</h6>
           <p>lalalalalala</p>
+          
+          <h6>gas stations' prices</h6>
+          <p>$$$€€€</p>
           </div>
         </Col>
         

@@ -34,7 +34,7 @@ const CreateUser = () => {
       </Form.Group>
 
       <Form.Group>
-      <label htmlFor="">Which type of do you want to be?</label>
+      <Form.Label htmlFor="">Which type of do you want to be?</Form.Label>
           <Form.Check type="radio" name="user" label="Normal user" className="login-small-font" onClick={()=>setUserTypeInput("user")}/>
           <Form.Check type="radio" name="user" label="Garage" className="login-small-font" onClick={()=>setUserTypeInput("garage")}/>
         </Form.Group>
