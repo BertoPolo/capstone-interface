@@ -3,15 +3,21 @@ import { useSelector } from "react-redux"
 import MyNavbar from "./MyNavbar"
 
 
-
 // https://api.openweathermap.org/data/2.5/weather?q=$%7Bquery%7D&appid=${process.env.React_APP_OPEN_WEATHER_KEY}
 
-
-    
+  
     const TheRoute = () => {
       
-      const map=useSelector((state) => state.generalProperties.map)      
+      const map=useSelector((state) => state.routesSlice.map)      
       
+      const wantStop=useSelector((state)=>state.citiesSlice.wantStop)
+      const optStopCity=useSelector((state)=>state.citiesSlice.optStopCity)
+      // const optStopCountry=useSelector((state)=>state.citiesSlice.optStopCountry)
+      const originCity=useSelector((state)=>state.citiesSlice.originCity)
+      // const originCountry=useSelector((state)=>state.citiesSlice.originCountry)
+      const destinationCity=useSelector((state)=>state.citiesSlice.destinationCity)
+      // const destinationCountry=useSelector((state)=>state.citiesSlice.destinationCountry)
+
   return (
     <>
     <MyNavbar/>
@@ -32,8 +38,17 @@ import MyNavbar from "./MyNavbar"
             allowFullScreen>
             </iframe>
 
+            <h6>Weather now</h6>
+          <div className="d-flex justify-content-around">
+            <span>{originCity} WEATHER ICON</span>
+            { wantStop && <span>{optStopCity} WEATHER ICON</span>}
+            <span>{destinationCity} WEATHER ICON</span>
+          </div>
+          <h6>Description</h6>
+          <p>lalalalalala</p>
           </div>
         </Col>
+        
         <Col className="border-left">
           <h4>(argelès)Reviews </h4>
 
