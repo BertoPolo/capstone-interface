@@ -7,6 +7,7 @@ const CreateUser = () => {
   const [bikeInput, setBikeInput] = useState("")
   const [usernameInput, setUsernameInput] = useState("")
   const [passwordInput, setPasswordInput] = useState("")
+  const [userTypeInput, setUserTypeInput] = useState("")
 
   const handleSubmit = () => {
     // navigate("/home")
@@ -34,8 +35,8 @@ const CreateUser = () => {
 
       <Form.Group>
       <label htmlFor="">Which type of do you want to be?</label>
-          <Form.Check type="checkbox" label="Normal user" className="login-small-font" />
-          <Form.Check type="checkbox" label="Garage" className="login-small-font" />
+          <Form.Check type="radio" name="user" label="Normal user" className="login-small-font" onClick={()=>setUserTypeInput("user")}/>
+          <Form.Check type="radio" name="user" label="Garage" className="login-small-font" onClick={()=>setUserTypeInput("garage")}/>
         </Form.Group>
 
       <div>
