@@ -49,20 +49,20 @@ const AddNewRoute = () => {
         <h4 className="mb-3">Create a new route</h4>
 
         <Form.Group>
-          <Form.Control type="text" placeholder="Origin Country" value={originCountry} onChange={(e)=>dispatch(changeOriginCountry(e.target.value))} />
-          <Form.Control type="text" placeholder="Origin City" value={originCity} onChange={(e)=>dispatch(changeOriginCity(e.target.value))} />
+          <Form.Control type="text" placeholder="Origin Country" required value={originCountry} onChange={(e)=>dispatch(changeOriginCountry(e.target.value))} />
+          <Form.Control type="text" placeholder="Origin City"required  value={originCity} onChange={(e)=>dispatch(changeOriginCity(e.target.value))} />
         </Form.Group>
 
         {wantStop && (
           <Form.Group>
-            <Form.Control type="text" placeholder="Stop's Country" value={optStopCountry} onChange={(e)=>dispatch(changeOptStopCountry(e.target.value))}/>
-            <Form.Control type="text" placeholder="Stop's City" value={optStopCity} onChange={(e)=>dispatch(changeOptStopCity(e.target.value))} />
+            <Form.Control type="text" placeholder="Stop's Country"required  value={optStopCountry} onChange={(e)=>dispatch(changeOptStopCountry(e.target.value))}/>
+            <Form.Control type="text" placeholder="Stop's City" required value={optStopCity} onChange={(e)=>dispatch(changeOptStopCity(e.target.value))} />
           </Form.Group>
         )}
 
         <Form.Group>
-          <Form.Control type="text" placeholder="Destination Country" value={destinationCountry} onChange={(e)=>dispatch(changeDestinationCountry(e.target.value))}/>
-          <Form.Control type="text" placeholder="Destination City" value={destinationCity}  onChange={(e)=>dispatch(changeDestinationCity(e.target.value))} />
+          <Form.Control type="text" placeholder="Destination Country"required  value={destinationCountry} onChange={(e)=>dispatch(changeDestinationCountry(e.target.value))}/>
+          <Form.Control type="text" placeholder="Destination City" required value={destinationCity}  onChange={(e)=>dispatch(changeDestinationCity(e.target.value))} />
         </Form.Group>
 
         {wantStop ?

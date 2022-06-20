@@ -10,8 +10,6 @@ const Home = () => {
     <>
       <MyNavbar />
 
-      <b>carousel with route photos- and below country's name</b>
-
       <Carousel >
   <Carousel.Item>
     <img
@@ -21,7 +19,7 @@ const Home = () => {
     />
     <Carousel.Caption>
       <h3>First - autor's name</h3>
-      <p>route's name</p>
+      <p>Country and route's name</p>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -33,7 +31,7 @@ const Home = () => {
 
     <Carousel.Caption>
       <h3>Second - autor's name</h3>
-      <p>route's name</p>
+      <p>Country and route's name</p>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -45,7 +43,7 @@ const Home = () => {
 
     <Carousel.Caption>
       <h3>Third - autor's name</h3>
-      <p>route's name</p>
+      <p>Country and route's name</p>
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>

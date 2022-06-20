@@ -13,7 +13,7 @@ const MyNavbar = () => {
       <Navbar.Toggle  />
       <Navbar.Collapse >
         <Nav className="mr-auto">
-          {/* <Nav.Link href="/profile">Profile</Nav.Link> */}
+          <Nav.Link href="/profile">Profile</Nav.Link>
           <Nav.Link href="/addRoute">Add a Route</Nav.Link>
       
         </Nav>
