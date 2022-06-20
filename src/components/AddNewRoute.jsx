@@ -66,19 +66,19 @@ const AddNewRoute = () => {
         </Form.Group>
 
         {wantStop ?
-        <Button className="" disabled >Add stop</Button>
+        <Button className="mb-2" disabled >Add stop</Button>
         :
-        <Button className="" onClick={()=>dispatch(changeWantStop(true))}>Add stop</Button>
+        <Button className="mb-2" onClick={()=>dispatch(changeWantStop(true))}>Add stop</Button>
         }
 
         {wantStop ?
-        <Button onClick={()=>dispatch(changeWantStop(false))}>Remove last stop</Button>
+        <Button onClick={()=>dispatch(changeWantStop(false))} className="mb-2">Remove last stop</Button>
         :
-        <Button disabled>Remove last stop</Button>
+        <Button disabled className="mb-2">Remove stop</Button>
         }
 
         <div>
-          <Button variant="success" type="submit">
+          <Button variant="success" type="submit" >
             Submit
           </Button>
           <Button variant="danger"  onClick={()=>navigate("/home")}>Cancel</Button>

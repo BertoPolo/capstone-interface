@@ -31,6 +31,11 @@ h1 {
 .login-small-font {
   font-size: calc(1px + 2vmin);
 }
+
+h1{
+  margin-bottom: 1.5rem !important;
+  text-shadow: 3px 4px 5px #979296;
+}
 /* Login end */
 
 /* Navbar start */
@@ -40,6 +45,10 @@ h1 {
 /* Home start*/
 .progress {
   width: 20vw;
+}
+.carouselImg{
+  width: 700px;
+  height: 400px;
 }
 /* Home end*/
 
