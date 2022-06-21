@@ -9,12 +9,13 @@ const CreateUser = () => {
   const [passwordInput, setPasswordInput] = useState("")
   const [userTypeInput, setUserTypeInput] = useState("")
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault()
     // navigate("/home")
   }
 
   return (
-    <Form className="login-container">
+    <Form className="login-container" onSubmit={(e) => handleSubmit(e)}>
       <h4 className="mb-3">Registration</h4>
 
       <Form.Group>
@@ -41,7 +42,7 @@ const CreateUser = () => {
 
       <div>
         {usernameInput && passwordInput && nameInput && bikeInput ? (
-          <Button variant="success" type="submit" onClick={() => handleSubmit}>
+          <Button variant="success" type="submit">
             Register
           </Button>
         ) : (
