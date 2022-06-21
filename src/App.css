@@ -1,17 +1,16 @@
 /**
  * /* 404 NOT FOUND start
- *
- * @format
  */
 
+/* 404 NOT FOUND end */
+
+/* Global start */
 h1 {
   display: flex;
   justify-content: center;
   font-weight: bolder;
   font-size: larger;
 }
-/* 404 NOT FOUND end */
-/* Global start */
 .bg-main {
   background-color: #b6b2b2;
 }
