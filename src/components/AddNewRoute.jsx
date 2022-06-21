@@ -1,5 +1,6 @@
 import { Button, Form } from "react-bootstrap"
 import MyNavbar from "./MyNavbar"
+import MapComponent from "./MapComponent"
 import { useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { changeMap } from "./slices/routes/routesSlice"
@@ -13,8 +14,11 @@ import {
   changeWantStop,
 } from "./slices/cities/citiesSlice"
 
+import { Wrapper, Status } from "@googlemaps/react-wrapper"
+
 const AddNewRoute = () => {
   const wantStop = useSelector((state) => state.citiesSlice.wantStop)
+
   const optStopCity = useSelector((state) => state.citiesSlice.optStopCity)
   const optStopCountry = useSelector((state) => state.citiesSlice.optStopCountry)
   const originCity = useSelector((state) => state.citiesSlice.originCity)
@@ -43,11 +47,18 @@ const AddNewRoute = () => {
     console.log(map)
   }
 
+  const render = (status = { Status }) => {
+    return <h1>{status}</h1>
+  }
   return (
     <>
       <MyNavbar />
+
+      <Wrapper apiKey={"YOUR_API_KEY"} render={render}>
+        <MapComponent />
+      </Wrapper>
       {/* <Container> */}
-      <Form className="login-container" onSubmit={handleSubmit}>
+      {/* <Form className="login-container" onSubmit={handleSubmit}>
         <h4 className="mb-3">Create a new route</h4>
 
         <Form.Group>
@@ -131,7 +142,7 @@ const AddNewRoute = () => {
             Cancel
           </Button>
         </div>
-      </Form>
+      </Form> */}
       {/* </Container> */}
     </>
   )
