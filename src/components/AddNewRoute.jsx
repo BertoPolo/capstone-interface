@@ -47,16 +47,16 @@ const AddNewRoute = () => {
     console.log(map)
   }
 
-  const render = (status) => {
-    return <h1>{status}</h1>
-  }
+  // const render = (status) => {
+  //   return <h1>{status}</h1>
+  // }
   return (
     <>
       <MyNavbar />
 
-      <Wrapper apiKey={process.env.React_APP_GOOGLE_KEY} render={render}>
-        <MapComponent />
-      </Wrapper>
+      {/* <Wrapper apiKey={process.env.React_APP_GOOGLE_KEY} render={render}> */}
+      <MapComponent />
+      {/* </Wrapper> */}
 
       {/* <Container> */}
       {/* <Form className="login-container" onSubmit={handleSubmit}>
