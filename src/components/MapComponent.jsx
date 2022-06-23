@@ -175,11 +175,14 @@
 // export default MapComponent
 // [END maps_react_map]
 
-
 const MapComponent = () => {
+  var mapboxgl = require("mapbox-gl/dist/mapbox-gl.js")
 
-  return(
-
-  )
+  mapboxgl.accessToken = "pk.eyJ1IjoicG9sb2RlbGV2YXMiLCJhIjoiY2w0cXpkNjZ3MDB2cjNqbjZrbHNsZ3dnZSJ9.2MbhErpZYuIXJ4k3DX971A" // generic try token
+  var map = new mapboxgl.Map({
+    container: "mycontainer",
+    style: "mapbox://styles/mapbox/streets-v11",
+  })
+  return <div id="mycontainer"></div>
 }
 export default MapComponent
