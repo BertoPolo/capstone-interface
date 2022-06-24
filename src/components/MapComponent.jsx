@@ -178,7 +178,7 @@
 const MapComponent = () => {
   var mapboxgl = require("mapbox-gl/dist/mapbox-gl.js")
 
-  mapboxgl.accessToken = "pk.eyJ1IjoicG9sb2RlbGV2YXMiLCJhIjoiY2w0cXpkNjZ3MDB2cjNqbjZrbHNsZ3dnZSJ9.2MbhErpZYuIXJ4k3DX971A" // generic try token
+  mapboxgl.accessToken = "pk.eyJ1IjoicG9sb2RlbGV2YXMiLCJhIjoiY2w0c2c3YWVtMGFsODNpcXE0dnQyeWFqaCJ9.l6LDinYwzrg5Gqmdnz3pBA" // generic try token
   var map = new mapboxgl.Map({
     container: "mycontainer",
     style: "mapbox://styles/mapbox/streets-v11",
