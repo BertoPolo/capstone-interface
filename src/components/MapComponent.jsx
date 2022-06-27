@@ -192,32 +192,38 @@ mapboxgl.accessToken = "pk.eyJ1IjoicG9sb2RlbGV2YXMiLCJhIjoiY2w0c2c3YWVtMGFsODNpc
 
 const MapComponent = () => {
   const mapContainer = useRef(null)
-  const map = useRef(null)
+  // const map = useRef(null)
   const [lng, setLng] = useState(-70.9)
   const [lat, setLat] = useState(42.35)
   const [zoom, setZoom] = useState(9)
   const [MaxBounds, setMaxBounds] = useState([])
 
-  useEffect(() => {
-    if (map.current) return // initialize map only once
-    map.current = new mapboxgl.Map({
-      container: mapContainer.current,
-      style: "mapbox://styles/mapbox/streets-v11",
-      center: [lng, lat],
-      zoom: zoom,
-    })
-  })
-  useEffect(() => {
-    if (!map.current) return // wait for map to initialize
-    map.current.on("move", () => {
-      setLng(map.current.getCenter().lng.toFixed(4))
-      setLat(map.current.getCenter().lat.toFixed(4))
-      setZoom(map.current.getZoom().toFixed(2))
-    })
-  })
+  // useEffect(() => {
+  //   if (map.current) return // initialize map only once
+  //   map.current = new mapboxgl.Map({
+  //     container: mapContainer.current,
+  //     style: "mapbox://styles/mapbox/streets-v11",
+  //     center: [lng, lat],
+  //     zoom: zoom,
+  //   })
+  // })
+  // useEffect(() => {
+  //   if (!map.current) return // wait for map to initialize
+  //   map.current.on("move", () => {
+  //     setLng(map.current.getCenter().lng.toFixed(4))
+  //     setLat(map.current.getCenter().lat.toFixed(4))
+  //     setZoom(map.current.getZoom().toFixed(2))
+  //   })
+  // })
 
   /////////above is just the map. below is routes
 
+  const map = new mapboxgl.Map({
+    container: "map",
+    style: "mapbox://styles/mapbox/streets-v11",
+    center: [-122.662323, 45.523751], // starting position
+    zoom: 12,
+  })
   // set the bounds of the map
   const bounds = [
     [-123.069003, 45.395273],
@@ -311,58 +317,12 @@ const MapComponent = () => {
     // this is where the code from the next step will go
   })
 
-  map.on("click", (event) => {
-    const coords = Object.keys(event.lngLat).map((key) => event.lngLat[key])
-    const end = {
-      type: "FeatureCollection",
-      features: [
-        {
-          type: "Feature",
-          properties: {},
-          geometry: {
-            type: "Point",
-            coordinates: coords,
-          },
-        },
-      ],
-    }
-    if (map.getLayer("end")) {
-      map.getSource("end").setData(end)
-    } else {
-      map.addLayer({
-        id: "end",
-        type: "circle",
-        source: {
-          type: "geojson",
-          data: {
-            type: "FeatureCollection",
-            features: [
-              {
-                type: "Feature",
-                properties: {},
-                geometry: {
-                  type: "Point",
-                  coordinates: coords,
-                },
-              },
-            ],
-          },
-        },
-        paint: {
-          "circle-radius": 10,
-          "circle-color": "#f30",
-        },
-      })
-    }
-    getRoute(coords)
-  })
-
   return (
     <div>
-      <div className="sidebar">
+      {/* <div className="sidebar">
         Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
-      </div>
-      <div ref={mapContainer} className="map-container" />
+      </div> */}
+      <div id="map" className="map-container" />
     </div>
   )
 }
