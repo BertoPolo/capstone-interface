@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@googlemaps/react-wrapper": "^1.1.35",
-    "@googlemaps/typescript-guards": "^2.0.0",
+    "@mapbox/polyline": "^1.1.1",
     "@react-google-maps/api": "^2.12.0",
     "@reduxjs/toolkit": "^1.8.2",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
+    "@turf/turf": "^6.5.0",
     "bootstrap": "^4.6.1",
     "bootstrap-icons": "^1.8.2",
     "fast-equals": "^4.0.1",
@@ -22,6 +22,7 @@
     "react-scripts": "5.0.1",
     "redux-persist": "^6.0.0",
     "redux-persist-transform-encrypt": "^3.0.1",
+    "turf": "^7.0.0-alpha.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
