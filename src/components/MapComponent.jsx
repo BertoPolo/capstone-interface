@@ -188,7 +188,6 @@
 // export default MapComponent
 import React, { useRef, useEffect, useState } from "react"
 import mapboxgl from "!mapbox-gl" // eslint-disable-line import/no-webpack-loader-syntax
-mapboxgl.accessToken = "pk.eyJ1IjoicG9sb2RlbGV2YXMiLCJhIjoiY2w0c2c3YWVtMGFsODNpcXE0dnQyeWFqaCJ9.l6LDinYwzrg5Gqmdnz3pBA"
 
 const MapComponent = () => {
   const mapContainer = useRef(null)
@@ -217,6 +216,7 @@ const MapComponent = () => {
   // })
 
   /////////above is just the map. below is routes
+  mapboxgl.accessToken = "pk.eyJ1IjoicG9sb2RlbGV2YXMiLCJhIjoiY2w0c2c3YWVtMGFsODNpcXE0dnQyeWFqaCJ9.l6LDinYwzrg5Gqmdnz3pBA"
 
   const map = new mapboxgl.Map({
     container: "map",
@@ -364,12 +364,14 @@ const MapComponent = () => {
   })
 
   return (
-    <div>
-      {/* <div className="sidebar">
-        Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
-      </div> */}
-      <div id="map" className="map-container" />
-    </div>
+    // <div>
+    // <div className="sidebar">
+    //Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
+    //</div>
+
+    <div id="map" className="map-container map"></div>
+
+    // </div>
   )
 }
 export default MapComponent
