@@ -186,16 +186,16 @@
 //   return <div id="mycontainer"></div>
 // }
 // export default MapComponent
-import React, { useRef, useEffect, useState } from "react"
+import React from "react"
 import mapboxgl from "!mapbox-gl" // eslint-disable-line import/no-webpack-loader-syntax
 
 const MapComponent = () => {
-  const mapContainer = useRef(null)
+  // const mapContainer = useRef(null)
   // const map = useRef(null)
-  const [lng, setLng] = useState(-70.9)
-  const [lat, setLat] = useState(42.35)
-  const [zoom, setZoom] = useState(9)
-  const [MaxBounds, setMaxBounds] = useState([])
+  // const [lng, setLng] = useState(-70.9)
+  // const [lat, setLat] = useState(42.35)
+  // const [zoom, setZoom] = useState(9)
+  // const [MaxBounds, setMaxBounds] = useState([])
 
   // useEffect(() => {
   //   if (map.current) return // initialize map only once
@@ -217,6 +217,7 @@ const MapComponent = () => {
 
   /////////above is just the map. below is routes
   mapboxgl.accessToken = "pk.eyJ1IjoicG9sb2RlbGV2YXMiLCJhIjoiY2w0c2c3YWVtMGFsODNpcXE0dnQyeWFqaCJ9.l6LDinYwzrg5Gqmdnz3pBA"
+
   const theMap = document.body.appendChild(document.createElement("div"))
 
   const map = new mapboxgl.Map({
