@@ -217,9 +217,10 @@ const MapComponent = () => {
 
   /////////above is just the map. below is routes
   mapboxgl.accessToken = "pk.eyJ1IjoicG9sb2RlbGV2YXMiLCJhIjoiY2w0c2c3YWVtMGFsODNpcXE0dnQyeWFqaCJ9.l6LDinYwzrg5Gqmdnz3pBA"
+  const theMap = document.body.appendChild(document.createElement("div"))
 
   const map = new mapboxgl.Map({
-    container: "map",
+    container: theMap,
     style: "mapbox://styles/mapbox/streets-v11",
     center: [-122.662323, 45.523751], // starting position
     zoom: 12,
