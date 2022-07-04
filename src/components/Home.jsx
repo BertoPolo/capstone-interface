@@ -43,8 +43,8 @@ const Home = () => {
         </div>
       </Container>
       <Container>
-        <div>
-          <Col xs={4}>
+        <Row>
+          <Col xs={2}>
             <h4>CATEGORIES</h4>
 
             <p>Accessories</p>
@@ -61,14 +61,18 @@ const Home = () => {
             <p>Tools</p>
             <p>Books</p>
           </Col>
-          <Col xs={8}>
-            {/* <Row> */}
+          <Col xs={10}>
             <Col>
-              <Item />
+              <Row>
+                {/* map items with math random */}
+                <Item />
+                <Item />
+                <Item />
+                <Item />
+              </Row>
             </Col>
-            {/* </Row> */}
           </Col>
-        </div>
+        </Row>
       </Container>
     </>
   )
