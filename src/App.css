@@ -14,6 +14,10 @@ h1 {
 .bg-main {
   background-color: #b6b2b2;
 }
+
+body {
+  background: #868285 !important;
+}
 /* Global end */
 
 /* Login start */
@@ -47,9 +51,7 @@ h1 {
 /* Navbar end */
 
 /* Home start*/
-.progress {
-  width: 20vw;
-}
+
 .carouselImg {
   width: 700px;
   height: 400px;

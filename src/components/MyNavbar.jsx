@@ -8,14 +8,22 @@ const MyNavbar = () => {
 
   return (
     <Navbar bg="light" expand="lg">
-      <Navbar.Brand href="/home">Rate My Route</Navbar.Brand>
+      <Navbar.Brand href="/home">Stuff To Route</Navbar.Brand>
       <Navbar.Toggle />
       <Navbar.Collapse>
         <Nav className="mr-auto">
-          <Nav.Link href="/profile">Profile</Nav.Link>
-          <Nav.Link href="/addRoute">Add a Route</Nav.Link>
+          <Nav.Link href="/contact">Contact</Nav.Link>
+          <Nav.Link href="/where">About Us</Nav.Link>
+          <Nav.Link href="/outlet">Outlet</Nav.Link>
+          <Nav.Link href="/new">New</Nav.Link>
+          <Nav.Link href="/mostSold">Most Sold</Nav.Link>
         </Nav>
         <Nav className="ml-auto mr-4">
+          <Nav.Link href="/cart">
+            {" "}
+            <i class="bi bi-cart"></i>Cart dropdown
+          </Nav.Link>
+          <Nav.Link href="/myAccount">My Account</Nav.Link>
           <Nav.Link href="/">
             {/* onClick={() => setLogin(false), handleLogOut()} */}
             Log Out
@@ -24,7 +32,9 @@ const MyNavbar = () => {
 
         <Form inline className="">
           <FormControl type="text" placeholder="Search" className="" />
-          <Button variant="outline-success">Search </Button>
+          <Button variant="outline-success">
+            <i class="bi bi-search"></i> Search
+          </Button>
         </Form>
       </Navbar.Collapse>
     </Navbar>
