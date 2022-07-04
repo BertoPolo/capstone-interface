@@ -12,7 +12,7 @@ const Home = () => {
 
       <Container>
         <div>
-          <Carousel>
+          <Carousel className="">
             <Carousel.Item>
               <img className="d-block carouselImg" src="../../../IMG_8830.jpg" alt="First slide" />
               <Carousel.Caption>
@@ -65,6 +65,7 @@ const Home = () => {
             <Col>
               <Row>
                 {/* map items with math random */}
+                <Item />
                 <Item />
                 <Item />
                 <Item />

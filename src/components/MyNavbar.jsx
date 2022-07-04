@@ -22,8 +22,7 @@ const MyNavbar = () => {
         </Nav>
         <Nav className="ml-auto mr-4">
           <Nav.Link href="/cart">
-            {" "}
-            <i class="bi bi-cart"></i>Cart dropdown
+            <i className="bi bi-cart"></i>Cart dropdown
           </Nav.Link>
           <Nav.Link href="/myAccount">My Account</Nav.Link>
           <Nav.Link href="/">
@@ -35,7 +34,7 @@ const MyNavbar = () => {
         <Form inline className="">
           <FormControl type="text" placeholder="Search" className="" />
           <Button variant="outline-success">
-            <i class="bi bi-search"></i> Search
+            <i className="bi bi-search"></i> Search
           </Button>
         </Form>
       </Navbar.Collapse>
