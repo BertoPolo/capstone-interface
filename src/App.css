@@ -10,6 +10,8 @@
   justify-content: center;
   font-weight: bolder;
   font-size: larger;
+  margin-bottom: 1.5rem !important;
+  text-shadow: 3px 4px 5px #979296;
 }
 .bg-main {
   background-color: #b6b2b2;
@@ -40,10 +42,6 @@ body {
   font-size: calc(1px + 2vmin);
 }
 
-h1 {
-  margin-bottom: 1.5rem !important;
-  text-shadow: 3px 4px 5px #979296;
-}
 /* Login end */
 
 /* Navbar start */
@@ -57,42 +55,3 @@ h1 {
   height: 400px;
 }
 /* Home end*/
-
-/* CountryList start */
-.pointer {
-  cursor: pointer;
-}
-/* CountryList end */
-
-/* The Route start */
-.fullVH {
-  height: 88vh;
-}
-/* The Route end*/
-/* MapComponent start */
-.map-container {
-  height: 40vh;
-  width: 60vw;
-}
-
-.sidebar {
-  background-color: rgba(35, 55, 75, 0.9);
-  color: #fff;
-  padding: 6px 12px;
-  font-family: monospace;
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 12px;
-  border-radius: 4px;
-}
-
-#map {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-}
-
-/* MapComponent End */

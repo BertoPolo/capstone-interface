@@ -1,5 +1,6 @@
-import { Container, Carousel, Col } from "react-bootstrap"
+import { Container, Carousel, Col, Row } from "react-bootstrap"
 import MyNavbar from "./MyNavbar"
+import Item from "./Item"
 import { useNavigate } from "react-router-dom"
 
 const Home = () => {
@@ -42,23 +43,32 @@ const Home = () => {
         </div>
       </Container>
       <Container>
-        <Col xs={4}>
-          <h4>CATEGORIES</h4>
+        <div>
+          <Col xs={4}>
+            <h4>CATEGORIES</h4>
 
-          <p>Accessories</p>
-          <p>Clothes</p>
-          <p>Helmets</p>
-          <p>Lights</p>
-          <p>On Hands</p>
-          <p>On Feet</p>
-          <p>Seats</p>
-          <p>Exhausts</p>
-          <p>Engine</p>
-          <p>Carburetors</p>
-          <p>Air Filters</p>
-          <p>Tools</p>
-          <p>Books</p>
-        </Col>
+            <p>Accessories</p>
+            <p>Clothes</p>
+            <p>Helmets</p>
+            <p>Lights</p>
+            <p>On Hands</p>
+            <p>On Feet</p>
+            <p>Seats</p>
+            <p>Exhausts</p>
+            <p>Engine</p>
+            <p>Carburetors</p>
+            <p>Air Filters</p>
+            <p>Tools</p>
+            <p>Books</p>
+          </Col>
+          <Col xs={8}>
+            {/* <Row> */}
+            <Col>
+              <Item />
+            </Col>
+            {/* </Row> */}
+          </Col>
+        </div>
       </Container>
     </>
   )
