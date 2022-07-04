@@ -16,7 +16,7 @@ const Login = () => {
 
   return (
     <>
-      <h1>Rate My Route</h1>
+      <h1 className="h1">Rate My Route</h1>
       <Row>
         <Col>
           <p className="login-container"> page description</p>

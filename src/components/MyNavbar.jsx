@@ -8,7 +8,9 @@ const MyNavbar = () => {
 
   return (
     <Navbar bg="light" expand="lg">
-      <Navbar.Brand href="/home">Stuff To Route</Navbar.Brand>
+      <Navbar.Brand href="/home">
+        Stuff To Route <img src="../../public/mbIcon.png" alt="" />
+      </Navbar.Brand>
       <Navbar.Toggle />
       <Navbar.Collapse>
         <Nav className="mr-auto">

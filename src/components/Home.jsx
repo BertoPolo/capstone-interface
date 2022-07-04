@@ -1,4 +1,4 @@
-import { Form, Container, Carousel } from "react-bootstrap"
+import { Container, Carousel, Col } from "react-bootstrap"
 import MyNavbar from "./MyNavbar"
 import { useNavigate } from "react-router-dom"
 
@@ -40,6 +40,25 @@ const Home = () => {
           <img src="" alt="maintainment eco pack" />
           <img src="" alt="shipping price" />
         </div>
+      </Container>
+      <Container>
+        <Col xs={4}>
+          <h4>CATEGORIES</h4>
+
+          <p>Accessories</p>
+          <p>Clothes</p>
+          <p>Helmets</p>
+          <p>Lights</p>
+          <p>On Hands</p>
+          <p>On Feet</p>
+          <p>Seats</p>
+          <p>Exhausts</p>
+          <p>Engine</p>
+          <p>Carburetors</p>
+          <p>Air Filters</p>
+          <p>Tools</p>
+          <p>Books</p>
+        </Col>
       </Container>
     </>
   )
