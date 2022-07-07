@@ -63,10 +63,9 @@ const Home = () => {
 
             <hr />
             <h4>BRANDS</h4>
+
             <Dropdown>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
-                Dropdown Button
-              </Dropdown.Toggle>
+              <Dropdown.Toggle variant="warning">Dropdown Button</Dropdown.Toggle>
 
               <Dropdown.Menu>
                 <Dropdown.Item href="#/action-1">Brand 1</Dropdown.Item>
