@@ -1,4 +1,4 @@
-import { Container, Carousel, Col, Row } from "react-bootstrap"
+import { Container, Carousel, Col, Row, Dropdown } from "react-bootstrap"
 import MyNavbar from "./MyNavbar"
 import Item from "./Item"
 import { useNavigate } from "react-router-dom"
@@ -60,7 +60,22 @@ const Home = () => {
             <p>Air Filters</p>
             <p>Tools</p>
             <p>Books</p>
+
+            <hr />
+            <h4>BRANDS</h4>
+            <Dropdown>
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+                Dropdown Button
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item href="#/action-1">Brand 1</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Brand 2</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">Brand 3</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </Col>
+
           <Col xs={10}>
             <Col>
               <Row>
