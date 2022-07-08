@@ -5,28 +5,28 @@ import { Container, Row, Col } from "react-bootstrap"
 const Footer = () => {
   return (
     <>
-      <Container className="mt-3">
+      <Container className="mt-3 footer">
         <Row>
           <Col>
-            <h6>
-              <u>basic info</u>
-            </h6>
+            <h5>
+              <u>Basic info</u>
+            </h5>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, labore! Accusantium quasi, vitae totam quaerat adipisci necessitatibus
               veritatis debitis perferendis quisquam. Magnam vel quaerat illo ut, iste beatae ipsam quia!
             </p>
           </Col>
           <Col>
-            <h6>
+            <h5>
               <u>Follow us</u>
-            </h6>
+            </h5>
             <p> Instagram Icon</p>
             <p> LinkedIn Icon</p>
           </Col>
           <Col>
-            <h6>
+            <h5>
               <u>Contact us</u>
-            </h6>
+            </h5>
           </Col>
         </Row>
       </Container>

@@ -2,6 +2,7 @@ import { Container, Carousel, Col, Row, Dropdown } from "react-bootstrap"
 import MyNavbar from "./MyNavbar"
 import Footer from "./Footer"
 import Item from "./Item"
+import CategoriesMenu from "./CategoriesMenu"
 // import { useNavigate } from "react-router-dom"
 
 const Home = () => {
@@ -48,7 +49,7 @@ const Home = () => {
           <Col xs={2}>
             <h4>CATEGORIES</h4>
 
-            <p>Accessories</p>
+            {/* <p>Accessories</p>
             <p>Clothes</p>
             <p>Helmets</p>
             <p>Lights</p>
@@ -60,7 +61,8 @@ const Home = () => {
             <p>Carburetors</p>
             <p>Air Filters</p>
             <p>Tools</p>
-            <p>Books</p>
+            <p>Books</p> */}
+            <CategoriesMenu />
 
             <hr />
             <h4>BRANDS</h4>
