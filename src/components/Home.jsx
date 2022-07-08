@@ -1,10 +1,11 @@
 import { Container, Carousel, Col, Row, Dropdown } from "react-bootstrap"
 import MyNavbar from "./MyNavbar"
+import Footer from "./Footer"
 import Item from "./Item"
-import { useNavigate } from "react-router-dom"
+// import { useNavigate } from "react-router-dom"
 
 const Home = () => {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   return (
     <>
@@ -86,6 +87,7 @@ const Home = () => {
                 <Item />
               </Row>
             </Col>
+            <Footer />
           </Col>
         </Row>
       </Container>
