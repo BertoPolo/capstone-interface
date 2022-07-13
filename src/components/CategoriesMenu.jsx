@@ -9,12 +9,6 @@ function CategoriesMenu() {
   // <p>Tools</p>
   // <p>Books</p>
   return (
-    //   <Accordion.Item eventKey="4">
-    //     <Accordion.Header>Accessories</Accordion.Header>
-    //     <Accordion.Body>Link to Link to Link to</Accordion.Body>
-    //   </Accordion.Item>
-    // </Accordion>
-
     <Accordion>
       <Card>
         <Card.Header>
@@ -96,6 +90,22 @@ function CategoriesMenu() {
         </Card.Header>
         <Accordion.Collapse eventKey="5">
           <Card.Body></Card.Body>
+        </Accordion.Collapse>
+      </Card>
+
+      <Card>
+        <Card.Header>
+          <Accordion.Toggle as={Card.Header} eventKey="5">
+            Helmets
+          </Accordion.Toggle>
+        </Card.Header>
+        <Accordion.Collapse eventKey="5">
+          <Card.Body>
+            <p>Jet</p>
+            <p>Modular</p>
+            <p>Full</p>
+            <p>Accesories</p>
+          </Card.Body>
         </Accordion.Collapse>
       </Card>
     </Accordion>

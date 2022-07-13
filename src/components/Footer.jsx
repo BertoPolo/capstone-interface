@@ -20,13 +20,20 @@ const Footer = () => {
             <h5>
               <u>Follow us</u>
             </h5>
-            <p> Instagram Icon</p>
-            <p> LinkedIn Icon</p>
+            <p>
+              <i className="bi bi-instagram"></i>
+              Click To Follow
+            </p>
+            <p>
+              <i className="bi bi-linkedin"></i>
+              Click To Follow
+            </p>
           </Col>
           <Col>
             <h5>
               <u>Contact us</u>
             </h5>
+            <p>bertopolo91@gmail.com</p>
           </Col>
         </Row>
       </Container>
