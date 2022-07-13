@@ -1,4 +1,5 @@
-import Accordion from "react-bootstrap/Accordion"
+// import Accordion from "react-bootstrap/Accordion"
+import { Accordion, Card, Button } from "react-bootstrap"
 
 function CategoriesMenu() {
   // <p>Exhausts</p>
@@ -8,35 +9,95 @@ function CategoriesMenu() {
   // <p>Tools</p>
   // <p>Books</p>
   return (
-    <Accordion defaultActiveKey="0">
-      <Accordion.Item eventKey="0">
-        <Accordion.Header>Clothes</Accordion.Header>
-        <Accordion.Body>Link to gloves Link to hats Link to shirts</Accordion.Body>
-      </Accordion.Item>
+    //   <Accordion.Item eventKey="4">
+    //     <Accordion.Header>Accessories</Accordion.Header>
+    //     <Accordion.Body>Link to Link to Link to</Accordion.Body>
+    //   </Accordion.Item>
+    // </Accordion>
 
-      <p>Helmets</p>
+    <Accordion>
+      <Card>
+        <Card.Header>
+          <Accordion.Toggle as={Card.Header} eventKey="0">
+            Clothes
+          </Accordion.Toggle>
+        </Card.Header>
+        <Accordion.Collapse eventKey="0">
+          <Card.Body>
+            <p>Front lights</p>
+            <p>Rear lights</p>
+            <p>Signal lights</p>
+          </Card.Body>
+        </Accordion.Collapse>
+      </Card>
 
-      <Accordion.Item eventKey="1">
-        <Accordion.Header>Lights</Accordion.Header>
-        <Accordion.Body>Link to front lights Link to rear lights Link to signal lights</Accordion.Body>
-      </Accordion.Item>
+      <Card>
+        <Card.Header>
+          <Accordion.Toggle as={Card.Header} eventKey="1">
+            Helmets
+          </Accordion.Toggle>
+        </Card.Header>
+        <Accordion.Collapse eventKey="1">
+          <Card.Body></Card.Body>
+        </Accordion.Collapse>
+      </Card>
 
-      <Accordion.Item eventKey="2">
-        <Accordion.Header>On Hands</Accordion.Header>
-        <Accordion.Body>Link to handlebars Link to grips Link to risers Link to mirrors</Accordion.Body>
-      </Accordion.Item>
+      <Card>
+        <Card.Header>
+          <Accordion.Toggle as={Card.Header} eventKey="2">
+            Lights
+          </Accordion.Toggle>
+        </Card.Header>
+        <Accordion.Collapse eventKey="2">
+          <Card.Body>
+            <p>Gloves</p>
+            <p>Hats</p>
+            <p>Shirts</p>
+          </Card.Body>
+        </Accordion.Collapse>
+      </Card>
 
-      <Accordion.Item eventKey="3">
-        <Accordion.Header>On Feet</Accordion.Header>
-        <Accordion.Body>Link to stands Link to footpegs Link to Mid Controls</Accordion.Body>
-      </Accordion.Item>
+      <Card>
+        <Card.Header>
+          <Accordion.Toggle as={Card.Header} eventKey="3">
+            On Hands
+          </Accordion.Toggle>
+        </Card.Header>
+        <Accordion.Collapse eventKey="3">
+          <Card.Body>
+            <p>Handlebars</p>
+            <p>Risers</p>
+            <p>Mirrors</p>
+            <p>Grips</p>
+          </Card.Body>
+        </Accordion.Collapse>
+      </Card>
 
-      <p>Seats</p>
+      <Card>
+        <Card.Header>
+          <Accordion.Toggle as={Card.Header} eventKey="4">
+            On Feet
+          </Accordion.Toggle>
+        </Card.Header>
+        <Accordion.Collapse eventKey="4">
+          <Card.Body>
+            <p>Stands</p>
+            <p>Footpegs</p>
+            <p>Mid Controls</p>
+          </Card.Body>
+        </Accordion.Collapse>
+      </Card>
 
-      <Accordion.Item eventKey="4">
-        <Accordion.Header>Accessories</Accordion.Header>
-        <Accordion.Body>Link to Link to Link to</Accordion.Body>
-      </Accordion.Item>
+      <Card>
+        <Card.Header>
+          <Accordion.Toggle as={Card.Header} eventKey="5">
+            Seats
+          </Accordion.Toggle>
+        </Card.Header>
+        <Accordion.Collapse eventKey="5">
+          <Card.Body></Card.Body>
+        </Accordion.Collapse>
+      </Card>
     </Accordion>
   )
 }
