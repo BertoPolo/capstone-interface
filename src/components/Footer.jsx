@@ -5,7 +5,7 @@ import { Container, Row, Col } from "react-bootstrap"
 const Footer = () => {
   return (
     <>
-      <Container className="mt-3 footer">
+      <Container className="mt-5 footer">
         <Row>
           <Col>
             <h5>

@@ -64,7 +64,7 @@ body {
 /* item start */
 .card.item {
   /* box-shadow: #8d1c76 !important; */
-  box-shadow: rgba(78, 78, 78, 0.671) 1px 50px 70px !important;
+  box-shadow: rgba(78, 78, 78, 0.671) 1px 10px 20px;
 }
 
 /* item end */

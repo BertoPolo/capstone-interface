@@ -108,6 +108,22 @@ function CategoriesMenu() {
           </Card.Body>
         </Accordion.Collapse>
       </Card>
+
+      {/* <Card>
+        <Card.Header>
+          <Accordion.Toggle as={Card.Header} eventKey="6">
+            wwwwwwwwwwwwwhat
+          </Accordion.Toggle>
+        </Card.Header>
+        <Accordion.Collapse eventKey="6">
+          <Card.Body>
+            <p>Jet</p>
+            <p>Modular</p>
+            <p>Full</p>
+            <p>Accesories</p>
+          </Card.Body>
+        </Accordion.Collapse>
+      </Card> */}
     </Accordion>
   )
 }
