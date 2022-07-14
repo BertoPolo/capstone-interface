@@ -2,7 +2,7 @@ import { Card, Button } from "react-bootstrap"
 
 const Item = () => {
   return (
-    <Card style={{ width: "13rem" }}>
+    <Card style={{ width: "13rem" }} className="item">
       <Card.Img
         style={{ maxHeight: "13rem" }}
         variant="top"

@@ -18,7 +18,7 @@
 }
 
 body {
-  background: #868285 !important;
+  background: #ffffff !important;
 }
 /* Global end */
 
@@ -60,3 +60,11 @@ body {
   background-color: rgba(127, 197, 255, 0.651);
 } */
 /* footer end*/
+
+/* item start */
+.card.item {
+  /* box-shadow: #8d1c76 !important; */
+  box-shadow: rgba(78, 78, 78, 0.671) 1px 50px 70px !important;
+}
+
+/* item end */

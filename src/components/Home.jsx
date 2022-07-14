@@ -82,11 +82,18 @@ const Home = () => {
             <Col>
               <Row>
                 {/* map items with math random */}
-                <Item />
-                <Item />
-                <Item />
-                <Item />
-                <Item />
+                <Col>
+                  <Item />
+                </Col>
+                <Col>
+                  <Item />
+                </Col>
+                <Col>
+                  <Item />
+                </Col>
+                <Col>
+                  <Item />
+                </Col>
               </Row>
             </Col>
             <Footer />
