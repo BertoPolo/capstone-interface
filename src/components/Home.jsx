@@ -48,20 +48,6 @@ const Home = () => {
         <Row>
           <Col xs={2}>
             <h4>CATEGORIES</h4>
-
-            {/* <p>Accessories</p>
-            <p>Clothes</p>
-            <p>Helmets</p>
-            <p>Lights</p>
-            <p>On Hands</p>
-            <p>On Feet</p>
-            <p>Seats</p>
-            <p>Exhausts</p>
-            <p>Engine</p>
-            <p>Carburetors</p>
-            <p>Air Filters</p>
-            <p>Tools</p>
-            <p>Books</p> */}
             <CategoriesMenu />
 
             <hr />

@@ -1,6 +1,13 @@
 import { Container } from "react-bootstrap"
 
 const SingleItem = () => {
-  return
+  return (
+    <>
+      <Container>
+        <h1></h1>
+        <img src="" alt="" />
+      </Container>
+    </>
+  )
 }
 export default SingleItem
