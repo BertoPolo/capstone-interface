@@ -1,6 +1,6 @@
 import { Card, Button } from "react-bootstrap"
 
-const Item = () => {
+const HomeItem = () => {
   return (
     <Card style={{ width: "11rem" }} className="item">
       <Card.Img
@@ -17,4 +17,4 @@ const Item = () => {
     </Card>
   )
 }
-export default Item
+export default HomeItem

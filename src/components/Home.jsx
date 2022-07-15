@@ -1,7 +1,7 @@
 import { Container, Carousel, Col, Row, Dropdown } from "react-bootstrap"
 import MyNavbar from "./MyNavbar"
 import Footer from "./Footer"
-import Item from "./Item"
+import HomeItem from "./HomeItem"
 import CategoriesMenu from "./CategoriesMenu"
 // import { useNavigate } from "react-router-dom"
 
@@ -83,16 +83,16 @@ const Home = () => {
               <Row>
                 {/* map items with math random */}
                 <Col>
-                  <Item />
+                  <HomeItem />
                 </Col>
                 <Col>
-                  <Item />
+                  <HomeItem />
                 </Col>
                 <Col>
-                  <Item />
+                  <HomeItem />
                 </Col>
                 <Col>
-                  <Item />
+                  <HomeItem />
                 </Col>
               </Row>
             </Col>
