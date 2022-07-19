@@ -39,12 +39,10 @@ const Home = () => {
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
-
-          <img src="" alt="maintainment eco pack" />
-          <img src="" alt="shipping price" />
         </div>
       </Container>
-      <Container>
+
+      <Container className="mt-5">
         <Row>
           <Col xs={2}>
             <h4>CATEGORIES</h4>

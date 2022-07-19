@@ -9,7 +9,7 @@ const Footer = () => {
         <Row>
           <Col>
             <h5>
-              <u>Basic info</u>
+              <u>About Us</u>
             </h5>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, labore! Accusantium quasi, vitae totam quaerat adipisci necessitatibus
@@ -18,15 +18,15 @@ const Footer = () => {
           </Col>
           <Col>
             <h5>
-              <u>Follow us</u>
+              <u>Social Networks</u>
             </h5>
             <p>
               <i className="bi bi-instagram"></i>
-              Click To Follow
+              Click To check our Instagram
             </p>
             <p>
               <i className="bi bi-linkedin"></i>
-              Click To Follow
+              Click To check our LinkedIn
             </p>
           </Col>
           <Col>

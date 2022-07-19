@@ -14,15 +14,13 @@ const MyNavbar = () => {
       <Navbar.Toggle />
       <Navbar.Collapse>
         <Nav className="mr-auto">
-          <Nav.Link href="/contact">Contact</Nav.Link>
-          <Nav.Link href="/where">About Us</Nav.Link>
+          <Nav.Link href="/contact">Contact Us</Nav.Link>
           <Nav.Link href="/outlet">Outlet</Nav.Link>
           <Nav.Link href="/new">New</Nav.Link>
-          <Nav.Link href="/mostSold">Most Sold</Nav.Link>
         </Nav>
         <Nav className="ml-auto mr-4">
           <Nav.Link href="/cart">
-            <i className="bi bi-cart"></i>Cart dropdown
+            <i className="bi bi-cart"></i>Cart(number)
           </Nav.Link>
           <Nav.Link href="/myAccount">My Account</Nav.Link>
           <Nav.Link href="/">

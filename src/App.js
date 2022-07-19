@@ -10,7 +10,7 @@ import NotFound from "./components/NotFound"
 import { Provider } from "react-redux"
 import configureStore from "./app/store"
 
-// import MyAccount from "./components/MyAccount"
+import MyAccount from "./components/MyAccount"
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
             <Route path="*" element={<NotFound />} />
             <Route path="/" element={<Login />} />
             <Route path="/newUser" element={<CreateUser />} />
-            {/* <Route path="/myAccount" element={<MyAccount />} /> */}
+            <Route path="/myAccount" element={<MyAccount />} />
             <Route path="/home" element={<Home />} />
           </Routes>
         </BrowserRouter>
