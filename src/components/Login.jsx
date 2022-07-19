@@ -18,8 +18,9 @@ const Login = () => {
     <>
       <h1 className="h1">Rate My Route</h1>
       <Row>
-        <Col>
-          <p className="login-container"> page description</p>
+        <Col className="login-container">
+          <p> Are You registered?</p>
+          <Button onClick={() => handleSubmit()}>click here to enter without login</Button>
         </Col>
 
         <Col>
