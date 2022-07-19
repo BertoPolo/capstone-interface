@@ -1,6 +1,5 @@
-/**
- * /* 404 NOT FOUND start
- */
+/* 404 NOT FOUND start
+ 
 
 /* 404 NOT FOUND end */
 
@@ -19,6 +18,10 @@
 
 body {
   background: #ffffff !important;
+}
+
+.pointer {
+  cursor: pointer;
 }
 /* Global end */
 
