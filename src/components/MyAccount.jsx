@@ -7,6 +7,7 @@ const MyAccount = () => {
   const [nameInput, setNameInput] = useState()
   const [adressInput, setAdressInput] = useState()
   const [passwordInput, setPasswordInput] = useState()
+  const [passwordAgainInput, setPasswordAgainInput] = useState()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -18,7 +19,10 @@ const MyAccount = () => {
         <h4 className="mb-3">Modify your data</h4>
 
         <Form.Group>
-          <Form.Control type="text" placeholder="Username" value={nameInput} onChange={(e) => setNameInput(e.target.value)} />
+          <Form.Control type="text" placeholder="Full Name" value={nameInput} onChange={(e) => setNameInput(e.target.value)} />
+        </Form.Group>
+        <Form.Group>
+          <Form.Control type="text" placeholder="User name" value={nameInput} onChange={(e) => setNameInput(e.target.value)} />
         </Form.Group>
 
         <Form.Group>
@@ -27,6 +31,14 @@ const MyAccount = () => {
 
         <Form.Group>
           <Form.Control type="password" placeholder="Password" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
+        </Form.Group>
+        <Form.Group>
+          <Form.Control
+            type="password"
+            placeholder="Repeat Your Password"
+            value={passwordAgainInput}
+            onChange={(e) => setPasswordAgainInput(e.target.value)}
+          />
         </Form.Group>
       </Form>
     </>
