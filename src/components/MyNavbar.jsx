@@ -22,7 +22,7 @@ const MyNavbar = () => {
           <Nav className="mr-auto">
             <Nav.Link href="/contact">Contact Us</Nav.Link>
             <Nav.Link href="/outlet">Outlet</Nav.Link>
-            <Nav.Link href="/new">New</Nav.Link>
+            <Nav.Link href="/news">News</Nav.Link>
           </Nav>
           <Nav className="ml-auto mr-4">
             <Nav.Link href="" onClick={handleShow}>

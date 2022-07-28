@@ -6,6 +6,7 @@ import Login from "./components/Login"
 import Home from "./components/Home"
 import CreateUser from "./components/CreateUser"
 import NotFound from "./components/NotFound"
+import News from "./components/News"
 
 import { Provider } from "react-redux"
 import configureStore from "./app/store"
@@ -23,6 +24,7 @@ function App() {
             <Route path="/newUser" element={<CreateUser />} />
             <Route path="/myAccount" element={<MyAccount />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/news" element={<News />} />
           </Routes>
         </BrowserRouter>
       </Provider>
