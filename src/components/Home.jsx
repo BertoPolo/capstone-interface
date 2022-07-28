@@ -8,6 +8,8 @@ import CategoriesMenu from "./CategoriesMenu"
 const Home = () => {
   // const navigate = useNavigate()
 
+  // function to randomize the items to show
+
   return (
     <>
       <MyNavbar />
@@ -18,24 +20,24 @@ const Home = () => {
             <Carousel.Item>
               <img className="d-block m-auto carouselImg" src="../../../IMG_8830.jpg" alt="First slide" />
               <Carousel.Caption>
-                <h3>First - autor's name</h3>
-                <p>Country and route's name</p>
+                <h3>Oil Pack Offer</h3>
+                <p>lalala</p>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
               <img className="d-block m-auto carouselImg" src="../../../IMG_8830.jpg" alt="Second slide" />
 
               <Carousel.Caption>
-                <h3>Second - autor's name</h3>
-                <p>Country and route's name</p>
+                <h3>Shipping price</h3>
+                <p>lalala</p>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
               <img className="d-block m-auto carouselImg" src="../../../IMG_8830.jpg" alt="Third slide" />
 
               <Carousel.Caption>
-                <h3>Third - autor's name</h3>
-                <p>Country and route's name</p>
+                <h3>Ask us whenever You want</h3>
+                <p>lalala</p>
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
