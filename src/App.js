@@ -7,6 +7,7 @@ import Home from "./components/Home"
 import CreateUser from "./components/CreateUser"
 import NotFound from "./components/NotFound"
 import News from "./components/News"
+import ContactUs from "./components/ContactUs"
 
 import { Provider } from "react-redux"
 import configureStore from "./app/store"
@@ -25,6 +26,7 @@ function App() {
             <Route path="/myAccount" element={<MyAccount />} />
             <Route path="/home" element={<Home />} />
             <Route path="/news" element={<News />} />
+            <Route path="/contact" element={<ContactUs />} />
           </Routes>
         </BrowserRouter>
       </Provider>
