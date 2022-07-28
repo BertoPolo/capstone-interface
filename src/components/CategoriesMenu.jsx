@@ -12,7 +12,7 @@ function CategoriesMenu() {
     <Accordion>
       <Card>
         <Card.Header>
-          <Accordion.Toggle as={Card.Header} eventKey="0">
+          <Accordion.Toggle as={Card.Header} eventKey="0" className="pointer">
             Clothes
           </Accordion.Toggle>
         </Card.Header>
@@ -27,7 +27,7 @@ function CategoriesMenu() {
 
       <Card>
         <Card.Header>
-          <Accordion.Toggle as={Card.Header} eventKey="1">
+          <Accordion.Toggle as={Card.Header} eventKey="1" className="pointer">
             Helmets
           </Accordion.Toggle>
         </Card.Header>
@@ -38,7 +38,7 @@ function CategoriesMenu() {
 
       <Card>
         <Card.Header>
-          <Accordion.Toggle as={Card.Header} eventKey="2">
+          <Accordion.Toggle as={Card.Header} eventKey="2" className="pointer">
             Lights
           </Accordion.Toggle>
         </Card.Header>
@@ -53,7 +53,7 @@ function CategoriesMenu() {
 
       <Card>
         <Card.Header>
-          <Accordion.Toggle as={Card.Header} eventKey="3">
+          <Accordion.Toggle as={Card.Header} eventKey="3" className="pointer">
             On Hands
           </Accordion.Toggle>
         </Card.Header>
@@ -69,7 +69,7 @@ function CategoriesMenu() {
 
       <Card>
         <Card.Header>
-          <Accordion.Toggle as={Card.Header} eventKey="4">
+          <Accordion.Toggle as={Card.Header} eventKey="4" className="pointer">
             On Feet
           </Accordion.Toggle>
         </Card.Header>
@@ -84,7 +84,7 @@ function CategoriesMenu() {
 
       <Card>
         <Card.Header>
-          <Accordion.Toggle as={Card.Header} eventKey="5">
+          <Accordion.Toggle as={Card.Header} eventKey="5" className="pointer">
             Seats
           </Accordion.Toggle>
         </Card.Header>
@@ -95,11 +95,11 @@ function CategoriesMenu() {
 
       <Card>
         <Card.Header>
-          <Accordion.Toggle as={Card.Header} eventKey="5">
+          <Accordion.Toggle as={Card.Header} eventKey="6" className="pointer">
             Helmets
           </Accordion.Toggle>
         </Card.Header>
-        <Accordion.Collapse eventKey="5">
+        <Accordion.Collapse eventKey="6">
           <Card.Body>
             <p>Jet</p>
             <p>Modular</p>
