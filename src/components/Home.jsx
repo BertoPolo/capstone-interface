@@ -8,8 +8,9 @@ import CategoriesMenu from "./CategoriesMenu"
 const Home = () => {
   // const navigate = useNavigate()
 
-  // function to randomize the items to show
-
+  const randomizeItems = () => {
+    // function to randomize the items to show
+  }
   return (
     <>
       <MyNavbar />
