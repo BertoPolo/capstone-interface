@@ -13,7 +13,7 @@ function CategoriesMenu() {
       <Card>
         <Card.Header>
           <Accordion.Toggle as={Card.Header} eventKey="0" className="pointer">
-            Clothes
+            Lights
           </Accordion.Toggle>
         </Card.Header>
         <Accordion.Collapse eventKey="0">
@@ -39,7 +39,7 @@ function CategoriesMenu() {
       <Card>
         <Card.Header>
           <Accordion.Toggle as={Card.Header} eventKey="2" className="pointer">
-            Lights
+            Clothes
           </Accordion.Toggle>
         </Card.Header>
         <Accordion.Collapse eventKey="2">
@@ -103,7 +103,7 @@ function CategoriesMenu() {
           <Card.Body>
             <p>Jet</p>
             <p>Modular</p>
-            <p>Full</p>
+            <p>Full Face</p>
             <p>Accesories</p>
           </Card.Body>
         </Accordion.Collapse>
