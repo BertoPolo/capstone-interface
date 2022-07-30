@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-const citiesSlice = createSlice({
-  name: "citiesSlice",
+const itemsSlice = createSlice({
+  name: "itemsSlice",
   initialState: {
     originCity: "",
     originCountry: "",
@@ -17,5 +17,5 @@ const citiesSlice = createSlice({
   },
 })
 
-export default citiesSlice.reducer
-export const { changeOriginCity, changeOriginCountry, changeOptStopCity } = citiesSlice.actions
+export default itemsSlice.reducer
+export const { changeOriginCity, changeOriginCountry } = itemsSlice.actions
