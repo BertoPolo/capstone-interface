@@ -3,14 +3,34 @@ import MyNavbar from "./MyNavbar"
 import Footer from "./Footer"
 import HomeItem from "./HomeItem"
 import CategoriesMenu from "./CategoriesMenu"
+import { useState } from "react"
 // import { useNavigate } from "react-router-dom"
 
 const Home = () => {
   // const navigate = useNavigate()
+  const [items, setItems] = useState()
 
   const randomizeItems = () => {
     // function to randomize the items to show
   }
+
+  const getItems = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:3004/items`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      let data = await response.json();
+      setItems(data);
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <>
       <MyNavbar />
