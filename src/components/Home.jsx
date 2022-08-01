@@ -4,12 +4,18 @@ import Footer from "./Footer"
 import HomeItem from "./HomeItem"
 import CategoriesMenu from "./CategoriesMenu"
 import { useState, useEffect } from "react"
-import { useSelector, useDispatch } from "react-redux/es/exports"
+import { useSelector, useDispatch } from "react-redux"
 import { changeItems } from "../slices/items/itemsSlice"
 // import { useNavigate } from "react-router-dom"
 
 const Home = () => {
   // const navigate = useNavigate()
+
+  const [isOnOutlet, setIsOnOutlet] = useState(false)
+  const [isOnHome, setIsOnHome] = useState(true)
+  const [isOnSingleItem, setIsOnSingleItem] = useState(false) // when true, dont show carousel. 
+
+
   const items = useSelector((state) => state.itemsSlice.items);
   const dispatch = useDispatch();
 

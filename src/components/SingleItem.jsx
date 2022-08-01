@@ -1,6 +1,10 @@
 import { Container } from "react-bootstrap"
+import { useSelector } from "react-redux"
 
 const SingleItem = () => {
+
+  const items = useSelector((state) => state.itemsSlice.items);
+
   return (
     <>
       <Container>
