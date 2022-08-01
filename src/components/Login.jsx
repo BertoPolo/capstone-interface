@@ -42,7 +42,7 @@ const Login = () => {
                 <b> Forgot the password?</b>
               </Link>
 
-              {usernameInput && passwordInput ? (
+              {/* {usernameInput && passwordInput ? (
                 <Button variant="primary" type="submit">
                   Enter
                 </Button>
@@ -50,7 +50,13 @@ const Login = () => {
                 <Button variant="secondary" disabled>
                   Enter
                 </Button>
-              )}
+              )} */}
+
+              <Button variant="primary" type="submit" disabled={(!usernameInput) || (!passwordInput)}>
+                Enter
+              </Button>
+
+
             </div>
             <Link className="login-small-font d-block mb-3 mt-2" to="/newUser">
               <b> Join Us!</b>
