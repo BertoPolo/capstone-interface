@@ -3,19 +3,17 @@ import { createSlice } from "@reduxjs/toolkit"
 const itemsSlice = createSlice({
   name: "itemsSlice",
   initialState: {
-    originCity: "",
-    originCountry: "",
-    wantStop: false,
+    items: [],
   },
   reducers: {
-    changeOriginCity: (state, action) => {
+    changeItems: (state, action) => {
       return {
         ...state,
-        originCity: action.payload,
+        items: action.payload,
       }
     },
   },
 })
 
 export default itemsSlice.reducer
-export const { changeOriginCity, changeOriginCountry } = itemsSlice.actions
+export const { changeItems } = itemsSlice.actions

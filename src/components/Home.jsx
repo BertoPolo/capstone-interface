@@ -4,11 +4,16 @@ import Footer from "./Footer"
 import HomeItem from "./HomeItem"
 import CategoriesMenu from "./CategoriesMenu"
 import { useState, useEffect } from "react"
+import { useSelector, useDispatch } from "react-redux/es/exports"
+import { changeItems } from "../slices/items/itemsSlice"
 // import { useNavigate } from "react-router-dom"
 
 const Home = () => {
   // const navigate = useNavigate()
-  const [items, setItems] = useState()
+  const items = useSelector((state) => state.itemsSlice.items);
+  const dispatch = useDispatch();
+
+
 
   const randomizeItems = () => {
     // function to randomize the items to show
@@ -17,8 +22,8 @@ const Home = () => {
   const getItems = async () => {
     try {
       const response = await fetch(
-        // `${process.env.React_APP_LOCAL_SERVER} || ${process.env.React_APP_SERVER}`,
-        `http://localhost:3004/items`,
+        // `${process.env.React_APP_SERVER} || ${process.env.React_APP_LOCAL_SERVER}`,
+        `${process.env.React_APP_LOCAL_SERVER}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -26,14 +31,16 @@ const Home = () => {
         }
       );
       let data = await response.json();
-      setItems(data);
+      dispatch(changeItems(data));
       console.log(data)
     } catch (error) {
       console.log(error)
     }
   }
 
-  // useEffect
+  useEffect(() => {
+    getItems();
+  }, [])
 
   return (
     <>
@@ -72,7 +79,7 @@ const Home = () => {
       <Container className="mt-5">
         <Row>
           <Col xs={2}>
-            <h4 onClick={() => getItems()}>CATEGORIES</h4>
+            <h4>CATEGORIES</h4>
             <CategoriesMenu />
 
             <hr />
