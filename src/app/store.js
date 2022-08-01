@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit"
-import citiesSlice from "../components/slices/cities/citiesSlice"
+import itemsSlice from "../components/slices/items/itemsSlice"
 
 export default configureStore({
   reducer: {
-    citiesSlice: citiesSlice,
+    itemsSlice: itemsSlice,
   },
 })

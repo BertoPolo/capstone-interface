@@ -3,7 +3,7 @@ import MyNavbar from "./MyNavbar"
 import Footer from "./Footer"
 import HomeItem from "./HomeItem"
 import CategoriesMenu from "./CategoriesMenu"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 // import { useNavigate } from "react-router-dom"
 
 const Home = () => {
@@ -17,6 +17,7 @@ const Home = () => {
   const getItems = async () => {
     try {
       const response = await fetch(
+        // `${process.env.React_APP_LOCAL_SERVER} || ${process.env.React_APP_SERVER}`,
         `http://localhost:3004/items`,
         {
           headers: {
@@ -26,10 +27,13 @@ const Home = () => {
       );
       let data = await response.json();
       setItems(data);
+      console.log(data)
     } catch (error) {
       console.log(error)
     }
   }
+
+  // useEffect
 
   return (
     <>
@@ -68,7 +72,7 @@ const Home = () => {
       <Container className="mt-5">
         <Row>
           <Col xs={2}>
-            <h4>CATEGORIES</h4>
+            <h4 onClick={() => getItems()}>CATEGORIES</h4>
             <CategoriesMenu />
 
             <hr />
