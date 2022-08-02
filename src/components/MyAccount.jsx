@@ -1,4 +1,4 @@
-import { Container, Form } from "react-bootstrap"
+import { Button, Form } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import MyNavbar from "./MyNavbar"
@@ -20,9 +20,10 @@ const MyAccount = () => {
       <Form className="login-container" onSubmit={(e) => handleSubmit(e)}>
         <h4 className="mb-3">Modify your data</h4>
 
-        <Form.Group>
+        {/* {!isAdmin && <Form.Group>
           <Form.Control type="text" placeholder="Full Name" value={nameInput} onChange={(e) => setNameInput(e.target.value)} />
-        </Form.Group>
+        </Form.Group>} */}
+
         <Form.Group>
           <Form.Control type="text" placeholder="User name" value={nameInput} onChange={(e) => setNameInput(e.target.value)} />
         </Form.Group>
@@ -42,6 +43,8 @@ const MyAccount = () => {
             onChange={(e) => setPasswordAgainInput(e.target.value)}
           />
         </Form.Group>
+
+        <Button type="submit" disabled={(passwordInput !== passwordAgainInput) && (passwordInput && passwordAgainInput)} > Submit </Button>
       </Form>
     </>
   )

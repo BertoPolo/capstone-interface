@@ -8,6 +8,7 @@ const MyNavbar = () => {
   //   localStorage.removeItem("token");
   // };
   const [show, setShow] = useState(false)
+  const [isAdmin, setIsAdmin] = useState(false)  // do it in redux state
 
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
@@ -25,9 +26,13 @@ const MyNavbar = () => {
             <Nav.Link href="/news">News</Nav.Link>
           </Nav>
           <Nav className="ml-auto mr-4">
-            <Nav.Link href="" onClick={handleShow}>
-              <i className="bi bi-cart"></i>Cart(number)
-            </Nav.Link>
+
+            {isAdmin ?
+              <Nav.Link href="/backoffice">BackOffice</Nav.Link>
+              :
+              <Nav.Link href="" onClick={handleShow}>
+                <i className="bi bi-cart"></i>Cart(number)
+              </Nav.Link>}
 
             <Nav.Link href="/myAccount">My Account</Nav.Link>
             <Nav.Link href="/">
