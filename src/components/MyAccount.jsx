@@ -9,7 +9,8 @@ const MyAccount = () => {
   const [adressInput, setAdressInput] = useState("")
   const [passwordInput, setPasswordInput] = useState("")
   const [passwordAgainInput, setPasswordAgainInput] = useState("")
-  const [isAdmin, setIsAdmin] = useState("")
+
+  const [isAdmin, setIsAdmin] = useState(false)//redux ---------------------
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -29,9 +30,9 @@ const MyAccount = () => {
           <Form.Control type="text" placeholder="User name" value={nameInput} onChange={(e) => setNameInput(e.target.value)} />
         </Form.Group>
 
-        <Form.Group>
+        {!isAdmin && <Form.Group>
           <Form.Control type="text" placeholder="Shipping Adress" value={adressInput} onChange={(e) => setAdressInput(e.target.value)} />
-        </Form.Group>
+        </Form.Group>}
 
         <Form.Group>
           <Form.Control type="password" placeholder="Password" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
@@ -45,6 +46,7 @@ const MyAccount = () => {
           />
         </Form.Group>
         <Button type="submit" disabled={(passwordInput !== passwordAgainInput) || (!passwordInput || !passwordAgainInput)} > Submit </Button>
+        <Button variant="danger" onClick={() => navigate("/home")}>Back</Button>
       </Form>
     </>
   )
