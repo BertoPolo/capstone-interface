@@ -19,7 +19,7 @@ const BackOffice = () => {
 
 
             <Form.Group>
-                <Form.Control type="text" placeholder="User name" value={nameInput} onChange={(e) => setNameInput(e.target.value)} />
+                {/* <Form.Control type="text" placeholder="User name" value={nameInput} onChange={(e) => setNameInput(e.target.value)} /> */}
             </Form.Group>
 
 
