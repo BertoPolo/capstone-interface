@@ -23,6 +23,9 @@ const Home = () => {
 
   const randomizeItems = () => {
     // function to randomize the items to show
+    for (let i = 0; i < 15; i++) {
+      return Math.floor(Math.random() * items.length) // check this again 
+    }
   }
 
   const getItems = async () => {
@@ -63,7 +66,7 @@ const Home = () => {
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-              <img className="d-block m-auto carouselImg" src="../../../IMG_8830.jpg" alt="Second slide" />
+              <img className="d-block m-auto carouselImg" src="../../../IMG_8879.jpg" alt="Second slide" />
 
               <Carousel.Caption>
                 <h3>Shipping price</h3>
@@ -71,7 +74,7 @@ const Home = () => {
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-              <img className="d-block m-auto carouselImg" src="../../../IMG_8830.jpg" alt="Third slide" />
+              <img className="d-block m-auto carouselImg" src="../../../IMG_7989.jpg" alt="Third slide" />
 
               <Carousel.Caption>
                 <h3>Ask us whenever You want</h3>
@@ -103,6 +106,7 @@ const Home = () => {
               <Dropdown.Toggle variant="warning">Dropdown Button</Dropdown.Toggle>
 
               <Dropdown.Menu>
+                {/* map every brand item */}
                 <Dropdown.Item href="#/action-1">Brand 1</Dropdown.Item>
                 <Dropdown.Item href="#/action-2">Brand 2</Dropdown.Item>
                 <Dropdown.Item href="#/action-3">Brand 3</Dropdown.Item>
