@@ -1,4 +1,4 @@
-import { Container, Carousel, Col, Row, Dropdown } from "react-bootstrap"
+import { Container, Carousel, Col, Row, Dropdown, Form, Button, FormControl } from "react-bootstrap"
 import MyNavbar from "./MyNavbar"
 import Footer from "./Footer"
 import HomeItem from "./HomeItem"
@@ -80,8 +80,16 @@ const Home = () => {
             </Carousel.Item>
           </Carousel>
         </div>
-      </Container>
 
+        {/* search bar */}
+        <Form inline className="mt-5">
+          <FormControl type="text" placeholder="Search" className="" />
+          <Button variant="outline-success" className="ml-2">
+            <i className="bi bi-search "></i> Search
+          </Button>
+        </Form>
+      </Container>
+      {/*  */}
       <Container className="mt-5">
         <Row>
           <Col xs={2}>

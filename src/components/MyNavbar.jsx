@@ -41,12 +41,7 @@ const MyNavbar = () => {
             </Nav.Link>
           </Nav>
 
-          <Form inline className="">
-            <FormControl type="text" placeholder="Search" className="" />
-            <Button variant="outline-success">
-              <i className="bi bi-search"></i> Search
-            </Button>
-          </Form>
+
         </Navbar.Collapse>
       </Navbar>
 
