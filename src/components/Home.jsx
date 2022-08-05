@@ -27,7 +27,7 @@ const Home = () => {
     let randomNumbers = []
     for (let i = 0; i < 15; i++) {
       const number = Math.floor(Math.random() * items.length)
-      randomNumbers.includes(number) ? randomNumbers.push(Math.floor(Math.random() * items.length)) : randomNumbers.push(number)
+      randomNumbers.includes(number) ? randomNumbers.push(Math.floor(Math.random() * items.length)) : randomNumbers.push(number) //maybe should be items.items?
     }
     return randomNumbers
   }

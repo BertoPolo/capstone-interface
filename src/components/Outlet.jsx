@@ -1,11 +1,10 @@
 import { Col, Row } from "react-bootstrap"
 import SingleItem from "./SingleItem"
-
-// import { useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
+import { useSelector } from "react-redux"
 
 // import Footer from "./Footer"
 // import CategoriesMenu from "./CategoriesMenu"
-// import { useNavigate } from "react-router-dom"
 
 const Outlet = () => {
   // const navigate = useNavigate()

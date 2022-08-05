@@ -10,7 +10,7 @@ const MyAccount = () => {
   const [passwordInput, setPasswordInput] = useState("")
   const [passwordAgainInput, setPasswordAgainInput] = useState("")
 
-  const [isAdmin, setIsAdmin] = useState(false)//redux ---------------------
+  const [isAdmin, setIsAdmin] = useState(false)//redux -----------
 
   const handleSubmit = (e) => {
     e.preventDefault()
