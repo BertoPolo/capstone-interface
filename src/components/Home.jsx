@@ -6,6 +6,7 @@ import CategoriesMenu from "./CategoriesMenu"
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { changeItems } from "../slices/items/itemsSlice"
+import { number } from "prop-types"
 // import { useNavigate } from "react-router-dom"
 
 const Home = () => {
@@ -21,12 +22,14 @@ const Home = () => {
 
 
 
+  // function to randomize the items to show
   const randomizeItems = () => {
-    // function to randomize the items to show
+    let randomNumbers = []
     for (let i = 0; i < 15; i++) {
-      return Math.floor(Math.random() * items.length) // check this again 
+      const number = Math.floor(Math.random() * items.length)
+      randomNumbers.includes(number) ? randomNumbers.push(Math.floor(Math.random() * items.length)) : randomNumbers.push(number)
     }
-    //do i need to create a variable to store the random number and then return that array??.... .push() 
+    return randomNumbers
   }
 
   const getItems = async () => {
