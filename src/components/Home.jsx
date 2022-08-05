@@ -6,8 +6,9 @@ import CategoriesMenu from "./CategoriesMenu"
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { changeItems } from "../slices/items/itemsSlice"
-import { number } from "prop-types"
-// import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
+
+
 
 const Home = () => {
   // const navigate = useNavigate()
@@ -89,14 +90,15 @@ const Home = () => {
         </div>
 
         {/* search bar */}
-        <Form inline className="mt-5">
-          <FormControl type="text" placeholder="Search" className="" />
+        <Form inline className="mt-5 d-flex justify-content-center">
+          <FormControl type="text" placeholder="Write here what you want to search" className="w-25 searchBar" />
           <Button variant="outline-success" className="ml-2">
             <i className="bi bi-search "></i> Search
           </Button>
         </Form>
       </Container>
       {/*  */}
+
       <Container className="mt-5">
         <Row>
           <Col xs={2}>
