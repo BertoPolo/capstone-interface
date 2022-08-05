@@ -26,6 +26,7 @@ const Home = () => {
     for (let i = 0; i < 15; i++) {
       return Math.floor(Math.random() * items.length) // check this again 
     }
+    //do i need to create a variable to store the random number and then return that array??.... .push() 
   }
 
   const getItems = async () => {
@@ -74,7 +75,7 @@ const Home = () => {
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-              <img className="d-block m-auto carouselImg" src="../../../IMG_7989.jpg" alt="Third slide" />
+              <img className="d-block m-auto carouselImg" src="../../../IMG_7389.jpg" alt="Third slide" />
 
               <Carousel.Caption>
                 <h3>Ask us whenever You want</h3>
