@@ -13,9 +13,10 @@ import { useNavigate, Link } from "react-router-dom"
 const Home = () => {
   // const navigate = useNavigate()
 
-  const [isOnOutlet, setIsOnOutlet] = useState(false)
   const [isOnHome, setIsOnHome] = useState(true)
-  const [isOnSingleItem, setIsOnSingleItem] = useState(false) // when true, dont show carousel. 
+  const [isOnOutlet, setIsOnOutlet] = useState(false)
+  const [isCountactUs, setIsCountactUs] = useState(false)
+  const [isOnSingleItem, setIsOnSingleItem] = useState(false) // when true, also dont show carousel. 
 
 
   const items = useSelector((state) => state.itemsSlice.items);
@@ -61,7 +62,7 @@ const Home = () => {
       <MyNavbar />
 
       <Container>
-        <div>
+        {!isOnSingleItem && <div>
           <Carousel className="">
             <Carousel.Item>
               <img className="d-block m-auto carouselImg" src="../../../IMG_8830.jpg" alt="First slide" />
@@ -87,7 +88,7 @@ const Home = () => {
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
-        </div>
+        </div>}
 
         {/* search bar */}
         <Form inline className="mt-5 d-flex justify-content-center">
