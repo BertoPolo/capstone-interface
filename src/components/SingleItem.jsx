@@ -1,16 +1,14 @@
 import { Button } from "react-bootstrap"
-import { useSelector } from "react-redux"
 
-const SingleItem = () => {
+const SingleItem = (item) => {
 
-  const items = useSelector((state) => state.itemsSlice.items);
 
   return (
     <>
-      <h2>items.name</h2>
-      <img src={items.image} alt="" />
-      <p>items.fulldescription</p>
-      <h3>items.price</h3>
+      <h2>{item.name}</h2>
+      <img src={item.image} alt={item.title} />
+      <p>{item.fulldescription}</p>
+      <h3>{item.price}</h3>
 
       <div>
 

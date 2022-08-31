@@ -6,6 +6,7 @@ import CategoriesMenu from "./CategoriesMenu"
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { changeItems } from "../slices/items/itemsSlice"
+import { element } from "prop-types"
 // import { useNavigate, Link } from "react-router-dom"
 
 
@@ -13,7 +14,7 @@ import { changeItems } from "../slices/items/itemsSlice"
 const Home = () => {
   // const navigate = useNavigate()
 
-  //pages
+  //pages --> pass to redux,cause u need this in Home and Navbar
   const [isOnHome, setIsOnHome] = useState(true)
   const [isOnOutlet, setIsOnOutlet] = useState(false)
   const [isCountactUs, setIsCountactUs] = useState(false)
@@ -26,13 +27,18 @@ const Home = () => {
 
 
   // function to randomize the items to show
+  let randomItems = [{}]
+
   const randomItemsByLength = () => {
     let randomNumbers = []
     for (let i = 0; i < 15; i++) {
       const number = Math.floor(Math.random() * items.length)
       randomNumbers.includes(number) ? randomNumbers.push(Math.floor(Math.random() * items.length)) : randomNumbers.push(number) //maybe should be items.items?
+      randomItems.push(items[[randomNumbers[i]]])
     }
-    return randomNumbers
+    // console.log(randomItems)
+
+    return randomItems
   }
 
   const getItems = async () => {
@@ -55,7 +61,8 @@ const Home = () => {
   }
 
   useEffect(() => {
-    getItems();
+    getItems()
+    randomItemsByLength();
   }, [])
 
   return (
@@ -126,10 +133,14 @@ const Home = () => {
             <Col>
               <Row>
                 {/* map 15 random items  randomItemsByLength */}
-                {/* {items.map } */}
-                <Col>
-                  <HomeItem />
-                </Col>
+
+                {/* it dont works because the array is empty?  */}
+                {randomItems.map((element) => {
+                  <Col>
+                    <HomeItem key={element._id} currentItem={element} />
+                  </Col>
+                })}
+
 
               </Row>
             </Col>
