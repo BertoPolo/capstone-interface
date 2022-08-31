@@ -1,11 +1,19 @@
 import { Card, Button } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
+import { useSelector, useDispatch } from "react-redux"
+import { addToCart } from "../slices/cart/cartSlice"
+
 
 
 const HomeItem = (currentItem) => {
   const navigate = useNavigate()
 
+  const cart = useSelector((state) => state.cartSlice.cart);
+  const dispatch = useDispatch();
+
+
   console.log(currentItem)
+
 
   return (
     <Card style={{ width: "11rem" }} className="item">
@@ -23,7 +31,7 @@ const HomeItem = (currentItem) => {
         </Card.Title>
         <Card.Text>{currentItem.description}</Card.Text>
         <Card.Title className="d-inline ">{currentItem.price}</Card.Title>
-        <Button variant="primary">Add to cart</Button>
+        <Button variant="primary" onClick={() => dispatch(addToCart(currentItem))}>Add to cart</Button>
       </Card.Body>
     </Card>
   )

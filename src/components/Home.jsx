@@ -134,7 +134,7 @@ const Home = () => {
               <Row>
                 {/* map 15 random items  randomItemsByLength */}
 
-                {/* it dont works because the array is empty?  */}
+                {/* it dont works because the array is empty?, its not. */}
                 {randomItems.map((element) => {
                   <Col>
                     <HomeItem key={element._id} currentItem={element} />
