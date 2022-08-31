@@ -6,18 +6,19 @@ import CategoriesMenu from "./CategoriesMenu"
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { changeItems } from "../slices/items/itemsSlice"
-import { useNavigate, Link } from "react-router-dom"
+// import { useNavigate, Link } from "react-router-dom"
 
 
 
 const Home = () => {
   // const navigate = useNavigate()
 
+  //pages
   const [isOnHome, setIsOnHome] = useState(true)
   const [isOnOutlet, setIsOnOutlet] = useState(false)
   const [isCountactUs, setIsCountactUs] = useState(false)
   const [isOnSingleItem, setIsOnSingleItem] = useState(false) // when true, also dont show carousel. 
-
+  //
 
   const items = useSelector((state) => state.itemsSlice.items);
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ const Home = () => {
 
 
   // function to randomize the items to show
-  const randomizeItems = () => {
+  const randomItemsByLength = () => {
     let randomNumbers = []
     for (let i = 0; i < 15; i++) {
       const number = Math.floor(Math.random() * items.length)
@@ -124,19 +125,12 @@ const Home = () => {
           <Col xs={10} className="">
             <Col>
               <Row>
-                {/* map items with math random */}
+                {/* map 15 random items  randomItemsByLength */}
+                {/* {items.map } */}
                 <Col>
                   <HomeItem />
                 </Col>
-                <Col>
-                  <HomeItem />
-                </Col>
-                <Col>
-                  <HomeItem />
-                </Col>
-                <Col>
-                  <HomeItem />
-                </Col>
+
               </Row>
             </Col>
             <Footer />

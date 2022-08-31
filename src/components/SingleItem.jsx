@@ -8,7 +8,7 @@ const SingleItem = () => {
   return (
     <>
       <h2>items.name</h2>
-      <img src="https://rinconbiker.com/tienda/13171-large_default/gorra-gasoline-riders-de-king-kerosin.jpg" alt="" />
+      <img src={items.image} alt="" />
       <p>items.fulldescription</p>
       <h3>items.price</h3>
 
