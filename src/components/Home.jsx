@@ -6,6 +6,7 @@ import CategoriesMenu from "./CategoriesMenu"
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { changeItems } from "../slices/items/itemsSlice"
+import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs, toggleIsOnSingleItem } from "../slices/sheets/sheetsSlice"
 // import { useNavigate, Link } from "react-router-dom"
 
 
@@ -14,19 +15,23 @@ const Home = () => {
   // const navigate = useNavigate()
 
   //pages --> pass to redux,cause u need this in Home and Navbar
-  const [isOnHome, setIsOnHome] = useState(true)
-  const [isOnOutlet, setIsOnOutlet] = useState(false)
-  const [isCountactUs, setIsCountactUs] = useState(false)
-  const [isOnSingleItem, setIsOnSingleItem] = useState(false) // when true, also dont show carousel. 
+  // const [isOnHome, setIsOnHome] = useState(true)
+  // const [isOnOutlet, setIsOnOutlet] = useState(false)
+  // const [isCountactUs, setIsCountactUs] = useState(false)
+  // const [isOnSingleItem, setIsOnSingleItem] = useState(false) // when true, also dont show carousel. 
   //
 
   const items = useSelector((state) => state.itemsSlice.items);
+  const isOnHome = useSelector((state) => state.sheetsSlice.isOnHome);
+  const isOnOutlet = useSelector((state) => state.sheetsSlice.isOnOutlet);
+  const isOnCountactUs = useSelector((state) => state.sheetsSlice.isOnCountactUs);
+  const isOnSingleItem = useSelector((state) => state.sheetsSlice.isOnSingleItem);
   const dispatch = useDispatch();
 
 
 
   // function to randomize the items to show
-  let randomItems = [{}]
+  let randomItems = []
 
   const randomItemsByLength = () => {
     let randomNumbers = []

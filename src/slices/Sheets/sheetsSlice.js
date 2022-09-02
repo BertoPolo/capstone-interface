@@ -5,7 +5,7 @@ const sheetsSlice = createSlice({
   initialState: {
     isOnHome: true,
     isOnOutlet: false,
-    isCountactUs: false,
+    isOnCountactUs: false,
     isOnSingleItem: false,
   },
   reducers: {
@@ -21,10 +21,10 @@ const sheetsSlice = createSlice({
         isOnOutlet: action.payload,
       }
     },
-    toggleIsCountactUs: (state, action) => {
+    toOnggleIsCountactUs: (state, action) => {
       return {
         ...state,
-        isCountactUs: action.payload,
+        isOnCountactUs: action.payload,
       }
     },
     toggleIsOnSingleItem: (state, action) => {
@@ -37,4 +37,4 @@ const sheetsSlice = createSlice({
 })
 
 export default sheetsSlice.reducer
-export const { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs, toggleIsOnSingleItem } = sheetsSlice.actions
+export const { toggleIsOnHome, toggleIsOnOutlet, toOnggleIsCountactUs, toggleIsOnSingleItem } = sheetsSlice.actions
