@@ -6,7 +6,6 @@ import CategoriesMenu from "./CategoriesMenu"
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { changeItems } from "../slices/items/itemsSlice"
-import { element } from "prop-types"
 // import { useNavigate, Link } from "react-router-dom"
 
 
