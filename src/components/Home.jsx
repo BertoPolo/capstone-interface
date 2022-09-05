@@ -6,7 +6,7 @@ import CategoriesMenu from "./CategoriesMenu"
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { changeItems } from "../slices/items/itemsSlice"
-import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs, toggleIsOnSingleItem } from "../slices/sheets/sheetsSlice"
+// import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs, toggleIsOnSingleItem } from "../slices/sheets/sheetsSlice"
 // import { useNavigate, Link } from "react-router-dom"
 
 
@@ -15,9 +15,6 @@ const Home = () => {
   // const navigate = useNavigate()
 
   //pages --> pass to redux,cause u need this in Home and Navbar
-  // const [isOnHome, setIsOnHome] = useState(true)
-  // const [isOnOutlet, setIsOnOutlet] = useState(false)
-  // const [isCountactUs, setIsCountactUs] = useState(false)
   // const [isOnSingleItem, setIsOnSingleItem] = useState(false) // when true, also dont show carousel. 
   //
 
@@ -38,8 +35,9 @@ const Home = () => {
     for (let i = 0; i < 15; i++) {
       const number = Math.floor(Math.random() * items.length)
       randomNumbers.includes(number) ? randomNumbers.push(Math.floor(Math.random() * items.length)) : randomNumbers.push(number) //maybe should be items.items?
-      randomItems.push(items[[randomNumbers[i]]])
+      randomItems.push(items[randomNumbers[i]])
     }
+    // console.log(randomNumbers)
     // console.log(randomItems)
 
     return randomItems
@@ -140,9 +138,11 @@ const Home = () => {
 
                 {/* it dont works because the array is empty?, its not. */}
                 {randomItems.map((element) => {
-                  <Col>
-                    <HomeItem key={element._id} currentItem={element} />
-                  </Col>
+                  return (
+                    <Col>
+                      <HomeItem key={element._id} currentItem={element} />
+                    </Col>
+                  )
                 })}
 
 
