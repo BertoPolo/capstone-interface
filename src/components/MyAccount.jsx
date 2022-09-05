@@ -1,16 +1,18 @@
 import { Button, Form } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
+import { useSelector, useDispatch } from "react-redux"
 import MyNavbar from "./MyNavbar"
 
 const MyAccount = () => {
   const navigate = useNavigate("")
+
   const [nameInput, setNameInput] = useState("")
   const [adressInput, setAdressInput] = useState("")
   const [passwordInput, setPasswordInput] = useState("")
   const [passwordAgainInput, setPasswordAgainInput] = useState("")
 
-  const [isAdmin, setIsAdmin] = useState(false)//redux -----------
+  const isAdmin = useSelector((state) => state.usersSlice.isAdmin);
 
   const handleSubmit = (e) => {
     e.preventDefault()
