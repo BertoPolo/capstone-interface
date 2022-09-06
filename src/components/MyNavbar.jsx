@@ -21,9 +21,9 @@ const MyNavbar = () => {
         <Navbar.Toggle />
         <Navbar.Collapse>
           <Nav className="mr-auto">
-            <Nav.Link href="/contact">Contact Us</Nav.Link>
             <Nav.Link href="/outlet">Outlet</Nav.Link>
-            <Nav.Link href="/news">News</Nav.Link>
+            <Nav.Link href="/contact">Contact Us</Nav.Link>
+            {/* <Nav.Link href="/news">News</Nav.Link> */}
           </Nav>
           <Nav className="ml-auto mr-4">
 

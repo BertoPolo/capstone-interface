@@ -70,7 +70,7 @@ const Home = () => {
   }
 
   useEffect(() => {
-    getItems()
+    getItems()  //should fetch less items  not everything -- $sample...and dont use random function
     // randomItems && randomItemsByLength()
   }, [])
 
