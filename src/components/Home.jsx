@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { useState, useEffect } from "react"
 // import { useNavigate, Link } from "react-router-dom"
 import { changeItems } from "../slices/items/itemsSlice"
-// import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs, toggleIsOnSingleItem } from "../slices/sheets/sheetsSlice"
+import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs, toggleIsOnSingleItem } from "../slices/sheets/sheetsSlice"
 import MyNavbar from "./MyNavbar"
 import Footer from "./Footer"
 import HomeItem from "./HomeItem"
@@ -136,7 +136,7 @@ const Home = () => {
                 {randomItems.map((element) => {
                   return (
                     <Col>
-                      <HomeItem key={element._id} currentItem={element} />
+                      <HomeItem key={element._id} currentItem={element} onClick={() => dispatch(toggleIsOnHome(false), toggleIsOnSingleItem(true))} />
                     </Col>
                   )
                 })}
@@ -149,7 +149,8 @@ const Home = () => {
               {isOnCountactUs && <ContactUs />}
 
               {/* Single Item */}
-              {isOnSingleItem && <SingleItem />}
+              {isOnSingleItem && <SingleItem currentItem />}
+              {/* ={e.target.value} */}
 
             </Col>
             <Footer />
