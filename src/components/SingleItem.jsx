@@ -1,7 +1,7 @@
 import { Button } from "react-bootstrap"
 
 const SingleItem = (item) => {
-
+  // should be called currentItem ??
 
   return (
     <>

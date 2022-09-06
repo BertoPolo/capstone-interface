@@ -42,7 +42,7 @@ const Home = () => {
       randomItems.push(items[randomNumbers[i]])
     }
     // console.log(randomNumbers)
-    // console.log(randomItems)
+    console.log(randomItems)
 
     return randomItems
   }
@@ -60,7 +60,7 @@ const Home = () => {
       );
       let data = await response.json();
       dispatch(changeItems(data));
-      console.log(data)
+      // console.log(data)
     } catch (error) {
       console.log(error)
     }
@@ -68,8 +68,14 @@ const Home = () => {
 
   useEffect(() => {
     getItems()
-    randomItemsByLength();
+
   }, [])
+  // if use randomItems = loop
+
+  useEffect(() => {
+    randomItemsByLength();
+  }, [randomItems])
+
 
   return (
     <>
@@ -140,7 +146,6 @@ const Home = () => {
               <Row>
                 {/* map 15 random items  randomItemsByLength */}
 
-                {/* it dont works because the array is empty?, its not. */}
                 {randomItems.map((element) => {
                   return (
                     <Col>
@@ -148,8 +153,6 @@ const Home = () => {
                     </Col>
                   )
                 })}
-
-
               </Row>
             </Col>
             <Footer />
