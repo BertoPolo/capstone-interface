@@ -1,13 +1,16 @@
 import { Container, Carousel, Col, Row, Dropdown, Form, Button, FormControl } from "react-bootstrap"
+import { useSelector, useDispatch } from "react-redux"
+import { useState, useEffect } from "react"
+// import { useNavigate, Link } from "react-router-dom"
+import { changeItems } from "../slices/items/itemsSlice"
+// import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs, toggleIsOnSingleItem } from "../slices/sheets/sheetsSlice"
 import MyNavbar from "./MyNavbar"
 import Footer from "./Footer"
 import HomeItem from "./HomeItem"
+import Outlet from "./Outlet"
+import ContactUs from "./ContactUs"
+import SingleItem from "./SingleItem"
 import CategoriesMenu from "./CategoriesMenu"
-import { useState, useEffect } from "react"
-import { useSelector, useDispatch } from "react-redux"
-import { changeItems } from "../slices/items/itemsSlice"
-// import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs, toggleIsOnSingleItem } from "../slices/sheets/sheetsSlice"
-// import { useNavigate, Link } from "react-router-dom"
 
 
 
@@ -68,9 +71,8 @@ const Home = () => {
 
   useEffect(() => {
     getItems()
-
+    // randomItems && randomItemsByLength()
   }, [])
-  // if use randomItems = loop
 
   useEffect(() => {
     randomItemsByLength();
@@ -118,34 +120,19 @@ const Home = () => {
           </Button>
         </Form>
       </Container>
-      {/*  */}
+
 
       <Container className="mt-5">
         <Row>
           <Col xs={2}>
-            <h4>CATEGORIES</h4>
             <CategoriesMenu />
-
-            <hr />
-            <h4>BRANDS</h4>
-
-            <Dropdown>
-              <Dropdown.Toggle variant="warning">Dropdown Button</Dropdown.Toggle>
-
-              <Dropdown.Menu>
-                {/* map every brand item */}
-                <Dropdown.Item href="#/action-1">Brand 1</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Brand 2</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Brand 3</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
           </Col>
 
           <Col xs={10} className="">
             <Col>
-              <Row>
-                {/* map 15 random items  randomItemsByLength */}
 
+              {/* HOME */}
+              {isOnHome && <Row>
                 {randomItems.map((element) => {
                   return (
                     <Col>
@@ -153,7 +140,17 @@ const Home = () => {
                     </Col>
                   )
                 })}
-              </Row>
+              </Row>}
+
+              {/* OUTLET */}
+              {isOnOutlet && <Outlet />}
+
+              {/* CONTACT US */}
+              {isOnCountactUs && <ContactUs />}
+
+              {/* Single Item */}
+              {isOnSingleItem && <SingleItem />}
+
             </Col>
             <Footer />
           </Col>
