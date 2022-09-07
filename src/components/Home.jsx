@@ -70,7 +70,7 @@ const Home = () => {
   }
 
   useEffect(() => {
-    getItems()  //should fetch less items  not everything -- $sample...and dont use random function
+    getItems()  //should fetch less items not everything -- $sample...and dont use random function--> create a new endpoint
     // randomItems && randomItemsByLength()
   }, [])
 
