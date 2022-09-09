@@ -6,9 +6,8 @@ import Login from "./components/Login"
 import Home from "./components/Home"
 import CreateUser from "./components/CreateUser"
 import NotFound from "./components/NotFound"
-// import Outlet from "./components/Outlet"
-// import SingleItem from "./components/SingleItem"
 import ContactUs from "./components/ContactUs"
+import BackOffice from "./components/BackOffice"
 
 //using Redux just for demo purposes
 import { Provider } from "react-redux"
@@ -30,6 +29,7 @@ function App() {
             <Route path="/outlet" element={<Home />} />
             <Route path="/item" element={<Home />} />
             <Route path="/contact" element={<ContactUs />} />
+            <Route path="/backOffice" element={<BackOffice />} />
           </Routes>
         </BrowserRouter>
       </Provider>

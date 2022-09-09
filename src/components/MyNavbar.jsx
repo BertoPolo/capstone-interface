@@ -9,9 +9,11 @@ const MyNavbar = () => {
   //   window.location.href = "/login";
   //   localStorage.removeItem("token");
   // };
-  const [show, setShow] = useState(false)
   const isAdmin = useSelector((state) => state.usersSlice.isAdmin);
 
+  const [show, setShow] = useState(false)
+
+  const dispatch = useDispatch();
 
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
@@ -31,13 +33,16 @@ const MyNavbar = () => {
           <Nav className="ml-auto mr-4">
 
             {isAdmin ?
-              <Nav.Link href="/backoffice">BackOffice</Nav.Link>
+              <Nav.Link href="/backOffice">BackOffice</Nav.Link>
               :
-              <Nav.Link href="" onClick={handleShow}>
-                <i className="bi bi-cart"></i>Cart(number)
-              </Nav.Link>}
+              <div>
+                <Nav.Link href="" onClick={handleShow}>
+                  <i className="bi bi-cart"></i>Cart(number)
+                </Nav.Link>
 
-            <Nav.Link href="/myAccount">My Account</Nav.Link>
+                <Nav.Link href="/myAccount">My Account</Nav.Link>
+              </div>
+            }
             <Nav.Link href="/">
               {/* onClick={() => setLogin(false), handleLogOut()} */}
               Log Out
