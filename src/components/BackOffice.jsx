@@ -16,19 +16,20 @@ const BackOffice = () => {
     return (
         <>
             <MyNavbar />
-            <Form className="login-container" onSubmit={(e) => handleSubmit(e)}>
-                <h4 className="mb-3">Modify your data</h4>
-
+            <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => handleSubmit(e)}>
+                <h4 className="mb-3">Search an User</h4>
 
 
                 <Form.Group>
-                    {/* <Form.Control type="text" placeholder="User name" value={nameInput} onChange={(e) => setNameInput(e.target.value)} /> */}
+                    <Form.Control type="text" placeholder="User name" />
+
                 </Form.Group>
 
 
                 <Button type="submit" disabled > Submit </Button>
                 <Button variant="danger" onClick={() => navigate("/home")}>Back</Button>
             </Form>
+            <h4 className="login-container">Results</h4>
         </>
     )
 }
