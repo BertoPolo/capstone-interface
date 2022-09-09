@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const sheetsSlice = createSlice({
-  name: "sheetsSlice",
+  name: "sheets",
   initialState: {
     isOnHome: true,
     isOnOutlet: false,

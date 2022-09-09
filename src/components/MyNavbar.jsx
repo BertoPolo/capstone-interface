@@ -1,5 +1,7 @@
 import { Navbar, Nav, Form, FormControl, Button, Modal } from "react-bootstrap"
 import { useState } from "react"
+import { useSelector, useDispatch } from "react-redux"
+import { changeIsAdmin } from "../slices/users/usersSlice"
 
 // import { Link } from "react-router-dom"
 const MyNavbar = () => {
@@ -8,7 +10,8 @@ const MyNavbar = () => {
   //   localStorage.removeItem("token");
   // };
   const [show, setShow] = useState(false)
-  const [isAdmin, setIsAdmin] = useState(false)  // do it in redux state
+  const isAdmin = useSelector((state) => state.usersSlice.isAdmin);
+
 
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
