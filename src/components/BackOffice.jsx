@@ -13,6 +13,9 @@ const BackOffice = () => {
         e.preventDefault()
         navigate("/home")
     }
+
+    let results
+
     return (
         <>
             <MyNavbar />
@@ -30,6 +33,14 @@ const BackOffice = () => {
                 <Button variant="danger" onClick={() => navigate("/home")}>Back</Button>
             </Form>
             <h4 className="login-container">Results</h4>
+
+            {results && results.map((element) => {
+                return (
+                    <ul>
+                        <li>{element.name}</li>
+                    </ul>)
+            })}
+
         </>
     )
 }
