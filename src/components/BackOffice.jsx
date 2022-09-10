@@ -1,9 +1,12 @@
 import { Form, Button } from "react-bootstrap"
 import MyNavbar from "./MyNavbar"
 import { useNavigate } from "react-router-dom"
+import { useSelector, useDispatch } from "react-redux"
 
 const BackOffice = () => {
     const navigate = useNavigate()
+    const users = useSelector((state) => state.usersSlice.name);
+    const dispatch = useDispatch()
 
     // search user
     // delete user

@@ -3,6 +3,10 @@ import { Button } from "react-bootstrap"
 const SingleItem = (item) => {
   // should be called currentItem ??
 
+  const addToCart = () => {
+
+  }
+
   return (
     <>
       <h2>{item.name}</h2>
@@ -14,7 +18,7 @@ const SingleItem = (item) => {
 
         <label htmlFor="amount">Amount</label>
         <input type="number" name="amount" placeholder="" />
-        <Button><i className="bi bi-cart-fill"></i>Add to cart</Button>
+        <Button><i className="bi bi-cart-fill" onClick={() => addToCart()} ></i>Add to cart</Button>
 
       </div>
 

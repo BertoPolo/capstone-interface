@@ -3,10 +3,17 @@ import { createSlice } from "@reduxjs/toolkit"
 const usersSlice = createSlice({
   name: "users",
   initialState: {
+    name: "",
     isAdmin: true,
     token: "",
   },
   reducers: {
+    changeName: (state, action) => {
+      return {
+        ...state,
+        name: action.payload,
+      }
+    },
     changeToken: (state, action) => {
       return {
         ...state,
@@ -24,4 +31,4 @@ const usersSlice = createSlice({
 })
 
 export default usersSlice.reducer
-export const { changeToken, changeIsAdmin } = usersSlice.actions
+export const { changeName, changeToken, changeIsAdmin } = usersSlice.actions
