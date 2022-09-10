@@ -3,19 +3,28 @@ import MyNavbar from "./MyNavbar"
 import { useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 
+import { changeName, changeAdress } from "../slices/sheets/sheetsSlice"
+
 const BackOffice = () => {
     const navigate = useNavigate()
-    const users = useSelector((state) => state.usersSlice.name);
+    const usersName = useSelector((state) => state.usersSlice.name);
+    const usersAdress = useSelector((state) => state.usersSlice.adress);
     const dispatch = useDispatch()
 
     // search user
-    // delete user
+    // delete user => from DB and redux
+    // edit user => from DB and redux
     //see user's details
 
     const handleSubmit = (e) => {
         e.preventDefault()
         navigate("/home")
     }
+
+
+
+    //create a fetch function tofetch and  fill "results" with DB results
+
 
     let results
 
@@ -39,9 +48,13 @@ const BackOffice = () => {
 
             {results && results.map((element) => {
                 return (
-                    <ul>
-                        <li>{element.name}</li>
-                    </ul>)
+                    <div>
+                        <p>{element.name}</p>
+                        <p>{element.adress}</p>
+                        {/* <Button variant="primary" onClick={dispatch(()}>Edit</Button><Button variant="danger" onClick={dispatch(())}>Delete</Button> */}
+                        <hr />
+                    </div>
+                )
             })}
 
         </>
