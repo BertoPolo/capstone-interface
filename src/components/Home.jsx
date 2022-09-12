@@ -67,7 +67,6 @@ const Home = () => {
 
   useEffect(() => {
     getItems()  //should fetch less items not everything -- $sample...and dont use random function--> create a new endpoint
-    // randomItems && randomItemsByLength()
   }, [])
 
   useEffect(() => {
@@ -128,15 +127,17 @@ const Home = () => {
             <Col>
 
               {/* HOME */}
-              {isOnHome && <Row>
-                {randomItems.map((element) => {
-                  return (
-                    <Col>
-                      <HomeItem key={element._id} currentItem={element} onClick={() => dispatch(toggleIsOnHome(false), toggleIsOnSingleItem(true))} />
-                    </Col>
-                  )
-                })}
-              </Row>}
+              {/* {isOnHome && <Row> */}
+              {console.log(randomItems)}
+              {randomItems.map((element) => {
+                console.log(element)
+                return (
+                  <Col>
+                    <HomeItem key={element._id} currentItem={element} onClick={() => dispatch(toggleIsOnHome(false), toggleIsOnSingleItem(true))} />
+                  </Col>
+                )
+              })}
+              {/* </Row>} */}
 
               {/* OUTLET */}
               {isOnOutlet && <Outlet />}
