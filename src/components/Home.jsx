@@ -20,18 +20,14 @@ const Home = () => {
   //pages --> pass to redux,cause u need this in Home and Navbar
   // const [isOnSingleItem, setIsOnSingleItem] = useState(false) // when true, also dont show carousel. 
   //
-
   const items = useSelector((state) => state.itemsSlice.items);
+  const { isOnHome, isOnOutlet, isOnCountactUs, isOnSingleItem } = useSelector(state => state.sheetsSlice)
   // const isOnHome = useSelector((state) => state.sheetsSlice.isOnHome);
   // const isOnOutlet = useSelector((state) => state.sheetsSlice.isOnOutlet);
   // const isOnCountactUs = useSelector((state) => state.sheetsSlice.isOnCountactUs);
   // const isOnSingleItem = useSelector((state) => state.sheetsSlice.isOnSingleItem);
 
-  const { isOnHome, isOnOutlet, isOnCountactUs, isOnSingleItem } = useSelector(state => state.sheetsSlice)
-
-
   const dispatch = useDispatch();
-
 
 
   // function to randomize the items to show
