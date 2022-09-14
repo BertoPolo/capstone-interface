@@ -29,23 +29,6 @@ const Home = () => {
 
   const dispatch = useDispatch();
 
-
-  // function to randomize the items to show
-  let randomItems = []
-
-  const randomItemsByLength = () => {
-    let randomNumbers = []
-    for (let i = 0; i < 15; i++) {
-      const number = Math.floor(Math.random() * items.length)
-      randomNumbers.includes(number) ? randomNumbers.push(Math.floor(Math.random() * items.length)) : randomNumbers.push(number) //maybe should be items.items?
-      randomItems.push(items[randomNumbers[i]])
-    }
-    // console.log(randomNumbers)
-    console.log(randomItems)
-
-    return randomItems
-  }
-
   const getItems = async () => {
     try {
       const response = await fetch(
@@ -66,12 +49,8 @@ const Home = () => {
   }
 
   useEffect(() => {
-    getItems()  //should fetch less items not everything -- $sample...and dont use random function--> create a new endpoint
+    getItems()
   }, [])
-
-  useEffect(() => {
-    randomItemsByLength();
-  }, [randomItems])
 
 
   return (
@@ -127,17 +106,16 @@ const Home = () => {
             <Col>
 
               {/* HOME */}
-              {/* {isOnHome && <Row> */}
-              {console.log(randomItems)}
-              {randomItems.map((element) => {
-                console.log(element)
-                return (
-                  <Col>
-                    <HomeItem key={element._id} currentItem={element} onClick={() => dispatch(toggleIsOnHome(false), toggleIsOnSingleItem(true))} />
-                  </Col>
-                )
-              })}
-              {/* </Row>} */}
+              {isOnHome && <Row>
+
+                {items.map((element) => {
+                  return (
+                    <Col>
+                      <HomeItem key={element._id} currentItem={element} onClick={() => dispatch(toggleIsOnHome(false), toggleIsOnSingleItem(true))} />
+                    </Col>
+                  )
+                })}
+              </Row>}
 
               {/* OUTLET */}
               {isOnOutlet && <Outlet />}

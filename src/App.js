@@ -26,8 +26,8 @@ function App() {
             <Route path="/newUser" element={<CreateUser />} />
             <Route path="/myAccount" element={<MyAccount />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/outlet" element={<Home />} />
-            <Route path="/item" element={<Home />} />
+            {/* <Route path="/outlet" element={<Home />} /> */}
+            {/* <Route path="/item" element={<Home />} /> */}
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/backOffice" element={<BackOffice />} />
           </Routes>
