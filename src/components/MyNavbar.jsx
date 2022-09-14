@@ -1,7 +1,8 @@
 import { Navbar, Nav, Button, Modal } from "react-bootstrap"
 import { useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { changeIsAdmin } from "../slices/users/usersSlice"
+import { addToCart } from "../slices/cart/cartSlice"
+
 
 // import { Link } from "react-router-dom"
 const MyNavbar = () => {
@@ -10,6 +11,9 @@ const MyNavbar = () => {
   //   localStorage.removeItem("token");
   // };
   const isAdmin = useSelector((state) => state.usersSlice.isAdmin);
+
+  const cart = useSelector((state) => state.cartSlice.cart);
+  const items = useSelector((state) => state.itemsSlice.items); // just to try.then delete it
 
   const [show, setShow] = useState(false)
 
@@ -53,11 +57,17 @@ const MyNavbar = () => {
         </Navbar.Collapse>
       </Navbar>
 
+
+      {/* separate this into other component */}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Cart</Modal.Title>
+          <Modal.Title>CART</Modal.Title>
+          {items.map((element) => { //change  items for cart
+            return (
+              <Modal.Body key={element._id}>{element.title}</Modal.Body>
+            )
+          })}
         </Modal.Header>
-        <Modal.Body>Items</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close

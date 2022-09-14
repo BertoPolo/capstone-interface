@@ -109,11 +109,10 @@ const Home = () => {
               {isOnHome && <Row>
 
                 {items.map((element) => {
-                  console.log(element)
+                  // console.log(element)
                   return (
-                    <Col>
-                      <HomeItem key={element._id} currentItem={element} onClick={() => dispatch(toggleIsOnHome(false), toggleIsOnSingleItem(true))} />
-
+                    <Col key={element._id}>
+                      <HomeItem currentItem={element} onClick={() => dispatch(toggleIsOnHome(false), toggleIsOnSingleItem(true))} />
                     </Col>
                   )
                 })}
