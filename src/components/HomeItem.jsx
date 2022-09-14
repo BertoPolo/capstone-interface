@@ -12,7 +12,7 @@ const HomeItem = (currentItem) => {
   const dispatch = useDispatch();
 
 
-  // console.log(currentItem)
+  console.log(currentItem.image)
 
 
   return (
