@@ -1,4 +1,4 @@
-import { Navbar, Nav, Button, Modal } from "react-bootstrap"
+import { Navbar, Nav, Button, Modal, Container, Row, Col } from "react-bootstrap"
 import { useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { addToCart } from "../slices/cart/cartSlice"
@@ -62,12 +62,14 @@ const MyNavbar = () => {
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>CART</Modal.Title>
-          {items.map((element) => { //change  items for cart
-            return (
-              <Modal.Body key={element._id}>{element.title}</Modal.Body>
-            )
-          })}
         </Modal.Header>
+
+        <Modal.Body>
+          {items.map((element) => { //change  items for cart
+            return <p key={element._id} >{element.title}</p>
+
+          })}
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
