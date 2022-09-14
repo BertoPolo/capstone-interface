@@ -66,8 +66,13 @@ const MyNavbar = () => {
 
         <Modal.Body>
           {items.map((element) => { //change  items for cart
-            return <p key={element._id} >{element.title}</p>
-
+            return (
+              <div className="">
+                <span key={element._id} >{element.title} </span>
+                <i className="bi bi-pencil pointer"></i>
+                <i className="bi bi-trash3 pointer"></i>
+              </div>
+            )
           })}
         </Modal.Body>
         <Modal.Footer>
