@@ -5,7 +5,7 @@ import { addToCart } from "../slices/cart/cartSlice"
 
 
 
-const HomeItem = (currentItem) => {
+const HomeItem = ({ currentItem }) => {
   const navigate = useNavigate()
 
   const cart = useSelector((state) => state.cartSlice.cart);

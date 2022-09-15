@@ -2,7 +2,7 @@ import { Button } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
 import { addToCart } from "../slices/cart/cartSlice"
 
-const SingleItem = (currentItem) => {
+const SingleItem = ({ currentItem }) => {
 
   const cart = useSelector((state) => state.cartSlice.cart);
   const dispatch = useDispatch();
