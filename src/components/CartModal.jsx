@@ -6,7 +6,6 @@ const CartModal = (handleClose, show) => {
     // const cart = useSelector((state) => state.cartSlice.cart);
     const items = useSelector((state) => state.itemsSlice.items); // just to try.then delete it
 
-    console.log(show)
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>

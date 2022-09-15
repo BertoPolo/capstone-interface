@@ -11,7 +11,7 @@ const MyNavbar = () => {
   //   localStorage.removeItem("token");
   // };
   const isAdmin = useSelector((state) => state.usersSlice.isAdmin);
-
+  const cart = useSelector((state) => state.cartSlice.cart);
   const [show, setShow] = useState(false)
 
   const handleClose = () => setShow(false)
@@ -34,13 +34,12 @@ const MyNavbar = () => {
             {isAdmin ?
               <Nav.Link href="/backOffice">BackOffice</Nav.Link>
               :
-              <div>
+              <>
                 <Nav.Link href="" onClick={handleShow}>
-                  <i className="bi bi-cart"></i>Cart(number)
+                  <i className="bi bi-cart"></i>Cart({cart.length})
                 </Nav.Link>
-
                 <Nav.Link href="/myAccount">My Account</Nav.Link>
-              </div>
+              </>
             }
             <Nav.Link href="/">
               {/* onClick={() => setLogin(false), handleLogOut()} */}

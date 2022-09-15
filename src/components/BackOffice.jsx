@@ -3,7 +3,7 @@ import MyNavbar from "./MyNavbar"
 import { useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 
-import { changeName, changeAdress } from "../slices/sheets/sheetsSlice"
+import { changeName, changeAdress } from "../slices/users/usersSlice"
 
 const BackOffice = () => {
     const navigate = useNavigate()
@@ -23,7 +23,7 @@ const BackOffice = () => {
 
 
 
-    //create a fetch function tofetch and  fill "results" with DB results
+    //create fetch function tofetch and  fill "results" with DB results
 
 
     let results
@@ -31,6 +31,8 @@ const BackOffice = () => {
     return (
         <>
             <MyNavbar />
+
+            {/* search user */}
             <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => handleSubmit(e)}>
                 <h4 className="mb-3">Search an User</h4>
 
@@ -44,6 +46,7 @@ const BackOffice = () => {
                 <Button type="submit" disabled > Submit </Button>
                 <Button variant="danger" onClick={() => navigate("/home")}>Back</Button>
             </Form>
+
             <h4 className="login-container">Results</h4>
 
             {results && results.map((element) => {
@@ -57,6 +60,56 @@ const BackOffice = () => {
                 )
             })}
 
+
+            {/* search item */}
+            <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => handleSubmit(e)}>
+                <h4 className="mb-3">Search an Article</h4>
+
+
+                <Form.Group>
+                    <Form.Control type="text" placeholder="Name" />
+
+                </Form.Group>
+
+
+                <Button type="submit" disabled > Submit </Button>
+                <Button variant="danger" onClick={() => navigate("/home")}>Back</Button>
+            </Form>
+
+            <h4 className="login-container">Results</h4>
+
+            {results && results.map((element) => {
+                return (
+                    <div>
+                        <p>{element.name}</p>
+                        <p>{element.adress}</p>
+                        {/* <Button variant="primary" onClick={dispatch(()}>Edit</Button><Button variant="danger" onClick={dispatch(())}>Delete</Button> */}
+                        <hr />
+                    </div>
+                )
+            })}
+
+            {/* Post new article */}
+            <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => handleSubmit(e)}>
+                <h4 className="mb-3">Add an article</h4>
+
+                <Form.Group>
+
+                    <Form.Control type="text" placeholder="Name" />
+                    <Form.Control type="text" placeholder="Price" />
+                    <Form.Control type="text" placeholder="Main Category" />
+                    <Form.Control type="text" placeholder="Category" />
+                    <Form.Control type="text" placeholder="Brand" />
+                    <Form.Control type="text" placeholder="Short Description" />
+                    <Form.Control type="text" placeholder="Full Description" />
+                    <Form.Check type="checkbox" label="Outlet" />
+                    <Form.File id="exampleFormControlFile1" label="Add An Image" />
+
+                </Form.Group>
+
+                <Button type="submit" disabled > Submit </Button>
+                <Button variant="danger" onClick={() => navigate("/home")}>Back</Button>
+            </Form>
         </>
     )
 }
