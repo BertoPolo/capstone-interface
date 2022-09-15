@@ -1,11 +1,10 @@
-import { Navbar, Nav, Button, Modal, Container, Row, Col } from "react-bootstrap"
+import { Navbar, Nav } from "react-bootstrap"
 import { useState } from "react"
-import { useSelector, useDispatch } from "react-redux"
+import { useSelector } from "react-redux"
 import CartModal from "./CartModal"
-import { addToCart } from "../slices/cart/cartSlice"
-
-
 // import { Link } from "react-router-dom"
+
+
 const MyNavbar = () => {
   // const handleLogOut = () => {
   //   window.location.href = "/login";
@@ -13,12 +12,7 @@ const MyNavbar = () => {
   // };
   const isAdmin = useSelector((state) => state.usersSlice.isAdmin);
 
-  const cart = useSelector((state) => state.cartSlice.cart);
-  const items = useSelector((state) => state.itemsSlice.items); // just to try.then delete it
-
   const [show, setShow] = useState(false)
-
-  const dispatch = useDispatch();
 
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
@@ -57,7 +51,9 @@ const MyNavbar = () => {
 
         </Navbar.Collapse>
       </Navbar>
-      <CartModal />
+
+      {show && <CartModal handleClose={handleClose} show={show} />}
+
     </>
   )
 }
