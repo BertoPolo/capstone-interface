@@ -11,10 +11,6 @@ const HomeItem = ({ currentItem }) => {
   const cart = useSelector((state) => state.cartSlice.cart);
   const dispatch = useDispatch();
 
-
-  console.log(currentItem.image)
-
-
   return (
     <Card style={{ width: "11rem" }} className="item">
       <Card.Img
