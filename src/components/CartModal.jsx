@@ -16,9 +16,10 @@ const CartModal = ({ handleClose, show }) => {
             <Modal.Body>
                 {cart.map((element) => {
                     return (
-                        <div className="">
-                            <span key={element._id} >{element.title} </span>
-                            <i className="bi bi-pencil pointer" onClick></i>
+                        <div className="" key={element._id}>
+                            <span >{element.title} </span>
+                            <i className="bi bi-pencil pointer" onClick></i>{/* this is wrong, have to be + and - */}
+                            {/* display each items quantity */}
                             <i className="bi bi-trash3 pointer" onClick={dispatch(removeFromCart(element))}></i>
                         </div>
                     )
