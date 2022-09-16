@@ -6,7 +6,7 @@ const itemsSlice = createSlice({
     items: [],
   },
   reducers: {
-    changeItems: (state, action) => {
+    addItems: (state, action) => {
       return {
         ...state,
         items: action.payload,
@@ -16,4 +16,4 @@ const itemsSlice = createSlice({
 })
 
 export default itemsSlice.reducer
-export const { changeItems } = itemsSlice.actions
+export const { addItems } = itemsSlice.actions

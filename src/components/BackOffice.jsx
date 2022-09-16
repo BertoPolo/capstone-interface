@@ -23,8 +23,9 @@ const BackOffice = () => {
 
 
 
-    //create fetch function tofetch and  fill "results" with DB results
-
+    // create fetch function tofetch and  fill "results" with DB results
+    // create options for item's results - delete, edit =>name etc,set it as outlet
+    // voucher creator
 
     let results
 

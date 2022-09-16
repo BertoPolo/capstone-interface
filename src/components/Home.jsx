@@ -2,7 +2,7 @@ import { Container, Carousel, Col, Row, Form, Button, FormControl } from "react-
 import { useSelector, useDispatch } from "react-redux"
 import { useState, useEffect } from "react"
 // import { useNavigate, Link } from "react-router-dom"
-import { changeItems } from "../slices/items/itemsSlice"
+import { addItems } from "../slices/items/itemsSlice"
 import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs, toggleIsOnSingleItem } from "../slices/sheets/sheetsSlice"
 import MyNavbar from "./MyNavbar"
 import Footer from "./Footer"
@@ -41,7 +41,7 @@ const Home = () => {
         }
       );
       let data = await response.json();
-      dispatch(changeItems(data));
+      dispatch(addItems(data));
       // console.log(data)
     } catch (error) {
       console.log(error)
