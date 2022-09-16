@@ -1,6 +1,6 @@
 import { Container, Carousel, Col, Row, Form, Button, FormControl } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 // import { useNavigate, Link } from "react-router-dom"
 import { addItems } from "../slices/items/itemsSlice"
 import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs, toggleIsOnSingleItem } from "../slices/sheets/sheetsSlice"

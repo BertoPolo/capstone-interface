@@ -4,8 +4,7 @@ import { removeFromCart } from "../slices/cart/cartSlice";
 
 
 const CartModal = ({ handleClose, show }) => {
-    // const cart = useSelector((state) => state.cartSlice.cart);
-    const items = useSelector((state) => state.itemsSlice.items); // just to try.then delete it
+    const cart = useSelector((state) => state.cartSlice.cart);
     const dispatch = useDispatch();
 
     return (
@@ -15,7 +14,7 @@ const CartModal = ({ handleClose, show }) => {
             </Modal.Header>
 
             <Modal.Body>
-                {items.map((element) => { //change  items for cart
+                {cart.map((element) => {
                     return (
                         <div className="">
                             <span key={element._id} >{element.title} </span>
