@@ -2,7 +2,7 @@ import { Modal, Button } from "react-bootstrap"
 import { useSelector } from "react-redux"
 
 
-const CartModal = (handleClose, show) => {
+const CartModal = ({ handleClose, show }) => {
     // const cart = useSelector((state) => state.cartSlice.cart);
     const items = useSelector((state) => state.itemsSlice.items); // just to try.then delete it
 

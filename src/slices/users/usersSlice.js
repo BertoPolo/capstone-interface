@@ -6,7 +6,7 @@ const usersSlice = createSlice({
     // is UsersSlice right? it's not an object then maybe will only display 1 user ( the last I asked for )
     name: "",
     adress: "",
-    isAdmin: true,
+    isAdmin: false,
     token: "",
   },
   reducers: {
