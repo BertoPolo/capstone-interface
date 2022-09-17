@@ -33,7 +33,7 @@ const Home = () => {
     try {
       const response = await fetch(
         // `${process.env.React_APP_SERVER} || ${process.env.React_APP_LOCAL_SERVER}`,
-        `${process.env.React_APP_LOCAL_SERVER}`,
+        `${process.env.React_APP_LOCAL_SERVER}items`,
         {
           headers: {
             "Content-Type": "application/json",
