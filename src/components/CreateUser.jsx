@@ -27,8 +27,7 @@ const CreateUser = () => {
     };
     try {
       const res = await fetch(
-        // `${process.env.React_APP_SERVER} || ${process.env.React_APP_LOCAL_SERVER}`,
-        `${process.env.React_APP_LOCAL_SERVER}users`,
+        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users`,
         {
           method: "POST",
           headers: {
