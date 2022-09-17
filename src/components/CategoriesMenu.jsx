@@ -1,6 +1,10 @@
 // import Accordion from "react-bootstrap/Accordion"
 import { Accordion, Card, Button, Dropdown } from "react-bootstrap"
 import { Link } from "react-router-dom"
+import { useSelector, useDispatch } from "react-redux"
+import { isElement } from "react-dom/test-utils";
+import { element } from "prop-types";
+
 
 function CategoriesMenu() {
   // <p>Exhausts</p>
@@ -9,6 +13,9 @@ function CategoriesMenu() {
   // <p>Air Filters</p>
   // <p>Tools</p>
   // <p>Books</p>
+
+  const items = useSelector((state) => state.itemsSlice.items);
+
   return (
     <>
       <h4>CATEGORIES</h4>
@@ -136,9 +143,12 @@ function CategoriesMenu() {
 
         <Dropdown.Menu>
           {/* map every brand item */}
-          <Dropdown.Item href="#/action-1">Brand 1</Dropdown.Item>
-          <Dropdown.Item href="#/action-2">Brand 2</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">Brand 3</Dropdown.Item>
+          {/* do a check to do not repeat brands */}
+          {items.map((element) => {
+            return (
+              <Dropdown.Item key={element._id} href="">{element.brand}</Dropdown.Item>
+            )
+          })}
         </Dropdown.Menu>
       </Dropdown>
     </>

@@ -18,6 +18,7 @@ const CreateUser = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+
     let body = {
       name: nameInput,
       userName: userNameInput,
@@ -25,6 +26,7 @@ const CreateUser = () => {
       adress: adressInput,
       password: passwordInput,
     };
+
     try {
       const res = await fetch(
         `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users`,
@@ -38,7 +40,7 @@ const CreateUser = () => {
         }
       );
       if (res.status === 201) {
-        const data = await res.json();
+        // const data = await res.json();
         navigate("/home")
 
       }
