@@ -16,6 +16,11 @@ function CategoriesMenu() {
 
   const items = useSelector((state) => state.itemsSlice.items);
 
+  const filterByBrand = () => {
+
+
+  }
+
   return (
     <>
       <h4>CATEGORIES</h4>
@@ -142,11 +147,11 @@ function CategoriesMenu() {
         <Dropdown.Toggle variant="warning">Dropdown Button</Dropdown.Toggle>
 
         <Dropdown.Menu>
-          {/* map every brand item */}
+          {/* FILTER BY BRAND*/}
           {/* do a check to do not repeat brands */}
           {items.map((element) => {
             return (
-              <Dropdown.Item key={element._id} href="">{element.brand}</Dropdown.Item>
+              <Dropdown.Item key={element._id} href="" onClick={filterByBrand}>{element.brand}</Dropdown.Item>
             )
           })}
         </Dropdown.Menu>
