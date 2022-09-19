@@ -1,7 +1,9 @@
 import { Navbar, Nav } from "react-bootstrap"
 import { useState } from "react"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
+import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs, toggleIsOnSingleItem } from "../slices/sheets/sheetsSlice"
 import CartModal from "./CartModal"
+
 // import { Link } from "react-router-dom"
 
 
@@ -13,6 +15,9 @@ const MyNavbar = () => {
   const isAdmin = useSelector((state) => state.usersSlice.isAdmin);
   const cart = useSelector((state) => state.cartSlice.cart);
   const [show, setShow] = useState(false)
+
+  const dispatch = useDispatch();
+
 
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
@@ -26,7 +31,7 @@ const MyNavbar = () => {
         <Navbar.Collapse>
           <Nav className="mr-auto">
             <Nav.Link href="/outlet">Outlet</Nav.Link>
-            <Nav.Link href="/contact">Contact Us</Nav.Link>
+            <Nav.Link href="/home" onClick={() => dispatch(toggleIsOnHome(false), toggleIsCountactUs(true))}>Contact Us</Nav.Link>
             {/* <Nav.Link href="/news">News</Nav.Link> */}
           </Nav>
           <Nav className="ml-auto mr-4">

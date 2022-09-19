@@ -21,7 +21,7 @@ const sheetsSlice = createSlice({
         isOnOutlet: action.payload,
       }
     },
-    toOnggleIsCountactUs: (state, action) => {
+    toggleIsCountactUs: (state, action) => {
       return {
         ...state,
         isOnCountactUs: action.payload,
@@ -37,4 +37,4 @@ const sheetsSlice = createSlice({
 })
 
 export default sheetsSlice.reducer
-export const { toggleIsOnHome, toggleIsOnOutlet, toOnggleIsCountactUs, toggleIsOnSingleItem } = sheetsSlice.actions
+export const { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs, toggleIsOnSingleItem } = sheetsSlice.actions

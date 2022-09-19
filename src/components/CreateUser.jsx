@@ -42,12 +42,11 @@ const CreateUser = () => {
       if (res.status === 201) {
         // const data = await res.json();
         navigate("/home")
-
       }
+
     } catch (error) {
       console.log(error)
     }
-
   }
 
 
@@ -64,6 +63,7 @@ const CreateUser = () => {
         <Form.Control type="password" placeholder="Password" onChange={(e) => setPasswordInput(e.target.value)} />
       </Form.Group>
 
+      {/* improvements */}
       {/* <Form.Group>
         <Form.Control type="text" placeholder="Bike's brand and model" onChange={(e) => setBikeInput(e.target.value)} />
       </Form.Group> */}

@@ -3,7 +3,6 @@ import { createSlice } from "@reduxjs/toolkit"
 const usersSlice = createSlice({
   name: "users",
   initialState: {
-    // is UsersSlice right? it's not an object then maybe will only display 1 user ( the last I asked for )
     //no need delete action, just re-fetching from database it's enough
     name: "",
     adress: "",

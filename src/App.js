@@ -28,7 +28,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/outlet" element={<Home />} />
             <Route path="/item" element={<Home />} />
-            <Route path="/contact" element={<ContactUs />} />
+            {/* <Route path="/contact" element={<Home />} /> */}
             <Route path="/backOffice" element={<BackOffice />} />
           </Routes>
         </BrowserRouter>
