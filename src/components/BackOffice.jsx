@@ -33,8 +33,8 @@ const BackOffice = () => {
         <>
             <MyNavbar />
 
-            {/* search user */}
-            <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => handleSubmit(e)}>
+            {/* Search user */}
+            <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => handleSubmit(e)}> {/* check onSubmit if its calling the right function */}
                 <h4 className="mb-3">Search an user</h4>
 
 
@@ -45,7 +45,6 @@ const BackOffice = () => {
 
 
                 <Button type="submit" disabled > Submit </Button>
-                <Button variant="danger" onClick={() => navigate("/home")}>Back</Button>
             </Form>
 
             <h4 className="">Results</h4>
@@ -62,8 +61,8 @@ const BackOffice = () => {
             })}
 
 
-            {/* search item */}
-            <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => handleSubmit(e)}>
+            {/* Search item */}
+            <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => handleSubmit(e)}> {/* check onSubmit if its calling the right function */}
                 <h4 className="mb-3">Search an article</h4>
 
 
@@ -74,7 +73,6 @@ const BackOffice = () => {
 
 
                 <Button type="submit" disabled > Submit </Button>
-                <Button variant="danger" onClick={() => navigate("/home")}>Back</Button>
             </Form>
 
             <h4 className="">Results</h4>
@@ -91,7 +89,7 @@ const BackOffice = () => {
             })}
 
             {/* Post new article */}
-            <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => handleSubmit(e)}>
+            <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => handleSubmit(e)}> {/* check onSubmit */}
                 <h4 className="mb-3">Add a new article</h4>
 
                 <Form.Group>
@@ -109,8 +107,23 @@ const BackOffice = () => {
                 </Form.Group>
 
                 <Button type="submit" disabled > Submit </Button>
-                <Button variant="danger" onClick={() => navigate("/home")}>Back</Button>
             </Form>
+
+
+            {/* Voucher creator */}
+            <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => handleSubmit(e)}> {/* check onSubmit */}
+                <h4 className="mb-3">Voucher creator</h4>
+
+                <Form.Group>
+                    <Form.Control type="text" placeholder="Voucher's name" />
+                    <Form.Control type="text" placeholder="% discount" />
+                </Form.Group>
+
+                <Button type="submit" disabled > Submit </Button>
+            </Form>
+
+            <Button variant="danger" onClick={() => navigate("/home")}>Back</Button>
+
         </>
     )
 }
