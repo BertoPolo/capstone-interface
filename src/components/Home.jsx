@@ -123,7 +123,7 @@ const Home = () => {
               {isOnCountactUs && <ContactUs />}
 
               {/* Single Item */}
-              {isOnSingleItem && <SingleItem currentItem />}
+              {isOnSingleItem && <SingleItem />}
               {/* ={e.target.value} */}
 
             </Col>

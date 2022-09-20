@@ -19,10 +19,10 @@ const HomeItem = ({ currentItem }) => {
         src={currentItem.image}
         alt={currentItem.title}
         className="pointer"
-        onClick={() => navigate("/item")}
+      // onClick={() => navigate("/item")}
       />
       <Card.Body>
-        <Card.Title className="pointer" onClick={() => navigate("/:currentItem._id")}>
+        <Card.Title className="pointer"> {/* onClick={() => navigate("/:currentItem._id")} */}
           {currentItem.title}
         </Card.Title>
         <Card.Text>{currentItem.description}</Card.Text>

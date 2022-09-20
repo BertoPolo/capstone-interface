@@ -6,10 +6,10 @@ const SingleItem = ({ currentItem }) => {
 
   const cart = useSelector((state) => state.cartSlice.cart);
   const dispatch = useDispatch();
-
+  // console.log(currentItem)
   return (
     <>
-      <h2>{currentItem.name}</h2>
+      <h2>{currentItem.title}</h2>
       <img src={currentItem.image} alt={currentItem.title} />
       <p>{currentItem.fulldescription}</p>
       <h3>{currentItem.price}</h3>

@@ -21,6 +21,12 @@ const MyNavbar = () => {
 
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
+
+  const homeToContactUs = () => {
+    dispatch(toggleIsOnHome(false))
+    dispatch(toggleIsCountactUs(true))
+  }
+
   return (
     <>
       <Navbar bg="light" expand="lg">
@@ -31,7 +37,7 @@ const MyNavbar = () => {
         <Navbar.Collapse>
           <Nav className="mr-auto">
             <Nav.Link href="/outlet">Outlet</Nav.Link>
-            <Nav.Link href="/home" onClick={() => dispatch(toggleIsOnHome(false), toggleIsCountactUs(true))}>Contact Us</Nav.Link>
+            <Nav.Link href="" onClick={() => homeToContactUs()}>Contact Us</Nav.Link>
             {/* <Nav.Link href="/news">News</Nav.Link> */}
           </Nav>
           <Nav className="ml-auto mr-4">
