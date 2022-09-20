@@ -76,8 +76,8 @@ const Home = () => {
               <img className="d-block m-auto carouselImg" src="../../../ask us.jpg" alt="Third slide" />
 
               <Carousel.Caption>
-                <h3>Ask us whenever You want</h3>
-                <p>lalala</p>
+                <h3>Send us a message!</h3>
+                <p>8.00 to 13.00 / 15.30 to 20.00 Mon-Fri</p>
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>

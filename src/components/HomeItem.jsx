@@ -9,6 +9,8 @@ const HomeItem = ({ currentItem }) => {
   const navigate = useNavigate()
 
   const cart = useSelector((state) => state.cartSlice.cart);
+  const isOnOutlet = useSelector(state => state.sheetsSlice.isOnOutlet)
+
   const dispatch = useDispatch();
 
   return (
@@ -26,7 +28,10 @@ const HomeItem = ({ currentItem }) => {
           {currentItem.title}
         </Card.Title>
         <Card.Text>{currentItem.description}</Card.Text>
+
+        {/* {isOnOutlet ? <Card.Title className="d-inline ">{currentItem.outletPrice} Outlet!</Card.Title>} : <Card.Title className="d-inline ">{currentItem.price}</Card.Title> */}
         <Card.Title className="d-inline ">{currentItem.price}</Card.Title>
+
         <Button variant="primary" onClick={() => dispatch(addToCart(currentItem))}>Add to cart</Button>
       </Card.Body>
     </Card>

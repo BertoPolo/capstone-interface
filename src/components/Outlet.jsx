@@ -1,14 +1,19 @@
 import { Col, Row } from "react-bootstrap"
-import SingleItem from "./SingleItem"
 import { useNavigate } from "react-router-dom"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
+import HomeItem from "./HomeItem"
+
 
 // import Footer from "./Footer"
 // import CategoriesMenu from "./CategoriesMenu"
 
 const Outlet = () => {
   // const navigate = useNavigate()
-  // const items = useSelector((state) => state.itemsSlice.items);
+  const items = useSelector((state) => state.itemsSlice.items);
+  const isOnOutlet = useSelector(state => state.sheetsSlice.isOnOutlet)
+
+  const dispatch = useDispatch();
+
 
   return (
     <>
@@ -17,9 +22,14 @@ const Outlet = () => {
         <Col>
           <Row>
             {/* map items. filter by Outlet*/}
-            <Col>
-              <SingleItem />
-            </Col>
+            { }
+            {items.filter((item) => item.isOutlet === true).map((element) => {
+              return (
+                <Col key={element._id}>
+                  <HomeItem currentItem={element} newPrice={element.outletPrice} />
+                </Col>
+              )
+            })}
           </Row>
         </Col>
       </Col>

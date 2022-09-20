@@ -12,6 +12,7 @@ const SingleItem = ({ currentItem }) => {
       <h2>{currentItem.title}</h2>
       <img src={currentItem.image} alt={currentItem.title} />
       <p>{currentItem.fulldescription}</p>
+      {/* {isOnOutlet ? <h3>{currentItem.outletPrice}</h3> : <h3>{currentItem.price}</h3> */}
       <h3>{currentItem.price}</h3>
 
       <div>
