@@ -35,7 +35,7 @@ const BackOffice = () => {
 
             {/* search user */}
             <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => handleSubmit(e)}>
-                <h4 className="mb-3">Search an User</h4>
+                <h4 className="mb-3">Search an user</h4>
 
 
                 <Form.Group>
@@ -64,7 +64,7 @@ const BackOffice = () => {
 
             {/* search item */}
             <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => handleSubmit(e)}>
-                <h4 className="mb-3">Search an Article</h4>
+                <h4 className="mb-3">Search an article</h4>
 
 
                 <Form.Group>
@@ -92,7 +92,7 @@ const BackOffice = () => {
 
             {/* Post new article */}
             <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => handleSubmit(e)}>
-                <h4 className="mb-3">Add an article</h4>
+                <h4 className="mb-3">Add a new article</h4>
 
                 <Form.Group>
 

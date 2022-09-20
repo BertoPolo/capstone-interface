@@ -18,9 +18,10 @@ const CartModal = ({ handleClose, show }) => {
                     return (
                         <div className="" key={element._id}>
                             <span >{element.title} </span>
-                            <i className="bi bi-pencil pointer" onClick></i>{/* this is wrong, have to be + and - */}
-                            {/* display each item's quantity */}
-                            <i className="bi bi-trash3 pointer" onClick={() => dispatch(removeFromCart(element))}></i>
+                            <i className="bi bi-plus pointer" onClick></i>
+                            <span>quantity</span>
+                            <i className="bi bi-dash-lg pointer" onClick></i>
+                            <i className="bi bi-trash3 pointer ml-3" onClick={() => dispatch(removeFromCart(element))}></i>
                         </div>
                     )
                 })}
