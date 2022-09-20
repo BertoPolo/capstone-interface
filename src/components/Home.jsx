@@ -59,22 +59,21 @@ const Home = () => {
         {!isOnSingleItem && <div>
           <Carousel className="">
             <Carousel.Item>
-              <img className="d-block m-auto carouselImg" src="../../../IMG_8830.jpg" alt="First slide" />
+              <img className="d-block m-auto carouselImg" src="../../../oilPack.jpg" alt="First slide" />
               <Carousel.Caption>
                 <h3>Oil Pack Offer</h3>
                 <p>lalala</p>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-              <img className="d-block m-auto carouselImg" src="../../../IMG_8879.jpg" alt="Second slide" />
+              <img className="d-block m-auto carouselImg" src="../../../shipping.jpg" alt="Second slide" />
 
               <Carousel.Caption>
-                <h3>Shipping price</h3>
-                <p>lalala</p>
+                <h3>National shipping for just 7€ !!</h3>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-              <img className="d-block m-auto carouselImg" src="../../../IMG_7389.jpg" alt="Third slide" />
+              <img className="d-block m-auto carouselImg" src="../../../ask us.jpg" alt="Third slide" />
 
               <Carousel.Caption>
                 <h3>Ask us whenever You want</h3>

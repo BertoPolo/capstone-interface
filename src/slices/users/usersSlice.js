@@ -6,7 +6,7 @@ const usersSlice = createSlice({
     //no need delete action, just re-fetching from database it's enough
     name: "",
     adress: "",
-    isAdmin: false,
+    isAdmin: true,
     token: "",
   },
   reducers: {

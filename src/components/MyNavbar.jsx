@@ -27,6 +27,12 @@ const MyNavbar = () => {
     dispatch(toggleIsCountactUs(true))
   }
 
+  const homeToOutlet = () => {
+    dispatch(toggleIsOnHome(false))
+    dispatch(toggleIsOnOutlet(true))
+  }
+
+  // do i need a function to set all sheets to false and Home to True?
   return (
     <>
       <Navbar bg="light" expand="lg">
@@ -36,7 +42,7 @@ const MyNavbar = () => {
         <Navbar.Toggle />
         <Navbar.Collapse>
           <Nav className="mr-auto">
-            <Nav.Link href="/outlet">Outlet</Nav.Link>
+            <Nav.Link href="" onClick={() => homeToOutlet()}>Outlet</Nav.Link>
             <Nav.Link href="" onClick={() => homeToContactUs()}>Contact Us</Nav.Link>
             {/* <Nav.Link href="/news">News</Nav.Link> */}
           </Nav>
