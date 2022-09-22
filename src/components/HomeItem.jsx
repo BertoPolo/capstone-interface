@@ -29,7 +29,7 @@ const HomeItem = ({ currentItem }) => {
         </Card.Title>
         <Card.Text>{currentItem.description}</Card.Text>
 
-        {isOnOutlet ? <Card.Title className="d-inline ">{currentItem.outletPrice} Outlet!</Card.Title> : <Card.Title className="d-inline ">{currentItem.price}</Card.Title>}
+        {isOnOutlet ? <Card.Title className="d-inline "><b>{currentItem.outletPrice}</b> <s>{currentItem.price}</s> </Card.Title> : <Card.Title className="d-inline ">{currentItem.price} </Card.Title>}
         {/* <Card.Title className="d-inline ">{currentItem.price}</Card.Title> */}
 
         <Button variant="primary" onClick={() => dispatch(addToCart(currentItem))}>Add to cart</Button>

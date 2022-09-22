@@ -24,7 +24,7 @@ const Outlet = () => {
             {items.filter((item) => item.isOutlet === true).map((element) => {
               return (
                 <Col key={element._id}>
-                  <HomeItem currentItem={element} newPrice={element.outletPrice} />
+                  <HomeItem currentItem={element} />
                 </Col>
               )
             })}

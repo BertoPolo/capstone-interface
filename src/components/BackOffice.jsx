@@ -18,22 +18,22 @@ const BackOffice = () => {
 
     const searchUserSubmit = (e) => {
         e.preventDefault()
-        navigate("/home")
+        setTimeout(navigate("/home"), 1500)
     }
 
     const searchArticleSubmit = (e) => {
         e.preventDefault()
-        navigate("/home")
+        setTimeout(navigate("/home"), 1500)
     }
 
     const addNewArticleSubmit = (e) => {
         e.preventDefault()
-        navigate("/home")
+        setTimeout(navigate("/home"), 1500)
     }
 
     // const voucherCreatorSubmit = (e) => {
     //     e.preventDefault()
-    //     navigate("/home")
+    //     setTimeout(navigate("/home"),1500)
     // }
 
 
