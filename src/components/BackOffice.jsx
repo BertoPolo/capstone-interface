@@ -28,7 +28,7 @@ const BackOffice = () => {
 
     const addNewArticleSubmit = (e) => {
         e.preventDefault()
-        setTimeout(navigate("/home"), 1500)
+
     }
 
     // const voucherCreatorSubmit = (e) => {
