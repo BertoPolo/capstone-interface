@@ -3,9 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import HomeItem from "./HomeItem"
 
-
-// import Footer from "./Footer"
-// import CategoriesMenu from "./CategoriesMenu"
+// add  the option if is not ther any outlet article available
 
 const Outlet = () => {
   // const navigate = useNavigate()
@@ -22,7 +20,7 @@ const Outlet = () => {
         <Col>
           <Row>
             {/* map items. filter by Outlet*/}
-            { }
+
             {items.filter((item) => item.isOutlet === true).map((element) => {
               return (
                 <Col key={element._id}>
@@ -30,6 +28,7 @@ const Outlet = () => {
                 </Col>
               )
             })}
+
           </Row>
         </Col>
       </Col>

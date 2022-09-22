@@ -12,14 +12,29 @@ const BackOffice = () => {
     const dispatch = useDispatch()
 
     // search user
-    // delete user => from DB and redux
-    // edit user => from DB and redux
+    // delete user => from DB ,in redux: re-fetching is enough
+    // edit user => from DB, in redux: re-fetching is enough
     //see user's details
 
-    const handleSubmit = (e) => {
+    const searchUserSubmit = (e) => {
         e.preventDefault()
         navigate("/home")
     }
+
+    const searchArticleSubmit = (e) => {
+        e.preventDefault()
+        navigate("/home")
+    }
+
+    const addNewArticleSubmit = (e) => {
+        e.preventDefault()
+        navigate("/home")
+    }
+
+    // const voucherCreatorSubmit = (e) => {
+    //     e.preventDefault()
+    //     navigate("/home")
+    // }
 
 
 
@@ -34,7 +49,7 @@ const BackOffice = () => {
             <MyNavbar />
 
             {/* Search user */}
-            <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => handleSubmit(e)}> {/* check onSubmit if its calling the right function */}
+            <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => searchUserSubmit(e)}> {/* check onSubmit if its calling the right function */}
                 <h4 className="mb-3">Search an user</h4>
 
 
@@ -62,7 +77,7 @@ const BackOffice = () => {
 
 
             {/* Search item */}
-            <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => handleSubmit(e)}> {/* check onSubmit if its calling the right function */}
+            <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => searchArticleSubmit(e)}> {/* check onSubmit if its calling the right function */}
                 <h4 className="mb-3">Search an article</h4>
 
 
@@ -89,7 +104,7 @@ const BackOffice = () => {
             })}
 
             {/* Post new article */}
-            <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => handleSubmit(e)}> {/* check onSubmit */}
+            <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => addNewArticleSubmit(e)}> {/* check onSubmit */}
                 <h4 className="mb-3">Add a new article</h4>
 
                 <Form.Group>
@@ -111,7 +126,7 @@ const BackOffice = () => {
 
 
             {/* Voucher creator */}
-            <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => handleSubmit(e)}> {/* check onSubmit */}
+            {/* <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => voucherCreatorSubmit(e)}> check onSubmit
                 <h4 className="mb-3">Voucher creator</h4>
 
                 <Form.Group>
@@ -120,9 +135,9 @@ const BackOffice = () => {
                 </Form.Group>
 
                 <Button type="submit" disabled > Submit </Button>
-            </Form>
+            </Form> */}
 
-            <Button variant="danger" onClick={() => navigate("/home")}>Back</Button>
+            <Button Button variant="danger" onClick={() => navigate("/home")}> Back</Button >
 
         </>
     )
