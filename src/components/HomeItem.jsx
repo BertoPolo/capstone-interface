@@ -13,6 +13,17 @@ const HomeItem = ({ currentItem }) => {
 
   const dispatch = useDispatch();
 
+
+  // have to create this "add amount" in redux, because you cant add anything into there like this
+  const checkIfIsAlreadyInCart = () => {
+    if (cart.includes(currentItem)) {
+      currentItem.amount++
+    } else {
+      dispatch(addToCart(currentItem))
+    }
+
+  }
+
   return (
     <Card style={{ width: "11rem" }} className="item">
       <Card.Img
@@ -32,7 +43,7 @@ const HomeItem = ({ currentItem }) => {
         {isOnOutlet ? <Card.Title className="d-inline "> <b>{currentItem.outletPrice}</b> <s>{currentItem.price}</s> </Card.Title> : <Card.Title className="d-inline ">{currentItem.price} </Card.Title>}
         {/* <Card.Title className="d-inline ">{currentItem.price}</Card.Title> */}
 
-        <Button variant="primary" onClick={() => dispatch(addToCart(currentItem))}>Add to cart</Button>
+        <Button variant="primary" onClick={() => checkIfIsAlreadyInCart()}>Add to cart</Button>
       </Card.Body>
     </Card>
   )
