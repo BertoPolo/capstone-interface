@@ -1,4 +1,4 @@
-import { Navbar, Nav } from "react-bootstrap"
+import { Navbar, Nav, Image } from "react-bootstrap"
 import { useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs, toggleIsOnSingleItem } from "../slices/sheets/sheetsSlice"
@@ -32,12 +32,12 @@ const MyNavbar = () => {
     dispatch(toggleIsOnOutlet(true))
   }
 
-  // do i need a function to set all sheets to false and Home to True?
+  // bug about why logo is not working = location, if you move it to a different location then works
   return (
     <>
       <Navbar expand="lg" className="sticky-top navbarBg">
         <Navbar.Brand href="/home">
-          Stuff To Route <img src="../../public/mbIcon.png" alt="" />
+          Stuff To Route <Image src="../../public/mbIcon.png" alt="main logo" />
         </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse>
