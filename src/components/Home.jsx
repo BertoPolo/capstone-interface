@@ -85,7 +85,7 @@ const Home = () => {
 
         {/* search bar */}
         <Form inline className="mt-5 d-flex justify-content-center">
-          <FormControl type="text" placeholder="Write here what you want to search" className="w-25 searchBar" />
+          <FormControl type="text" placeholder="Check if we have it" className="w-25 searchBar" />
           <Button variant="outline-success" className="ml-2">
             <i className="bi bi-search "></i> Search
           </Button>

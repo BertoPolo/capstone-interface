@@ -35,7 +35,7 @@ const MyNavbar = () => {
   // do i need a function to set all sheets to false and Home to True?
   return (
     <>
-      <Navbar bg="light" expand="lg">
+      <Navbar expand="lg" className="sticky-top navbarBg">
         <Navbar.Brand href="/home">
           Stuff To Route <img src="../../public/mbIcon.png" alt="" />
         </Navbar.Brand>

@@ -61,6 +61,9 @@ body {
 /* Login end */
 
 /* Navbar start */
+.navbarBg {
+  background: #dfd6d66e !important;
+}
 
 /* Navbar end */
 
