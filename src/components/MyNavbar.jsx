@@ -37,7 +37,7 @@ const MyNavbar = () => {
     <>
       <Navbar expand="lg" className="sticky-top navbarBg">
         <Navbar.Brand href="/home">
-          Stuff To Route <Image src="../../public/mbIcon.png" alt="main logo" />
+          Stuff To Route <Image src="%PUBLIC_URL%/mbIcon.png" alt="main logo" />
         </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse>

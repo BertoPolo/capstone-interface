@@ -2,6 +2,8 @@ import { Card, Button } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import { addToCart } from "../slices/cart/cartSlice"
+import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs, toggleIsOnSingleItem } from "../slices/sheets/sheetsSlice"
+
 
 
 
@@ -9,7 +11,8 @@ const HomeItem = ({ currentItem }) => {
   const navigate = useNavigate()
 
   const cart = useSelector((state) => state.cartSlice.cart);
-  const isOnOutlet = useSelector(state => state.sheetsSlice.isOnOutlet)
+  const { isOnHome, isOnOutlet, isOnCountactUs, isOnSingleItem } = useSelector(state => state.sheetsSlice)
+
 
   const dispatch = useDispatch();
 
@@ -24,6 +27,11 @@ const HomeItem = ({ currentItem }) => {
 
   }
 
+  const changeHomeToSingleItem = () => {
+    dispatch(toggleIsOnHome(false))
+    dispatch(toggleIsOnSingleItem(true))
+  }
+
   return (
     <Card style={{ width: "11rem" }} className="item">
       <Card.Img
@@ -35,7 +43,7 @@ const HomeItem = ({ currentItem }) => {
       // onClick={() => navigate("/item")}
       />
       <Card.Body>
-        <Card.Title className="pointer"> {/* onClick={() => navigate("/:currentItem._id")} */}
+        <Card.Title className="pointer" onClick={() => changeHomeToSingleItem()}>
           {currentItem.title}
         </Card.Title>
         <Card.Text>{currentItem.description}</Card.Text>

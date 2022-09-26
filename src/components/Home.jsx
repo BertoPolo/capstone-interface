@@ -109,7 +109,7 @@ const Home = () => {
                   // console.log(element)
                   return (
                     <Col key={element._id}>
-                      <HomeItem currentItem={element} onClick={() => dispatch(toggleIsOnHome(false), toggleIsOnSingleItem(true))} />
+                      <HomeItem currentItem={element} />
                     </Col>
                   )
                 })}
