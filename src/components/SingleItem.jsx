@@ -26,6 +26,7 @@ const SingleItem = () => {
         <label htmlFor="amount">Amount</label>
         <input type="number" name="amount" placeholder="1" />
         <Button><i className="bi bi-cart-fill" onClick={() => dispatch(addToCart(selectedItem))} ></i>Add to cart</Button>
+        <Button variant="danger"> back</Button>
 
       </div>
 
