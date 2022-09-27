@@ -2,6 +2,7 @@ import { Card, Button } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import { addToCart } from "../slices/cart/cartSlice"
+import { changeSelectedItem } from "../slices/items/itemsSlice"
 import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs, toggleIsOnSingleItem } from "../slices/sheets/sheetsSlice"
 
 
@@ -11,6 +12,7 @@ const HomeItem = ({ currentItem }) => {
   const navigate = useNavigate()
 
   const cart = useSelector((state) => state.cartSlice.cart);
+  const selectedItem = useSelector((state) => state.itemsSlice.selectedItem);
   const { isOnHome, isOnOutlet, isOnCountactUs, isOnSingleItem, sumOneToCart } = useSelector(state => state.sheetsSlice)
 
 
@@ -30,6 +32,7 @@ const HomeItem = ({ currentItem }) => {
   const changeHomeToSingleItem = () => {
     dispatch(toggleIsOnHome(false))
     dispatch(toggleIsOnSingleItem(true))
+    dispatch(changeSelectedItem(currentItem))
   }
 
   return (
