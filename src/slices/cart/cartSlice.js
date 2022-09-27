@@ -12,6 +12,12 @@ const cartSlice = createSlice({
         cart: [...state.cart, action.payload],
       }
     },
+    sumOneToCart: (state, action) => {
+      return {
+        ...state,
+        cart: [...state.cart.amount++],
+      }
+    },
     removeFromCart: (state, action) => {
       return {
         ...state,
@@ -22,4 +28,4 @@ const cartSlice = createSlice({
 })
 
 export default cartSlice.reducer
-export const { addToCart, removeFromCart } = cartSlice.actions
+export const { addToCart, removeFromCart, sumOneToCart } = cartSlice.actions

@@ -11,16 +11,16 @@ const HomeItem = ({ currentItem }) => {
   const navigate = useNavigate()
 
   const cart = useSelector((state) => state.cartSlice.cart);
-  const { isOnHome, isOnOutlet, isOnCountactUs, isOnSingleItem } = useSelector(state => state.sheetsSlice)
+  const { isOnHome, isOnOutlet, isOnCountactUs, isOnSingleItem, sumOneToCart } = useSelector(state => state.sheetsSlice)
 
 
   const dispatch = useDispatch();
 
 
-  // have to create this "add amount" in redux, because you cant add anything into there like this
   const checkIfIsAlreadyInCart = () => {
     if (cart.includes(currentItem)) {
-      currentItem.amount++
+      dispatch(sumOneToCart(currentItem))
+
     } else {
       dispatch(addToCart(currentItem))
     }

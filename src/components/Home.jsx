@@ -106,7 +106,6 @@ const Home = () => {
               {isOnHome && <Row>
 
                 {items.map((element) => {
-                  // console.log(element)
                   return (
                     <Col key={element._id}>
                       <HomeItem currentItem={element} />
