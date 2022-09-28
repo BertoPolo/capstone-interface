@@ -93,42 +93,42 @@ const Home = () => {
       </Container>
 
 
-      <Container className="mt-5">
-        <Row>
-          <Col xs={2}>
-            <CategoriesMenu />
+      {/* <Container className="mt-5 ml-0" > */} {/* mr-0 dont works,  */}
+      <Row>
+        <Col xs={2} className="">
+          <CategoriesMenu />
+        </Col>
+
+        <Col xs={10} className="">
+          <Col>
+
+            {/* HOME */}
+            {isOnHome && <Row>
+
+              {items.map((element) => {
+                return (
+                  <Col key={element._id}>
+                    <HomeItem currentItem={element} />
+                  </Col>
+                )
+              })}
+            </Row>}
+
+            {/* OUTLET */}
+            {isOnOutlet && <Outlet />}
+
+            {/* CONTACT US */}
+            {isOnCountactUs && <ContactUs />}
+
+            {/* Single Item */}
+            {isOnSingleItem && <SingleItem />}
+            {/* ={e.target.value} */}
+
           </Col>
-
-          <Col xs={10} className="">
-            <Col>
-
-              {/* HOME */}
-              {isOnHome && <Row>
-
-                {items.map((element) => {
-                  return (
-                    <Col key={element._id}>
-                      <HomeItem currentItem={element} />
-                    </Col>
-                  )
-                })}
-              </Row>}
-
-              {/* OUTLET */}
-              {isOnOutlet && <Outlet />}
-
-              {/* CONTACT US */}
-              {isOnCountactUs && <ContactUs />}
-
-              {/* Single Item */}
-              {isOnSingleItem && <SingleItem />}
-              {/* ={e.target.value} */}
-
-            </Col>
-            <Footer />
-          </Col>
-        </Row>
-      </Container>
+          <Footer />
+        </Col>
+      </Row>
+      {/* </Container> */}
     </>
   )
 }
