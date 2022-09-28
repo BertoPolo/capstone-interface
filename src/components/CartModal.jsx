@@ -31,7 +31,7 @@ const CartModal = ({ handleClose, show }) => {
                     Close
                 </Button>
                 <Button variant="primary" onClick={handleClose}>
-                    Save Changes
+                    Finish your shopping
                 </Button>
             </Modal.Footer>
         </Modal>
