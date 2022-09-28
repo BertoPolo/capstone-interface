@@ -15,7 +15,7 @@ const cartSlice = createSlice({
     sumOneToCart: (state, action) => {
       return {
         ...state,
-        cart: [...state.cart.amount++],
+        cart: [...state, action.payload.cart.amount++],
       }
     },
     removeFromCart: (state, action) => {
