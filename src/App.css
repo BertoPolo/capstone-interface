@@ -4,11 +4,14 @@
 /* 404 NOT FOUND end */
 
 /* Global start */
+:root {
+  --gray: #dfd6d66e;
+}
 .h1 {
   display: flex;
   justify-content: center;
   font-weight: bolder;
-  font-size: larger;
+  font-size: 800% !important;
   margin-bottom: 1.5rem !important;
   text-shadow: 3px 4px 5px #979296;
 }
@@ -76,7 +79,7 @@ body {
 /* carousel end*/
 /* footer start*/
 .footer {
-  background-color: rgba(158, 204, 241, 0.185);
+  background-color: #dfd6d66e;
 }
 /* footer end*/
 

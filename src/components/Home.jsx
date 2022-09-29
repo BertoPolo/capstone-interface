@@ -57,7 +57,7 @@ const Home = () => {
 
       <Container>
         {!isOnSingleItem && <div>
-          <Carousel className="">
+          <Carousel className="mt-3">
             <Carousel.Item>
               <img className="d-block m-auto carouselImg" src="../../../oilPack.jpg" alt="First slide" />
               <Carousel.Caption>
@@ -94,7 +94,7 @@ const Home = () => {
 
 
       {/* <Container className="mt-5 ml-0" > */} {/* mr-0 dont works,  */}
-      <Row className="ml-2">
+      <Row className="ml-2 mt-4">
         <Col xs={2} className="">
           <CategoriesMenu />
         </Col>

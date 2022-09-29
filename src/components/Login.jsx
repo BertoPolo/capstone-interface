@@ -16,7 +16,7 @@ const Login = () => {
 
   return (
     <>
-      <h1 className="h1">Rate My Route</h1>
+      <h1 className="h1">Stuff to Route</h1>
       <Row>
         <Col className="login-container">
           <p> Aren't You registered yet?</p>
