@@ -36,17 +36,17 @@ const HomeItem = ({ currentItem }) => {
   }
 
   return (
-    <Card style={{ width: "11rem" }} className="item">
+    <Card style={{ width: "11rem" }} className="item" >
       <Card.Img
         style={{ maxHeight: "13rem" }}
         variant="top"
         src={currentItem.image}
         alt={currentItem.title}
         className="pointer"
-      // onClick={() => navigate("/item")}
+        onClick={() => changeHomeToSingleItem()}
       />
       <Card.Body>
-        <Card.Title className="pointer" onClick={() => changeHomeToSingleItem()}>
+        <Card.Title className="pointer" onClick={() => changeHomeToSingleItem()} >
           {currentItem.title}
         </Card.Title>
         <Card.Text>{currentItem.description}</Card.Text>

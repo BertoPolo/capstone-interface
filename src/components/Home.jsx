@@ -94,7 +94,7 @@ const Home = () => {
 
 
       {/* <Container className="mt-5 ml-0" > */} {/* mr-0 dont works,  */}
-      <Row>
+      <Row className="ml-2">
         <Col xs={2} className="">
           <CategoriesMenu />
         </Col>
@@ -122,7 +122,6 @@ const Home = () => {
 
             {/* Single Item */}
             {isOnSingleItem && <SingleItem />}
-            {/* ={e.target.value} */}
 
           </Col>
           <Footer />
