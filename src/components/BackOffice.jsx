@@ -1,15 +1,20 @@
 import { Form, Button } from "react-bootstrap"
-import MyNavbar from "./MyNavbar"
 import { useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
+import { useState } from "react"
+import MyNavbar from "./MyNavbar"
 
 import { changeName, changeAdress } from "../slices/users/usersSlice"
 
 const BackOffice = () => {
-    const navigate = useNavigate()
+
     const usersName = useSelector((state) => state.usersSlice.name);
     const usersAdress = useSelector((state) => state.usersSlice.adress);
+    const { users, setUsers } = useState([])
+
+    const navigate = useNavigate()
     const dispatch = useDispatch()
+
 
     // search user
     // delete user => from DB ,in redux: re-fetching is enough
@@ -21,6 +26,23 @@ const BackOffice = () => {
 
     const searchUserSubmit = (e) => {
         e.preventDefault()
+
+        const getUsers = async () => {
+            try {
+                const response = await fetch(
+                    // `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users`,
+                    {
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                    }
+                );
+                let data = await response.json();
+                setUsers(data)
+            } catch (error) {
+                console.log(error)
+            }
+        }
     }
 
     const searchArticleSubmit = (e) => {
