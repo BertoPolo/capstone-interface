@@ -16,14 +16,15 @@ const BackOffice = () => {
     // edit user => from DB, in redux: re-fetching is enough
     //see user's details
 
+    // setTimeout(navigate("/home"), 1500)
+
+
     const searchUserSubmit = (e) => {
         e.preventDefault()
-        setTimeout(navigate("/home"), 1500)
     }
 
     const searchArticleSubmit = (e) => {
         e.preventDefault()
-        setTimeout(navigate("/home"), 1500)
     }
 
     const addNewArticleSubmit = (e) => {

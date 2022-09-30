@@ -26,7 +26,6 @@ const HomeItem = ({ currentItem }) => {
     } else {
       dispatch(addToCart(currentItem))
     }
-
   }
 
   const changeHomeToSingleItem = () => {
