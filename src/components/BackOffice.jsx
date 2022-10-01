@@ -10,7 +10,8 @@ const BackOffice = () => {
 
     const usersName = useSelector((state) => state.usersSlice.name);
     const usersAdress = useSelector((state) => state.usersSlice.adress);
-    const { users, setUsers } = useState([])
+    const { foundedUsers, setfoundedUsers } = useState([])
+    const { userInput, setUserInput } = useState("")
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -24,24 +25,24 @@ const BackOffice = () => {
     // setTimeout(navigate("/home"), 1500)
 
 
-    const searchUserSubmit = (e) => {
+    const searchUserSubmit = async (e) => {
         e.preventDefault()
-
-        const getUsers = async () => {
-            try {
-                const response = await fetch(
-                    // `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users`,
-                    {
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                    }
-                );
-                let data = await response.json();
-                setUsers(data)
-            } catch (error) {
-                console.log(error)
-            }
+        console.log(userInput)
+        try {
+            const response = await fetch(
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/${e.target.value}`,
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
+            console.log(response)
+            let data = await response.json();
+            setfoundedUsers(data)
+            console.log(foundedUsers)
+        } catch (error) {
+            console.log(error)
         }
     }
 
@@ -75,14 +76,11 @@ const BackOffice = () => {
             <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => searchUserSubmit(e)}> {/* check onSubmit if its calling the right function */}
                 <h4 className="mb-3">Search an user</h4>
 
-
                 <Form.Group>
-                    <Form.Control type="text" placeholder="User name" />
-
+                    <Form.Control type="text" placeholder="User name" value={userInput} onChange={(e) => setUserInput(e.target.value)} />
                 </Form.Group>
 
-
-                <Button type="submit" disabled > Submit </Button>
+                <Button type="submit"  > Submit </Button>
             </Form>
 
             <h4 className="">Results</h4>
