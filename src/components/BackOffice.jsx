@@ -30,7 +30,7 @@ const BackOffice = () => {
         console.log(userInput)
         try {
             const response = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/${e.target.value}`,
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/${userInput}`,
                 {
                     headers: {
                         "Content-Type": "application/json",
@@ -77,8 +77,9 @@ const BackOffice = () => {
                 <h4 className="mb-3">Search an user</h4>
 
                 <Form.Group>
-                    <Form.Control type="text" placeholder="User name" value={userInput} onChange={(e) => setUserInput(e.target.value)} />
+                    <Form.Control type="text" placeholder="User name" onChange={(e) => setUserInput(e.target.value)} />
                 </Form.Group>
+                {/* value={userInput} */}
 
                 <Button type="submit"  > Submit </Button>
             </Form>
