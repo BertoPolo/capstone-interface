@@ -30,6 +30,8 @@ const HomeItem = ({ currentItem }) => {
 
   const changeHomeToSingleItem = () => {
     dispatch(toggleIsOnHome(false))
+    dispatch(toggleIsOnOutlet(false))
+    dispatch(toggleIsCountactUs(false))
     dispatch(toggleIsOnSingleItem(true))
     dispatch(changeSelectedItem(currentItem))
   }
