@@ -10,7 +10,8 @@ const BackOffice = () => {
 
     const usersName = useSelector((state) => state.usersSlice.name);
     const usersAdress = useSelector((state) => state.usersSlice.adress);
-    const { foundedUsers, setfoundedUsers } = useState([])
+    const [foundedUsers, setFoundedUsers] = useState([])
+    const [foundedItems, setFoundedItems] = useState([])
     const [userInput, setUserInput] = useState("")
 
     const navigate = useNavigate()
@@ -27,7 +28,6 @@ const BackOffice = () => {
 
     const searchUserSubmit = async (e) => {
         e.preventDefault()
-        console.log(userInput)
         try {
             const response = await fetch(
                 `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/${userInput}`,
@@ -39,7 +39,7 @@ const BackOffice = () => {
             );
             console.log(response)
             let data = await response.json();
-            setfoundedUsers(data)
+            setFoundedUsers(data)
             console.log(foundedUsers)
         } catch (error) {
             console.log(error)
@@ -62,18 +62,17 @@ const BackOffice = () => {
 
 
 
-    // create fetch function tofetch and  fill "results" with DB results
+    // create fetch function tofetch and  fill "foundedUsers" with DB results
     // create options for item's results - delete, edit =>name etc,set it as outlet
     // voucher creator
 
-    let results
 
     return (
         <>
             <MyNavbar />
 
             {/* Search user */}
-            <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => searchUserSubmit(e)}> {/* check onSubmit if its calling the right function */}
+            <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => searchUserSubmit(e)}>
                 <h4 className="mb-3">Search an user</h4>
 
                 <Form.Group>
@@ -85,7 +84,7 @@ const BackOffice = () => {
 
             <h4 className="">Results</h4>
             {/* <Dropdown> */}
-            {results && results.map((element) => {
+            {foundedUsers && foundedUsers.map((element) => {
                 return (
                     <div>
                         <p>{element.name}</p>
@@ -114,7 +113,7 @@ const BackOffice = () => {
             {/* <Dropdown> */}
             <h4 className="">Results</h4>
 
-            {results && results.map((element) => {
+            {foundedItems && foundedItems.map((element) => {
                 return (
                     <div>
                         <p>{element.name}</p>
