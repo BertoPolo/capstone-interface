@@ -80,11 +80,11 @@ const BackOffice = () => {
                     <Form.Control type="text" placeholder="User name" value={userInput} onChange={(e) => setUserInput(e.target.value)} />
                 </Form.Group>
 
-                <Button type="submit"  > Submit </Button>
+                <Button type="submit"> Submit </Button>
             </Form>
 
             <h4 className="">Results</h4>
-
+            {/* <Dropdown> */}
             {results && results.map((element) => {
                 return (
                     <div>
@@ -95,7 +95,7 @@ const BackOffice = () => {
                     </div>
                 )
             })}
-
+            {/* </Dropdown> */}
 
             {/* Search item */}
             <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => searchArticleSubmit(e)}> {/* check onSubmit if its calling the right function */}
@@ -108,9 +108,10 @@ const BackOffice = () => {
                 </Form.Group>
 
 
-                <Button type="submit" disabled > Submit </Button>
+                <Button type="submit"> Submit </Button>
             </Form>
 
+            {/* <Dropdown> */}
             <h4 className="">Results</h4>
 
             {results && results.map((element) => {
@@ -123,7 +124,7 @@ const BackOffice = () => {
                     </div>
                 )
             })}
-
+            {/* </Dropdown> */}
             {/* Post new article */}
             <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => addNewArticleSubmit(e)}> {/* check onSubmit */}
                 <h4 className="mb-3">Add a new article</h4>
@@ -142,7 +143,7 @@ const BackOffice = () => {
 
                 </Form.Group>
 
-                <Button type="submit" disabled > Submit </Button>
+                <Button type="submit"> Submit </Button>
             </Form>
 
 
@@ -158,7 +159,7 @@ const BackOffice = () => {
                 <Button type="submit" disabled > Submit </Button>
             </Form> */}
 
-            <Button Button variant="danger" onClick={() => navigate("/home")}> Back</Button >
+            <Button variant="danger" onClick={() => navigate("/home")}> Back</Button >
 
         </>
     )
