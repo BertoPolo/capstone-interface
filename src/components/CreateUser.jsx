@@ -5,11 +5,11 @@ import { useState } from "react"
 
 const CreateUser = () => {
   const [nameInput, setNameInput] = useState("")
-  // const [bikeInput, setBikeInput] = useState("")
-  const [adressInput, setAdressInput] = useState("")
   const [userNameInput, setUserNameInput] = useState("")
   const [emailInput, setEmailInput] = useState("")
+  const [adressInput, setAdressInput] = useState("")
   const [passwordInput, setPasswordInput] = useState("")
+  // const [bikeInput, setBikeInput] = useState("")
 
   const navigate = useNavigate()
 
@@ -21,7 +21,7 @@ const CreateUser = () => {
 
     let body = {
       name: nameInput,
-      userName: userNameInput,
+      username: userNameInput,
       email: emailInput,
       adress: adressInput,
       password: passwordInput,
@@ -57,9 +57,9 @@ const CreateUser = () => {
 
       <Form.Group>
         <Form.Control type="text" placeholder="Full name" onChange={(e) => setNameInput(e.target.value)} />
-        <Form.Control type="text" placeholder="User Name" onChange={(e) => setAdressInput(e.target.value)} />
-        <Form.Control type="text" placeholder="Email" onChange={(e) => setUserNameInput(e.target.value)} />
-        <Form.Control type="text" placeholder="Shipping Adress" onChange={(e) => setEmailInput(e.target.value)} />
+        <Form.Control type="text" placeholder="User Name" onChange={(e) => setUserNameInput(e.target.value)} />
+        <Form.Control type="text" placeholder="Email" onChange={(e) => setEmailInput(e.target.value)} />
+        <Form.Control type="text" placeholder="Shipping Adress" onChange={(e) => setAdressInput(e.target.value)} />
         <Form.Control type="password" placeholder="Password" onChange={(e) => setPasswordInput(e.target.value)} />
       </Form.Group>
 

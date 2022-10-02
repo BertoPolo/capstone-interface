@@ -43,6 +43,7 @@ const BackOffice = () => {
             console.log(error)
         }
     }
+
     const deleteUser = async (name) => {
         try {
             const response = await fetch(
@@ -102,7 +103,7 @@ const BackOffice = () => {
                     <div key={element._id}>
                         <span><b>{element.name}</b> ---- </span>
                         <span>{element.adress}</span>
-                        <i className="bi bi-trash3" onClick={deleteUser(element.name)}></i>
+                        <i className="bi bi-trash3" onClick={() => deleteUser(element.name)}></i>
                         {/* <Button variant="primary" >Edit</Button><Button variant="danger" >Delete</Button> */}
                         <hr />
                     </div>

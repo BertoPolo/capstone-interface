@@ -15,6 +15,7 @@ const MyNavbar = () => {
   const isAdmin = useSelector((state) => state.usersSlice.isAdmin);
   const cart = useSelector((state) => state.cartSlice.cart);
   const [show, setShow] = useState(false)
+  const [isLogged, setIsLogged] = useState(false)  //just to remove the complaining
 
   const dispatch = useDispatch();
 
@@ -59,10 +60,13 @@ const MyNavbar = () => {
                 <Nav.Link href="/myAccount">My Account</Nav.Link>
               </>
             }
-            <Nav.Link href="/">
-              {/* onClick={() => setLogin(false), handleLogOut()} */}
-              Log Out
-            </Nav.Link>
+
+            {isLogged ? <Nav.Link href="/">Log Out</Nav.Link>
+              //  onClick={() => setLogin(false), handleLogOut()}
+              :
+              <Nav.Link href="/">Login</Nav.Link>
+            }
+
           </Nav>
 
 
