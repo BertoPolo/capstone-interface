@@ -11,7 +11,7 @@ const BackOffice = () => {
     const usersName = useSelector((state) => state.usersSlice.name);
     const usersAdress = useSelector((state) => state.usersSlice.adress);
     const { foundedUsers, setfoundedUsers } = useState([])
-    const { userInput, setUserInput } = useState("")
+    const [userInput, setUserInput] = useState("")
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -77,9 +77,8 @@ const BackOffice = () => {
                 <h4 className="mb-3">Search an user</h4>
 
                 <Form.Group>
-                    <Form.Control type="text" placeholder="User name" onChange={(e) => setUserInput(e.target.value)} />
+                    <Form.Control type="text" placeholder="User name" value={userInput} onChange={(e) => setUserInput(e.target.value)} />
                 </Form.Group>
-                {/* value={userInput} */}
 
                 <Button type="submit"  > Submit </Button>
             </Form>
