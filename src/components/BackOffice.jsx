@@ -43,6 +43,21 @@ const BackOffice = () => {
             console.log(error)
         }
     }
+    const deleteUser = async (name) => {
+        try {
+            const response = await fetch(
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/${name}`,
+                {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     const searchArticleSubmit = (e) => {
         e.preventDefault()
@@ -74,7 +89,7 @@ const BackOffice = () => {
                 <h4 className="mb-3">Search an user</h4>
 
                 <Form.Group>
-                    <Form.Control type="text" placeholder="User name" value={userInput} onChange={(e) => setUserInput(e.target.value)} />
+                    <Form.Control type="text" placeholder="Name" value={userInput} onChange={(e) => setUserInput(e.target.value)} />
                 </Form.Group>
 
                 <Button type="submit"> Submit </Button>
@@ -85,9 +100,10 @@ const BackOffice = () => {
             {foundedUsers && foundedUsers.map((element) => {
                 return (
                     <div key={element._id}>
-                        <p><b>{element.name}</b></p>
-                        <p>{element.adress}</p>
-                        {/* <Button variant="primary" onClick={dispatch(()}>Edit</Button><Button variant="danger" onClick={dispatch(())}>Delete</Button> */}
+                        <span><b>{element.name}</b> ---- </span>
+                        <span>{element.adress}</span>
+                        <i className="bi bi-trash3" onClick={deleteUser(element.name)}></i>
+                        {/* <Button variant="primary" >Edit</Button><Button variant="danger" >Delete</Button> */}
                         <hr />
                     </div>
                 )
@@ -111,16 +127,18 @@ const BackOffice = () => {
             {/* <Dropdown> */}
             <h4 className=""><u>Results</u></h4>
 
-            {foundedItems && foundedItems.map((element) => {
-                return (
-                    <div>
-                        <p>{element.name}</p>
-                        <p>{element.adress}</p>
-                        {/* <Button variant="primary" onClick={dispatch(()}>Edit</Button><Button variant="danger" onClick={dispatch(())}>Delete</Button> */}
-                        <hr />
-                    </div>
-                )
-            })}
+            {
+                foundedItems && foundedItems.map((element) => {
+                    return (
+                        <div>
+                            <p>{element.name}</p>
+                            <p>{element.adress}</p>
+                            {/* <Button variant="primary" onClick={dispatch(()}>Edit</Button><Button variant="danger" onClick={dispatch(())}>Delete</Button> */}
+                            <hr />
+                        </div>
+                    )
+                })
+            }
             {/* </Dropdown> */}
             {/* Post new article */}
             <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => addNewArticleSubmit(e)}> {/* check onSubmit */}
