@@ -37,10 +37,8 @@ const BackOffice = () => {
                     },
                 }
             );
-            console.log(response)
             let data = await response.json();
             setFoundedUsers(data)
-            console.log(foundedUsers)
         } catch (error) {
             console.log(error)
         }
@@ -82,12 +80,12 @@ const BackOffice = () => {
                 <Button type="submit"> Submit </Button>
             </Form>
 
-            <h4 className="">Results</h4>
+            <h4 className=""><u>Results</u></h4>
             {/* <Dropdown> */}
             {foundedUsers && foundedUsers.map((element) => {
                 return (
-                    <div>
-                        <p>{element.name}</p>
+                    <div key={element._id}>
+                        <p><b>{element.name}</b></p>
                         <p>{element.adress}</p>
                         {/* <Button variant="primary" onClick={dispatch(()}>Edit</Button><Button variant="danger" onClick={dispatch(())}>Delete</Button> */}
                         <hr />
@@ -111,7 +109,7 @@ const BackOffice = () => {
             </Form>
 
             {/* <Dropdown> */}
-            <h4 className="">Results</h4>
+            <h4 className=""><u>Results</u></h4>
 
             {foundedItems && foundedItems.map((element) => {
                 return (
