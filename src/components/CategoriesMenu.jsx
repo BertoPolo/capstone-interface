@@ -1,26 +1,63 @@
 // import Accordion from "react-bootstrap/Accordion"
-import { Accordion, Card, Button, Dropdown } from "react-bootstrap"
+import { Accordion, Card, Dropdown } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
-import { isElement } from "react-dom/test-utils";
-import { element } from "prop-types";
 
 
 function CategoriesMenu() {
-  // <p>Exhausts</p>
-  // <p>Engine</p>
-  // <p>Carburetors</p>
-  // <p>Air Filters</p>
-  // <p>Tools</p>
-  // <p>Books</p>
 
   const items = useSelector((state) => state.itemsSlice.items);
 
-  const filterByBrand = () => {
-
-
+  const getByBrand = async (e) => {
+    try {
+      const response = await fetch(
+        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/brand${e.target.value}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const data = await response.json();
+      // setFoundedUsers(data)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
+  const getByMainCategory = async (e) => {
+    try {
+      const response = await fetch(
+        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/mainCategory${e.target.value}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const data = await response.json();
+      // setFoundedUsers(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const getByCategory = async (e) => {
+    try {
+      const response = await fetch(
+        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/category${e.target.value}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const data = await response.json();
+      // setFoundedUsers(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <>
       <h4>CATEGORIES</h4>
@@ -151,7 +188,7 @@ function CategoriesMenu() {
           {/* do a check to do not repeat brands */}
           {items.map((element) => {
             return (
-              <Dropdown.Item key={element._id} href="" onClick={filterByBrand}>{element.brand}</Dropdown.Item>
+              <Dropdown.Item key={element._id} href="" onClick={getByBrand}>{element.brand}</Dropdown.Item>
             )
           })}
         </Dropdown.Menu>
