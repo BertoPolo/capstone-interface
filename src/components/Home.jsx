@@ -123,8 +123,8 @@ const Home = () => {
             {/* Single Item */}
             {isOnSingleItem && <SingleItem />}
 
+            <Footer />
           </Col>
-          <Footer />
         </Col>
       </Row>
       {/* </Container> */}
