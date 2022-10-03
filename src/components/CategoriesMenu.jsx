@@ -1,12 +1,16 @@
 // import Accordion from "react-bootstrap/Accordion"
 import { Accordion, Card, Dropdown } from "react-bootstrap"
-import { Link } from "react-router-dom"
-import { useSelector, useDispatch } from "react-redux"
+import { useSelector } from "react-redux"
+import { useState } from "react"
+// import { Link } from "react-router-dom"
 
 
 function CategoriesMenu() {
 
   const items = useSelector((state) => state.itemsSlice.items);
+
+  const [choosenCategory, setChoosenCategory] = useState("")
+
 
   const getByBrand = async (e) => {
     try {
@@ -54,12 +58,14 @@ function CategoriesMenu() {
       );
       const data = await response.json();
       // setFoundedUsers(data)
+      console.log(data);
     } catch (error) {
       console.log(error)
     }
   }
   return (
     <>
+      {/* Main categories are hard coded for demo purposes,they should be maped alphabetically*/}
       <h4>CATEGORIES</h4>
       <Accordion>
         <Card>
@@ -70,20 +76,25 @@ function CategoriesMenu() {
           </Card.Header>
           <Accordion.Collapse eventKey="0">
             <Card.Body>
-              <Link to="/Front_lights">Front lights</Link>
+              <p value={choosenCategory} onClick={(e) => getByCategory(e.target.value)}>Front lights</p> this is just the idea
+              <p >Rear lights</p>
+              <p >Signal lights</p>
+              {/* <Link to="/Front_lights">Front lights</Link>
               <Link to="/Rear_lights">Rear lights</Link>
-              <Link to="/Signal_lights">Signal lights</Link>
+              <Link to="/Signal_lights">Signal lights</Link> */}
             </Card.Body>
           </Accordion.Collapse>
         </Card>
 
         <Card>
           <Card.Header>
-            <Accordion.Toggle as={Card.Header} eventKey="1" className="pointer" >
-              <Link to="">Tools</Link>
-            </Accordion.Toggle>
+            <Accordion as={Card.Header} className="pointer" >
+              {/* .toogle removed eventKey="1"*/}
+              <p>Tools</p>
+              {/* <Link to="">Tools</Link> */}
+            </Accordion>
           </Card.Header>
-          <Accordion.Collapse eventKey="1">
+          <Accordion.Collapse >
             <Card.Body></Card.Body>
           </Accordion.Collapse>
         </Card>
@@ -91,14 +102,18 @@ function CategoriesMenu() {
         <Card>
           <Card.Header>
             <Accordion.Toggle as={Card.Header} eventKey="2" className="pointer" >
-              <Link to="/Clothes">Clothes</Link>
+              <p>Clothes</p>
+              {/* <Link to="/Clothes">Clothes</Link> */}
             </Accordion.Toggle>
           </Card.Header>
           <Accordion.Collapse eventKey="2">
             <Card.Body>
-              <Link to="">Gloves</Link>
+              <p>Gloves</p>
+              <p>Hats</p>
+              <p>Shirts</p>
+              {/* <Link to="">Gloves</Link>
               <Link to="">Hats</Link>
-              <Link to="">Shirts</Link>
+              <Link to="">Shirts</Link> */}
             </Card.Body>
           </Accordion.Collapse>
         </Card>
@@ -111,10 +126,14 @@ function CategoriesMenu() {
           </Card.Header>
           <Accordion.Collapse eventKey="3">
             <Card.Body>
-              <Link to="">Handlebars</Link>
+              <p>Handlebars</p>
+              <p>Risers</p>
+              <p>Mirrors</p>
+              <p>Grips</p>
+              {/* <Link to="">Handlebars</Link>
               <Link to="">Risers</Link>
               <Link to="">Mirrors</Link>
-              <Link to="">Grips</Link>
+              <Link to="">Grips</Link> */}
             </Card.Body>
           </Accordion.Collapse>
         </Card>
@@ -127,20 +146,25 @@ function CategoriesMenu() {
           </Card.Header>
           <Accordion.Collapse eventKey="4">
             <Card.Body>
-              <Link to="">Stands</Link>
+              <p>Stands</p>
+              <p>Footpegs</p>
+              <p>Mid Controls</p>
+              {/* <Link to="">Stands</Link>
               <Link to="">Footpegs</Link>
-              <Link to="">Mid Controls</Link>
+              <Link to="">Mid Controls</Link> */}
             </Card.Body>
           </Accordion.Collapse>
         </Card>
 
         <Card>
           <Card.Header>
-            <Accordion.Toggle as={Card.Header} eventKey="5" className="pointer" >
-              <Link to="">Seats</Link>
-            </Accordion.Toggle>
+            <Accordion as={Card.Header} className="pointer" >
+              {/* .toogle removed eventKey="5"*/}
+              <p>Seats</p>
+              {/* <Link to="">Seats</Link> */}
+            </Accordion>
           </Card.Header>
-          <Accordion.Collapse eventKey="5">
+          <Accordion.Collapse >
             <Card.Body></Card.Body>
           </Accordion.Collapse>
         </Card>
@@ -153,10 +177,14 @@ function CategoriesMenu() {
           </Card.Header>
           <Accordion.Collapse eventKey="6">
             <Card.Body>
-              <Link to="">Jet</Link>
+              <p>Jet</p>
+              <p>Modular</p>
+              <p>Full Face</p>
+              <p>Accesories</p>
+              {/* <Link to="">Jet</Link>
               <Link to="">Modular</Link>
               <Link to="">Full Face</Link>
-              <Link to="">Accesories</Link>
+              <Link to="">Accesories</Link> */}
             </Card.Body>
           </Accordion.Collapse>
         </Card>
