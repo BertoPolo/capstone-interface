@@ -25,11 +25,14 @@ const MyNavbar = () => {
 
   const homeToContactUs = () => {
     dispatch(toggleIsOnHome(false))
+    dispatch(toggleIsOnOutlet(false))
     dispatch(toggleIsCountactUs(true))
   }
 
   const homeToOutlet = () => {
     dispatch(toggleIsOnHome(false))
+    dispatch(toggleIsCountactUs(false))
+    dispatch(toggleIsOnSingleItem(false))
     dispatch(toggleIsOnOutlet(true))
   }
 
