@@ -1,7 +1,6 @@
 import { Form, Button } from "react-bootstrap"
 import MyNavbar from "./MyNavbar"
 import { useSelector, useDispatch } from "react-redux"
-import { changeName, changeAdress } from "../slices/users/usersSlice"
 import { useState } from "react"
 
 

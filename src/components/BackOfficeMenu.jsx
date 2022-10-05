@@ -32,10 +32,7 @@ const BackOffice = () => {
     return (
         <>
             <MyNavbar />
-
-
-
-
+            <h1>BACKOFFICE</h1>
             {/* Voucher creator */}
             {/* <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => voucherCreatorSubmit(e)}> check onSubmit
                 <h4 className="mb-3">Voucher creator</h4>
@@ -48,9 +45,10 @@ const BackOffice = () => {
                 <Button type="submit" disabled > Submit </Button>
             </Form> */}
 
-            <Button variant="primary" onClick={() => navigate("/backOfficeUsers")}> Users</Button >
-            <Button variant="secondary" onClick={() => navigate("/backOfficeNewItem")}> Items</Button >
-            <Button variant="danger" onClick={() => navigate("/home")}> Back</Button >
+            <Button variant="primary" onClick={() => navigate("/backOfficeUsers")}>Search Users</Button >
+            <Button variant="dark" onClick={() => navigate("/backOfficeItems")}>Search Items</Button >
+            <Button variant="secondary" onClick={() => navigate("/backOfficeNewItem")}>Create Items</Button >
+            <Button variant="danger" onClick={() => navigate("/home")}>Go Back</Button >
 
         </>
     )

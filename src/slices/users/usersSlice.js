@@ -10,19 +10,21 @@ const usersSlice = createSlice({
     token: "",
   },
   reducers: {
-    changeName: (state, action) => {
-      return {
-        ...state,
-        name: action.payload,
-      }
-    },
+    // not needed, just change it in database
 
-    changeAdress: (state, action) => {
-      return {
-        ...state,
-        adress: action.payload,
-      }
-    },
+    // changeName: (state, action) => {
+    //   return {
+    //     ...state,
+    //     name: action.payload,
+    //   }
+    // },
+
+    // changeAdress: (state, action) => {
+    //   return {
+    //     ...state,
+    //     adress: action.payload,
+    //   }
+    // },
 
     changeToken: (state, action) => {
       return {
