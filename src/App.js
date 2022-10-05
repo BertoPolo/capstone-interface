@@ -6,7 +6,6 @@ import Login from "./components/Login"
 import Home from "./components/Home"
 import CreateUser from "./components/CreateUser"
 import NotFound from "./components/NotFound"
-import ContactUs from "./components/ContactUs"
 import BackOfficeMenu from "./components/BackOfficeMenu"
 
 //using Redux just for demo purposes

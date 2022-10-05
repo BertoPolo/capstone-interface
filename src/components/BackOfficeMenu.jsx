@@ -8,11 +8,8 @@ import { changeName, changeAdress } from "../slices/users/usersSlice"
 
 const BackOffice = () => {
 
-    const usersName = useSelector((state) => state.usersSlice.name);
-    const usersAdress = useSelector((state) => state.usersSlice.adress);
-    const [foundedUsers, setFoundedUsers] = useState([])
+
     const [foundedItems, setFoundedItems] = useState([])
-    const [userInput, setUserInput] = useState("")
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -26,43 +23,9 @@ const BackOffice = () => {
     // setTimeout(navigate("/home"), 1500)
 
 
-    const searchUserSubmit = async (e) => {
-        e.preventDefault()
-        try {
-            const response = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/${userInput}`,
-                {
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                }
-            );
-            let data = await response.json();
-            setFoundedUsers(data)
-        } catch (error) {
-            console.log(error)
-        }
-    }
 
-    const deleteUser = async (name) => {
-        try {
-            const response = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/${name}`,
-                {
-                    method: "DELETE",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                }
-            );
-        } catch (error) {
-            console.log(error)
-        }
-    }
 
-    const searchArticleSubmit = (e) => {
-        e.preventDefault()
-    }
+
 
     const addNewArticleSubmit = (e) => {
         e.preventDefault()
@@ -85,31 +48,7 @@ const BackOffice = () => {
         <>
             <MyNavbar />
 
-            {/* Search user */}
-            <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => searchUserSubmit(e)}>
-                <h4 className="mb-3">Search an user</h4>
 
-                <Form.Group>
-                    <Form.Control type="text" placeholder="Name" value={userInput} onChange={(e) => setUserInput(e.target.value)} />
-                </Form.Group>
-
-                <Button type="submit"> Submit </Button>
-            </Form>
-
-            <h4 className=""><u>Results</u></h4>
-            {/* <Dropdown> */}
-            {foundedUsers && foundedUsers.map((element) => {
-                return (
-                    <div key={element._id}>
-                        <span><b>{element.name}</b> ---- </span>
-                        <span>{element.adress}</span>
-                        <i className="bi bi-trash3" onClick={() => deleteUser(element.name)}></i>
-                        {/* <Button variant="primary" >Edit</Button><Button variant="danger" >Delete</Button> */}
-                        <hr />
-                    </div>
-                )
-            })}
-            {/* </Dropdown> */}
 
             {/* Search item */}
             <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => searchArticleSubmit(e)}> {/* check onSubmit if its calling the right function */}
