@@ -8,9 +8,6 @@ import { changeName, changeAdress } from "../slices/users/usersSlice"
 
 const BackOffice = () => {
 
-
-    const [foundedItems, setFoundedItems] = useState([])
-
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
@@ -21,11 +18,6 @@ const BackOffice = () => {
     //see user's details
 
     // setTimeout(navigate("/home"), 1500)
-
-
-
-
-
 
     const addNewArticleSubmit = (e) => {
         e.preventDefault()
@@ -38,49 +30,16 @@ const BackOffice = () => {
     // }
 
 
-
     // create fetch function tofetch and  fill "foundedUsers" with DB results
     // create options for item's results - delete, edit =>name etc,set it as outlet
-    // voucher creator
+
 
 
     return (
         <>
             <MyNavbar />
 
-
-
-            {/* Search item */}
-            <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => searchArticleSubmit(e)}> {/* check onSubmit if its calling the right function */}
-                <h4 className="mb-3">Search an article</h4>
-
-
-                <Form.Group>
-                    <Form.Control type="text" placeholder="Name" />
-
-                </Form.Group>
-
-
-                <Button type="submit"> Submit </Button>
-            </Form>
-
-            {/* <Dropdown> */}
-            <h4 className=""><u>Results</u></h4>
-
-            {
-                foundedItems && foundedItems.map((element) => {
-                    return (
-                        <div>
-                            <p>{element.name}</p>
-                            <p>{element.adress}</p>
-                            {/* <Button variant="primary" onClick={dispatch(()}>Edit</Button><Button variant="danger" onClick={dispatch(())}>Delete</Button> */}
-                            <hr />
-                        </div>
-                    )
-                })
-            }
-            {/* </Dropdown> */}
-            {/* Post new article */}
+            {/* Post new item */}
             <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => addNewArticleSubmit(e)}> {/* check onSubmit */}
                 <h4 className="mb-3">Add a new article</h4>
 
