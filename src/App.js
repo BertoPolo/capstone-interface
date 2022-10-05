@@ -7,7 +7,7 @@ import Home from "./components/Home"
 import CreateUser from "./components/CreateUser"
 import NotFound from "./components/NotFound"
 import ContactUs from "./components/ContactUs"
-import BackOffice from "./components/BackOffice"
+import BackOfficeMenu from "./components/BackOfficeMenu"
 
 //using Redux just for demo purposes
 import { Provider } from "react-redux"
@@ -29,7 +29,7 @@ function App() {
             {/* <Route path="/outlet" element={<Home />} /> */}
             {/* <Route path="/item" element={<Home />} /> */}
             {/* <Route path="/contact" element={<Home />} /> */}
-            <Route path="/backOffice" element={<BackOffice />} />
+            <Route path="/backOfficeMenu" element={<BackOfficeMenu />} />
           </Routes>
         </BrowserRouter>
       </Provider>

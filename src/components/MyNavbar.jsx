@@ -54,7 +54,7 @@ const MyNavbar = () => {
           <Nav className="ml-auto mr-4">
 
             {isAdmin ?
-              <Nav.Link href="/backOffice">BackOffice</Nav.Link>
+              <Nav.Link href="/backOfficeMenu">BackOffice</Nav.Link>
               :
               <>
                 <Nav.Link href="" onClick={handleShow}>

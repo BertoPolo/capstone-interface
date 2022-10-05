@@ -16,7 +16,7 @@ const CartModal = ({ handleClose, show }) => {
             <Modal.Body>
                 {cart.map((element) => {
                     return (
-                        <div className="" key={element._id}>
+                        <div key={element._id}>
                             <span >{element.title} </span>
                             <i className="bi bi-plus pointer"></i>
                             <span>quantity</span>
