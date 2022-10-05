@@ -4,9 +4,24 @@ import { useState } from "react"
 
 const BackOfficeItems = () => {
     const [foundedItems, setFoundedItems] = useState([])
+    const [title, setTitle] = useState("")
 
-    const searchArticleSubmit = (e) => {
+    const searchArticleSubmit = async (e) => {
         e.preventDefault()
+        try {
+            const response = await fetch(
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/${title}`,
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
+            let data = await response.json();
+            setFoundedItems(data)
+        } catch (error) {
+            console.log(error)
+        }
     }
 
 
@@ -21,8 +36,7 @@ const BackOfficeItems = () => {
 
 
                 <Form.Group>
-                    <Form.Control type="text" placeholder="Name" />
-
+                    <Form.Control type="text" placeholder="Name" value={title} onChange={(e) => setTitle(e.target.value)} />
                 </Form.Group>
 
 
@@ -36,8 +50,7 @@ const BackOfficeItems = () => {
                 foundedItems && foundedItems.map((element) => {
                     return (
                         <div>
-                            <p>{element.name}</p>
-                            <p>{element.adress}</p>
+                            <p>{element.title}</p>
                             {/* <Button variant="primary" onClick={dispatch(()}>Edit</Button><Button variant="danger" onClick={dispatch(())}>Delete</Button> */}
                             <hr />
                         </div>
