@@ -1,7 +1,6 @@
 import { Button } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
-import { useState } from "react"
 import MyNavbar from "./MyNavbar"
 
 import { changeName, changeAdress } from "../slices/users/usersSlice"
@@ -9,7 +8,6 @@ import { changeName, changeAdress } from "../slices/users/usersSlice"
 const BackOffice = () => {
 
     const navigate = useNavigate()
-    const dispatch = useDispatch()
 
 
     // search user
@@ -19,10 +17,6 @@ const BackOffice = () => {
 
     // setTimeout(navigate("/home"), 1500)
 
-    const addNewArticleSubmit = (e) => {
-        e.preventDefault()
-
-    }
 
     // const voucherCreatorSubmit = (e) => {
     //     e.preventDefault()
@@ -54,6 +48,8 @@ const BackOffice = () => {
                 <Button type="submit" disabled > Submit </Button>
             </Form> */}
 
+            <Button variant="primary" onClick={() => navigate("/backOfficeUsers")}> Users</Button >
+            <Button variant="secondary" onClick={() => navigate("/backOfficeNewItem")}> Items</Button >
             <Button variant="danger" onClick={() => navigate("/home")}> Back</Button >
 
         </>
