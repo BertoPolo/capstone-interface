@@ -1,22 +1,54 @@
 import { Button, Form } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
-import { useSelector, useDispatch } from "react-redux"
+import { useSelector } from "react-redux"
 import MyNavbar from "./MyNavbar"
 
 const MyAccount = () => {
   const navigate = useNavigate("")
 
   const [nameInput, setNameInput] = useState("")
+  const [userNameInput, setUserNameInput] = useState("")
+  const [emailInput, setEmailInput] = useState("")
   const [adressInput, setAdressInput] = useState("")
   const [passwordInput, setPasswordInput] = useState("")
   const [passwordAgainInput, setPasswordAgainInput] = useState("")
 
-  const isAdmin = useSelector((state) => state.usersSlice.isAdmin);
+  const [isAdmin, username] = useSelector((state) => state.usersSlice);
 
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    navigate("/home")
+    if (passwordInput === passwordAgainInput) {
+      let body = {
+        name: nameInput,
+        username: userNameInput,
+        email: emailInput,
+        adress: adressInput,
+        password: passwordInput,
+      }
+      try {
+        const res = await fetch(
+          `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/${username}`,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+
+            body: JSON.stringify(body),
+          }
+        );
+        if (res.status === 201) {
+          // const data = await res.json();
+          navigate("/home")
+        }
+
+      } catch (error) {
+        console.log(error)
+      }
+
+    }
   }
   return (
     <>

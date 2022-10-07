@@ -3,8 +3,9 @@ import { createSlice } from "@reduxjs/toolkit"
 const usersSlice = createSlice({
   name: "users",
   initialState: {
-    //no need delete action, just re-fetching from database it's enough
+    //no need edit actions, just re-fetching from database it's enough
     name: "",
+    username: "",
     adress: "",
     isAdmin: true,
     token: "",

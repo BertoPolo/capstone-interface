@@ -40,10 +40,9 @@ const BackOfficeItems = () => {
                 </Form.Group>
 
 
-                <Button type="submit"> Submit </Button>
+                <Button type="submit">Submit</Button>
             </Form >
 
-            {/* <Dropdown> */}
             <h4 h4 className="" > <u>Results</u></h4>
 
             {
@@ -57,7 +56,6 @@ const BackOfficeItems = () => {
                     )
                 })
             }
-            {/* </Dropdown> */}
         </>
     )
 }

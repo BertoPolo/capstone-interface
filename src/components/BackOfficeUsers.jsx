@@ -65,7 +65,6 @@ const BackOfficeUsers = () => {
             </Form >
 
             <h4 className=""><u>Results</u></h4>
-            {/* <Dropdown> */}
             {
                 foundedUsers && foundedUsers.map((element) => {
                     return (
@@ -79,7 +78,6 @@ const BackOfficeUsers = () => {
                     )
                 })
             }
-            {/* </Dropdown> */}
         </>
 
     )
