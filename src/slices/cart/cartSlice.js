@@ -15,13 +15,13 @@ const cartSlice = createSlice({
     sumOneToCart: (state, action) => {
       return {
         ...state,
-        cart: [...state, action.payload.cart.amount++],
+        cart: state.amount++,
       }
     },
     removeFromCart: (state, action) => {
       return {
         ...state,
-        cart: [state.cart.filter((item, i) => i !== action.payload)],
+        cart: state.cart.filter((item, i) => i !== action.payload),
       }
     },
   },

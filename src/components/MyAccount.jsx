@@ -29,7 +29,8 @@ const MyAccount = () => {
       }
       try {
         const res = await fetch(
-          `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/${username}`,
+          // userNameInput should be changed to username
+          `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/edit/${userNameInput}`,
           {
             method: "PUT",
             headers: {
