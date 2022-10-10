@@ -6,6 +6,16 @@ import { useState } from "react"
 const BackOficceNewItem = () => {
 
     const [uploaded, setUploaded] = useState(false)
+    const [name, setName] = useState("")
+    const [price, setPrice] = useState("")
+    const [mainCategory, setMainCategory] = useState("")
+    const [category, setCategory] = useState("")
+    const [brand, setBrand] = useState("")
+    const [shortDescription, setShortDescription] = useState("")
+    const [fullDescription, setFullDescription] = useState("")
+    const [isItOutlet, setIsItOutlet] = useState(false)
+
+
 
     const addNewArticleSubmit = async (e) => {
         e.preventDefault()
@@ -48,14 +58,14 @@ const BackOficceNewItem = () => {
 
                 <Form.Group>
 
-                    <Form.Control type="text" placeholder="Name" />
-                    <Form.Control type="text" placeholder="Price" />
-                    <Form.Control type="text" placeholder="Main Category" />
-                    <Form.Control type="text" placeholder="Category" />
-                    <Form.Control type="text" placeholder="Brand" />
-                    <Form.Control type="text" placeholder="Short Description" />
-                    <Form.Control type="text" placeholder="Full Description" />
-                    <Form.Check type="checkbox" label="Outlet" />
+                    <Form.Control type="text" placeholder="Name" onChange={(e) => setName(e.target.value)} />
+                    <Form.Control type="text" placeholder="Price" onChange={(e) => setPrice(e.target.value)} />
+                    <Form.Control type="text" placeholder="Main Category" onChange={(e) => setMainCategory(e.target.value)} />
+                    <Form.Control type="text" placeholder="Category" onChange={(e) => setCategory(e.target.value)} />
+                    <Form.Control type="text" placeholder="Brand" onChange={(e) => setBrand(e.target.value)} />
+                    <Form.Control type="text" placeholder="Short Description" onChange={(e) => setShortDescription(e.target.value)} />
+                    <Form.Control as="textarea" rows={3} placeholder="Full Description" onChange={(e) => setFullDescription(e.target.value)} />
+                    <Form.Check type="checkbox" label="Outlet" onChange={(e) => setIsItOutlet(!isItOutlet)} />
                     <Form.File id="exampleFormControlFile1" label="Add An Image" />
 
                 </Form.Group>
