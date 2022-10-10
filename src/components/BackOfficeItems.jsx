@@ -6,6 +6,7 @@ const BackOfficeItems = () => {
     const [foundedItems, setFoundedItems] = useState([])
     const [title, setTitle] = useState("")
 
+
     const searchArticleSubmit = async (e) => {
         e.preventDefault()
         try {
@@ -25,14 +26,13 @@ const BackOfficeItems = () => {
     }
 
 
-
     return (
         <>
             <MyNavbar />
 
             {/* Search item */}
             < Form className="d-flex justify-content-center flex-column" onSubmit={(e) => searchArticleSubmit(e)}> {/* check onSubmit if its calling the right function */}
-                <h4 h4 className="mb-3" > Search an article</h4>
+                <h4 className="mb-3" >Search an article</h4>
 
 
                 <Form.Group>
@@ -43,7 +43,7 @@ const BackOfficeItems = () => {
                 <Button type="submit">Submit</Button>
             </Form >
 
-            <h4 h4 className="" > <u>Results</u></h4>
+            <h4 className="" > <u>Results</u></h4>
 
             {
                 foundedItems && foundedItems.map((element) => {

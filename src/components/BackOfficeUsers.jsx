@@ -10,8 +10,8 @@ const BackOfficeUsers = () => {
     const [foundedUsers, setFoundedUsers] = useState([])
     const [userInput, setUserInput] = useState("")
 
-    const usersName = useSelector((state) => state.usersSlice.name);
-    const usersAdress = useSelector((state) => state.usersSlice.adress);
+    const { usersName, usersAdress } = useSelector((state) => state.usersSlice);
+    // const usersAdress = useSelector((state) => state.usersSlice.adress);
 
     const dispatch = useDispatch()
 
