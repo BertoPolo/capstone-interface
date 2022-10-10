@@ -58,14 +58,14 @@ const BackOficceNewItem = () => {
 
                 <Form.Group>
 
-                    <Form.Control type="text" placeholder="Name" onChange={(e) => setName(e.target.value)} />
-                    <Form.Control type="text" placeholder="Price" onChange={(e) => setPrice(e.target.value)} />
-                    <Form.Control type="text" placeholder="Main Category" onChange={(e) => setMainCategory(e.target.value)} />
-                    <Form.Control type="text" placeholder="Category" onChange={(e) => setCategory(e.target.value)} />
-                    <Form.Control type="text" placeholder="Brand" onChange={(e) => setBrand(e.target.value)} />
-                    <Form.Control type="text" placeholder="Short Description" onChange={(e) => setShortDescription(e.target.value)} />
-                    <Form.Control as="textarea" rows={3} placeholder="Full Description" onChange={(e) => setFullDescription(e.target.value)} />
-                    <Form.Check type="checkbox" label="Outlet" onChange={(e) => setIsItOutlet(!isItOutlet)} />
+                    <Form.Control type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
+                    <Form.Control type="text" placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
+                    <Form.Control type="text" placeholder="Main Category" value={mainCategory} onChange={(e) => setMainCategory(e.target.value)} />
+                    <Form.Control type="text" placeholder="Category" value={category} onChange={(e) => setCategory(e.target.value)} />
+                    <Form.Control type="text" placeholder="Brand" value={brand} onChange={(e) => setBrand(e.target.value)} />
+                    <Form.Control type="text" placeholder="Short Description" value={shortDescription} onChange={(e) => setShortDescription(e.target.value)} />
+                    <Form.Control as="textarea" rows={3} placeholder="Full Description" value={fullDescription} onChange={(e) => setFullDescription(e.target.value)} />
+                    <Form.Check type="checkbox" label="Outlet" value={isItOutlet} onChange={(e) => setIsItOutlet(!isItOutlet)} />
                     <Form.File id="exampleFormControlFile1" label="Add An Image" />
 
                 </Form.Group>
