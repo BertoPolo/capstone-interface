@@ -41,6 +41,7 @@ function CategoriesMenu() {
       );
       const data = await response.json();
       // setFoundedUsers(data)
+      console.log(data);
     } catch (error) {
       console.log(error)
     }
@@ -76,7 +77,7 @@ function CategoriesMenu() {
           </Card.Header>
           <Accordion.Collapse eventKey="0">
             <Card.Body>
-              <p value={choosenCategory} onClick={(e) => getByCategory(e.target.value)}>Front lights</p> this is just the idea
+              <p value="lala" onClick={(e) => setChoosenCategory(e.target.value)}>Front lights</p>
               <p >Rear lights</p>
               <p >Signal lights</p>
               {/* <Link to="/Front_lights">Front lights</Link>
