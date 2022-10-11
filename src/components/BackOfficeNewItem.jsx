@@ -8,6 +8,7 @@ const BackOficceNewItem = () => {
     const [uploaded, setUploaded] = useState(false)
     const [name, setName] = useState("")
     const [price, setPrice] = useState("")
+    const [img, setImg] = useState(null)
     const [mainCategory, setMainCategory] = useState("")
     const [category, setCategory] = useState("")
     const [brand, setBrand] = useState("")
@@ -45,8 +46,6 @@ const BackOficceNewItem = () => {
                 }
             );
             if (res.status === 201) {
-                // const data = await res.json();
-                // navigate("/home")
                 setUploaded(true)
                 setTimeout(setUploaded(false), 2000)
             }
@@ -63,13 +62,10 @@ const BackOficceNewItem = () => {
                     headers: {
                         "Content-Type": "application/json",
                     },
-
                     body: JSON.stringify(photo),
                 }
             );
-            if (res.status === 201) {
 
-            }
 
         } catch (error) {
             console.log(error)
@@ -96,7 +92,7 @@ const BackOficceNewItem = () => {
                     <Form.Control type="text" placeholder="Short Description" value={shortDescription} onChange={(e) => setShortDescription(e.target.value)} />
                     <Form.Control as="textarea" rows={3} placeholder="Full Description" value={fullDescription} onChange={(e) => setFullDescription(e.target.value)} />
                     <Form.Check type="checkbox" label="Outlet" value={isItOutlet} onChange={(e) => setIsItOutlet(!isItOutlet)} />
-                    <Form.File id="exampleFormControlFile1" label="Add An Image" />
+                    <Form.File label="Add An Image" accept=",.jpg,.jpeg,.png" onChange={(e) => setImg(e.target.value)} />
 
                 </Form.Group>
 
