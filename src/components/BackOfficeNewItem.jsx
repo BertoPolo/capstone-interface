@@ -19,15 +19,24 @@ const BackOficceNewItem = () => {
 
     const addNewArticleSubmit = async (e) => {
         e.preventDefault()
-        let body
+        let body = {
+            title: name,
+            price: price,
+            mainCategory: mainCategory,
+            category: category,
+            brand: brand,
+            isOutlet: isItOutlet,
+            description: shortDescription,
+            fullDescription: fullDescription
+        }
         //send photo with separated fetch
-        let photo
+        const photo = ""
 
         try {
             const res = await fetch(
-                // userNameInput should be changed to username
                 `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items`,
                 {
+                    method: "POST",
                     headers: {
                         "Content-Type": "application/json",
                     },
@@ -45,6 +54,27 @@ const BackOficceNewItem = () => {
         } catch (error) {
             console.log(error)
         }
+
+        try {
+            const res = await fetch(
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/img`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+
+                    body: JSON.stringify(photo),
+                }
+            );
+            if (res.status === 201) {
+
+            }
+
+        } catch (error) {
+            console.log(error)
+        }
+
     }
 
     return (
