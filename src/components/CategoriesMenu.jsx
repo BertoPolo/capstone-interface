@@ -30,10 +30,10 @@ function CategoriesMenu() {
     }
   }
 
-  const getByMainCategory = async (e) => {
+  const getByMainCategory = async () => {
     try {
       const response = await fetch(
-        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/mainCategory${e.target.value}`,
+        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/mainCategory${choosenMainCategory}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -48,10 +48,10 @@ function CategoriesMenu() {
     }
   }
 
-  const getByCategory = async (e) => {
+  const getByCategory = async () => {
     try {
       const response = await fetch(
-        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/category${e.target.value}`,
+        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/category${choosenCategory}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -78,9 +78,9 @@ function CategoriesMenu() {
           </Card.Header>
           <Accordion.Collapse eventKey="0">
             <Card.Body>
-              <p onClick={(e) => setChoosenCategory("Front lights")}>Front lights</p>
-              <p onClick={(e) => setChoosenCategory("Rear lights")}>Rear lights</p>
-              <p onClick={(e) => setChoosenCategory("Signal lights")}>Signal lights</p>
+              <p onClick={(e) => { setChoosenCategory("Front lights"); getByCategory() }}>Front lights</p>
+              <p onClick={(e) => { setChoosenCategory("Rear lights"); getByCategory() }}>Rear lights</p>
+              <p onClick={(e) => { setChoosenCategory("Signal lights"); getByCategory() }}>Signal lights</p>
               {/* <Link to="/Front_lights">Front lights</Link>
               <Link to="/Rear_lights">Rear lights</Link>
               <Link to="/Signal_lights">Signal lights</Link> */}
@@ -92,7 +92,7 @@ function CategoriesMenu() {
           <Card.Header>
             <Accordion as={Card.Header} className="pointer" >
               {/* .toogle removed eventKey="1"*/}
-              <p onClick={(e) => setChoosenCategory("Tools")}>Tools</p>
+              <p onClick={(e) => { setChoosenCategory("Tools"); getByCategory() }}>Tools</p>
               {/* <Link to="">Tools</Link> */}
             </Accordion>
           </Card.Header>
@@ -104,15 +104,15 @@ function CategoriesMenu() {
         <Card>
           <Card.Header>
             <Accordion.Toggle as={Card.Header} eventKey="2" className="pointer" >
-              <p onClick={(e) => setChoosenCategory("Clothes")}>Clothes</p>
+              <p onClick={(e) => { setChoosenCategory("Clothes"); getByCategory() }}>Clothes</p>
               {/* <Link to="/Clothes">Clothes</Link> */}
             </Accordion.Toggle>
           </Card.Header>
           <Accordion.Collapse eventKey="2">
             <Card.Body>
-              <p onClick={(e) => setChoosenCategory("Gloves")}>Gloves</p>
-              <p onClick={(e) => setChoosenCategory("Hats")}>Hats</p>
-              <p onClick={(e) => setChoosenCategory("Shirts")}>Shirts</p>
+              <p onClick={(e) => { setChoosenCategory("Gloves"); getByCategory() }}>Gloves</p>
+              <p onClick={(e) => { setChoosenCategory("Hats"); getByCategory() }}>Hats</p>
+              <p onClick={(e) => { setChoosenCategory("Shirts"); getByCategory() }}>Shirts</p>
               {/* <Link to="">Gloves</Link>
               <Link to="">Hats</Link>
               <Link to="">Shirts</Link> */}
@@ -128,10 +128,10 @@ function CategoriesMenu() {
           </Card.Header>
           <Accordion.Collapse eventKey="3">
             <Card.Body>
-              <p onClick={(e) => setChoosenCategory("Gloves")}>Handlebars</p>
-              <p onClick={(e) => setChoosenCategory("Risers")}>Risers</p>
-              <p onClick={(e) => setChoosenCategory("Mirrors")}>Mirrors</p>
-              <p onClick={(e) => setChoosenCategory("Grips")}>Grips</p>
+              <p onClick={(e) => { setChoosenCategory("Gloves"); getByCategory() }}>Handlebars</p>
+              <p onClick={(e) => { setChoosenCategory("Risers"); getByCategory() }}>Risers</p>
+              <p onClick={(e) => { setChoosenCategory("Mirrors"); getByCategory() }}>Mirrors</p>
+              <p onClick={(e) => { setChoosenCategory("Grips"); getByCategory() }}>Grips</p>
               {/* <Link to="">Handlebars</Link>
               <Link to="">Risers</Link>
               <Link to="">Mirrors</Link>
@@ -148,9 +148,9 @@ function CategoriesMenu() {
           </Card.Header>
           <Accordion.Collapse eventKey="4">
             <Card.Body>
-              <p onClick={(e) => setChoosenCategory("Stands")}>Stands</p>
-              <p onClick={(e) => setChoosenCategory("Footpegs")}>Footpegs</p>
-              <p onClick={(e) => setChoosenCategory("Mid Controls")}>Mid Controls</p>
+              <p onClick={(e) => { setChoosenCategory("Stands"); getByCategory() }}>Stands</p>
+              <p onClick={(e) => { setChoosenCategory("Footpegs"); getByCategory() }}>Footpegs</p>
+              <p onClick={(e) => { setChoosenCategory("Mid Controls"); getByCategory() }}>Mid Controls</p>
               {/* <Link to="">Stands</Link>
               <Link to="">Footpegs</Link>
               <Link to="">Mid Controls</Link> */}
@@ -162,7 +162,7 @@ function CategoriesMenu() {
           <Card.Header>
             <Accordion as={Card.Header} className="pointer" >
               {/* .toogle removed eventKey="5"*/}
-              <p onClick={(e) => setChoosenMainCategory("Seats")}>Seats</p>
+              <p onClick={(e) => { setChoosenMainCategory("Seats"); getByMainCategory() }}>Seats</p>
               {/* <Link to="">Seats</Link> */}
             </Accordion>
           </Card.Header>
@@ -179,9 +179,9 @@ function CategoriesMenu() {
           </Card.Header>
           <Accordion.Collapse eventKey="6">
             <Card.Body>
-              <p onClick={(e) => setChoosenCategory("Jet")}>Jet</p>
-              <p onClick={(e) => setChoosenCategory("Modular")}>Modular</p>
-              <p onClick={(e) => setChoosenCategory("Full Face")}>Full Face</p>
+              <p onClick={(e) => { setChoosenCategory("Jet"); getByCategory() }}>Jet</p>
+              <p onClick={(e) => { setChoosenCategory("Modular"); getByCategory() }}>Modular</p>
+              <p onClick={(e) => { setChoosenCategory("Full Face"); getByCategory() }}>Full Face</p>
               <p onClick={(e) => setChoosenCategory("Accesories")}>Accesories</p>
               {/* <Link to="">Jet</Link>
               <Link to="">Modular</Link>
