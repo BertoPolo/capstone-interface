@@ -10,6 +10,7 @@ function CategoriesMenu() {
   const items = useSelector((state) => state.itemsSlice.items);
 
   const [choosenCategory, setChoosenCategory] = useState("")
+  const [choosenMainCategory, setChoosenMainCategory] = useState("")
 
 
   const getByBrand = async (e) => {
@@ -77,9 +78,9 @@ function CategoriesMenu() {
           </Card.Header>
           <Accordion.Collapse eventKey="0">
             <Card.Body>
-              <p value="lala" onClick={(e) => setChoosenCategory(e.target.value)}>Front lights</p>
-              <p >Rear lights</p>
-              <p >Signal lights</p>
+              <p onClick={(e) => setChoosenCategory("Front lights")}>Front lights</p>
+              <p onClick={(e) => setChoosenCategory("Rear lights")}>Rear lights</p>
+              <p onClick={(e) => setChoosenCategory("Signal lights")}>Signal lights</p>
               {/* <Link to="/Front_lights">Front lights</Link>
               <Link to="/Rear_lights">Rear lights</Link>
               <Link to="/Signal_lights">Signal lights</Link> */}
@@ -91,7 +92,7 @@ function CategoriesMenu() {
           <Card.Header>
             <Accordion as={Card.Header} className="pointer" >
               {/* .toogle removed eventKey="1"*/}
-              <p>Tools</p>
+              <p onClick={(e) => setChoosenCategory("Tools")}>Tools</p>
               {/* <Link to="">Tools</Link> */}
             </Accordion>
           </Card.Header>
@@ -103,15 +104,15 @@ function CategoriesMenu() {
         <Card>
           <Card.Header>
             <Accordion.Toggle as={Card.Header} eventKey="2" className="pointer" >
-              <p>Clothes</p>
+              <p onClick={(e) => setChoosenCategory("Clothes")}>Clothes</p>
               {/* <Link to="/Clothes">Clothes</Link> */}
             </Accordion.Toggle>
           </Card.Header>
           <Accordion.Collapse eventKey="2">
             <Card.Body>
-              <p>Gloves</p>
-              <p>Hats</p>
-              <p>Shirts</p>
+              <p onClick={(e) => setChoosenCategory("Gloves")}>Gloves</p>
+              <p onClick={(e) => setChoosenCategory("Hats")}>Hats</p>
+              <p onClick={(e) => setChoosenCategory("Shirts")}>Shirts</p>
               {/* <Link to="">Gloves</Link>
               <Link to="">Hats</Link>
               <Link to="">Shirts</Link> */}
@@ -127,10 +128,10 @@ function CategoriesMenu() {
           </Card.Header>
           <Accordion.Collapse eventKey="3">
             <Card.Body>
-              <p>Handlebars</p>
-              <p>Risers</p>
-              <p>Mirrors</p>
-              <p>Grips</p>
+              <p onClick={(e) => setChoosenCategory("Gloves")}>Handlebars</p>
+              <p onClick={(e) => setChoosenCategory("Risers")}>Risers</p>
+              <p onClick={(e) => setChoosenCategory("Mirrors")}>Mirrors</p>
+              <p onClick={(e) => setChoosenCategory("Grips")}>Grips</p>
               {/* <Link to="">Handlebars</Link>
               <Link to="">Risers</Link>
               <Link to="">Mirrors</Link>
@@ -147,9 +148,9 @@ function CategoriesMenu() {
           </Card.Header>
           <Accordion.Collapse eventKey="4">
             <Card.Body>
-              <p>Stands</p>
-              <p>Footpegs</p>
-              <p>Mid Controls</p>
+              <p onClick={(e) => setChoosenCategory("Stands")}>Stands</p>
+              <p onClick={(e) => setChoosenCategory("Footpegs")}>Footpegs</p>
+              <p onClick={(e) => setChoosenCategory("Mid Controls")}>Mid Controls</p>
               {/* <Link to="">Stands</Link>
               <Link to="">Footpegs</Link>
               <Link to="">Mid Controls</Link> */}
@@ -161,7 +162,7 @@ function CategoriesMenu() {
           <Card.Header>
             <Accordion as={Card.Header} className="pointer" >
               {/* .toogle removed eventKey="5"*/}
-              <p>Seats</p>
+              <p onClick={(e) => setChoosenMainCategory("Seats")}>Seats</p>
               {/* <Link to="">Seats</Link> */}
             </Accordion>
           </Card.Header>
@@ -178,10 +179,10 @@ function CategoriesMenu() {
           </Card.Header>
           <Accordion.Collapse eventKey="6">
             <Card.Body>
-              <p>Jet</p>
-              <p>Modular</p>
-              <p>Full Face</p>
-              <p>Accesories</p>
+              <p onClick={(e) => setChoosenCategory("Jet")}>Jet</p>
+              <p onClick={(e) => setChoosenCategory("Modular")}>Modular</p>
+              <p onClick={(e) => setChoosenCategory("Full Face")}>Full Face</p>
+              <p onClick={(e) => setChoosenCategory("Accesories")}>Accesories</p>
               {/* <Link to="">Jet</Link>
               <Link to="">Modular</Link>
               <Link to="">Full Face</Link>
