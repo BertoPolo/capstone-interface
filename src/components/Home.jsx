@@ -28,6 +28,7 @@ const Home = () => {
   // const isOnSingleItem = useSelector((state) => state.sheetsSlice.isOnSingleItem);
 
   const dispatch = useDispatch();
+
   const getItems = async () => {
     try {
       const response = await fetch(
@@ -46,8 +47,29 @@ const Home = () => {
     }
   }
 
+  const getBrands = async () => {
+
+    try {
+      const response = await fetch(
+        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/brands`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      let data = await response.json();
+      console.log(data)
+      // dispatch(brands(data));
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   useEffect(() => {
     getItems()
+    getBrands()
   }, [])
 
 
