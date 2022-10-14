@@ -35,7 +35,7 @@ const BackOficceNewItem = () => {
 
         try {
             const res = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items`,
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/new`,
                 {
                     method: "POST",
                     headers: {
@@ -54,22 +54,22 @@ const BackOficceNewItem = () => {
             console.log(error)
         }
 
-        try {
-            const res = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/img`,
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(photo),
-                }
-            );
+        // try {
+        //     const res = await fetch(
+        //         `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/img`,
+        //         {
+        //             method: "POST",
+        //             headers: {
+        //                 "Content-Type": "application/json",
+        //             },
+        //             body: JSON.stringify(photo),
+        //         }
+        //     );
 
 
-        } catch (error) {
-            console.log(error)
-        }
+        // } catch (error) {
+        //     console.log(error)
+        // }
 
     }
 
