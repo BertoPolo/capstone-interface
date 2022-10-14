@@ -3,7 +3,7 @@ import { Card, Button } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
 import { addToCart, sumOneToCart } from "../slices/cart/cartSlice"
 import { changeSelectedItem } from "../slices/items/itemsSlice"
-import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs, toggleIsOnSingleItem } from "../slices/sheets/sheetsSlice"
+import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs, toggleIsOnSingleItem, toggleIsOnCategory } from "../slices/sheets/sheetsSlice"
 
 
 
@@ -31,6 +31,7 @@ const HomeItem = ({ currentItem }) => {
     dispatch(toggleIsOnHome(false))
     dispatch(toggleIsOnOutlet(false))
     dispatch(toggleIsCountactUs(false))
+    dispatch(toggleIsOnCategory(false))
     dispatch(toggleIsOnSingleItem(true))
     dispatch(changeSelectedItem(currentItem))
   }

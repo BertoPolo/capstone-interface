@@ -21,7 +21,7 @@ const Home = () => {
   // const [isOnSingleItem, setIsOnSingleItem] = useState(false) // when true, also dont show carousel. 
   //
   const items = useSelector((state) => state.itemsSlice.items);
-  const { isOnHome, isOnOutlet, isOnCountactUs, isOnSingleItem } = useSelector(state => state.sheetsSlice)
+  const { isOnHome, isOnOutlet, isOnCountactUs, isOnSingleItem, isOnCategory } = useSelector(state => state.sheetsSlice)
   // const isOnHome = useSelector((state) => state.sheetsSlice.isOnHome);
   // const isOnOutlet = useSelector((state) => state.sheetsSlice.isOnOutlet);
   // const isOnCountactUs = useSelector((state) => state.sheetsSlice.isOnCountactUs);
@@ -122,6 +122,8 @@ const Home = () => {
 
             {/* Single Item */}
             {isOnSingleItem && <SingleItem />}
+
+            {isOnCategory && <CategoriesMenu />}
 
             <Footer />
           </Col>

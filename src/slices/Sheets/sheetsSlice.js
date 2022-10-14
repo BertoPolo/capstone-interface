@@ -7,6 +7,7 @@ const sheetsSlice = createSlice({
     isOnOutlet: false,
     isOnCountactUs: false,
     isOnSingleItem: false,
+    isOnCategory: false,
   },
   reducers: {
     toggleIsOnHome: (state, action) => {
@@ -33,8 +34,14 @@ const sheetsSlice = createSlice({
         isOnSingleItem: action.payload,
       }
     },
+    toggleIsOnCategory: (state, action) => {
+      return {
+        ...state,
+        isOnCategory: action.payload,
+      }
+    },
   },
 })
 
 export default sheetsSlice.reducer
-export const { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs, toggleIsOnSingleItem } = sheetsSlice.actions
+export const { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs, toggleIsOnSingleItem, toggleIsOnCategory } = sheetsSlice.actions

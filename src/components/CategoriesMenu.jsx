@@ -1,22 +1,23 @@
-// import Accordion from "react-bootstrap/Accordion"
 import { Accordion, Card, Dropdown } from "react-bootstrap"
-import { useSelector } from "react-redux"
-import { useState } from "react"
-// import { Link } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
+import { toggleIsOnCategory } from "../slices/sheets/sheetsSlice"
+import { addItems } from "../slices/items/itemsSlice"
 
 
 function CategoriesMenu() {
 
   const items = useSelector((state) => state.itemsSlice.items);
 
+  const dispatch = useDispatch()
+
   // const [choosenCategory, setChoosenCategory] = useState("")
   // const [choosenMainCategory, setChoosenMainCategory] = useState("")
 
 
-  const getByBrand = async (e) => {
+  const getByBrand = async (brand) => {
     try {
       const response = await fetch(
-        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/brand${e.target.value}`,
+        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/brand/${brand}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -24,7 +25,7 @@ function CategoriesMenu() {
         }
       );
       const data = await response.json();
-      // setFoundedUsers(data)
+      dispatch(addItems(data));
     } catch (error) {
       console.log(error)
     }
@@ -41,8 +42,7 @@ function CategoriesMenu() {
         }
       );
       const data = await response.json();
-      // setFoundedUsers(data)
-      console.log(data);
+      dispatch(addItems(data));
     } catch (error) {
       console.log(error)
     }
@@ -59,7 +59,8 @@ function CategoriesMenu() {
         }
       );
       const data = await response.json();
-      // setFoundedUsers(data)
+      dispatch(addItems(data));
+      toggleIsOnCategory(true)
       console.log(data);
     } catch (error) {
       console.log(error)
@@ -218,7 +219,7 @@ function CategoriesMenu() {
           {/* do a check to do not repeat brands */}
           {items.map((element) => {
             return (
-              <Dropdown.Item key={element._id} href="" onClick={getByBrand}>{element.brand}</Dropdown.Item>
+              <Dropdown.Item key={element._id} href="" onClick={() => getByBrand(element.brand)}>{element.brand}</Dropdown.Item>
             )
           })}
         </Dropdown.Menu>
