@@ -33,6 +33,8 @@ const BackOficceNewItem = () => {
         //send photo with separated fetch
         const photo = ""
 
+        const returnToFalse = setUploaded(false)
+
         try {
             const res = await fetch(
                 `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/new`,
@@ -47,7 +49,7 @@ const BackOficceNewItem = () => {
             );
             if (res.status === 201) {
                 setUploaded(true)
-                setTimeout(setUploaded(false), 2000)
+                //setTimeout(returnToFalse, 2000) // try it as a function and maybe with a clearTimeout. returnToFalse maybe its not needed
             }
 
         } catch (error) {

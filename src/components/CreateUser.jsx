@@ -40,7 +40,6 @@ const CreateUser = () => {
         }
       );
       if (res.status === 201) {
-        // const data = await res.json();
         navigate("/home")
       }
 
