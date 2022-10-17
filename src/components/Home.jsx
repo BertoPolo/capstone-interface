@@ -1,6 +1,6 @@
 import { Container, Carousel, Col, Row, Form, Button, FormControl } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 // import { useNavigate, Link } from "react-router-dom"
 import { addItems } from "../slices/items/itemsSlice"
 // import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs, toggleIsOnSingleItem } from "../slices/sheets/sheetsSlice"
@@ -26,6 +26,8 @@ const Home = () => {
   // const isOnOutlet = useSelector((state) => state.sheetsSlice.isOnOutlet);
   // const isOnCountactUs = useSelector((state) => state.sheetsSlice.isOnCountactUs);
   // const isOnSingleItem = useSelector((state) => state.sheetsSlice.isOnSingleItem);
+
+  const [searchInput, setSearchinput] = useState("")
 
   const dispatch = useDispatch();
 
@@ -65,7 +67,31 @@ const Home = () => {
     } catch (error) {
       console.log(error)
     }
+
+
   }
+  const searchItems = async (e) => {
+    e.preventDefault()
+    //reset state to false on start
+    // then ,if not findingg anything TRUE on state
+    try {
+      const response = await fetch(
+        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/${searchInput}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      let data = await response.json();
+      console.log(data)
+      // dispatch(brands(data));
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
 
   useEffect(() => {
     getItems()
@@ -106,9 +132,9 @@ const Home = () => {
         </div>}
 
         {/* search bar */}
-        <Form inline className="mt-5 d-flex justify-content-center">
-          <FormControl type="text" placeholder="Check if we have it" className="w-25 searchBar" />
-          <Button variant="outline-success" className="ml-2">
+        <Form inline className="mt-5 d-flex justify-content-center" onSubmit={(e) => searchItems(searchInput)}>
+          <FormControl type="text" placeholder="Check if we have it" className="w-25 searchBar" onChange={(e) => setSearchinput(e.target.value)} />
+          <Button type="submit" variant="outline-success" className="ml-2">
             <i className="bi bi-search "></i> Search
           </Button>
         </Form>

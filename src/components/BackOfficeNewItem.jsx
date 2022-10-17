@@ -31,7 +31,6 @@ const BackOficceNewItem = () => {
             fullDescription: fullDescription
         }
         //send photo with separated fetch
-        const photo = ""
 
         const returnToFalse = setUploaded(false)
 
@@ -64,7 +63,7 @@ const BackOficceNewItem = () => {
         //             headers: {
         //                 "Content-Type": "application/json",
         //             },
-        //             body: JSON.stringify(photo),
+        //             body: JSON.stringify(img)
         //         }
         //     );
 
