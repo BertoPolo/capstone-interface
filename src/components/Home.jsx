@@ -53,7 +53,7 @@ const Home = () => {
 
     try {
       const response = await fetch(
-        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/brands`,
+        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/allbrands`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -62,7 +62,7 @@ const Home = () => {
       );
       let data = await response.json();
       console.log(data)
-      // dispatch(brands(data));
+      // dispatch(addBrands(data));
 
     } catch (error) {
       console.log(error)
@@ -76,7 +76,7 @@ const Home = () => {
     // then ,if not findingg anything TRUE on state
     try {
       const response = await fetch(
-        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/${searchInput}`,
+        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/bytitle/${searchInput}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -85,7 +85,8 @@ const Home = () => {
       );
       let data = await response.json();
       console.log(data)
-      // dispatch(brands(data));
+      dispatch(addItems(data));
+
 
     } catch (error) {
       console.log(error)
