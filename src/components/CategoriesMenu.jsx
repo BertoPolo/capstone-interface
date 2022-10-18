@@ -34,7 +34,7 @@ function CategoriesMenu() {
   const getByMainCategory = async (mainCat) => {
     try {
       const response = await fetch(
-        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/mainCategory${mainCat}`,
+        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/mainCategory/${mainCat}`,
         {
           headers: {
             "Content-Type": "application/json",

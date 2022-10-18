@@ -71,9 +71,10 @@ const Home = () => {
 
   }
   const searchItems = async (e) => {
-    e.preventDefault()
     //reset state to false on start
-    // then ,if not findingg anything TRUE on state
+    // then ,if not finding anything TRUE on state
+    e.preventDefault()
+    console.log(searchInput)
     try {
       const response = await fetch(
         `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/bytitle/${searchInput}`,
@@ -96,7 +97,7 @@ const Home = () => {
 
   useEffect(() => {
     getItems()
-    getBrands()
+    // getBrands()
   }, [])
 
 
@@ -133,7 +134,7 @@ const Home = () => {
         </div>}
 
         {/* search bar */}
-        <Form inline className="mt-5 d-flex justify-content-center" onSubmit={(e) => searchItems(searchInput)}>
+        <Form inline className="mt-5 d-flex justify-content-center" onSubmit={(e) => searchItems(e)}>
           <FormControl type="text" placeholder="Check if we have it" className="w-25 searchBar" onChange={(e) => setSearchinput(e.target.value)} />
           <Button type="submit" variant="outline-success" className="ml-2">
             <i className="bi bi-search "></i> Search

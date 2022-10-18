@@ -49,16 +49,15 @@ const BackOficceNewItem = () => {
                 }
             );
             if (res.status === 201) {
+                const data = await res.json();
                 setUploaded(true)
-                setItemId()
-
+                setItemId(data)
                 //setTimeout(returnToFalse, 2000) // try it as a function and maybe with a clearTimeout. returnToFalse maybe its not needed
             }
 
         } catch (error) {
             console.log(error)
         }
-
 
 
     }
@@ -102,14 +101,14 @@ const BackOficceNewItem = () => {
                     <Form.Check type="checkbox" label="Outlet" value={isItOutlet} onChange={(e) => setIsItOutlet(!isItOutlet)} />
 
                 </Form.Group>
-                <input type="file" label="Add An Image" accept=",.jpg,.jpeg,.png" onChange={() => setImg(img)} />
-                <Button variant="primary" onClick={() => postImg()}>Upload image</Button>
-
-
                 <Button type="submit"> Submit </Button>
             </Form >
 
-            {uploaded && <p>item uploaded </p>}
+            <input type="file" label="Add An Image" accept=",.jpg,.jpeg,.png" onChange={() => setImg(img)} />
+            <Button variant="primary" onClick={() => postImg()}>Upload image</Button>
+
+
+            {uploaded && <p>item uploaded!, upload a photo now</p>}
         </>
     )
 }
