@@ -16,6 +16,8 @@ const BackOficceNewItem = () => {
     const [fullDescription, setFullDescription] = useState("")
     const [isItOutlet, setIsItOutlet] = useState(false)
 
+    const [itemId, setItemId] = useState("")
+
 
 
     const addNewArticleSubmit = async (e) => {
@@ -48,6 +50,8 @@ const BackOficceNewItem = () => {
             );
             if (res.status === 201) {
                 setUploaded(true)
+                setItemId()
+
                 //setTimeout(returnToFalse, 2000) // try it as a function and maybe with a clearTimeout. returnToFalse maybe its not needed
             }
 
@@ -55,25 +59,28 @@ const BackOficceNewItem = () => {
             console.log(error)
         }
 
-        // try {
-        //     const res = await fetch(
-        //         `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/img`,
-        //         {
-        //             method: "POST",
-        //             headers: {
-        //                 "Content-Type": "application/json",
-        //             },
-        //             body: JSON.stringify(img)
-        //         }
-        //     );
 
-
-        // } catch (error) {
-        //     console.log(error)
-        // }
 
     }
+    const postImg = async () => {
 
+        try {
+            const res = await fetch(
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/${itemId}/img`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(img)
+                }
+            );
+
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
     return (
         <>
             <MyNavbar />
@@ -93,9 +100,11 @@ const BackOficceNewItem = () => {
                     <Form.Control type="text" placeholder="Short Description" value={shortDescription} onChange={(e) => setShortDescription(e.target.value)} />
                     <Form.Control as="textarea" rows={3} placeholder="Full Description" value={fullDescription} onChange={(e) => setFullDescription(e.target.value)} />
                     <Form.Check type="checkbox" label="Outlet" value={isItOutlet} onChange={(e) => setIsItOutlet(!isItOutlet)} />
-                    <Form.File label="Add An Image" accept=",.jpg,.jpeg,.png" onChange={(e) => setImg(e.target.value)} />
 
                 </Form.Group>
+                <input type="file" label="Add An Image" accept=",.jpg,.jpeg,.png" onChange={() => setImg(img)} />
+                <Button variant="primary" onClick={() => postImg()}>Upload image</Button>
+
 
                 <Button type="submit"> Submit </Button>
             </Form >
