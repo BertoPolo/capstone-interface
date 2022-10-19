@@ -28,6 +28,7 @@ const Home = () => {
   // const isOnSingleItem = useSelector((state) => state.sheetsSlice.isOnSingleItem);
 
   const [searchInput, setSearchinput] = useState("")
+  // const [isNotFound, setIsNotFound] = useState(false)
 
   const dispatch = useDispatch();
 
@@ -74,19 +75,13 @@ const Home = () => {
     //reset state to false on start
     // then ,if not finding anything TRUE on state
     e.preventDefault()
-    console.log(searchInput)
+
     try {
       const response = await fetch(
-        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/bytitle/${searchInput}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/bytitle/${searchInput}`);
       let data = await response.json();
-      console.log(data)
-      dispatch(addItems(data));
+      if (data) dispatch(addItems(data));
+      // else setIsNotFound(true)
 
 
     } catch (error) {
