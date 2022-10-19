@@ -205,8 +205,7 @@ function CategoriesMenu() {
         <Dropdown.Menu>
           {brands.map((element) => {
             return (
-              <Dropdown.Item key={element._id} href="" onClick={setChoosenBrand(element.brand)} >{element.brand}</Dropdown.Item>
-              // onclick should open objects with that brand
+              <Dropdown.Item key={element._id} href="" onClick={setChoosenBrand(element.brand)}>{element.brand}</Dropdown.Item>
             )
           })}
         </Dropdown.Menu>

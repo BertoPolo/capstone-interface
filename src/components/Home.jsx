@@ -55,8 +55,6 @@ const Home = () => {
   }
 
 
-
-
   const getBrands = async () => {
     try {
       const response = await fetch(
@@ -71,7 +69,6 @@ const Home = () => {
   }
 
 
-
   const searchItems = async (e) => {
     //reset state to false on start
     // then ,if not finding anything TRUE on state
@@ -80,8 +77,8 @@ const Home = () => {
     try {
       const response = await fetch(
         `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/bytitle/${searchInput}`);
-      let data = await response.json();
-      if (data) dispatch(addItems(data));
+      const data = await response.json();
+      // if (data) dispatch(addItems(data));
       // else setIsNotFound(true)
 
 
