@@ -2,11 +2,13 @@ import { Accordion, Card, Dropdown } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { toggleIsOnCategory } from "../slices/sheets/sheetsSlice"
 import { addItems } from "../slices/items/itemsSlice"
+import { addBrands } from "../slices/brands/brandsSlice"
 
 
 function CategoriesMenu() {
 
   const items = useSelector((state) => state.itemsSlice.items);
+  const brands = useSelector((state) => state.brandsSlice.brands);
 
   const dispatch = useDispatch()
 
@@ -14,12 +16,12 @@ function CategoriesMenu() {
   // const [choosenMainCategory, setChoosenMainCategory] = useState("")
 
 
-  const getByBrand = async (brand) => {
+  const getBrands = async (brand) => {
     try {
       const response = await fetch(
         `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}brands/all`);
       const data = await response.json();
-      dispatch(addItems(data));
+      dispatch(addBrands(data));
     } catch (error) {
       console.log(error)
     }
@@ -205,15 +207,14 @@ function CategoriesMenu() {
       <hr />
       <h4>BRANDS</h4>
 
+      {/* FILTER BY BRAND*/}
       <Dropdown>
-        <Dropdown.Toggle variant="warning">Dropdown Button</Dropdown.Toggle>
+        <Dropdown.Toggle variant="warning">Choose</Dropdown.Toggle>
 
         <Dropdown.Menu>
-          {/* FILTER BY BRAND*/}
-          {/* do a check to do not repeat brands */}
           {items.map((element) => {
             return (
-              <Dropdown.Item key={element._id} href="" onClick={() => getByBrand(element.brand)}>{element.brand}</Dropdown.Item>
+              <Dropdown.Item key={element._id} href="" onClick={() => getBrands(element.brand)}>{element.brand}</Dropdown.Item>
             )
           })}
         </Dropdown.Menu>

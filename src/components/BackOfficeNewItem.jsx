@@ -27,7 +27,6 @@ const BackOficceNewItem = () => {
             price: price,
             mainCategory: mainCategory,
             category: category,
-            brand: brand,
             isOutlet: isItOutlet,
             description: shortDescription,
             fullDescription: fullDescription
@@ -48,12 +47,27 @@ const BackOficceNewItem = () => {
                     body: JSON.stringify(body),
                 }
             );
+
+
             if (res.status === 201) {
                 const data = await res.json();
                 setUploaded(true)
                 setItemId(data)
                 //setTimeout(returnToFalse, 2000) // try it as a function and maybe with a clearTimeout. returnToFalse maybe its not needed
             }
+
+            const response = await fetch(
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}brands/new`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+
+                    body: JSON.stringify(`brand:${brand}`),
+                }
+            );
+
 
         } catch (error) {
             console.log(error)
