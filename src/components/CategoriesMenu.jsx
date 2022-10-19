@@ -1,8 +1,8 @@
 import { Accordion, Card, Dropdown } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
+import { useState } from "react"
 import { toggleIsOnCategory } from "../slices/sheets/sheetsSlice"
 import { addItems } from "../slices/items/itemsSlice"
-import { addBrands } from "../slices/brands/brandsSlice"
 
 
 function CategoriesMenu() {
@@ -14,18 +14,9 @@ function CategoriesMenu() {
 
   // const [choosenCategory, setChoosenCategory] = useState("")
   // const [choosenMainCategory, setChoosenMainCategory] = useState("")
+  const [choosenBrand, setChoosenBrand] = useState("") // redux???
 
 
-  const getBrands = async (brand) => {
-    try {
-      const response = await fetch(
-        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}brands/all`);
-      const data = await response.json();
-      dispatch(addBrands(data));
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
   const getByMainCategory = async (mainCat) => {
     try {
@@ -212,9 +203,10 @@ function CategoriesMenu() {
         <Dropdown.Toggle variant="warning">Choose</Dropdown.Toggle>
 
         <Dropdown.Menu>
-          {items.map((element) => {
+          {brands.map((element) => {
             return (
-              <Dropdown.Item key={element._id} href="" onClick={() => getBrands(element.brand)}>{element.brand}</Dropdown.Item>
+              <Dropdown.Item key={element._id} href="" onClick={setChoosenBrand(element.brand)} >{element.brand}</Dropdown.Item>
+              // onclick should open objects with that brand
             )
           })}
         </Dropdown.Menu>

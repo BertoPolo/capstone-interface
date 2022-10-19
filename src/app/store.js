@@ -3,6 +3,7 @@ import itemsSlice from "../slices/items/itemsSlice"
 import sheetsSlice from "../slices/sheets/sheetsSlice"
 import usersSlice from "../slices/users/usersSlice"
 import cartSlice from "../slices/cart/cartSlice"
+import brandsSlice from "../slices/brands/brandsSlice"
 
 export default configureStore({
   reducer: {
@@ -10,5 +11,6 @@ export default configureStore({
     sheetsSlice: sheetsSlice,
     usersSlice: usersSlice,
     cartSlice: cartSlice,
+    brandsSlice: brandsSlice,
   },
 })

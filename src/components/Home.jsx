@@ -11,6 +11,8 @@ import Outlet from "./Outlet"
 import ContactUs from "./ContactUs"
 import SingleItem from "./SingleItem"
 import CategoriesMenu from "./CategoriesMenu"
+import { addBrands } from "../slices/brands/brandsSlice"
+
 
 
 
@@ -21,11 +23,13 @@ const Home = () => {
   // const [isOnSingleItem, setIsOnSingleItem] = useState(false) // when true, also dont show carousel. 
   //
   const items = useSelector((state) => state.itemsSlice.items);
+  const brands = useSelector((state) => state.brandsSlice.brands);
   const { isOnHome, isOnOutlet, isOnCountactUs, isOnSingleItem, isOnCategory } = useSelector(state => state.sheetsSlice)
   // const isOnHome = useSelector((state) => state.sheetsSlice.isOnHome);
   // const isOnOutlet = useSelector((state) => state.sheetsSlice.isOnOutlet);
   // const isOnCountactUs = useSelector((state) => state.sheetsSlice.isOnCountactUs);
   // const isOnSingleItem = useSelector((state) => state.sheetsSlice.isOnSingleItem);
+
 
   const [searchInput, setSearchinput] = useState("")
   // const [isNotFound, setIsNotFound] = useState(false)
@@ -50,21 +54,24 @@ const Home = () => {
     }
   }
 
-  const getBrands = async () => {
 
+
+
+  const getBrands = async () => {
     try {
       const response = await fetch(
         `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}brands/all`);
-      let data = await response.json();
-      console.log(data)
-      // dispatch(addBrands(data));
+      const data = await response.json();
+      dispatch(addBrands(data));
+      // console.log(data);
 
     } catch (error) {
       console.log(error)
     }
-
-
   }
+
+
+
   const searchItems = async (e) => {
     //reset state to false on start
     // then ,if not finding anything TRUE on state
@@ -86,7 +93,7 @@ const Home = () => {
 
   useEffect(() => {
     getItems()
-    // getBrands()
+    getBrands()
   }, [])
 
 
