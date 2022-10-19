@@ -80,6 +80,27 @@ const BackOficceNewItem = () => {
             console.log(error)
         }
     }
+
+
+    const createNewBrand = async () => {
+
+        try {
+            const res = await fetch(
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}brands/new`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    // body: JSON.stringify(newBrandInput)
+                }
+            );
+
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
     return (
         <>
             <MyNavbar />

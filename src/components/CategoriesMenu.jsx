@@ -17,13 +17,7 @@ function CategoriesMenu() {
   const getByBrand = async (brand) => {
     try {
       const response = await fetch(
-        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/brand/${brand}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}brands/all`);
       const data = await response.json();
       dispatch(addItems(data));
     } catch (error) {

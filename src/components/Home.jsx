@@ -54,13 +54,7 @@ const Home = () => {
 
     try {
       const response = await fetch(
-        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/allbrands`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}brands/all`);
       let data = await response.json();
       console.log(data)
       // dispatch(addBrands(data));
