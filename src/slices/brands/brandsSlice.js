@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const brandsSlice = createSlice({
-  name: "brandsSlice",
+  name: "brands",
   initialState: {
     brands: [],
   },
@@ -9,7 +9,7 @@ const brandsSlice = createSlice({
     addBrands: (state, action) => {
       return {
         ...state,
-        brands: [...state.brands, action.payload],
+        brands: action.payload,
       }
     },
   },

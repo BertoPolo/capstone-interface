@@ -38,13 +38,8 @@ const Home = () => {
 
   const getItems = async () => {
     try {
-      const response = await fetch(
-        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
+      const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items`,
+
       );
       let data = await response.json();
       dispatch(addItems(data));
@@ -57,11 +52,10 @@ const Home = () => {
 
   const getBrands = async () => {
     try {
-      const response = await fetch(
-        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}brands/all`);
+      const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}brands/all`);
       const data = await response.json();
       dispatch(addBrands(data));
-      // console.log(data);
+      console.log(brands);
 
     } catch (error) {
       console.log(error)
@@ -75,10 +69,9 @@ const Home = () => {
     e.preventDefault()
 
     try {
-      const response = await fetch(
-        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/bytitle/${searchInput}`);
+      const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/bytitle/${searchInput}`);
       const data = await response.json();
-      // if (data) dispatch(addItems(data));
+      if (data) dispatch(addItems(data));
       // else setIsNotFound(true)
 
 

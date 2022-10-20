@@ -1,7 +1,7 @@
 import { Accordion, Card, Dropdown } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { useState } from "react"
-import { toggleIsOnCategory } from "../slices/sheets/sheetsSlice"
+import { toggleIsOnCategory, toggleIsOnBrands } from "../slices/sheets/sheetsSlice"
 import { addItems } from "../slices/items/itemsSlice"
 
 
@@ -20,16 +20,10 @@ function CategoriesMenu() {
 
   const getByMainCategory = async (mainCat) => {
     try {
-      const response = await fetch(
-        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/mainCategory/${mainCat}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/mainCategory/${mainCat}`);
       const data = await response.json();
       dispatch(addItems(data));
+
     } catch (error) {
       console.log(error)
     }
@@ -37,22 +31,29 @@ function CategoriesMenu() {
 
   const getByCategory = async (category) => {
     try {
-      const response = await fetch(
-        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/category/${category}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/category/${category}`);
       const data = await response.json();
       dispatch(addItems(data));
       toggleIsOnCategory(true)
-      console.log(data);
+
     } catch (error) {
       console.log(error)
     }
   }
+
+
+  const getByBrand = async (brand) => {
+    try {
+      const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/category/${brand}`);
+      const data = await response.json();
+      dispatch(addItems(data));
+      toggleIsOnCategory(true)
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <>
       {/* Main categories are hard coded for demo purposes,they should be maped alphabetically*/}
@@ -205,7 +206,7 @@ function CategoriesMenu() {
         <Dropdown.Menu>
           {brands.map((element) => {
             return (
-              <Dropdown.Item key={element._id} href="" onClick={setChoosenBrand(element.brand)}>{element.brand}</Dropdown.Item>
+              <Dropdown.Item key={element._id} href="" onClick={() => setChoosenBrand(element.brands)}>{element.brands}</Dropdown.Item>
             )
           })}
         </Dropdown.Menu>
