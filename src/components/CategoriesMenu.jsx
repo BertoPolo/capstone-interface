@@ -38,7 +38,7 @@ function CategoriesMenu() {
 
   const getByBrand = async (brand) => {
     try {
-      const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/category/${brand}`);
+      const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/brand/${brand}`);
       const data = await response.json();
       dispatch(addItems(data));
       toggleIsOnCategory(true)

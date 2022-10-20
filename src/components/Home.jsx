@@ -55,7 +55,7 @@ const Home = () => {
       const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}brands/all`);
       const data = await response.json();
       dispatch(addBrands(data));
-      console.log(brands);
+      console.log(data);
 
     } catch (error) {
       console.log(error)
@@ -160,10 +160,10 @@ const Home = () => {
             {isOnSingleItem && <SingleItem />}
 
             {/* By Categories */}
-            {isOnCategory && <CategoriesMenu />}
+            {/* {isOnCategory && <CategoriesMenu />} */}
 
             {/* By Brands */}
-            {isOnBrands && <CategoriesMenu />}
+            {/* {isOnBrands && <CategoriesMenu />} */}
 
             <Footer />
           </Col>
