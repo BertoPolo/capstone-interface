@@ -1,6 +1,5 @@
 import { Accordion, Card, Dropdown } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
-import { useState } from "react"
 import { toggleIsOnCategory, toggleIsOnBrands } from "../slices/sheets/sheetsSlice"
 import { addItems } from "../slices/items/itemsSlice"
 
@@ -11,11 +10,6 @@ function CategoriesMenu() {
   const brands = useSelector((state) => state.brandsSlice.brands);
 
   const dispatch = useDispatch()
-
-  // const [choosenCategory, setChoosenCategory] = useState("")
-  // const [choosenMainCategory, setChoosenMainCategory] = useState("")
-  const [choosenBrand, setChoosenBrand] = useState("") // redux???
-
 
 
   const getByMainCategory = async (mainCat) => {
@@ -206,7 +200,7 @@ function CategoriesMenu() {
         <Dropdown.Menu>
           {brands.map((element) => {
             return (
-              <Dropdown.Item key={element._id} href="" onClick={() => setChoosenBrand(element.brands)}>{element.brands}</Dropdown.Item>
+              <Dropdown.Item key={element._id} href="" onClick={() => getByBrand(element.brands)}>{element.brands}</Dropdown.Item>
             )
           })}
         </Dropdown.Menu>

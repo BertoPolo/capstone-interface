@@ -4,11 +4,11 @@ const sheetsSlice = createSlice({
   name: "sheets",
   initialState: {
     isOnHome: true,
-    // isOnOutlet: false,
-    // isOnCountactUs: false,
-    // isOnSingleItem: false,
-    // isOnCategory: false,
-    // isOnBrands: false,
+    isOnOutlet: false,
+    isOnCountactUs: false,
+    isOnSingleItem: false,
+    isOnCategory: false,
+    isOnBrands: false,
   },
   reducers: {
     toggleIsOnHome: (state, action) => {
