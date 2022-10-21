@@ -70,6 +70,13 @@ const BackOficceNewItem = () => {
                 const data = await res.json();
                 setUploaded(true)
                 setItemId(data)
+                setName("")
+                setPrice("")
+                setMainCategory("")
+                setCategory("")
+                setBrand("")
+                setShortDescription("")
+                setFullDescription("")
                 //setTimeout(returnToFalse, 2000) // try it as a function and maybe with a clearTimeout. returnToFalse maybe its not needed
             }
 
@@ -109,7 +116,7 @@ const BackOficceNewItem = () => {
     const createNewBrand = async (e) => {
         e.preventDefault()
         const brandBody = {
-            brand: newBrandInput
+            brands: newBrandInput
         }
         try {
             const res = await fetch(
@@ -122,7 +129,10 @@ const BackOficceNewItem = () => {
                     body: JSON.stringify(brandBody)
                 }
             );
-
+            if (res.status === 201) {
+                getBrands()
+                setNewBrandInput("")
+            }
 
         } catch (error) {
             console.log(error)
@@ -166,13 +176,15 @@ const BackOficceNewItem = () => {
                     </Dropdown>
                     <Form.Check type="checkbox" label="Outlet" value={isItOutlet} onChange={(e) => setIsItOutlet(!isItOutlet)} />
 
+                    <Button type="submit"> Submit </Button>
                 </Form.Group>
-                <Button type="submit"> Submit </Button>
             </Form >
 
             {/* create a new brand */}
             <Form onSubmit={(e) => createNewBrand(e)}>
                 <Form.Control type="text" placeholder="New Brand" value={newBrandInput} onChange={(e) => setNewBrandInput(e.target.value)} />
+                <Button type="submit"> Submit </Button>
+
             </Form>
 
             {uploaded && <p>item uploaded!, upload a photo now</p>}
