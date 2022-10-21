@@ -53,7 +53,6 @@ const HomeItem = ({ currentItem }) => {
         <Card.Text>{currentItem.description}</Card.Text>
 
         {isOnOutlet ? <Card.Title className="d-inline "> <b>{currentItem.outletPrice}</b> <s>{currentItem.price}</s> </Card.Title> : <Card.Title className="d-inline ">{currentItem.price} </Card.Title>}
-        {/* <Card.Title className="d-inline ">{currentItem.price}</Card.Title> */}
 
         <Button variant="primary" onClick={() => checkIfIsAlreadyInCart()}>Add to cart</Button>
       </Card.Body>

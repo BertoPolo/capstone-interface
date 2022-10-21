@@ -1,7 +1,9 @@
 import { Form, Button, Dropdown } from "react-bootstrap"
 import MyNavbar from "./MyNavbar"
-import { useState } from "react"
-import { useSelector } from "react-redux"
+import { useState, useEffect } from "react"
+import { useSelector, useDispatch } from "react-redux"
+import { addBrands } from "../slices/brands/brandsSlice"
+
 
 
 const BackOficceNewItem = () => {
@@ -21,8 +23,19 @@ const BackOficceNewItem = () => {
 
     const brands = useSelector((state) => state.brandsSlice.brands);
 
+    const dispatch = useDispatch();
 
 
+    const getBrands = async () => {
+        try {
+            const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}brands/all`);
+            const data = await response.json();
+            dispatch(addBrands(data));
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     const addNewArticleSubmit = async (e) => {
         e.preventDefault()
@@ -81,6 +94,10 @@ const BackOficceNewItem = () => {
                     body: JSON.stringify(img)
                 }
             );
+            if (res.status === 201) {
+                const data = await res.json();
+                setUploaded(false)
+            }
 
 
         } catch (error) {
@@ -89,8 +106,11 @@ const BackOficceNewItem = () => {
     }
 
 
-    const createNewBrand = async () => {
-
+    const createNewBrand = async (e) => {
+        e.preventDefault()
+        const brandBody = {
+            brand: newBrandInput
+        }
         try {
             const res = await fetch(
                 `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}brands/new`,
@@ -99,7 +119,7 @@ const BackOficceNewItem = () => {
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify(newBrandInput)
+                    body: JSON.stringify(brandBody)
                 }
             );
 
@@ -108,6 +128,13 @@ const BackOficceNewItem = () => {
             console.log(error)
         }
     }
+
+
+    useEffect(() => {
+        getBrands()
+    }, [])
+
+
     return (
         <>
             <MyNavbar />
@@ -124,6 +151,8 @@ const BackOficceNewItem = () => {
                     <Form.Control type="text" placeholder="Main Category" value={mainCategory} onChange={(e) => setMainCategory(e.target.value)} />
                     <Form.Control type="text" placeholder="Category" value={category} onChange={(e) => setCategory(e.target.value)} />
                     {/* <Form.Control type="text" placeholder="Brand" value={brand} onChange={(e) => setBrand(e.target.value)} /> */}
+                    <Form.Control type="text" placeholder="Short Description" value={shortDescription} onChange={(e) => setShortDescription(e.target.value)} />
+                    <Form.Control as="textarea" rows={3} placeholder="Full Description" value={fullDescription} onChange={(e) => setFullDescription(e.target.value)} />
                     <Dropdown>
                         <Dropdown.Toggle variant="warning">Choose</Dropdown.Toggle>
 
@@ -135,20 +164,24 @@ const BackOficceNewItem = () => {
                             })}
                         </Dropdown.Menu>
                     </Dropdown>
-                    <Form.Control type="text" placeholder="Short Description" value={shortDescription} onChange={(e) => setShortDescription(e.target.value)} />
-                    <Form.Control as="textarea" rows={3} placeholder="Full Description" value={fullDescription} onChange={(e) => setFullDescription(e.target.value)} />
                     <Form.Check type="checkbox" label="Outlet" value={isItOutlet} onChange={(e) => setIsItOutlet(!isItOutlet)} />
 
                 </Form.Group>
                 <Button type="submit"> Submit </Button>
             </Form >
 
+            {/* create a new brand */}
+            <Form onSubmit={(e) => createNewBrand(e)}>
+                <Form.Control type="text" placeholder="New Brand" value={newBrandInput} onChange={(e) => setNewBrandInput(e.target.value)} />
+            </Form>
 
-            <input type="file" label="Add An Image" accept=",.jpg,.jpeg,.png" onChange={() => setImg(img)} />
+            {uploaded && <p>item uploaded!, upload a photo now</p>}
+
+            {/* Post item's image */}
+            <input className="mt-5" type="file" label="Add An Image" accept=",.jpg,.jpeg,.png" onChange={() => setImg(img)} />
             <Button variant="primary" onClick={() => postImg()}>Upload image</Button>
 
 
-            {uploaded && <p>item uploaded!, upload a photo now</p>}
         </>
     )
 }
