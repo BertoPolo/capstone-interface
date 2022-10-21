@@ -16,6 +16,8 @@ const BackOficceNewItem = () => {
     const [fullDescription, setFullDescription] = useState("")
     const [isItOutlet, setIsItOutlet] = useState(false)
 
+    const [newBrandInput, setNewBrandInput] = useState("")
+
     const [itemId, setItemId] = useState("")
 
 
@@ -31,7 +33,6 @@ const BackOficceNewItem = () => {
             description: shortDescription,
             fullDescription: fullDescription
         }
-        //send photo with separated fetch
 
         const returnToFalse = setUploaded(false)
 
@@ -43,11 +44,9 @@ const BackOficceNewItem = () => {
                     headers: {
                         "Content-Type": "application/json",
                     },
-
                     body: JSON.stringify(body),
                 }
             );
-
 
             if (res.status === 201) {
                 const data = await res.json();
@@ -106,7 +105,7 @@ const BackOficceNewItem = () => {
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    // body: JSON.stringify(newBrandInput)
+                    body: JSON.stringify(newBrandInput)
                 }
             );
 
@@ -138,6 +137,7 @@ const BackOficceNewItem = () => {
                 </Form.Group>
                 <Button type="submit"> Submit </Button>
             </Form >
+
 
             <input type="file" label="Add An Image" accept=",.jpg,.jpeg,.png" onChange={() => setImg(img)} />
             <Button variant="primary" onClick={() => postImg()}>Upload image</Button>
