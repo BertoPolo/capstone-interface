@@ -200,7 +200,7 @@ function CategoriesMenu() {
         <Dropdown.Menu>
           {brands.map((element) => {
             return (
-              <Dropdown.Item key={element._id} href="" onClick={() => getByBrand(element.brands)}>{element.brands}</Dropdown.Item>
+              <Dropdown.Item key={element._id} href="" onClick={() => getByBrand(element._id)}>{element.brands}</Dropdown.Item>
             )
           })}
         </Dropdown.Menu>
