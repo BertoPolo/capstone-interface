@@ -1,6 +1,7 @@
-import { Form, Button } from "react-bootstrap"
+import { Form, Button, Dropdown } from "react-bootstrap"
 import MyNavbar from "./MyNavbar"
 import { useState } from "react"
+import { useSelector } from "react-redux"
 
 
 const BackOficceNewItem = () => {
@@ -15,10 +16,11 @@ const BackOficceNewItem = () => {
     const [shortDescription, setShortDescription] = useState("")
     const [fullDescription, setFullDescription] = useState("")
     const [isItOutlet, setIsItOutlet] = useState(false)
-
     const [newBrandInput, setNewBrandInput] = useState("")
-
     const [itemId, setItemId] = useState("")
+
+    const brands = useSelector((state) => state.brandsSlice.brands);
+
 
 
 
@@ -27,12 +29,15 @@ const BackOficceNewItem = () => {
         let body = {
             title: name,
             price: price,
+            brand: brand,
             mainCategory: mainCategory,
             category: category,
             isOutlet: isItOutlet,
             description: shortDescription,
             fullDescription: fullDescription
         }
+
+
 
         const returnToFalse = setUploaded(false)
 
@@ -55,17 +60,6 @@ const BackOficceNewItem = () => {
                 //setTimeout(returnToFalse, 2000) // try it as a function and maybe with a clearTimeout. returnToFalse maybe its not needed
             }
 
-            const response = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}brands/new`,
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-
-                    body: JSON.stringify(`brand:${brand}`),
-                }
-            );
 
 
         } catch (error) {
@@ -129,7 +123,18 @@ const BackOficceNewItem = () => {
                     <Form.Control type="text" placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
                     <Form.Control type="text" placeholder="Main Category" value={mainCategory} onChange={(e) => setMainCategory(e.target.value)} />
                     <Form.Control type="text" placeholder="Category" value={category} onChange={(e) => setCategory(e.target.value)} />
-                    <Form.Control type="text" placeholder="Brand" value={brand} onChange={(e) => setBrand(e.target.value)} />
+                    {/* <Form.Control type="text" placeholder="Brand" value={brand} onChange={(e) => setBrand(e.target.value)} /> */}
+                    <Dropdown>
+                        <Dropdown.Toggle variant="warning">Choose</Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                            {brands.map((element) => {
+                                return (
+                                    <Dropdown.Item key={element._id} href="" onClick={() => setBrand(element._id)}>{element.brands}</Dropdown.Item>
+                                )
+                            })}
+                        </Dropdown.Menu>
+                    </Dropdown>
                     <Form.Control type="text" placeholder="Short Description" value={shortDescription} onChange={(e) => setShortDescription(e.target.value)} />
                     <Form.Control as="textarea" rows={3} placeholder="Full Description" value={fullDescription} onChange={(e) => setFullDescription(e.target.value)} />
                     <Form.Check type="checkbox" label="Outlet" value={isItOutlet} onChange={(e) => setIsItOutlet(!isItOutlet)} />
