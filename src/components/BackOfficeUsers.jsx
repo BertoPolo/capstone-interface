@@ -20,15 +20,13 @@ const BackOfficeUsers = () => {
         e.preventDefault()
         try {
             const response = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/${userInput}`,
-                {
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                }
-            );
-            let data = await response.json();
-            setFoundedUsers(data)
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/${userInput}`);
+
+            if (response.status === 200) {
+                let data = await response.json();
+                setFoundedUsers(data)
+                setUserInput("")
+            }
         } catch (error) {
             console.log(error)
         }
