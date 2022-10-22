@@ -1,5 +1,4 @@
 import { Form, Button } from "react-bootstrap"
-import MyNavbar from "./MyNavbar"
 import { useSelector, useDispatch } from "react-redux"
 import { useState } from "react"
 
@@ -49,8 +48,6 @@ const BackOfficeUsers = () => {
     }
     return (
         <>
-            <MyNavbar />
-
             {/* Search user */}
             <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => searchUserSubmit(e)}>
                 <h4 className="mb-3">Search an user</h4>
@@ -69,7 +66,7 @@ const BackOfficeUsers = () => {
                         <div key={element._id}>
                             <span><b>{element.name}</b> ---- </span>
                             <span>{element.adress}</span>
-                            <i className="bi bi-trash3" onClick={() => deleteUser(element.name)}></i>
+                            <i className="bi bi-trash3 pointer" onClick={() => deleteUser(element.name)}></i>
                             {/* <Button variant="primary" >Edit</Button><Button variant="danger" >Delete</Button> */}
                             <hr />
                         </div>

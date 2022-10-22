@@ -9,7 +9,12 @@ const sheetsSlice = createSlice({
     isOnSingleItem: false,
     isOnCategory: false,
     isOnBrands: false,
+
+    isOnUsers: false,
+    isOnItems: false,
+    isOnNewItems: false,
   },
+
   reducers: {
     toggleIsOnHome: (state, action) => {
       return {
@@ -77,8 +82,43 @@ const sheetsSlice = createSlice({
         // isOnCategory: false,
       }
     },
+    toggleIsOnUsers: (state, action) => {
+      return {
+        ...state,
+        isOnUsers: action.payload,
+        isOnItems: false,
+        isOnNewItems: false,
+      }
+    },
+
+    toggleIsOnItems: (state, action) => {
+      return {
+        ...state,
+        isOnItems: action.payload,
+        isOnUsers: false,
+        isOnNewItems: false,
+      }
+    },
+
+    toggleIsOnNewItems: (state, action) => {
+      return {
+        ...state,
+        isOnNewItems: action.payload,
+        isOnItems: false,
+        isOnUsers: false,
+      }
+    },
   },
 })
 
 export default sheetsSlice.reducer
-export const { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs, toggleIsOnSingleItem, toggleIsOnCategory } = sheetsSlice.actions
+export const {
+  toggleIsOnHome,
+  toggleIsOnOutlet,
+  toggleIsCountactUs,
+  toggleIsOnSingleItem,
+  toggleIsOnCategory,
+  toggleIsOnUsers,
+  toggleIsOnItems,
+  toggleIsOnNewItems,
+} = sheetsSlice.actions

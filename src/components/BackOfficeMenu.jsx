@@ -2,12 +2,14 @@ import { Button } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import MyNavbar from "./MyNavbar"
-
 import { changeName, changeAdress } from "../slices/users/usersSlice"
+import { toggleIsOnUsers, toggleIsOnItems, toggleIsOnNewItems } from "../slices/sheets/sheetsSlice"
 
 const BackOffice = () => {
 
     const navigate = useNavigate()
+    const dispatch = useDispatch();
+
 
 
     // search user
@@ -49,6 +51,10 @@ const BackOffice = () => {
             <Button variant="dark" onClick={() => navigate("/backOfficeItems")}>Search Items</Button >
             <Button variant="secondary" onClick={() => navigate("/backOfficeNewItem")}>Create Items</Button >
             <Button variant="danger" onClick={() => navigate("/home")}>Go Back</Button >
+
+            isOnUsers &&
+            isOnItems &&
+            isOnNewItems &&
 
         </>
     )

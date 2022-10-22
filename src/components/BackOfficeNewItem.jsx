@@ -1,5 +1,4 @@
 import { Form, Button, Dropdown } from "react-bootstrap"
-import MyNavbar from "./MyNavbar"
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { addBrands } from "../slices/brands/brandsSlice"
@@ -147,9 +146,6 @@ const BackOficceNewItem = () => {
 
     return (
         <>
-            <MyNavbar />
-
-
             {/* Post new item */}
             < Form className="d-flex justify-content-center flex-column" onSubmit={(e) => addNewArticleSubmit(e)}> {/* check onSubmit */}
                 <h4 className="mb-3" > Add a new article</h4 >
