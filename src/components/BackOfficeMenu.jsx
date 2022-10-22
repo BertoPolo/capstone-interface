@@ -2,13 +2,18 @@ import { Button } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import MyNavbar from "./MyNavbar"
-import { changeName, changeAdress } from "../slices/users/usersSlice"
-import { toggleIsOnUsers, toggleIsOnItems, toggleIsOnNewItems } from "../slices/sheets/sheetsSlice"
+import BackOfficeItems from "./BackOfficeItems"
+import BackOfficeNewItem from "./BackOfficeNewItem"
+import BackOfficeUsers from "./BackOfficeUsers"
+// import { changeName, changeAdress } from "../slices/users/usersSlice"
+import { toggleIsOnUser, toggleIsOnItem, toggleIsOnNewItem } from "../slices/sheets/sheetsSlice"
 
 const BackOffice = () => {
 
     const navigate = useNavigate()
     const dispatch = useDispatch();
+
+    const { isOnUsers, isOnItems, isOnNewItems } = useSelector((state) => state.sheetsSlice)
 
 
 
@@ -47,14 +52,14 @@ const BackOffice = () => {
                 <Button type="submit" disabled > Submit </Button>
             </Form> */}
 
-            <Button variant="primary" onClick={() => navigate("/backOfficeUsers")}>Search Users</Button >
-            <Button variant="dark" onClick={() => navigate("/backOfficeItems")}>Search Items</Button >
-            <Button variant="secondary" onClick={() => navigate("/backOfficeNewItem")}>Create Items</Button >
+            <Button variant="primary" onClick={() => dispatch(toggleIsOnUser(true))} >Search Users</Button >
+            <Button variant="dark" onClick={() => dispatch(toggleIsOnItem(true))} >Search Items</Button >
+            <Button variant="secondary" onClick={() => dispatch(toggleIsOnNewItem(true))}>Create Items</Button >
             <Button variant="danger" onClick={() => navigate("/home")}>Go Back</Button >
 
-            isOnUsers &&
-            isOnItems &&
-            isOnNewItems &&
+            {isOnUsers && <BackOfficeUsers />}
+            {isOnItems && <BackOfficeItems />}
+            {isOnNewItems && <BackOfficeNewItem />}
 
         </>
     )

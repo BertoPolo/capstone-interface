@@ -82,7 +82,7 @@ const sheetsSlice = createSlice({
         // isOnCategory: false,
       }
     },
-    toggleIsOnUsers: (state, action) => {
+    toggleIsOnUser: (state, action) => {
       return {
         ...state,
         isOnUsers: action.payload,
@@ -91,7 +91,7 @@ const sheetsSlice = createSlice({
       }
     },
 
-    toggleIsOnItems: (state, action) => {
+    toggleIsOnItem: (state, action) => {
       return {
         ...state,
         isOnItems: action.payload,
@@ -100,7 +100,7 @@ const sheetsSlice = createSlice({
       }
     },
 
-    toggleIsOnNewItems: (state, action) => {
+    toggleIsOnNewItem: (state, action) => {
       return {
         ...state,
         isOnNewItems: action.payload,
@@ -118,7 +118,7 @@ export const {
   toggleIsCountactUs,
   toggleIsOnSingleItem,
   toggleIsOnCategory,
-  toggleIsOnUsers,
-  toggleIsOnItems,
-  toggleIsOnNewItems,
+  toggleIsOnUser,
+  toggleIsOnItem,
+  toggleIsOnNewItem,
 } = sheetsSlice.actions

@@ -7,11 +7,7 @@ import Home from "./components/Home"
 import CreateUser from "./components/CreateUser"
 import NotFound from "./components/NotFound"
 import BackOfficeMenu from "./components/BackOfficeMenu"
-import BackOfficeNewItem from "./components/BackOfficeNewItem"
-import BackOfficeItems from "./components/BackOfficeItems"
-import BackOfficeUsers from "./components/BackOfficeUsers"
 
-//using Redux just for demo purposes
 import { Provider } from "react-redux"
 import configureStore from "./app/store"
 
@@ -28,13 +24,7 @@ function App() {
             <Route path="/newUser" element={<CreateUser />} />
             <Route path="/myAccount" element={<MyAccount />} />
             <Route path="/home" element={<Home />} />
-            {/* <Route path="/outlet" element={<Home />} /> */}
-            {/* <Route path="/item" element={<Home />} /> */}
-            {/* <Route path="/contact" element={<Home />} /> */}
             <Route path="/backOfficeMenu" element={<BackOfficeMenu />} />
-            <Route path="/backOfficeNewItem" element={<BackOfficeNewItem />} />
-            <Route path="/backOfficeItems" element={<BackOfficeItems />} />
-            <Route path="/backOfficeUsers" element={<BackOfficeUsers />} />
           </Routes>
         </BrowserRouter>
       </Provider>
