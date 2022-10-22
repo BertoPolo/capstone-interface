@@ -42,44 +42,44 @@ const sheetsSlice = createSlice({
       return {
         ...state,
         isOnCountactUs: action.payload,
-        // isOnHome: false,
-        // isOnOutlet: false,
-        // isOnSingleItem: false,
-        // isOnCategory: false,
-        // isOnBrands: false,
+        isOnHome: false,
+        isOnOutlet: false,
+        isOnSingleItem: false,
+        isOnCategory: false,
+        isOnBrands: false,
       }
     },
     toggleIsOnSingleItem: (state, action) => {
       return {
         ...state,
         isOnSingleItem: action.payload,
-        // isOnHome: false,
-        // isOnOutlet: false,
-        // isOnCountactUs: false,
-        // isOnCategory: false,
-        // isOnBrands: false,
+        isOnHome: false,
+        isOnOutlet: false,
+        isOnCountactUs: false,
+        isOnCategory: false,
+        isOnBrands: false,
       }
     },
     toggleIsOnCategory: (state, action) => {
       return {
         ...state,
         isOnCategory: action.payload,
-        // isOnHome: false,
-        // isOnOutlet: false,
-        // isOnCountactUs: false,
-        // isOnSingleItem: false,
-        // isOnBrands: false,
+        isOnHome: false,
+        isOnOutlet: false,
+        isOnCountactUs: false,
+        isOnSingleItem: false,
+        isOnBrands: false,
       }
     },
     toggleIsOnBrands: (state, action) => {
       return {
         ...state,
         isOnBrands: action.payload,
-        // isOnHome: false,
-        // isOnOutlet: false,
-        // isOnCountactUs: false,
-        // isOnSingleItem: false,
-        // isOnCategory: false,
+        isOnHome: false,
+        isOnOutlet: false,
+        isOnCountactUs: false,
+        isOnSingleItem: false,
+        isOnCategory: false,
       }
     },
     toggleIsOnUser: (state, action) => {
