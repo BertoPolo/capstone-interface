@@ -55,7 +55,7 @@ const BackOffice = () => {
             <Button variant="primary" onClick={() => dispatch(toggleIsOnUser(true))} >Search Users</Button >
             <Button variant="dark" onClick={() => dispatch(toggleIsOnItem(true))} >Search Items</Button >
             <Button variant="secondary" onClick={() => dispatch(toggleIsOnNewItem(true))}>Create Items</Button >
-            <Button variant="danger" onClick={() => navigate("/home")}>Go Back</Button >
+            <Button variant="danger" onClick={() => navigate("/home")}>Return Home</Button >
 
             {isOnUsers && <BackOfficeUsers />}
             {isOnItems && <BackOfficeItems />}

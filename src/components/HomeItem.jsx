@@ -14,6 +14,8 @@ const HomeItem = ({ currentItem }) => {
   const cart = useSelector((state) => state.cartSlice.cart);
   const selectedItem = useSelector((state) => state.itemsSlice.selectedItem);
   const { isOnHome, isOnOutlet, isOnCountactUs, isOnSingleItem } = useSelector(state => state.sheetsSlice)
+  const isAdmin = useSelector((state) => state.usersSlice.isAdmin);
+
 
   const dispatch = useDispatch();
 
@@ -54,7 +56,8 @@ const HomeItem = ({ currentItem }) => {
 
         {isOnOutlet ? <Card.Title className="d-inline "> <b>{currentItem.outletPrice}</b> <s>{currentItem.price}</s> </Card.Title> : <Card.Title className="d-inline ">{currentItem.price} </Card.Title>}
 
-        <Button variant="primary" onClick={() => checkIfIsAlreadyInCart()}>Add to cart</Button>
+        {!isAdmin && <Button variant="primary" onClick={() => checkIfIsAlreadyInCart()}>Add to cart</Button>}
+
       </Card.Body>
     </Card>
   )

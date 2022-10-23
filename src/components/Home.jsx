@@ -17,11 +17,7 @@ import { addBrands } from "../slices/brands/brandsSlice"
 
 
 const Home = () => {
-  // const navigate = useNavigate()
 
-  //pages --> pass to redux,cause u need this in Home and Navbar
-  // const [isOnSingleItem, setIsOnSingleItem] = useState(false) // when true, also dont show carousel. 
-  //
   const items = useSelector((state) => state.itemsSlice.items);
   const brands = useSelector((state) => state.brandsSlice.brands);
   const { isOnHome, isOnOutlet, isOnCountactUs, isOnSingleItem, isOnCategory, isOnBrands } = useSelector(state => state.sheetsSlice)
