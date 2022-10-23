@@ -1,7 +1,7 @@
 import { Card, Button } from "react-bootstrap"
 // import { useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
-import { addToCart, sumOneToCart } from "../slices/cart/cartSlice"
+import { addToCart, removeItem, incrementQuantity, decrementQuantity } from "../slices/cart/cartSlice"
 import { changeSelectedItem } from "../slices/items/itemsSlice"
 import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs, toggleIsOnSingleItem, toggleIsOnCategory } from "../slices/sheets/sheetsSlice"
 
@@ -21,11 +21,13 @@ const HomeItem = ({ currentItem }) => {
 
 
   const checkIfIsAlreadyInCart = () => {
-    if (cart.includes(currentItem)) {
-      dispatch(sumOneToCart(currentItem))
+
+    if (cart.some((element) => element === currentItem)) {
+      dispatch(incrementQuantity(currentItem))
 
     } else {
       dispatch(addToCart(currentItem))
+      console.log(cart)
     }
   }
 

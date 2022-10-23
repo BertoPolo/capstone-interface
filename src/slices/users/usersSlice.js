@@ -7,7 +7,7 @@ const usersSlice = createSlice({
     name: "",
     username: "",
     adress: "",
-    isAdmin: true,
+    isAdmin: false,
     token: "",
   },
   reducers: {
