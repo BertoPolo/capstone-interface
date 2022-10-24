@@ -5,7 +5,7 @@
 
 /* Global start */
 :root {
-  --gray: #dfd6d66e;
+  --gray: #dfd6d6d8;
 }
 .h1 {
   display: flex;
@@ -65,7 +65,7 @@ body {
 
 /* Navbar start */
 .navbarBg {
-  background: #dfd6d66e !important;
+  background: #f1f0f0f8 !important;
 }
 
 /* Navbar end */

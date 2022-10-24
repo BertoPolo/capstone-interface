@@ -3,29 +3,26 @@ import { createSlice } from "@reduxjs/toolkit"
 const usersSlice = createSlice({
   name: "users",
   initialState: {
-    //no need edit actions, just re-fetching from database it's enough
     name: "",
     username: "",
     adress: "",
-    isAdmin: false,
+    isAdmin: true,
     token: "",
   },
   reducers: {
-    // not needed, just change it in database
+    addName: (state, action) => {
+      return {
+        ...state,
+        name: action.payload,
+      }
+    },
 
-    // changeName: (state, action) => {
-    //   return {
-    //     ...state,
-    //     name: action.payload,
-    //   }
-    // },
-
-    // changeAdress: (state, action) => {
-    //   return {
-    //     ...state,
-    //     adress: action.payload,
-    //   }
-    // },
+    addAdress: (state, action) => {
+      return {
+        ...state,
+        adress: action.payload,
+      }
+    },
 
     changeToken: (state, action) => {
       return {
@@ -37,4 +34,4 @@ const usersSlice = createSlice({
 })
 
 export default usersSlice.reducer
-export const { changeName, changeAdress, changeToken } = usersSlice.actions
+export const { addName, addAdress, changeToken } = usersSlice.actions
