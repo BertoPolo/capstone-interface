@@ -1,6 +1,6 @@
 import { Modal, Button } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
-import { removeFromCart } from "../slices/cart/cartSlice";
+import { removeItem, incrementQuantity, decrementQuantity } from "../slices/cart/cartSlice";
 
 
 const CartModal = ({ handleClose, show }) => {
@@ -18,10 +18,10 @@ const CartModal = ({ handleClose, show }) => {
                     return (
                         <div key={element._id}>
                             <span >{element.title} </span>
-                            <i className="bi bi-plus pointer"></i>
+                            <i className="bi bi-plus pointer" onClick={() => dispatch(incrementQuantity(element._id))} ></i>
                             <span>quantity</span>
-                            <i className="bi bi-dash-lg pointer"></i>
-                            <i className="bi bi-trash3 pointer ml-3" onClick={() => dispatch(removeFromCart(element))}></i>
+                            <i className="bi bi-dash-lg pointer" onClick={() => dispatch(decrementQuantity(element._id))}></i>
+                            <i className="bi bi-trash3 pointer ml-3" onClick={() => dispatch(removeItem(element._id))}></i>
                         </div>
                     )
                 })}
