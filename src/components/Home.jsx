@@ -1,9 +1,9 @@
 import { Container, Carousel, Col, Row, Form, Button, FormControl } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from "react"
-// import { useNavigate, Link } from "react-router-dom"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 import { addItems } from "../slices/items/itemsSlice"
-// import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs, toggleIsOnSingleItem } from "../slices/sheets/sheetsSlice"
 import MyNavbar from "./MyNavbar"
 import Footer from "./Footer"
 import HomeItem from "./HomeItem"
@@ -65,14 +65,25 @@ const Home = () => {
     try {
       const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/bytitle/${searchInput}`);
       const data = await response.json();
-      if (data) dispatch(addItems(data));
-      // else setIsNotFound(true)
+      if (data.length > 0) dispatch(addItems(data));
+      else notifyNotFound()
 
 
     } catch (error) {
       console.log(error)
     }
   }
+
+  const notifyNotFound = () => toast.warn(`OOPS! looks like we don't have that`, {
+    position: "top-center",
+    autoClose: 4000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+  });
 
 
   useEffect(() => {
@@ -84,6 +95,21 @@ const Home = () => {
   return (
     <>
       <MyNavbar />
+
+      {/* Toast */}
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        limit={1}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
 
       <Container>
         {!isOnSingleItem && <div>
