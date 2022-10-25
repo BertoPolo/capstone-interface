@@ -2,6 +2,8 @@ import { Accordion, Card, Dropdown } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { toggleIsOnCategory, toggleIsOnBrands } from "../slices/sheets/sheetsSlice"
 import { addItems } from "../slices/items/itemsSlice"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 
 function CategoriesMenu() {
@@ -16,7 +18,12 @@ function CategoriesMenu() {
     try {
       const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/mainCategory/${mainCat}`);
       const data = await response.json();
-      dispatch(addItems(data));
+
+      if (data.length > 0) {
+        dispatch(addItems(data));
+        toggleIsOnCategory(true)
+      }
+      else notifyNotFound()
 
     } catch (error) {
       console.log(error)
@@ -27,8 +34,11 @@ function CategoriesMenu() {
     try {
       const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/category/${category}`);
       const data = await response.json();
-      dispatch(addItems(data));
-      toggleIsOnCategory(true)
+      if (data.length > 0) {
+        dispatch(addItems(data));
+        toggleIsOnCategory(true)
+      }
+      else notifyNotFound()
 
     } catch (error) {
       console.log(error)
@@ -40,13 +50,27 @@ function CategoriesMenu() {
     try {
       const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/brand/${brand}`);
       const data = await response.json();
-      dispatch(addItems(data));
-      toggleIsOnCategory(true)
+      if (data.length > 0) {
+        dispatch(addItems(data));
+        toggleIsOnCategory(true)
+      }
+      else notifyNotFound()
 
     } catch (error) {
       console.log(error)
     }
   }
+
+  const notifyNotFound = () => toast.warn(`OOPS! looks like we don't have that`, {
+    position: "top-center",
+    autoClose: 4000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+  });
 
   return (
     <>
