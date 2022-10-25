@@ -42,9 +42,9 @@ const HomeItem = ({ currentItem }) => {
   }
 
   return (
-    <Card style={{ width: "11rem" }} className="item" >
+    <Card style={{ width: "11rem", height: "24rem" }} className="item" >
       <Card.Img
-        style={{ maxHeight: "13rem" }}
+        style={{ height: "11rem" }}
         variant="top"
         src={currentItem.image}
         alt={currentItem.title}
