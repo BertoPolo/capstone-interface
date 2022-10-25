@@ -1,6 +1,8 @@
 import { Form, Button, Dropdown } from "react-bootstrap"
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { addBrands } from "../slices/brands/brandsSlice"
 
 
@@ -38,6 +40,27 @@ const BackOficceNewItem = () => {
 
     const addNewArticleSubmit = async (e) => {
         e.preventDefault()
+
+        const notifyError = () => toast.error('Check the form again, looks like you forgot something', {
+            position: "top-center",
+            autoClose: 4000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        })
+        const notify = () => toast.success(`Item created!,upload it's image now`, {
+            position: "top-center",
+            autoClose: 4000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        });
         let body = {
             title: name,
             price: price,
@@ -48,10 +71,6 @@ const BackOficceNewItem = () => {
             description: shortDescription,
             fullDescription: fullDescription
         }
-
-
-
-        const returnToFalse = setUploaded(false)
 
         try {
             const res = await fetch(
@@ -76,10 +95,12 @@ const BackOficceNewItem = () => {
                 setBrand("")
                 setShortDescription("")
                 setFullDescription("")
-                // setTimeout(() => setUploaded(false), 2000)
-                // display toast
+
+                notify()
             }
-            // else{} display error toast 
+            else {
+                notifyError("error")
+            }
 
 
         } catch (error) {
@@ -147,6 +168,19 @@ const BackOficceNewItem = () => {
 
     return (
         <>
+            {/* Toast */}
+
+            <ToastContainer position="top-center"
+                autoClose={4000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark" />
+
             {/* Post new item */}
             < Form className="d-flex justify-content-center flex-column" onSubmit={(e) => addNewArticleSubmit(e)}> {/* check onSubmit */}
                 <h4 className="mb-3" > Add a new article</h4 >
