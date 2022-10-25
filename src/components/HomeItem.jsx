@@ -42,7 +42,9 @@ const HomeItem = ({ currentItem }) => {
   }
 
   return (
-    <Card style={{ width: "11rem", height: "24rem" }} className="item" >
+    <Card style={{
+      width: "11rem", height: "24rem", marginTop: "2rem"
+    }} className="item" >
       <Card.Img
         style={{ height: "11rem" }}
         variant="top"
@@ -62,7 +64,7 @@ const HomeItem = ({ currentItem }) => {
         {!isAdmin && <Button variant="primary" onClick={() => checkIfIsAlreadyInCart()}>Add to cart</Button>}
 
       </Card.Body>
-    </Card>
+    </Card >
   )
 }
 export default HomeItem

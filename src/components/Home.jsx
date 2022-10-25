@@ -115,10 +115,11 @@ const Home = () => {
 
         {/* search bar */}
         <Form inline className="mt-5 d-flex justify-content-center" onSubmit={(e) => searchItems(e)}>
-          <FormControl type="text" placeholder="Check if we have it" className="w-25 searchBar" onChange={(e) => setSearchinput(e.target.value)} />
-          <Button type="submit" variant="outline-success" className="ml-2">
+          <FormControl type="text" value={searchInput} placeholder="Check if we have it" className="w-25 searchBar" onChange={(e) => setSearchinput(e.target.value)} />
+          <Button type="submit" variant="outline-success" className="ml-2 mr-2">
             <i className="bi bi-search "></i> Search
           </Button>
+          <Button variant="outline-primary" onClick={() => { getItems(); setSearchinput("") }}>Clear</Button>
         </Form>
       </Container>
 

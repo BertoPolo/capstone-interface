@@ -76,9 +76,10 @@ const BackOficceNewItem = () => {
                 setBrand("")
                 setShortDescription("")
                 setFullDescription("")
-                //setTimeout(returnToFalse, 2000) // try it as a function and maybe with a clearTimeout. returnToFalse maybe its not needed
+                // setTimeout(() => setUploaded(false), 2000)
+                // display toast
             }
-
+            // else{} display error toast 
 
 
         } catch (error) {

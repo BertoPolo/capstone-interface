@@ -3,7 +3,6 @@ import { useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs, toggleIsOnSingleItem } from "../slices/sheets/sheetsSlice"
 import CartModal from "./CartModal"
-
 // import { Link } from "react-router-dom"
 
 
@@ -42,7 +41,7 @@ const MyNavbar = () => {
       <Navbar expand="lg" className="sticky-top navbarBg">
         <Navbar.Brand href="/home">
           Stuff To Route
-          {/* <Image src="%PUBLIC_URL%/mbIcon.png" alt="main logo" /> */}
+          {/* <Image src={`${process.env.PUBLIC_URL}/mbIcon.png`} alt="main logo" /> */}
         </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse>
