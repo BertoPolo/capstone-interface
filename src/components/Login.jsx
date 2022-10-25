@@ -20,7 +20,7 @@ const Login = () => {
       <Row>
         <Col className="login-container">
           <p> Aren't You registered yet?</p>
-          <Button onClick={() => handleSubmit()}>click here to enter without login</Button>
+          <Button onClick={() => handleSubmit()}>Click here to enter without login</Button>
         </Col>
 
         <Col>
@@ -38,8 +38,17 @@ const Login = () => {
               <Form.Group>
                 <Form.Check type="checkbox" label="Remember me" className="login-small-font" onClick={() => setIsRemember(!isRemember)} />
               </Form.Group>
-              <Link className="login-small-font d-block mb-3" to="/forgotPassword">
+
+              <Button variant="primary" type="submit" disabled={(!usernameInput) || (!passwordInput)}>
+                Enter
+              </Button>
+
+              <Link className="login-small-font d-block mb-3 mt-3" to="/forgotPassword">
                 <b> Forgot the password?</b>
+              </Link>
+
+              <Link className="login-small-font d-block" to="/newUser">
+                <b> Join Us!</b>
               </Link>
 
               {/* {usernameInput && passwordInput ? (
@@ -52,15 +61,11 @@ const Login = () => {
                 </Button>
               )} */}
 
-              <Button variant="primary" type="submit" disabled={(!usernameInput) || (!passwordInput)}>
-                Enter
-              </Button>
+
 
 
             </div>
-            <Link className="login-small-font d-block mb-3 mt-2" to="/newUser">
-              <b> Join Us!</b>
-            </Link>
+
           </Form>
         </Col>
       </Row>
