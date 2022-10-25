@@ -44,7 +44,8 @@ body {
 /* Login start */
 
 .login-container {
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  margin-top: 10%;
   display: flex;
   flex-direction: column;
   align-items: center;

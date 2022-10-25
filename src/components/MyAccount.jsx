@@ -86,8 +86,10 @@ const MyAccount = () => {
             onChange={(e) => setPasswordAgainInput(e.target.value)}
           />
         </Form.Group>
-        <Button type="submit" disabled={(passwordInput !== passwordAgainInput) || (!passwordInput || !passwordAgainInput)} > Submit </Button>
-        <Button variant="danger" onClick={() => navigate("/home")}>Back</Button>
+        <div className="d-flex">
+          <Button type="submit" disabled={(passwordInput !== passwordAgainInput) || (!passwordInput || !passwordAgainInput)} > Submit </Button>
+          <Button className="ml-3" variant="danger" onClick={() => navigate("/home")}>Back</Button>
+        </div>
       </Form>
     </>
   )
