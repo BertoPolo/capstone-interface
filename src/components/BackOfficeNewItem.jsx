@@ -9,7 +9,6 @@ import { addBrands } from "../slices/brands/brandsSlice"
 
 const BackOficceNewItem = () => {
 
-    const [uploaded, setUploaded] = useState(false)
     const [name, setName] = useState("")
     const [price, setPrice] = useState("")
     const [img, setImg] = useState(null)
@@ -86,7 +85,6 @@ const BackOficceNewItem = () => {
 
             if (res.status === 201) {
                 const data = await res.json();
-                setUploaded(true)
                 setItemId(data)
                 setName("")
                 setPrice("")
@@ -124,7 +122,6 @@ const BackOficceNewItem = () => {
             );
             if (res.status === 201) {
                 const data = await res.json();
-                setUploaded(false)
             }
 
 
@@ -216,8 +213,6 @@ const BackOficceNewItem = () => {
                 <Button type="submit"> Submit </Button>
 
             </Form>
-
-            {uploaded && <p>item uploaded!, upload a photo now</p>}
 
             {/* Post item's image */}
             <input className="mt-5" type="file" label="Add An Image" accept=",.jpg,.jpeg,.png" onChange={() => setImg(img)} />
