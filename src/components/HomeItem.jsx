@@ -1,5 +1,7 @@
 import { Card, Button } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 import { addToCart } from "../slices/cart/cartSlice"
 import { changeSelectedItem } from "../slices/items/itemsSlice"
 import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs, toggleIsOnSingleItem, toggleIsOnCategory } from "../slices/sheets/sheetsSlice"
@@ -17,11 +19,22 @@ const HomeItem = ({ currentItem }) => {
 
   const dispatch = useDispatch();
 
+  const notifyAlready = () => toast.warn(`Item already in cart :)`, {
+    position: "top-center",
+    autoClose: 1500,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+  });
+
 
   const checkIfIsAlreadyInCart = () => {
 
     if (cart.some((element) => element._id === currentItem._id)) {
-      //display something like "this item is already in cart"
+      notifyAlready()
 
     } else {
       dispatch(addToCart(currentItem))
@@ -38,29 +51,46 @@ const HomeItem = ({ currentItem }) => {
   }
 
   return (
-    <Card style={{
-      width: "11rem", height: "24rem", marginTop: "2rem"
-    }} className="item" >
-      <Card.Img
-        style={{ height: "11rem" }}
-        variant="top"
-        src={currentItem.image}
-        alt={currentItem.title}
-        className="pointer"
-        onClick={() => changeHomeToSingleItem()}
+
+    <>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        limit={1}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
       />
-      <Card.Body>
-        <Card.Title className="pointer" onClick={() => changeHomeToSingleItem()} >
-          {currentItem.title}
-        </Card.Title>
-        <Card.Text>{currentItem.description}</Card.Text>
 
-        {isOnOutlet ? <Card.Title className="d-inline "> <b>{currentItem.outletPrice}</b> <s>{currentItem.price}</s> </Card.Title> : <Card.Title className="d-inline ">{currentItem.price} </Card.Title>}
+      <Card style={{
+        width: "11rem", height: "24rem", marginTop: "2rem"
+      }} className="item" >
+        <Card.Img
+          style={{ height: "11rem" }}
+          variant="top"
+          src={currentItem.image}
+          alt={currentItem.title}
+          className="pointer"
+          onClick={() => changeHomeToSingleItem()}
+        />
+        <Card.Body>
+          <Card.Title className="pointer" onClick={() => changeHomeToSingleItem()} >
+            {currentItem.title}
+          </Card.Title>
+          <Card.Text>{currentItem.description}</Card.Text>
 
-        {!isAdmin && <Button variant="primary" onClick={() => checkIfIsAlreadyInCart()}>Add to cart</Button>}
+          {isOnOutlet ? <Card.Title className="d-inline "> <b>{currentItem.outletPrice}</b> <s>{currentItem.price}</s> </Card.Title> : <Card.Title className="d-inline ">{currentItem.price} </Card.Title>}
 
-      </Card.Body>
-    </Card >
+          {!isAdmin && <Button variant="primary" onClick={() => checkIfIsAlreadyInCart()}>Add to cart</Button>}
+
+        </Card.Body>
+      </Card >
+    </>
   )
 }
 export default HomeItem
