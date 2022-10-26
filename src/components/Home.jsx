@@ -29,7 +29,6 @@ const Home = () => {
 
 
   const [searchInput, setSearchinput] = useState("")
-  // const [isNotFound, setIsNotFound] = useState(false)
 
   const dispatch = useDispatch();
 
