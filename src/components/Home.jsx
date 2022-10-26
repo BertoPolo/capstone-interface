@@ -12,7 +12,6 @@ import ContactUs from "./ContactUs"
 import SingleItem from "./SingleItem"
 import CategoriesMenu from "./CategoriesMenu"
 import NavFilter from "./NavFilter"
-import { addBrands } from "../slices/brands/brandsSlice"
 
 
 
@@ -28,88 +27,27 @@ const Home = () => {
   // const isOnSingleItem = useSelector((state) => state.sheetsSlice.isOnSingleItem);
 
 
-  const [searchInput, setSearchinput] = useState("")
 
   const dispatch = useDispatch();
 
   const getItems = async () => {
     try {
-      const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items`,
-
-      );
-      let data = await response.json();
-      dispatch(addItems(data));
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-
-  const getBrands = async () => {
-    try {
-      const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}brands/all`);
+      const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items`);
       const data = await response.json();
-      dispatch(addBrands(data));
-
+      if (response.ok) dispatch(addItems(data));
     } catch (error) {
       console.log(error)
     }
   }
-
-
-  const searchItems = async (e) => {
-    //reset state to false on start
-    // then ,if not finding anything TRUE on state
-    e.preventDefault()
-
-    try {
-      const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/bytitle/${searchInput}`);
-      const data = await response.json();
-      if (data.length > 0) dispatch(addItems(data));
-      else notifyNotFound()
-
-
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  const notifyNotFound = () => toast.warn(`OOPS! looks like we don't have that`, {
-    position: "top-center",
-    autoClose: 4000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "dark",
-  });
-
 
   useEffect(() => {
     getItems()
-    getBrands()
   }, [])
 
 
   return (
     <>
       <MyNavbar />
-
-      {/* Toast */}
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        limit={1}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
 
       <Container>
         {!isOnSingleItem && <div>
@@ -140,14 +78,7 @@ const Home = () => {
         </div>}
 
         <NavFilter />
-        {/* search bar */}
-        <Form inline className="mt-5 d-flex justify-content-center" onSubmit={(e) => searchItems(e)}>
-          <FormControl type="text" value={searchInput} placeholder="Check if we have it" className="w-25 searchBar" onChange={(e) => setSearchinput(e.target.value)} />
-          <Button type="submit" variant="outline-success" className="ml-2 mr-2">
-            <i className="bi bi-search "></i> Search
-          </Button>
-          <Button variant="outline-primary" onClick={() => { getItems(); setSearchinput("") }}>Clear</Button>
-        </Form>
+
 
       </Container>
 
