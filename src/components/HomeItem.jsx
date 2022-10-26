@@ -1,5 +1,4 @@
 import { Card, Button } from "react-bootstrap"
-// import { useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import { addToCart } from "../slices/cart/cartSlice"
 import { changeSelectedItem } from "../slices/items/itemsSlice"
@@ -9,7 +8,6 @@ import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs, toggleIsOnSingleI
 
 
 const HomeItem = ({ currentItem }) => {
-  // const navigate = useNavigate()
 
   const cart = useSelector((state) => state.cartSlice.cart);
   const selectedItem = useSelector((state) => state.itemsSlice.selectedItem);
@@ -27,8 +25,6 @@ const HomeItem = ({ currentItem }) => {
 
     } else {
       dispatch(addToCart(currentItem))
-      console.log(cart)
-      // console.log(currentItem._id)
     }
   }
 
