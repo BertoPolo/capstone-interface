@@ -50,6 +50,7 @@ const Home = () => {
       <MyNavbar />
 
       <Container>
+        {/* CAROUSEL */}
         {!isOnSingleItem && <div>
           <Carousel className="mt-3">
             <Carousel.Item>
@@ -77,11 +78,10 @@ const Home = () => {
           </Carousel>
         </div>}
 
+        {/* FILTERING BAR*/}
         <NavFilter />
 
-
       </Container>
-
 
       {/* <Container className="mt-5 ml-0" > */} {/* mr-0 dont works,  */}
       <Row className="ml-2 mt-4">

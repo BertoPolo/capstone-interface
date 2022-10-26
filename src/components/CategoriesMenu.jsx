@@ -45,22 +45,6 @@ function CategoriesMenu() {
     }
   }
 
-
-  const getByBrand = async (brand) => {
-    try {
-      const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/brand/${brand}`);
-      const data = await response.json();
-      if (data.length > 0) {
-        dispatch(addItems(data));
-        toggleIsOnCategory(true)
-      }
-      else notifyNotFound()
-
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
   const notifyNotFound = () => toast.warn(`OOPS! looks like we don't have that`, {
     position: "top-center",
     autoClose: 4000,
