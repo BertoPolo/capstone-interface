@@ -109,46 +109,30 @@ const NavFilter = () => {
             />
 
             <Navbar bg="light" expand="lg">
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="mr-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#link">Link</Nav.Link>
-                        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                        </NavDropdown>
-                    </Nav>
-
-                    {/* <Form inline>
-                        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                        <Button variant="outline-success">Search</Button>
-                    </Form> */}
-
-                </Navbar.Collapse>
+                {/*PRICE SORTING */}
+                <Nav className="mr-auto">
+                    <NavDropdown title="Price sorting" id="basic-nav-dropdown">
+                        <NavDropdown.Item href="#action/3.1">Asc</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.2">Desc</NavDropdown.Item>
+                    </NavDropdown>
+                </Nav>
+                {/* BY PRICE RANGE */}
+                <Form >
+                    <Form.Group >
+                        <Form.Label>From</Form.Label>
+                        <Form.Control type="range" />
+                        <Form.Label>To</Form.Label>
+                        <Form.Control type="range" />
+                    </Form.Group>
+                </Form>
 
                 {/* search bar */}
-                <Form inline className="mt-5 d-flex justify-content-center" onSubmit={(e) => searchItems(e)}>
+                <Form inline className="" onSubmit={(e) => searchItems(e)}>
                     <FormControl type="text" value={searchInput} placeholder="Check if we have it" className="w-25 searchBar" onChange={(e) => setSearchinput(e.target.value)} />
                     <Button type="submit" variant="outline-success" className="ml-2 mr-2">
                         <i className="bi bi-search "></i> Search
                     </Button>
                     <Button variant="outline-primary" onClick={() => { getItems(); setSearchinput("") }}>Clear</Button>
-                </Form>
-
-                {/* BY PRICE */}
-                <Form >
-                    <Form.Group >
-                        <Form.Label>From</Form.Label>
-                        <Form.Control inline type="range" />
-                        <Form.Label>To</Form.Label>
-                        <Form.Control inline type="range" />
-                    </Form.Group>
-
-
                 </Form>
 
                 {/* BY BRAND*/}
