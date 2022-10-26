@@ -1,6 +1,6 @@
-import { Modal, Button } from "react-bootstrap"
+import { Modal, Button, Dropdown } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
-import { removeItem, incrementQuantity, decrementQuantity } from "../slices/cart/cartSlice";
+import { removeItem, setItemsQuantity } from "../slices/cart/cartSlice";
 
 
 const CartModal = ({ handleClose, show }) => {
@@ -17,10 +17,24 @@ const CartModal = ({ handleClose, show }) => {
                 {cart.map((element) => {
                     return (
                         <div key={element._id}>
-                            <span >{element.title} </span>
-                            <i className="bi bi-plus pointer" onClick={() => dispatch(incrementQuantity(element._id))} ></i>
-                            <span>quantity</span>
-                            <i className="bi bi-dash-lg pointer" onClick={() => dispatch(decrementQuantity(element._id))}></i>
+                            <span ><b>{element.title}</b> </span>
+                            {/* <i className="bi bi-plus pointer" onClick={() => dispatch((element._id))} ></i> */}
+                            {/* <i className="bi bi-dash-lg pointer" onClick={() => dispatch((element._id))}></i> */}
+                            <span>quantity :</span>
+                            <Dropdown>
+                                <Dropdown.Toggle size="sm" variant="success" id="dropdown-basic">
+                                    {element.quantity}
+                                </Dropdown.Toggle>
+
+                                <Dropdown.Menu>
+                                    <Dropdown.Item onClick={dispatch(setItemsQuantity(1))}>1</Dropdown.Item>
+                                    <Dropdown.Item onClick={dispatch(setItemsQuantity(2))}>2</Dropdown.Item>
+                                    <Dropdown.Item onClick={dispatch(setItemsQuantity(3))}>3</Dropdown.Item>
+                                    <Dropdown.Item onClick={dispatch(setItemsQuantity(4))}>4</Dropdown.Item>
+                                    <Dropdown.Item onClick={dispatch(setItemsQuantity(5))}>5</Dropdown.Item>
+                                    <Dropdown.Item onClick={dispatch(setItemsQuantity(6))}>6</Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
                             <i className="bi bi-trash3 pointer ml-3" onClick={() => dispatch(removeItem(element._id))}></i>
                         </div>
                     )
@@ -34,7 +48,7 @@ const CartModal = ({ handleClose, show }) => {
                     Finish your shopping
                 </Button>
             </Modal.Footer>
-        </Modal>
+        </Modal >
     )
 }
 
