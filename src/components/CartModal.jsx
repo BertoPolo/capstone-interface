@@ -7,6 +7,8 @@ const CartModal = ({ handleClose, show }) => {
     const cart = useSelector((state) => state.cartSlice.cart);
     const dispatch = useDispatch();
 
+
+
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
@@ -18,12 +20,9 @@ const CartModal = ({ handleClose, show }) => {
                     return (
                         <div key={element._id} className="d-flex">
                             <span ><b>{element.title}</b> </span>
-                            {/* <i className="bi bi-plus pointer" onClick={() => dispatch((element._id))} ></i> */}
-                            {/* <i className="bi bi-dash-lg pointer" onClick={() => dispatch((element._id))}></i> */}
-                            <span>quantity :</span>
                             <Dropdown>
                                 <Dropdown.Toggle size="sm" variant="outline-dark" id="dropdown-basic">
-                                    {element.quantity}
+                                    {element.quantity} {/* use useEffect?  */}
                                 </Dropdown.Toggle>
 
                                 <Dropdown.Menu>

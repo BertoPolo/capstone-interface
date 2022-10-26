@@ -214,21 +214,6 @@ function CategoriesMenu() {
         </Accordion.Collapse>
       </Card> */}
       </Accordion>
-      <hr />
-      <h4>BRANDS</h4>
-
-      {/* FILTER BY BRAND*/}
-      <Dropdown>
-        <Dropdown.Toggle variant="warning">Choose</Dropdown.Toggle>
-
-        <Dropdown.Menu>
-          {brands.map((element) => {
-            return (
-              <Dropdown.Item key={element._id} href="" onClick={() => getByBrand(element._id)}>{element.brands}</Dropdown.Item>
-            )
-          })}
-        </Dropdown.Menu>
-      </Dropdown>
     </>
 
   )

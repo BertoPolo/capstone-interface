@@ -11,6 +11,7 @@ import Outlet from "./Outlet"
 import ContactUs from "./ContactUs"
 import SingleItem from "./SingleItem"
 import CategoriesMenu from "./CategoriesMenu"
+import NavFilter from "./NavFilter"
 import { addBrands } from "../slices/brands/brandsSlice"
 
 
@@ -139,6 +140,7 @@ const Home = () => {
           </Carousel>
         </div>}
 
+        <NavFilter />
         {/* search bar */}
         <Form inline className="mt-5 d-flex justify-content-center" onSubmit={(e) => searchItems(e)}>
           <FormControl type="text" value={searchInput} placeholder="Check if we have it" className="w-25 searchBar" onChange={(e) => setSearchinput(e.target.value)} />
@@ -147,6 +149,7 @@ const Home = () => {
           </Button>
           <Button variant="outline-primary" onClick={() => { getItems(); setSearchinput("") }}>Clear</Button>
         </Form>
+
       </Container>
 
 
