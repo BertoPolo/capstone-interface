@@ -1,4 +1,4 @@
-import { Dropdown, Navbar, Nav, NavDropdown, Button, Form, FormControl } from "react-bootstrap"
+import { Dropdown, Navbar, Nav, NavDropdown, Button, Form, FormControl, Container, Row } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { ToastContainer, toast } from 'react-toastify';
@@ -84,12 +84,22 @@ const NavFilter = () => {
             console.log(error)
         }
     }
+
+    // mininum price filter
     const minPriceFilter = () => {
 
     }
+
+    // top price filter
     const topPriceFilter = () => {
 
     }
+
+    // sorting Asc or Desc
+    const priceSort = () => {
+
+    }
+
 
     useEffect(() => {
         getItems()
@@ -116,51 +126,58 @@ const NavFilter = () => {
                 theme="dark"
             />
 
-            <Navbar bg="light" expand="lg">
-                {/*PRICE SORTING */}
-                <Nav>
-                    <NavDropdown title="Price sorting" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1">Asc</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Desc</NavDropdown.Item>
-                    </NavDropdown>
-                </Nav>
-                {/* BY PRICE RANGE */}
-                <Form >
-                    <Form.Group >
-                        <Form.Label>From</Form.Label>
-                        <Form.Control onChange={() => minPriceFilter()} type="range" />
-                    </Form.Group>
-                </Form>
-                <Form >
-                    <Form.Group >
-                        <Form.Label>To</Form.Label>
-                        <Form.Control onChange={() => topPriceFilter()} type="range" />
-                    </Form.Group>
-                </Form>
+            <Container >
+                <Row>
+                    {/* search bar */}
+                    <Form inline className="d-flex justify-content-center" onSubmit={(e) => searchItems(e)}>
+                        <FormControl type="text" value={searchInput} placeholder="Check if we have it" className="w-25 searchBar" onChange={(e) => setSearchinput(e.target.value)} />
+                        <Button type="submit" variant="outline-success" className="ml-2 mr-2">
+                            <i className="bi bi-search "></i>
+                        </Button>
+                        <Button variant="outline-primary" onClick={() => { getItems(); setSearchinput("") }}>X</Button>
+                    </Form>
+                </Row>
 
-                {/* search bar */}
-                <Form inline className="" onSubmit={(e) => searchItems(e)}>
-                    <FormControl type="text" value={searchInput} placeholder="Check if we have it" className="w-25 searchBar" onChange={(e) => setSearchinput(e.target.value)} />
-                    <Button type="submit" variant="outline-success" className="ml-2 mr-2">
-                        <i className="bi bi-search "></i>
-                    </Button>
-                    <Button variant="outline-primary" onClick={() => { getItems(); setSearchinput("") }}>X</Button>
-                </Form>
+                <Row>
+                    <Navbar className="d-flex justify-content-between"> {/* expand="lg" */}
+                        {/*PRICE SORTING */}
+                        <Nav>
+                            <NavDropdown title="Price sorting" id="basic-nav-dropdown">
+                                <NavDropdown.Item href="#action/3.1" onClick={() => { priceSort("asc") }}>Asc</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2" onClick={() => { priceSort("desc") }}>Desc</NavDropdown.Item>
+                            </NavDropdown>
+                        </Nav>
 
-                {/* BY BRAND*/}
-                <Dropdown>
-                    <Dropdown.Toggle variant="warning">Choose Brand</Dropdown.Toggle>
+                        {/* BY PRICE RANGE */}
+                        <Form >
+                            <Form.Group >
+                                <Form.Label>From</Form.Label>
+                                <Form.Control onChange={() => minPriceFilter()} type="range" />
+                            </Form.Group>
+                        </Form>
 
-                    <Dropdown.Menu>
-                        {brands.map((element) => {
-                            return (
-                                <Dropdown.Item key={element._id} href="" onClick={() => getByBrand(element._id)}>{element.brands}</Dropdown.Item>
-                            )
-                        })}
-                    </Dropdown.Menu>
-                </Dropdown>
+                        <Form >
+                            <Form.Group >
+                                <Form.Label>To</Form.Label>
+                                <Form.Control onChange={() => topPriceFilter()} type="range" />
+                            </Form.Group>
+                        </Form>
 
-            </Navbar>
+                        {/* BY BRAND*/}
+                        <Dropdown>
+                            <Dropdown.Toggle variant="warning">Choose Brand</Dropdown.Toggle>
+
+                            <Dropdown.Menu>
+                                {brands.map((element) => {
+                                    return (
+                                        <Dropdown.Item key={element._id} href="" onClick={() => getByBrand(element._id)}>{element.brands}</Dropdown.Item>
+                                    )
+                                })}
+                            </Dropdown.Menu>
+                        </Dropdown>
+                    </Navbar>
+                </Row>
+            </Container>
 
 
         </>

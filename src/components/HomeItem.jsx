@@ -67,7 +67,7 @@ const HomeItem = ({ currentItem }) => {
         theme="dark"
       />
 
-      <Card className="item" >
+      <Card className="item mt-2" >
         <Card.Img
           style={{ height: "11rem", objectFit: "contain" }}
           variant="top"
@@ -82,10 +82,12 @@ const HomeItem = ({ currentItem }) => {
           </Card.Title>
           <Card.Text>{currentItem.description}</Card.Text>
 
-          {isOnOutlet ? <Card.Title className="d-inline "> <b>{currentItem.outletPrice}</b> <s>{currentItem.price}</s> </Card.Title> : <Card.Title className="d-inline ">{currentItem.price} </Card.Title>}
+          <div className="d-flex justify-content-between">
+            {isOnOutlet ? <Card.Title className="d-inline "> <b>{currentItem.outletPrice}</b> <s>{currentItem.price}</s> </Card.Title> : <Card.Title className="d-inline ">{currentItem.price} </Card.Title>}
 
-          {!isAdmin && <Button variant="primary" onClick={() => checkIfIsAlreadyInCart()}>Add to cart</Button>}
+            {!isAdmin && <Button variant="primary" onClick={() => checkIfIsAlreadyInCart()}>Add to cart</Button>}
 
+          </div>
         </Card.Body>
       </Card >
     </>

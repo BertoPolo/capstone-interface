@@ -84,12 +84,13 @@ const Home = () => {
       </Container>
 
       <Container fluid >
+        {/* left column, categories */}
         <Row className="ml-2 mt-4">
-          <Col xs={2} className="">
+          <Col className="col-md-2 d-none d-md-block">
             <CategoriesMenu />
           </Col>
 
-          <Col xs={10} className="">
+          <Col xs={10}>
             <Col>
 
               {/* HOME */}
