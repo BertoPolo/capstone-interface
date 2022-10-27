@@ -113,16 +113,12 @@ const Home = () => {
               {/* Single Item */}
               {isOnSingleItem && <SingleItem />}
 
-              {/* By Categories */}
-              {/* {isOnCategory && <CategoriesMenu />} */}
-
-              {/* By Brands */}
-              {/* {isOnBrands && <CategoriesMenu />} */}
-
             </Col>
           </Col>
         </Row>
+        {/* Footer */}
         <Footer />
+
       </Container>
     </>
   )

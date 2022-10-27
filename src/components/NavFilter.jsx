@@ -84,10 +84,18 @@ const NavFilter = () => {
             console.log(error)
         }
     }
+    const minPriceFilter = () => {
+
+    }
+    const topPriceFilter = () => {
+
+    }
 
     useEffect(() => {
         getItems()
         getBrands()
+        minPriceFilter()
+        topPriceFilter()
     }, [])
 
     return (
@@ -120,9 +128,13 @@ const NavFilter = () => {
                 <Form >
                     <Form.Group >
                         <Form.Label>From</Form.Label>
-                        <Form.Control type="range" />
+                        <Form.Control onChange={() => minPriceFilter()} type="range" />
+                    </Form.Group>
+                </Form>
+                <Form >
+                    <Form.Group >
                         <Form.Label>To</Form.Label>
-                        <Form.Control type="range" />
+                        <Form.Control onChange={() => topPriceFilter()} type="range" />
                     </Form.Group>
                 </Form>
 
@@ -130,9 +142,9 @@ const NavFilter = () => {
                 <Form inline className="" onSubmit={(e) => searchItems(e)}>
                     <FormControl type="text" value={searchInput} placeholder="Check if we have it" className="w-25 searchBar" onChange={(e) => setSearchinput(e.target.value)} />
                     <Button type="submit" variant="outline-success" className="ml-2 mr-2">
-                        <i className="bi bi-search "></i> Search
+                        <i className="bi bi-search "></i>
                     </Button>
-                    <Button variant="outline-primary" onClick={() => { getItems(); setSearchinput("") }}>Clear</Button>
+                    <Button variant="outline-primary" onClick={() => { getItems(); setSearchinput("") }}>X</Button>
                 </Form>
 
                 {/* BY BRAND*/}

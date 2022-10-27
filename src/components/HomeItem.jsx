@@ -67,11 +67,9 @@ const HomeItem = ({ currentItem }) => {
         theme="dark"
       />
 
-      <Card style={{
-        width: "11rem", height: "24rem", marginTop: "2rem"
-      }} className="item" >
+      <Card className="item" >
         <Card.Img
-          style={{ height: "11rem" }}
+          style={{ height: "11rem", objectFit: "contain" }}
           variant="top"
           src={currentItem.image}
           alt={currentItem.title}

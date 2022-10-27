@@ -78,6 +78,7 @@ body {
   height: 400px;
 }
 /* carousel end*/
+
 /* footer start*/
 .footer {
   background-color: #dfd6d66e;
@@ -86,7 +87,6 @@ body {
 
 /* item start */
 .card.item {
-  /* box-shadow: #8d1c76 !important; */
   box-shadow: rgba(78, 78, 78, 0.671) 1px 10px 20px;
 }
 
