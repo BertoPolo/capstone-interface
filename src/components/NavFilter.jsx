@@ -110,7 +110,7 @@ const NavFilter = () => {
 
             <Navbar bg="light" expand="lg">
                 {/*PRICE SORTING */}
-                <Nav className="mr-auto">
+                <Nav>
                     <NavDropdown title="Price sorting" id="basic-nav-dropdown">
                         <NavDropdown.Item href="#action/3.1">Asc</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.2">Desc</NavDropdown.Item>

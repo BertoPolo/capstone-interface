@@ -83,47 +83,47 @@ const Home = () => {
 
       </Container>
 
-      {/* <Container className="mt-5 ml-0" > */} {/* mr-0 dont works,  */}
-      <Row className="ml-2 mt-4">
-        <Col xs={2} className="">
-          <CategoriesMenu />
-        </Col>
-
-        <Col xs={10} className="">
-          <Col>
-
-            {/* HOME */}
-            {isOnHome && <Row>
-
-              {items.map((element) => {
-                return (
-                  <Col key={element._id}>
-                    <HomeItem currentItem={element} />
-                  </Col>
-                )
-              })}
-            </Row>}
-
-            {/* OUTLET */}
-            {isOnOutlet && <Outlet />}
-
-            {/* CONTACT US */}
-            {isOnCountactUs && <ContactUs />}
-
-            {/* Single Item */}
-            {isOnSingleItem && <SingleItem />}
-
-            {/* By Categories */}
-            {/* {isOnCategory && <CategoriesMenu />} */}
-
-            {/* By Brands */}
-            {/* {isOnBrands && <CategoriesMenu />} */}
-
-            <Footer />
+      <Container fluid >
+        <Row className="ml-2 mt-4">
+          <Col xs={2} className="">
+            <CategoriesMenu />
           </Col>
-        </Col>
-      </Row>
-      {/* </Container> */}
+
+          <Col xs={10} className="">
+            <Col>
+
+              {/* HOME */}
+              {isOnHome && <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-5">
+
+                {items.map((element) => {
+                  return (
+                    <Col key={element._id}>
+                      <HomeItem currentItem={element} />
+                    </Col>
+                  )
+                })}
+              </Row>}
+
+              {/* OUTLET */}
+              {isOnOutlet && <Outlet />}
+
+              {/* CONTACT US */}
+              {isOnCountactUs && <ContactUs />}
+
+              {/* Single Item */}
+              {isOnSingleItem && <SingleItem />}
+
+              {/* By Categories */}
+              {/* {isOnCategory && <CategoriesMenu />} */}
+
+              {/* By Brands */}
+              {/* {isOnBrands && <CategoriesMenu />} */}
+
+            </Col>
+          </Col>
+        </Row>
+        <Footer />
+      </Container>
     </>
   )
 }
