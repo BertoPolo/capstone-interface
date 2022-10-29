@@ -97,7 +97,9 @@ const NavFilter = () => {
         e.preventDefault()
 
         try {
-            const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?price>${minPrice}&price<${maxPrice}&${sorting}&title=${searchInput}`);
+            const response = await fetch(
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?price>${minPrice}&price<${maxPrice}&${sorting}&title=${searchInput}`
+            );
 
             const data = await response.json();
             if (data) dispatch(addItems(data));

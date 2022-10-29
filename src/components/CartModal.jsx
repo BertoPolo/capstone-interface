@@ -26,12 +26,15 @@ const CartModal = ({ handleClose, show }) => {
                                 </Dropdown.Toggle>
 
                                 <Dropdown.Menu>
-                                    <Dropdown.Item onClick={() => dispatch(setItemsQuantity(1))}>1</Dropdown.Item>
-                                    <Dropdown.Item onClick={() => dispatch(setItemsQuantity(2))}>2</Dropdown.Item>
-                                    <Dropdown.Item onClick={() => dispatch(setItemsQuantity(3))}>3</Dropdown.Item>
-                                    <Dropdown.Item onClick={() => dispatch(setItemsQuantity(4))}>4</Dropdown.Item>
-                                    <Dropdown.Item onClick={() => dispatch(setItemsQuantity(5))}>5</Dropdown.Item>
-                                    <Dropdown.Item onClick={() => dispatch(setItemsQuantity(6))}>6</Dropdown.Item>
+                                    <Dropdown.Item onClick={() => { dispatch(setItemsQuantity([element._id, 1])); }}>1</Dropdown.Item>
+                                    <Dropdown.Item onClick={() => dispatch(setItemsQuantity([element._id, 2]))}>2</Dropdown.Item>
+                                    <Dropdown.Item onClick={() => dispatch(setItemsQuantity([element._id, 3]))}>3</Dropdown.Item>
+                                    <Dropdown.Item onClick={() => dispatch(setItemsQuantity([element._id, 4]))}>4</Dropdown.Item>
+                                    <Dropdown.Item onClick={() => dispatch(setItemsQuantity([element._id, 5]))}>5</Dropdown.Item>
+                                    <Dropdown.Item onClick={() => dispatch(setItemsQuantity([element._id, 6]))}>6</Dropdown.Item>
+                                    <Dropdown.Item onClick={() => dispatch(setItemsQuantity([element._id, 7]))}>7</Dropdown.Item>
+                                    <Dropdown.Item onClick={() => dispatch(setItemsQuantity([element._id, 8]))}>8</Dropdown.Item>
+                                    <Dropdown.Item onClick={() => dispatch(setItemsQuantity([element._id, 9]))}>9</Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
                             <i className="bi bi-trash3 pointer ml-3" onClick={() => dispatch(removeItem(element._id))}></i>
