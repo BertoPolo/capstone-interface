@@ -10,6 +10,7 @@ const cartSlice = createSlice({
       const itemInCart = state.cart.find((item) => item._id === action.payload.id)
       if (itemInCart) {
         itemInCart.quantity++
+        console.log(state.cart)
       } else {
         state.cart.push({ ...action.payload, quantity: 1 })
       }
