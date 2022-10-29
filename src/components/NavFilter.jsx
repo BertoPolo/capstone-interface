@@ -24,6 +24,9 @@ const NavFilter = () => {
 
     const dispatch = useDispatch()
 
+    const resetStates = () => {
+        setSearchinput(""); setMaxPrice(1000); setMinPrice(0); setSorting("")
+    }
 
     const notifyNotFound = () => toast.warn(`OOPS! looks like we don't have that`, {
         position: "top-center",
@@ -95,7 +98,7 @@ const NavFilter = () => {
         e.preventDefault()
 
         try {
-            const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?price>${minPrice}&price<${maxPrice}${sorting}`);
+            const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?price>${minPrice}&price<${maxPrice}&${sorting}`);
 
             const data = await response.json();
             if (data) dispatch(addItems(data));
@@ -109,7 +112,6 @@ const NavFilter = () => {
     useEffect(() => {
         getItems()
         getBrands()
-        // getFilteredItems()
     }, [])
 
     return (
@@ -138,7 +140,7 @@ const NavFilter = () => {
                         <Button type="submit" variant="outline-success" className="ml-2 mr-2">
                             <i className="bi bi-search "></i>
                         </Button>
-                        <Button variant="outline-primary" onClick={() => { getItems(); setSearchinput(""); setMaxPrice(1000); setMinPrice(0); setSorting("") }}>X</Button>
+                        <Button variant="outline-primary" onClick={() => { getItems(); resetStates() }}>X</Button>
                     </Form>
                 </Row>
 
@@ -147,8 +149,8 @@ const NavFilter = () => {
                         {/*PRICE SORTING */}
                         <Nav>
                             <NavDropdown title="Price sorting" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1" onClick={(e) => { setSorting("&sort=price"); getPriceItems(e) }}>Asc</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2" onClick={(e) => { setSorting("&sort=-price"); getPriceItems(e) }}>Desc</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.1" onClick={(e) => { setSorting("sort=price"); getPriceItems(e) }}>Asc</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2" onClick={(e) => { setSorting("sort=-price"); getPriceItems(e) }}>Desc</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
 
