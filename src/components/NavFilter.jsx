@@ -28,7 +28,7 @@ const NavFilter = () => {
         setSearchinput(""); setMaxPrice(1000); setMinPrice(0); setSorting("")
     }
 
-    const notifyNotFound = () => toast.warn(`OOPS! looks like we don't have that`, {
+    const notifyNotFound = () => toast.warn(`OOPS! looks like we don't anything there`, {
         position: "top-center",
         autoClose: 4000,
         hideProgressBar: false,
@@ -51,7 +51,18 @@ const NavFilter = () => {
         }
     }
 
-    const getByBrand = async (brand) => {
+    const getBrands = async () => {
+        try {
+            const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}brands/all`);
+            const data = await response.json();
+            dispatch(addBrands(data));
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const getByBrand = async (brand) => { // mergo to main filter function
         try {
             const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?brand=${brand}`);
             const data = await response.json();
@@ -66,42 +77,31 @@ const NavFilter = () => {
         }
     }
 
-    const searchItems = async (e) => {
+    // const searchItems = async (e) => {
+    //     e.preventDefault()
+    //     try {
+    //         const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?title=${searchInput}`);
+    //         const data = await response.json();
+    //         if (data.length > 0) dispatch(addItems(data));
+    //         else notifyNotFound()
 
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // }
+
+
+
+
+    const getFilteredItems = async (e) => {
         e.preventDefault()
 
         try {
-            const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/bytitle/${searchInput}`);
-            const data = await response.json();
-            if (data.length > 0) dispatch(addItems(data));
-            else notifyNotFound()
-
-
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
-    const getBrands = async () => {
-        try {
-            const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}brands/all`);
-            const data = await response.json();
-            dispatch(addBrands(data));
-
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
-    // price filter
-    const getPriceItems = async (e) => {
-        e.preventDefault()
-
-        try {
-            const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?price>${minPrice}&price<${maxPrice}&${sorting}`);
+            const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?price>${minPrice}&price<${maxPrice}&${sorting}&title=${searchInput}`);
 
             const data = await response.json();
             if (data) dispatch(addItems(data));
+            else notifyNotFound()
 
         } catch (error) {
             console.log(error)
@@ -135,7 +135,7 @@ const NavFilter = () => {
             <Container >
                 <Row>
                     {/* search bar */}
-                    <Form inline className="d-flex justify-content-center" onSubmit={(e) => searchItems(e)}>
+                    <Form inline className="d-flex justify-content-center" onSubmit={(e) => getFilteredItems(e)}>
                         <FormControl type="text" value={searchInput} placeholder="Check if we have it" className="w-25 searchBar" onChange={(e) => setSearchinput(e.target.value)} />
                         <Button type="submit" variant="outline-success" className="ml-2 mr-2">
                             <i className="bi bi-search "></i>
@@ -149,25 +149,25 @@ const NavFilter = () => {
                         {/*PRICE SORTING */}
                         <Nav>
                             <NavDropdown title="Price sorting" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1" onClick={(e) => { setSorting("sort=price"); getPriceItems(e) }}>Asc</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2" onClick={(e) => { setSorting("sort=-price"); getPriceItems(e) }}>Desc</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.1" onClick={(e) => { setSorting("sort=price"); getFilteredItems(e) }}>Asc</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2" onClick={(e) => { setSorting("sort=-price"); getFilteredItems(e) }}>Desc</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
 
                         {/* BY PRICE RANGE */}
                         <Form >
                             <Form.Group >
-                                <Form.Label>From</Form.Label>
-                                <Form.Control type="range" value={minPrice} min="0" max="1000" onChange={(e) => { setMinPrice(e.target.value); getPriceItems(e) }} />
-                                <output>{minPrice}</output>
+                                <Form.Label>From <output>{minPrice}</output></Form.Label>
+                                <Form.Control type="range" value={minPrice} min="0" max="1000" onChange={(e) => { setMinPrice(e.target.value); getFilteredItems(e) }} />
+
                             </Form.Group>
                         </Form>
 
                         <Form >
                             <Form.Group >
-                                <Form.Label>To</Form.Label>
-                                <Form.Control type="range" value={maxPrice} min="0" max="1000" onChange={(e) => { setMaxPrice(e.target.value); getPriceItems(e) }} />
-                                <output>{maxPrice}</output>
+                                <Form.Label>To <output>{maxPrice}</output></Form.Label>
+                                <Form.Control type="range" value={maxPrice} min="0" max="1000" onChange={(e) => { setMaxPrice(e.target.value); getFilteredItems(e) }} />
+
                             </Form.Group>
                         </Form>
 
