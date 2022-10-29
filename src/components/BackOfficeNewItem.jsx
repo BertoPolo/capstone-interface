@@ -1,4 +1,4 @@
-import { Form, Button, Dropdown } from "react-bootstrap"
+import { Form, Button, Dropdown, } from "react-bootstrap"
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { ToastContainer, toast } from 'react-toastify';
@@ -200,6 +200,24 @@ const BackOficceNewItem = () => {
                                 )
                             })}
                         </Dropdown.Menu>
+                        {/* 
+                        <Dropdown.Menu>
+                            {categories.map((element) => {
+                                return (
+                                    <Dropdown.Item key={element._id} href="" onClick={() => setBrand(element._id)}>{element.category}</Dropdown.Item>
+                                )
+                            })}
+                        </Dropdown.Menu>
+
+                        <Dropdown.Menu>
+                            {mainCategories.map((element) => {
+                                return (
+                                    <Dropdown.Item key={element._id} href="" onClick={() => setBrand(element._id)}>{element.mainCategory}</Dropdown.Item>
+                                )
+                            })}
+
+                        </Dropdown.Menu> */}
+
                     </Dropdown>
                     <Form.Check type="checkbox" label="Outlet" value={isItOutlet} onChange={(e) => setIsItOutlet(!isItOutlet)} />
 

@@ -31,6 +31,28 @@ const BackOfficeUsers = () => {
         }
     }
 
+    // const editUser = async (username) => {
+    //     const body = {
+
+    //     }
+
+    //     try {
+    //         const response = await fetch(
+    //             `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/edit/${username}`,
+    //             {
+    //                 method: "PUT",
+    //                 headers: {
+    //                     "Content-Type": "application/json",
+    //                 },
+    //                 body: JSON.stringify(body)
+
+    //             }
+    //         );
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // }
+
     const deleteUser = async (name) => {
         try {
             const response = await fetch(
