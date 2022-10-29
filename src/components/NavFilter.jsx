@@ -134,10 +134,10 @@ const NavFilter = () => {
                 theme="dark"
             />
 
-            <Container >
+            <Container className="mt-4">
                 <Row>
                     {/* search bar */}
-                    <Form inline className="d-flex justify-content-center" onSubmit={(e) => getFilteredItems(e)}>
+                    <Form inline className="d-flex justify-content-center w-100" onSubmit={(e) => getFilteredItems(e)}>
                         <FormControl type="text" value={searchInput} placeholder="Check if we have it" className="w-25 searchBar" onChange={(e) => setSearchinput(e.target.value)} />
                         <Button type="submit" variant="outline-success" className="ml-2 mr-2">
                             <i className="bi bi-search "></i>
@@ -147,7 +147,7 @@ const NavFilter = () => {
                 </Row>
 
                 <Row>
-                    <Navbar className="d-flex justify-content-between"> {/* expand="lg" */}
+                    <Navbar className="d-flex justify-content-between w-100"> {/* expand="lg" */}
                         {/*PRICE SORTING */}
                         <Nav>
                             <NavDropdown title="Price sorting" id="basic-nav-dropdown">
@@ -159,7 +159,7 @@ const NavFilter = () => {
                         {/* BY PRICE RANGE */}
                         <Form >
                             <Form.Group >
-                                <Form.Label>From <output>{minPrice}</output></Form.Label>
+                                <Form.Label>From <output>{minPrice}€</output></Form.Label>
                                 <Form.Control type="range" value={minPrice} min="0" max="1000" onChange={(e) => { setMinPrice(e.target.value); getFilteredItems(e) }} />
 
                             </Form.Group>
@@ -167,7 +167,7 @@ const NavFilter = () => {
 
                         <Form >
                             <Form.Group >
-                                <Form.Label>To <output>{maxPrice}</output></Form.Label>
+                                <Form.Label>To <output>{maxPrice}€</output></Form.Label>
                                 <Form.Control type="range" value={maxPrice} min="0" max="1000" onChange={(e) => { setMaxPrice(e.target.value); getFilteredItems(e) }} />
 
                             </Form.Group>
