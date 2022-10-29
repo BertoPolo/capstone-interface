@@ -13,6 +13,9 @@ import { toggleIsOnCategory, toggleIsOnBrands } from "../slices/sheets/sheetsSli
 
 const NavFilter = () => {
     const [searchInput, setSearchinput] = useState("")
+    const [minPrice, setMinPrice] = useState(0)
+    const [maxPrice, setMaxPrice] = useState(2000)
+
 
     const brands = useSelector((state) => state.brandsSlice.brands);
     const items = useSelector((state) => state.itemsSlice.items);
@@ -86,26 +89,28 @@ const NavFilter = () => {
     }
 
     // mininum price filter
-    const minPriceFilter = () => {
+    const getFilteredItems = async (e) => {
+        e.preventDefault()
 
+        try {
+            const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?price>${minPrice}&price<${maxPrice}&`);
+
+            const data = await response.json();
+
+
+        } catch (error) {
+            console.log(error)
+        }
     }
 
-    // top price filter
-    const topPriceFilter = () => {
 
-    }
 
-    // sorting Asc or Desc
-    const priceSort = () => {
-
-    }
 
 
     useEffect(() => {
         getItems()
         getBrands()
-        minPriceFilter()
-        topPriceFilter()
+        // getFilteredItems()
     }, [])
 
     return (
@@ -143,8 +148,8 @@ const NavFilter = () => {
                         {/*PRICE SORTING */}
                         <Nav>
                             <NavDropdown title="Price sorting" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1" onClick={() => { priceSort("asc") }}>Asc</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2" onClick={() => { priceSort("desc") }}>Desc</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.1" onClick={() => { getFilteredItems("sort=price") }}>Asc</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2" onClick={() => { getFilteredItems("sort=-price") }}>Desc</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
 
@@ -152,14 +157,14 @@ const NavFilter = () => {
                         <Form >
                             <Form.Group >
                                 <Form.Label>From</Form.Label>
-                                <Form.Control onChange={() => minPriceFilter()} type="range" />
+                                <Form.Control type="range" value={minPrice} min="0" max="10" onChange={(e) => { setMinPrice(e.target.value); getFilteredItems(`price=${minPrice}`) }} />
                             </Form.Group>
                         </Form>
 
                         <Form >
                             <Form.Group >
                                 <Form.Label>To</Form.Label>
-                                <Form.Control onChange={() => topPriceFilter()} type="range" />
+                                <Form.Control type="range" value={maxPrice} min="0" max="10" onChange={(e) => { setMaxPrice(e.target.value); getFilteredItems(`price=${maxPrice}`) }} />
                             </Form.Group>
                         </Form>
 
