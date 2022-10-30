@@ -196,7 +196,7 @@ const BackOficceNewItem = () => {
                         <Dropdown.Menu>
                             {brands.map((element) => {
                                 return (
-                                    <Dropdown.Item key={element._id} href="" onClick={() => setBrand(element._id)}>{element.brands}</Dropdown.Item>
+                                    <Dropdown.Item key={element._id} onClick={() => setBrand(element._id)}>{element.brands}</Dropdown.Item>
                                 )
                             })}
                         </Dropdown.Menu>

@@ -5,6 +5,9 @@ import { addItems } from "../slices/items/itemsSlice"
 const CategoriesMenuDropdown = () => {
 
     const items = useSelector((state) => state.itemsSlice.items);
+    const categories = useSelector((state) => state.categoriesSlice.categories);
+    const mainCategories = useSelector((state) => state.mainCategoriesSlice.mainCategories);
+
 
 
     const getMainCategories = async () => {
@@ -36,10 +39,12 @@ const CategoriesMenuDropdown = () => {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-                {/* categories.map((category)=>{}) */}
-                {/* mainCategories.map((mCat)=>{}) */}
-                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                {categories.map((element) => (
+                    <Dropdown.Item>{element.categories}</Dropdown.Item>
+                ))}
+                {mainCategories.map((element) => (
+                    <Dropdown.Item>{element.mainCategories}</Dropdown.Item>
+                ))}
             </Dropdown.Menu>
         </Dropdown>
     )
