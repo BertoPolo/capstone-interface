@@ -1,4 +1,4 @@
-import { Accordion, Card, Dropdown } from "react-bootstrap"
+import { Accordion, Card } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { toggleIsOnCategory, toggleIsOnBrands } from "../slices/sheets/sheetsSlice"
 import { addItems } from "../slices/items/itemsSlice"
@@ -69,9 +69,9 @@ function CategoriesMenu() {
           </Card.Header>
           <Accordion.Collapse eventKey="0">
             <Card.Body>
-              <p className="pointer" onClick={() => { getByCategory("Front lights") }}>Front lights</p>
-              <p className="pointer" onClick={() => getByCategory("Rear lights")}>Rear lights</p>
-              <p className="pointer" onClick={() => getByCategory("Signal lights")}>Signal lights</p>
+              <p className="pointer" onClick={() => getByCategory("Front lights")}>Front Lights</p>
+              <p className="pointer" onClick={() => getByCategory("Rear lights")}>Rear Lights</p>
+              <p className="pointer" onClick={() => getByCategory("Signal lights")}>Signal Lights</p>
               {/* <Link to="/Front_lights">Front lights</Link>
               <Link to="/Rear_lights">Rear lights</Link>
               <Link to="/Signal_lights">Signal lights</Link> */}

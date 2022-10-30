@@ -40,11 +40,15 @@ const CategoriesMenuDropdown = () => {
 
             <Dropdown.Menu>
                 {categories.map((element) => (
-                    <Dropdown.Item>{element.categories}</Dropdown.Item>
+                    <>
+                        <Dropdown.Item>{element.mainCategories}</Dropdown.Item>
+                        <Dropdown.Item>{element.categories}</Dropdown.Item>
+                    </>
+
                 ))}
-                {mainCategories.map((element) => (
+                {/* {mainCategories.map((element) => (
                     <Dropdown.Item>{element.mainCategories}</Dropdown.Item>
-                ))}
+                ))} */}
             </Dropdown.Menu>
         </Dropdown>
     )
