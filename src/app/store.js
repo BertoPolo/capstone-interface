@@ -4,6 +4,8 @@ import sheetsSlice from "../slices/sheets/sheetsSlice"
 import usersSlice from "../slices/users/usersSlice"
 import cartSlice from "../slices/cart/cartSlice"
 import brandsSlice from "../slices/brands/brandsSlice"
+import categoriesSlice from "../slices/categories/categoriesSlice"
+import mainCategoriesSlice from "../slices/mainCategories/mainCategoriesSlice"
 
 // import storage from "redux-persist/lib/storage"
 // import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from "redux-persist"
@@ -21,6 +23,8 @@ export default configureStore({
     usersSlice: usersSlice,
     cartSlice: cartSlice,
     brandsSlice: brandsSlice,
+    categoriesSlice: categoriesSlice,
+    mainCategoriesSlice: mainCategoriesSlice,
   },
   // middleware: (getDefaultMiddleware) =>
   //   getDefaultMiddleware({

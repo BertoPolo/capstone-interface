@@ -12,6 +12,7 @@ import ContactUs from "./ContactUs"
 import SingleItem from "./SingleItem"
 import CategoriesMenu from "./CategoriesMenu"
 import NavFilter from "./NavFilter"
+import CategoriesMenuDropdown from "./CategoriesMenuDropdown"
 
 
 
@@ -85,9 +86,11 @@ const Home = () => {
 
       <Container fluid >
         {/* left column, categories */}
+        <CategoriesMenuDropdown />
         <Row className="ml-2 mt-4">
           <Col className="col-md-2 d-none d-md-block">
             <CategoriesMenu />
+
           </Col>
 
           <Col xs={10}>
