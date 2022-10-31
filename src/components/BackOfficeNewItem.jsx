@@ -62,7 +62,6 @@ const BackOficceNewItem = () => {
     const addNewArticleSubmit = async (e) => {
         e.preventDefault()
 
-
         let body = {
             title: name,
             price: price,
@@ -110,6 +109,7 @@ const BackOficceNewItem = () => {
 
 
     }
+
     const postImg = async () => {
 
         try {
@@ -186,7 +186,6 @@ const BackOficceNewItem = () => {
                     <Form.Control type="text" placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
                     <Form.Control type="text" placeholder="Main Category" value={mainCategory} onChange={(e) => setMainCategory(e.target.value)} />
                     <Form.Control type="text" placeholder="Category" value={category} onChange={(e) => setCategory(e.target.value)} />
-                    {/* <Form.Control type="text" placeholder="Brand" value={brand} onChange={(e) => setBrand(e.target.value)} /> */}
                     <Form.Control type="text" placeholder="Short Description" value={shortDescription} onChange={(e) => setShortDescription(e.target.value)} />
                     <Form.Control as="textarea" rows={3} placeholder="Full Description" value={fullDescription} onChange={(e) => setFullDescription(e.target.value)} />
                     <Dropdown>

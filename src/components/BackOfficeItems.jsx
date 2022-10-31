@@ -10,7 +10,7 @@ const BackOfficeItems = () => {
         e.preventDefault()
         try {
             const response = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/${title}`);
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?title=${title}`);
 
             if (response.status === 200) {
                 let data = await response.json();
@@ -42,9 +42,12 @@ const BackOfficeItems = () => {
             {
                 foundedItems && foundedItems.map((element) => {
                     return (
-                        <div>
-                            <p>{element.title}</p>
-                            {/* <Button variant="primary" onClick={dispatch(()}>Edit</Button><Button variant="danger" onClick={dispatch(())}>Delete</Button> */}
+                        <div key={element._id}>
+                            <span><b>{element.title}</b></span>
+                            {/* on click open dropdown with a filled form to edit it */}
+                            <i className="bi bi-trash3 pointer"></i>
+                            <i className="bi bi-pencil"></i>
+
                             <hr />
                         </div>
                     )
