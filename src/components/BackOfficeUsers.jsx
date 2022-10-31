@@ -71,14 +71,19 @@ const BackOfficeUsers = () => {
     return (
         <>
             {/* Search user */}
-            <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => searchUserSubmit(e)}>
+            <Form className="d-flex justify-content-center flex-column mb-3" onSubmit={(e) => searchUserSubmit(e)}>
                 <h4 className="mb-3">Search an user</h4>
 
-                <Form.Group>
-                    <Form.Control type="text" placeholder="Name" value={userInput} onChange={(e) => setUserInput(e.target.value)} />
+                <Form.Group className="mb-3">
+                    <Form.Control type="text" className="justify-content-center w-25" placeholder="Name" value={userInput} onChange={(e) => setUserInput(e.target.value)} />
                 </Form.Group>
 
-                <Button type="submit"> Submit </Button>
+                {userInput ?
+                    <Button type="submit"> Submit </Button>
+                    :
+                    <Button type="submit" disabled> Submit </Button>
+
+                }
             </Form >
 
             <h4 className=""><u>Results</u></h4>
@@ -86,10 +91,13 @@ const BackOfficeUsers = () => {
                 foundedUsers && foundedUsers.map((element) => {
                     return (
                         <div key={element._id}>
-                            <span><b>{element.name}</b> ---- </span>
-                            <span>{element.adress}</span>
+                            {/* on click open dropdown with a filled form to edit it */}
+                            <span>Name : <b>{element.name}</b> </span>
+                            <span>Adress : <b>{element.adress}</b></span>
+                            <i className="bi bi-pencil"></i>
+
                             <i className="bi bi-trash3 pointer" onClick={() => deleteUser(element.name)}></i>
-                            {/* <Button variant="primary" >Edit</Button><Button variant="danger" >Delete</Button> */}
+
                             <hr />
                         </div>
                     )

@@ -51,11 +51,13 @@ const BackOffice = () => {
 
                 <Button type="submit" disabled > Submit </Button>
             </Form> */}
+            <div className=" m-3 d-flex justify-content-between">
 
-            <Button variant="primary" onClick={() => dispatch(toggleIsOnUser(true))} >Search Users</Button >
-            <Button variant="dark" onClick={() => dispatch(toggleIsOnItem(true))} >Search Items</Button >
-            <Button variant="secondary" onClick={() => dispatch(toggleIsOnNewItem(true))}>Create Items</Button >
-            <Button variant="danger" onClick={() => navigate("/home")}>Return Home</Button >
+                <Button variant="primary" onClick={() => dispatch(toggleIsOnUser(true))} >Search Users</Button >
+                <Button variant="dark" onClick={() => dispatch(toggleIsOnItem(true))} >Search Items</Button >
+                <Button variant="secondary" onClick={() => dispatch(toggleIsOnNewItem(true))}>Create Items</Button >
+                <Button variant="danger" onClick={() => navigate("/home")}>Return Home</Button >
+            </div>
 
             {isOnUsers && <BackOfficeUsers />}
             {isOnItems && <BackOfficeItems />}
