@@ -4,7 +4,7 @@ import { useEffect } from "react"
 import { toggleIsOnCategory, toggleIsOnBrands } from "../slices/sheets/sheetsSlice"
 import { addItems } from "../slices/items/itemsSlice"
 import { addCategories } from "../slices/categories/categoriesSlice"
-// import { addMainCategories } from "../slices/mainCategories/mainCategoriesSlice"
+import { addMainCategories } from "../slices/mainCategories/mainCategoriesSlice"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -14,10 +14,21 @@ function CategoriesMenu() {
   const items = useSelector((state) => state.itemsSlice.items);
   const brands = useSelector((state) => state.brandsSlice.brands);
   const categories = useSelector((state) => state.categoriesSlice.categories);
-  // const mainCategories = useSelector((state) => state.categoriesSlice.mainCategories);
+  const mainCategories = useSelector((state) => state.categoriesSlice.mainCategories);
 
   const dispatch = useDispatch()
 
+  const getMainCategories = async () => {
+    try {
+      const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}mainCategories/all`);
+      const data = await response.json();
+      dispatch(addMainCategories(data));
+      console.log(data)
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
   const getCategories = async () => {
     try {
       const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}categories/all`);
@@ -74,6 +85,7 @@ function CategoriesMenu() {
   });
 
   useEffect(() => {
+    getMainCategories()
     getCategories()
   }, [])
 
@@ -82,30 +94,34 @@ function CategoriesMenu() {
 
       <h4>CATEGORIES</h4>
       <Accordion>
-        {categories.map((element) => {
+
+        {mainCategories.map((mainElement) => {
           return (
-            <Card key={element._id}>
+            <Card key={mainElement._id}>
               <Card.Header>
-                <Accordion.Toggle as={Card.Header} eventKey={element._id} className="pointer" >
-                  {element.mainCategory.mainCategories}
+                <Accordion.Toggle as={Card.Header} eventKey={mainElement._id} className="pointer" >
+                  {mainElement.mainCategory}
                 </Accordion.Toggle>
               </Card.Header>
-              <Accordion.Collapse eventKey={element._id}>
-                <Card.Body>
-                  <p className="pointer" onClick={() => getByCategory(element._id)}>{element.categories}</p>
+              <Accordion.Collapse eventKey={mainElement._id}>
 
-                </Card.Body>
+
+                {categories.map(element => {
+                  return (
+                    <Card.Body>
+                      {(element.mainCategory === mainElement.mainCategories) && <p className="pointer" onClick={() => getByCategory(element._id)}>{element.categories}</p>}
+
+                    </Card.Body>
+                  )
+                })}
+
               </Accordion.Collapse>
             </Card>
 
           )
-
-
-          // mapear los main categories
-          // dentro, hacer otro map con las categories y checkeando que tiene la misma maincat
-
-
         })}
+
+
 
         {/* <Card>
           <Card.Header>
