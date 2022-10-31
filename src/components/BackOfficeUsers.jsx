@@ -1,6 +1,8 @@
 import { Form, Button } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
 import { useState } from "react"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 
 
@@ -14,6 +16,17 @@ const BackOfficeUsers = () => {
 
     const dispatch = useDispatch()
 
+    const notifyError = () => toast.error(`Check if you writted it right, cause looks like we don't have any client with this name`, {
+        position: "top-center",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+    })
+
 
     const searchUserSubmit = async (e) => {
         e.preventDefault()
@@ -22,9 +35,11 @@ const BackOfficeUsers = () => {
                 `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/${userInput}`);
 
             if (response.status === 200) {
-                let data = await response.json();
-                setFoundedUsers(data)
-                setUserInput("")
+                const data = await response.json();
+                if (data) {
+                    setUserInput("")
+                    setFoundedUsers(data)
+                } else notifyError()
             }
         } catch (error) {
             console.log(error)
@@ -56,7 +71,7 @@ const BackOfficeUsers = () => {
     const deleteUser = async (name) => {
         try {
             const response = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/${name}`,
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/delete/${name}`,
                 {
                     method: "DELETE",
                     headers: {
@@ -70,6 +85,21 @@ const BackOfficeUsers = () => {
     }
     return (
         <>
+
+            {/* Toaster */}
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                limit={1}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+            />
             {/* Search user */}
             <Form className="d-flex justify-content-center flex-column mb-3" onSubmit={(e) => searchUserSubmit(e)}>
                 <h4 className="mb-3">Search an user</h4>

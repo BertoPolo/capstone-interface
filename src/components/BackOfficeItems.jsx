@@ -9,7 +9,7 @@ const BackOfficeItems = () => {
     const [foundedItems, setFoundedItems] = useState([])
     const [title, setTitle] = useState("")
 
-    const notifyError = () => toast.error('Check if you writted it right, ', {
+    const notifyError = () => toast.error(`Check if you writted it right, cause looks like we don't have anything with this name`, {
         position: "top-center",
         autoClose: 4000,
         hideProgressBar: false,
@@ -28,9 +28,12 @@ const BackOfficeItems = () => {
                 `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?title=${title}`);
 
             if (response.status === 200) {
-                let data = await response.json();
-                setFoundedItems(data)
+                const data = await response.json();
                 if (!data) notifyError()
+                else {
+                    setFoundedItems(data)
+                    setTitle("")
+                }
 
             }
         } catch (error) {
