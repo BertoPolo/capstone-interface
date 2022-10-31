@@ -38,37 +38,25 @@ const CategoriesMenuDropdown = () => {
         <>
 
 
-            <Accordion defaultActiveKey="0">
+            <Accordion>
                 <Card>
                     <Card.Header>
-                        <Accordion.Toggle as={Button} variant="link" eventKey="0">
-                            Click me!
+                        <Accordion.Toggle as={Card.Header} eventKey="0" className="pointer" >
+                            Lights
                         </Accordion.Toggle>
                     </Card.Header>
                     <Accordion.Collapse eventKey="0">
-                        <Card.Body>Hello! I'm the body</Card.Body>
+                        <Card.Body>
+                            {/* <p className="pointer" onClick={() => getByCategory(element._id)}>Front Lights</p>
+                            <p className="pointer" onClick={() => getByCategory(element._id)}>Rear Lights</p>
+                            <p className="pointer" onClick={() => getByCategory(element._id)}>Signal Lights</p> */}
+                        </Card.Body>
                     </Accordion.Collapse>
                 </Card>
 
             </Accordion>
 
 
-            <Dropdown>
-                <Dropdown.Toggle variant="success" id="dropdown-basic">
-                    Categories
-                </Dropdown.Toggle>
-
-                <Dropdown.Menu>
-                    {categories.map((element) => (
-                        <>
-                            <Dropdown.Item>{element.mainCategories}</Dropdown.Item>
-                            <Dropdown.Item>{element.categories}</Dropdown.Item>
-                        </>
-
-                    ))}
-
-                </Dropdown.Menu>
-            </Dropdown>
         </>
     )
 }
