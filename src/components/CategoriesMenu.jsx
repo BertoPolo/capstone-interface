@@ -24,8 +24,7 @@ function CategoriesMenu() {
       const data = await response.json();
 
       if (data) dispatch(addMainCategories(data));
-      console.log("Mcat")
-      console.log(data)
+      console.log("Mcat:", data)
 
     } catch (error) {
       console.log(error)
@@ -38,8 +37,7 @@ function CategoriesMenu() {
       const data = await response.json();
 
       if (data) dispatch(addCategories(data));
-      console.log("cat")
-      console.log(data)
+      console.log("cat:", data)
 
     } catch (error) {
       console.log(error)
