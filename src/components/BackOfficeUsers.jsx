@@ -32,7 +32,7 @@ const BackOfficeUsers = () => {
         e.preventDefault()
         try {
             const response = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/${userInput}`);
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/${userInput}&sort=title`);
 
             if (response.status === 200) {
                 const data = await response.json();

@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css'
 const BackOfficeItems = () => {
     const [foundedItems, setFoundedItems] = useState([])
     const [title, setTitle] = useState("")
+    const [isEditing, setIsEditing] = useState(false)
 
     const notifyError = () => toast.error(`Check if you writted it right, cause looks like we don't have anything with this name`, {
         position: "top-center",
@@ -25,7 +26,7 @@ const BackOfficeItems = () => {
         e.preventDefault()
         try {
             const response = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?title=${title}`);
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?title=${title}&sort=title`);
 
             if (response.status === 200) {
                 const data = await response.json();
@@ -40,6 +41,8 @@ const BackOfficeItems = () => {
             console.log(error)
         }
     }
+
+    let editItem
 
 
     return (
@@ -78,11 +81,38 @@ const BackOfficeItems = () => {
                 foundedItems && foundedItems.map((element) => {
                     return (
                         <div key={element._id}>
-                            <span><b>{element.title}</b></span>
-                            {/* on click open dropdown with a filled form to edit it */}
-                            <i className="bi bi-trash3 pointer"></i>
-                            <i className="bi bi-pencil"></i>
+                            {isEditing ?
+                                <>
+                                    <span><b>{element.title}</b></span>
 
+                                    <i className="bi bi-pencil ml-4 mr-3" onClick={setIsEditing(true)}></i>
+                                    <i className="bi bi-trash3 pointer"></i>
+
+                                    <ul>
+                                        <li>{element.price}€</li>
+                                        {/* <li>{element.category}€</li> */}
+                                        {/* <li>{element.mainCategory}€</li> */}
+                                        {/* <li>{element.brand}€</li> */}
+                                        <li>{element.isOutlet ? <span>is in outlet</span> : <span> is not in outlet</span>}</li>
+                                        <li>{element.description}</li>
+                                        <li>{element.fullDescription}</li>
+                                        <li>{element.image}</li>
+                                    </ul>
+                                </>
+                                :
+                                <Form onSubmit={(e) => editItem(e)}>
+                                    <h4 className="mb-3">Modify your data</h4>
+
+                                    {<Form.Group>
+                                        <Form.Control type="text" placeholder="Full Name" value={nameInput} onChange={(e) => setNameInput(e.target.value)} />
+                                        fill from redux when search
+                                    </Form.Group>}
+
+                                    <div className="d-flex">
+                                        <Button type="submit"> Submit </Button>
+                                    </div>
+                                </Form>
+                            }
                             <hr />
                         </div>
                     )
