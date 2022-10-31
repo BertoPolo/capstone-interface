@@ -24,6 +24,7 @@ function CategoriesMenu() {
       const data = await response.json();
 
       if (data) dispatch(addMainCategories(data));
+      console.log("Mcat")
       console.log(data)
 
     } catch (error) {
@@ -37,6 +38,7 @@ function CategoriesMenu() {
       const data = await response.json();
 
       if (data) dispatch(addCategories(data));
+      console.log("cat")
       console.log(data)
 
     } catch (error) {
@@ -107,15 +109,17 @@ function CategoriesMenu() {
             <Card key={mainElement._id}>
               <Card.Header>
                 <Accordion.Toggle as={Card.Header} eventKey={mainElement._id} className="pointer" >
-                  {mainElement.mainCategory}
+                  {mainElement.mainCategories}
                 </Accordion.Toggle>
               </Card.Header>
 
               {categories.map(element => {
                 return (
+
+                  element.mainCategory._id === mainElement.mainCategories._id &&
                   <Accordion.Collapse eventKey={mainElement._id} key={element._id}>
                     <Card.Body  >
-                      {(element.mainCategory === mainElement.mainCategories) && <p className="pointer" onClick={() => getByCategory(element._id)}>{element.categories}</p>}
+                      <p className="pointer" onClick={() => getByCategory(element._id)}>{element.categories}</p>
 
                     </Card.Body>
                   </Accordion.Collapse>
