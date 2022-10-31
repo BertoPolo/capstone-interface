@@ -23,6 +23,28 @@ const BackOficceNewItem = () => {
 
     const brands = useSelector((state) => state.brandsSlice.brands);
 
+
+    const notifyError = () => toast.error('Check the form again, looks like you forgot something', {
+        position: "top-center",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+    })
+    const notify = () => toast.success(`Item created!,upload it's image now`, {
+        position: "top-center",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+    });
+
     const dispatch = useDispatch();
 
 
@@ -40,26 +62,7 @@ const BackOficceNewItem = () => {
     const addNewArticleSubmit = async (e) => {
         e.preventDefault()
 
-        const notifyError = () => toast.error('Check the form again, looks like you forgot something', {
-            position: "top-center",
-            autoClose: 4000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-        })
-        const notify = () => toast.success(`Item created!,upload it's image now`, {
-            position: "top-center",
-            autoClose: 4000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-        });
+
         let body = {
             title: name,
             price: price,
@@ -120,10 +123,6 @@ const BackOficceNewItem = () => {
                     body: JSON.stringify(img)
                 }
             );
-            if (res.status === 201) {
-                const data = await res.json();
-            }
-
 
         } catch (error) {
             console.log(error)
@@ -200,6 +199,7 @@ const BackOficceNewItem = () => {
                                 )
                             })}
                         </Dropdown.Menu>
+
                         {/* 
                         <Dropdown.Menu>
                             {categories.map((element) => {
@@ -234,7 +234,13 @@ const BackOficceNewItem = () => {
 
             {/* Post item's image */}
             <input className="mt-5" type="file" label="Add An Image" accept=",.jpg,.jpeg,.png" onChange={() => setImg(img)} />
-            <Button variant="primary" onClick={() => postImg()}>Upload image</Button>
+
+            {itemId ?
+                <Button variant="primary" onClick={() => postImg()}>Upload image</Button>
+                :
+                <Button variant="primary" disabled onClick={() => postImg()}>Upload image</Button>
+
+            }
 
 
         </>
