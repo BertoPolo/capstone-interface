@@ -14,7 +14,7 @@ function CategoriesMenu() {
   const items = useSelector((state) => state.itemsSlice.items);
   const brands = useSelector((state) => state.brandsSlice.brands);
   const categories = useSelector((state) => state.categoriesSlice.categories);
-  const mainCategories = useSelector((state) => state.categoriesSlice.mainCategories);
+  const mainCategories = useSelector((state) => state.mainCategoriesSlice.mainCategories);
 
   const dispatch = useDispatch()
 
@@ -22,18 +22,21 @@ function CategoriesMenu() {
     try {
       const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}mainCategories/all`);
       const data = await response.json();
-      dispatch(addMainCategories(data));
+
+      if (data) dispatch(addMainCategories(data));
       console.log(data)
 
     } catch (error) {
       console.log(error)
     }
   }
+
   const getCategories = async () => {
     try {
       const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}categories/all`);
       const data = await response.json();
-      dispatch(addCategories(data));
+
+      if (data) dispatch(addCategories(data));
       console.log(data)
 
     } catch (error) {
@@ -89,39 +92,40 @@ function CategoriesMenu() {
     getCategories()
   }, [])
 
+
   return (
     <>
 
       <h4>CATEGORIES</h4>
       <Accordion>
 
+
+
         {mainCategories.map((mainElement) => {
           return (
+
             <Card key={mainElement._id}>
               <Card.Header>
                 <Accordion.Toggle as={Card.Header} eventKey={mainElement._id} className="pointer" >
                   {mainElement.mainCategory}
                 </Accordion.Toggle>
               </Card.Header>
-              <Accordion.Collapse eventKey={mainElement._id}>
 
-
-                {categories.map(element => {
-                  return (
-                    <Card.Body>
+              {categories.map(element => {
+                return (
+                  <Accordion.Collapse eventKey={mainElement._id} key={element._id}>
+                    <Card.Body  >
                       {(element.mainCategory === mainElement.mainCategories) && <p className="pointer" onClick={() => getByCategory(element._id)}>{element.categories}</p>}
 
                     </Card.Body>
-                  )
-                })}
+                  </Accordion.Collapse>
+                )
+              })}
 
-              </Accordion.Collapse>
             </Card>
 
           )
         })}
-
-
 
         {/* <Card>
           <Card.Header>
