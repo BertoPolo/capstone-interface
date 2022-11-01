@@ -10,17 +10,17 @@ const BackOfficeItems = () => {
     const [searchByTitle, setSearchByTitle] = useState("")
     const [isEditing, setIsEditing] = useState(false)
 
-    const [title, setTitle] = useState("")
-    const [price, setPrice] = useState("")
+    const [title, setTitle] = useState([])
+    const [price, setPrice] = useState([])
     const [isOutlet, seIsOutlet] = useState(false)
-    const [smallDescription, setSmallDescription] = useState("")
-    const [fullDescription, setFullDescription] = useState("")
-    const [imageUrl, setImageUrl] = useState("")
+    const [smallDescription, setSmallDescription] = useState([])
+    const [fullDescription, setFullDescription] = useState([])
+    const [imageUrl, setImageUrl] = useState([])
 
 
     const notifyError = () => toast.error(`Check if you writted it right, cause looks like we don't have anything with this name`, {
         position: "top-center",
-        autoClose: 4000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -38,15 +38,17 @@ const BackOfficeItems = () => {
 
             if (res.status === 200) {
                 const data = await res.json();
-                console.log(data.title)
                 setFoundedItems(data)
-                setTitle(data.title)
-                setPrice(data.price)
-                seIsOutlet(data.isOutlet)
-                setSmallDescription(data.smallDescription)
-                setFullDescription(data.fullDescription)
-                setImageUrl(data.image)
+                data.forEach(element => {
+                    setTitle(current => [...current, element.title])
+                    setPrice(cur => [...cur, element.price])
+                    seIsOutlet(c => [...c, element.isOutlet])
+                    setSmallDescription(curren => [...curren, element.smallDescription])
+                    setFullDescription(curr => [...curr, element.fullDescription])
+                    setImageUrl(cu => [...cu, element.image])
 
+                });
+                console.log(title)
 
                 setSearchByTitle("")
             } else notifyError()
@@ -68,7 +70,7 @@ const BackOfficeItems = () => {
             {/* Toast */}
             <ToastContainer
                 position="top-center"
-                autoClose={5000}
+                autoClose={3000}
                 limit={1}
                 hideProgressBar={false}
                 newestOnTop={false}
