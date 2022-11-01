@@ -30,7 +30,7 @@ const NavFilter = () => {
 
     const notifyNotFound = () => toast.warn(`OOPS! looks like we don't anything there`, {
         position: "top-center",
-        autoClose: 4000,
+        autoClose: 2500,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -97,12 +97,13 @@ const NavFilter = () => {
         e.preventDefault()
 
         try {
-            const response = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?price>${minPrice}&price<${maxPrice}&sort=${sorting}&title=${searchInput}`
-            );
+            const response = await fetch(`${process.env.React_APP_SERVER}` ||
+                `${process.env.React_APP_LOCAL_SERVER}items?price>${minPrice}&price<${maxPrice}&sort=${sorting}&title=${searchInput}`);
 
-            const data = await response.json();
-            if (data) dispatch(addItems(data));
+            if (response.ok) {
+                const data = await response.json();
+                dispatch(addItems(data));
+            }
             else notifyNotFound()
 
         } catch (error) {
@@ -122,7 +123,7 @@ const NavFilter = () => {
             {/* Toast */}
             <ToastContainer
                 position="top-center"
-                autoClose={5000}
+                autoClose={2500}
                 limit={1}
                 hideProgressBar={false}
                 newestOnTop={false}

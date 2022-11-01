@@ -140,7 +140,22 @@ const BackOfficeItems = () => {
     }
 
 
-    const deleteItem = () => console.log("delete function")
+    const deleteItem = async (id) => {
+
+        try {
+            const response = await fetch(
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/delete/${id}`,
+                {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
 
     return (
@@ -234,7 +249,7 @@ const BackOfficeItems = () => {
                                     <span><b>{element.title}</b></span>
 
                                     <i className="bi bi-pencil ml-4 mr-3" onClick={() => { setIsEditing(true); getItem(element._id) }}></i>
-                                    <i className="bi bi-trash3 pointer" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) deleteItem() }}></i>
+                                    <i className="bi bi-trash3 pointer" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) deleteItem(element._id) }}></i>
 
                                     <ul>
                                         <li>{element.price}€</li>
