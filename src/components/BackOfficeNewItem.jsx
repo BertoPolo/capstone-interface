@@ -234,12 +234,9 @@ const BackOficceNewItem = () => {
             {/* Post item's image */}
             <input className="mt-5" type="file" label="Add An Image" accept=",.jpg,.jpeg,.png" onChange={() => setImg(img)} />
 
-            {itemId ?
-                <Button variant="primary" onClick={() => postImg()}>Upload image</Button>
-                :
-                <Button variant="primary" disabled onClick={() => postImg()}>Upload image</Button>
 
-            }
+            <Button variant="primary" disabled={!itemId} onClick={() => postImg()}>Upload image</Button>
+
 
 
         </>

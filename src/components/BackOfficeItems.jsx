@@ -61,7 +61,7 @@ const BackOfficeItems = () => {
     const searchArticleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const res = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?title=${searchByTitle}`);
+            const res = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?title=/^${searchByTitle}/i`);
 
             if (res.ok) {
                 const data = await res.json();
@@ -96,7 +96,7 @@ const BackOfficeItems = () => {
                 if (data[0].isOutlet) setIsOutlet(data[0].isOutlet)
                 setSmallDescription(data[0].description)
                 setFullDescription(data[0].fullDescription)
-                setImageUrl(data[0].image)
+                // setImageUrl(data[0].image)
             }
             // else
 
@@ -109,7 +109,6 @@ const BackOfficeItems = () => {
         const body = {
             title: title,
             price: price,
-            image: imageUrl,
             isOutlet: isOutlet,
             outletPrice: outletPrice,
             description: smallDescription,
@@ -139,7 +138,24 @@ const BackOfficeItems = () => {
 
     }
 
+    const postImg = async () => {
 
+        try {
+            const res = await fetch(
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/${itemId}/img`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(imageUrl)
+                }
+            );
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
     const deleteItem = async (id) => {
 
         try {
@@ -194,51 +210,51 @@ const BackOfficeItems = () => {
             {foundItems && <div>
 
                 {isEditing ?
-                    <Form onSubmit={(e) => editItem(e)}>
-                        <h4 className="mb-3">Modify this article</h4>
+                    <>
+                        <Form onSubmit={(e) => editItem(e)}>
+                            <h4 className="mb-3">Modify this article</h4>
 
-                        <Form.Group>
-                            <Form.Label>Name</Form.Label>
-                            <Form.Control type="text" placeholder="Name" value={title} onChange={(e) => setTitle(e.target.value)} />
-                        </Form.Group>
+                            <label> set a new image</label>
+                            <input type="file" label="Image URL" accept=",.jpg,.jpeg,.png" onChange={(e) => setImageUrl(e.target.value)} />
+                            <Button variant="primary" disabled={!imageUrl} onClick={() => postImg()}>Upload image</Button>
+                            <Form.Group>
+                                <Form.Label>Name</Form.Label>
+                                <Form.Control type="text" placeholder="Name" value={title} onChange={(e) => setTitle(e.target.value)} />
+                            </Form.Group>
 
-                        <Form.Group>
-                            <Form.Label>Price</Form.Label>
-                            <Form.Control type="number" placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
-                        </Form.Group>
+                            <Form.Group>
+                                <Form.Label>Price</Form.Label>
+                                <Form.Control type="number" placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
+                            </Form.Group>
 
-                        <Form.Group>
-                            <Form.Label>Price</Form.Label>
-                            <Form.Control type="number" placeholder="Price" value={outletPrice} onChange={(e) => setOutletPrice(e.target.value)} />
-                        </Form.Group>
+                            <Form.Group>
+                                <Form.Label>Price</Form.Label>
+                                <Form.Control type="number" placeholder="Price" value={outletPrice} onChange={(e) => setOutletPrice(e.target.value)} />
+                            </Form.Group>
 
-                        <Form.Group>
-                            <Form.Label>Is Outlet?</Form.Label>
-                            <Form.Control type="checkbox" checked={isOutlet} onChange={(e) => setIsOutlet(!isOutlet)} />
-                        </Form.Group>
+                            <Form.Group>
+                                <Form.Label>Is Outlet?</Form.Label>
+                                <Form.Control type="checkbox" checked={isOutlet} onChange={(e) => setIsOutlet(!isOutlet)} />
+                            </Form.Group>
 
-                        <Form.Group>
-                            <Form.Label>Small Description</Form.Label>
-                            <Form.Control type="text" placeholder="Small Description" value={smallDescription} onChange={(e) => setSmallDescription(e.target.value)} />
-                        </Form.Group>
+                            <Form.Group>
+                                <Form.Label>Small Description</Form.Label>
+                                <Form.Control type="text" placeholder="Small Description" value={smallDescription} onChange={(e) => setSmallDescription(e.target.value)} />
+                            </Form.Group>
 
-                        <Form.Group>
-                            <Form.Label>Full Description</Form.Label>
-                            <Form.Control type="text" placeholder="Full Description" value={fullDescription} onChange={(e) => setFullDescription(e.target.value)} />
-                        </Form.Group>
+                            <Form.Group>
+                                <Form.Label>Full Description</Form.Label>
+                                <Form.Control type="text" placeholder="Full Description" value={fullDescription} onChange={(e) => setFullDescription(e.target.value)} />
+                            </Form.Group>
 
-                        <Form.Group>
-                            {/* change it for ADD IMAGE */}
-                            <Form.Label>Image URL</Form.Label>
-                            <Form.Control type="text" placeholder="Image URL" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} />
-                        </Form.Group>
+                            <div className="d-flex">
+                                <Button type="submit"> Submit </Button>
+                                <Button variant="warning" onClick={() => { if (window.confirm(`Are you sure you don't wish save your changes?`)) { resetStates(); setIsEditing(false) } }} >Cancel</Button>
+                            </div>
+                        </Form>
 
-                        <div className="d-flex">
-                            <Button type="submit"> Submit </Button>
-                            <Button variant="warning" onClick={() => { if (window.confirm(`Are you sure you don't wish save your changes?`)) { resetStates(); setIsEditing(false) } }} >Cancel</Button>
-                        </div>
-                    </Form>
 
+                    </>
                     :
                     <div>
                         {foundItems.map((element) => {
