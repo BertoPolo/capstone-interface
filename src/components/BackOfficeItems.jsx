@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 
 const BackOfficeItems = () => {
-    const [foundedItems, setFoundedItems] = useState([])
+    const [foundItems, setFoundItems] = useState([])
     const [searchByTitle, setSearchByTitle] = useState("")
     const [isEditing, setIsEditing] = useState(false)
 
@@ -40,12 +40,11 @@ const BackOfficeItems = () => {
     const searchArticleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const res = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?title=${searchByTitle}`);
+            const res = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?title=${searchByTitle}`);
 
             if (res.status === 200) {
                 const data = await res.json();
-                setFoundedItems(data)
+                setFoundItems(data)
                 setSearchByTitle("")
 
                 // data.forEach(element => {
@@ -63,7 +62,25 @@ const BackOfficeItems = () => {
             console.log(error)
         }
     }
+    const getItem = async () => {
+        try {
+            const res = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?title=${searchByTitle}`);
 
+            if (res.status === 200) {
+                const data = await res.json();
+                setTitle(data.title);
+                setPrice(data.price)
+                seIsOutlet(data.isOutlet)
+                setSmallDescription(data.smallDescription)
+                setFullDescription(data.fullDescription)
+                setImageUrl(data.image)
+            }
+            // else
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
     const editItem = (e) => {
         // e.preventDefault 
         console.log("edit function")
@@ -104,7 +121,7 @@ const BackOfficeItems = () => {
             <h4 className="my-3" > <u>Results</u></h4>
 
 
-            {foundedItems && <div>
+            {foundItems && <div>
 
                 {isEditing ?
                     <Form onSubmit={(e) => editItem(e)}>
@@ -149,14 +166,14 @@ const BackOfficeItems = () => {
 
                     :
                     <div>
-                        {foundedItems.map((element) => {
+                        {foundItems.map((element) => {
 
                             return (
 
-                                <div>
+                                <div key={element._id}>
                                     <span><b>{element.title}</b></span>
 
-                                    <i className="bi bi-pencil ml-4 mr-3" onClick={() => setIsEditing(true)}></i>
+                                    <i className="bi bi-pencil ml-4 mr-3" onClick={() => { setIsEditing(true); getItem() }}></i>
                                     <i className="bi bi-trash3 pointer" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) deleteItem() }}></i>
 
                                     <ul>
