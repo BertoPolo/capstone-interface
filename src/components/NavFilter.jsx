@@ -98,7 +98,7 @@ const NavFilter = () => {
 
         try {
             const response = await fetch(`${process.env.React_APP_SERVER}` ||
-                `${process.env.React_APP_LOCAL_SERVER}items?price>${minPrice}&price<${maxPrice}&sort=${sorting}&title=${searchInput}`);
+                `${process.env.React_APP_LOCAL_SERVER}items?price>${minPrice}&price<${maxPrice}&sort=${sorting}&title=/^${searchInput}/i`);
 
             if (response.ok) {
                 const data = await response.json();
