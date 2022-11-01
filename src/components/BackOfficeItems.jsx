@@ -33,18 +33,24 @@ const BackOfficeItems = () => {
     const searchArticleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const response = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?title=${searchByTitle}&sort=title`);
+            const res = await fetch(
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?title=${searchByTitle}`);
 
-            if (response.status === 200) {
-                const data = await response.json();
-                if (!data) notifyError()
-                else {
-                    setFoundedItems(data)
-                    setSearchByTitle("")
-                }
+            if (res.status === 200) {
+                const data = await res.json();
+                console.log(data.title)
+                setFoundedItems(data)
+                setTitle(data.title)
+                setPrice(data.price)
+                seIsOutlet(data.isOutlet)
+                setSmallDescription(data.smallDescription)
+                setFullDescription(data.fullDescription)
+                setImageUrl(data.image)
 
-            }
+
+                setSearchByTitle("")
+            } else notifyError()
+
         } catch (error) {
             console.log(error)
         }
@@ -97,27 +103,36 @@ const BackOfficeItems = () => {
 
                                 <Form onSubmit={(e) => editItem(e)}>
                                     <h4 className="mb-3">Modify your data</h4>
-                                    {/* fetch=> fill state 
-change placeholders
-function to edit
-style */}
+
                                     <Form.Group>
-                                        <Form.Control type="text" placeholder="Full Name" value={element.title} onChange={(e) => setTitle(e.target.value)} />
+                                        <Form.Label>Name</Form.Label>
+                                        <Form.Control type="text" placeholder="Name" value={title} onChange={(e) => setTitle(e.target.value)} />
                                     </Form.Group>
+
                                     <Form.Group>
-                                        <Form.Control type="text" placeholder="Full Name" value={element.title} onChange={(e) => setPrice(e.target.value)} />
+                                        <Form.Label>Price</Form.Label>
+                                        <Form.Control type="number" placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
                                     </Form.Group>
+
                                     <Form.Group>
-                                        <Form.Control type="checkbox" placeholder="Full Name" value={element.title} onChange={(e) => seIsOutlet(e.target.value)} />
+                                        <Form.Label>Is Outlet?</Form.Label>
+                                        <Form.Control type="checkbox" value={isOutlet} onChange={(e) => seIsOutlet(e.target.value)} />
                                     </Form.Group>
+
                                     <Form.Group>
-                                        <Form.Control type="text" placeholder="Full Name" value={element.title} onChange={(e) => setSmallDescription(e.target.value)} />
+                                        <Form.Label>Small Description</Form.Label>
+                                        <Form.Control type="text" placeholder="Small Description" value={smallDescription} onChange={(e) => setSmallDescription(e.target.value)} />
                                     </Form.Group>
+
                                     <Form.Group>
-                                        <Form.Control type="text" placeholder="Full Name" value={element.title} onChange={(e) => setFullDescription(e.target.value)} />
+                                        <Form.Label>Full Description</Form.Label>
+                                        <Form.Control type="text" placeholder="Full Description" value={fullDescription} onChange={(e) => setFullDescription(e.target.value)} />
                                     </Form.Group>
+
                                     <Form.Group>
-                                        <Form.Control type="text" placeholder="Full Name" value={element.title} onChange={(e) => setImageUrl(e.target.value)} />
+                                        {/* change it for ADD IMAGE */}
+                                        <Form.Label>Image URL</Form.Label>
+                                        <Form.Control type="text" placeholder="Image URL" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} />
                                     </Form.Group>
 
                                     <div className="d-flex">
