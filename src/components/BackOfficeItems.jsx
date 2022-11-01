@@ -11,20 +11,41 @@ const BackOfficeItems = () => {
     const [isEditing, setIsEditing] = useState(false)
 
     const [title, setTitle] = useState("")
-    const [price, setPrice] = useState("")
+    const [price, setPrice] = useState(0)
     const [isOutlet, setIsOutlet] = useState(false)
     const [smallDescription, setSmallDescription] = useState("")
     const [fullDescription, setFullDescription] = useState("")
     const [imageUrl, setImageUrl] = useState("")
+    const [outletPrice, setOutletPrice] = useState(0)
+    const [itemId, setItemId] = useState(null)
+
 
     const resetStates = () => {
         setTitle("")
-        setPrice("")
+        setPrice(0)
         setIsOutlet(false)
         setSmallDescription("")
         setFullDescription("")
         setImageUrl("")
+        setOutletPrice(0)
+        setItemId(null)
+
+        setFoundItems([])
+        setSearchByTitle("")
+        setIsEditing(false)
     }
+
+    const notifyUpdated = () => toast.success('item updated!', {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+    });
+
     const notifyError = () => toast.error(`Check if you writted it right, cause looks like we don't have anything with this name`, {
         position: "top-center",
         autoClose: 3000,
@@ -42,7 +63,7 @@ const BackOfficeItems = () => {
         try {
             const res = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?title=${searchByTitle}`);
 
-            if (res.status === 200) {
+            if (res.ok) {
                 const data = await res.json();
                 setFoundItems(data)
                 setSearchByTitle("")
@@ -68,9 +89,11 @@ const BackOfficeItems = () => {
 
             if (res.status === 200) {
                 const data = await res.json();
+                setItemId(data[0]._id)
                 setTitle(data[0].title);
                 setPrice(data[0].price)
-                setIsOutlet(data[0].isOutlet)
+                setOutletPrice(data[0].outletPrice)
+                if (data[0].isOutlet) setIsOutlet(data[0].isOutlet)
                 setSmallDescription(data[0].description)
                 setFullDescription(data[0].fullDescription)
                 setImageUrl(data[0].image)
@@ -81,10 +104,42 @@ const BackOfficeItems = () => {
             console.log(error)
         }
     }
-    const editItem = (e) => {
-        // e.preventDefault 
-        console.log("edit function")
+    const editItem = async (e) => {
+        e.preventDefault()
+        const body = {
+            title: title,
+            price: price,
+            image: imageUrl,
+            isOutlet: isOutlet,
+            outletPrice: outletPrice,
+            description: smallDescription,
+            fullDescription: fullDescription
+        }
+        try {
+            const res = await fetch(
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/edit/${itemId}`,
+                {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+
+                    body: JSON.stringify(body),
+                }
+            );
+            if (res.ok) {
+                resetStates()
+                notifyUpdated()
+
+            }
+
+        } catch (error) {
+            console.log(error)
+        }
+
     }
+
+
     const deleteItem = () => console.log("delete function")
 
 
@@ -138,8 +193,13 @@ const BackOfficeItems = () => {
                         </Form.Group>
 
                         <Form.Group>
+                            <Form.Label>Price</Form.Label>
+                            <Form.Control type="number" placeholder="Price" value={outletPrice} onChange={(e) => setOutletPrice(e.target.value)} />
+                        </Form.Group>
+
+                        <Form.Group>
                             <Form.Label>Is Outlet?</Form.Label>
-                            <Form.Control type="checkbox" checked={isOutlet} onChange={(e) => setIsOutlet(e.target.value)} />
+                            <Form.Control type="checkbox" checked={isOutlet} onChange={(e) => setIsOutlet(!isOutlet)} />
                         </Form.Group>
 
                         <Form.Group>
