@@ -12,7 +12,7 @@ const BackOfficeItems = () => {
 
     const [title, setTitle] = useState("")
     const [price, setPrice] = useState("")
-    const [isOutlet, seIsOutlet] = useState(false)
+    const [isOutlet, setIsOutlet] = useState(false)
     const [smallDescription, setSmallDescription] = useState("")
     const [fullDescription, setFullDescription] = useState("")
     const [imageUrl, setImageUrl] = useState("")
@@ -20,7 +20,7 @@ const BackOfficeItems = () => {
     const resetStates = () => {
         setTitle("")
         setPrice("")
-        seIsOutlet(false)
+        setIsOutlet(false)
         setSmallDescription("")
         setFullDescription("")
         setImageUrl("")
@@ -62,18 +62,18 @@ const BackOfficeItems = () => {
             console.log(error)
         }
     }
-    const getItem = async () => {
+    const getItem = async (article) => {
         try {
-            const res = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?title=${searchByTitle}`);
+            const res = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?_id=${article}`);
 
             if (res.status === 200) {
                 const data = await res.json();
-                setTitle(data.title);
-                setPrice(data.price)
-                seIsOutlet(data.isOutlet)
-                setSmallDescription(data.smallDescription)
-                setFullDescription(data.fullDescription)
-                setImageUrl(data.image)
+                setTitle(data[0].title);
+                setPrice(data[0].price)
+                setIsOutlet(data[0].isOutlet)
+                setSmallDescription(data[0].description)
+                setFullDescription(data[0].fullDescription)
+                setImageUrl(data[0].image)
             }
             // else
 
@@ -139,7 +139,7 @@ const BackOfficeItems = () => {
 
                         <Form.Group>
                             <Form.Label>Is Outlet?</Form.Label>
-                            <Form.Control type="checkbox" checked={isOutlet} onChange={(e) => seIsOutlet(e.target.value)} />
+                            <Form.Control type="checkbox" checked={isOutlet} onChange={(e) => setIsOutlet(e.target.value)} />
                         </Form.Group>
 
                         <Form.Group>
@@ -173,7 +173,7 @@ const BackOfficeItems = () => {
                                 <div key={element._id}>
                                     <span><b>{element.title}</b></span>
 
-                                    <i className="bi bi-pencil ml-4 mr-3" onClick={() => { setIsEditing(true); getItem() }}></i>
+                                    <i className="bi bi-pencil ml-4 mr-3" onClick={() => { setIsEditing(true); getItem(element._id) }}></i>
                                     <i className="bi bi-trash3 pointer" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) deleteItem() }}></i>
 
                                     <ul>
