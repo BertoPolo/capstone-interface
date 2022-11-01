@@ -16,6 +16,10 @@ const NavFilter = () => {
     const [minPrice, setMinPrice] = useState(0)
     const [maxPrice, setMaxPrice] = useState(1000)
     const [sorting, setSorting] = useState("")
+    const [brandId, setBrandId] = useState("")
+    // const [category, setCategory] = useState("")
+    // const [mainCategory, setMainCategory] = useState("")
+
 
 
 
@@ -62,27 +66,14 @@ const NavFilter = () => {
         }
     }
 
-    const getByBrand = async (brand) => { // mergo to main filter function
-        try {
-            const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?brand=${brand}`);
-            const data = await response.json();
-            if (data.length > 0) {
-                dispatch(addItems(data));
-                toggleIsOnCategory(true)
-            }
-            else notifyNotFound()
-
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
-    // const searchItems = async (e) => {
-    //     e.preventDefault()
+    // const getByBrand = async (brand) => { // mergo to main filter function
     //     try {
-    //         const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?title=${searchInput}`);
+    //         const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?brand=${brand}`);
     //         const data = await response.json();
-    //         if (data.length > 0) dispatch(addItems(data));
+    //         if (data.length > 0) {
+    //             dispatch(addItems(data));
+    //             toggleIsOnCategory(true)
+    //         }
     //         else notifyNotFound()
 
     //     } catch (error) {
@@ -92,13 +83,12 @@ const NavFilter = () => {
 
 
 
-
     const getFilteredItems = async (e) => {
         e.preventDefault()
 
         try {
             const response = await fetch(`${process.env.React_APP_SERVER}` ||
-                `${process.env.React_APP_LOCAL_SERVER}items?price>${minPrice}&price<${maxPrice}&sort=${sorting}&title=/^${searchInput}/i`);
+                `${process.env.React_APP_LOCAL_SERVER}items?price>${minPrice}&price<${maxPrice}&sort=${sorting}&title=/^${searchInput}/i&brand=${brandId}`);
 
             if (response.ok) {
                 const data = await response.json();
@@ -181,7 +171,7 @@ const NavFilter = () => {
                             <Dropdown.Menu>
                                 {brands.map((element) => {
                                     return (
-                                        <Dropdown.Item key={element._id} href="" onClick={() => getByBrand(element._id)}>{element.brands}</Dropdown.Item>
+                                        <Dropdown.Item key={element._id} href="" onClick={() => { setBrandId(element._id); getFilteredItems() }}>{element.brands}</Dropdown.Item>
                                     )
                                 })}
                             </Dropdown.Menu>
