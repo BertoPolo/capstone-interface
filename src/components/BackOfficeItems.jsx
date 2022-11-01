@@ -10,14 +10,21 @@ const BackOfficeItems = () => {
     const [searchByTitle, setSearchByTitle] = useState("")
     const [isEditing, setIsEditing] = useState(false)
 
-    const [title, setTitle] = useState([])
-    const [price, setPrice] = useState([])
+    const [title, setTitle] = useState("")
+    const [price, setPrice] = useState("")
     const [isOutlet, seIsOutlet] = useState(false)
-    const [smallDescription, setSmallDescription] = useState([])
-    const [fullDescription, setFullDescription] = useState([])
-    const [imageUrl, setImageUrl] = useState([])
+    const [smallDescription, setSmallDescription] = useState("")
+    const [fullDescription, setFullDescription] = useState("")
+    const [imageUrl, setImageUrl] = useState("")
 
-
+    const resetStates = () => {
+        setTitle("")
+        setPrice("")
+        seIsOutlet(false)
+        setSmallDescription("")
+        setFullDescription("")
+        setImageUrl("")
+    }
     const notifyError = () => toast.error(`Check if you writted it right, cause looks like we don't have anything with this name`, {
         position: "top-center",
         autoClose: 3000,
@@ -39,18 +46,17 @@ const BackOfficeItems = () => {
             if (res.status === 200) {
                 const data = await res.json();
                 setFoundedItems(data)
-                data.forEach(element => {
-                    setTitle(current => [...current, element.title])
-                    setPrice(cur => [...cur, element.price])
-                    seIsOutlet(c => [...c, element.isOutlet])
-                    setSmallDescription(curren => [...curren, element.smallDescription])
-                    setFullDescription(curr => [...curr, element.fullDescription])
-                    setImageUrl(cu => [...cu, element.image])
-
-                });
-                console.log(title)
-
                 setSearchByTitle("")
+
+                // data.forEach(element => {
+                //     setTitle(current => [...current, element.title])
+                //     setPrice(cur => [...cur, element.price])
+                //     seIsOutlet(c => [...c, element.isOutlet])
+                //     setSmallDescription(curren => [...curren, element.smallDescription])
+                //     setFullDescription(curr => [...curr, element.fullDescription])
+                //     setImageUrl(cu => [...cu, element.image])
+                // });
+
             } else notifyError()
 
         } catch (error) {
@@ -97,75 +103,80 @@ const BackOfficeItems = () => {
 
             <h4 className="my-3" > <u>Results</u></h4>
 
-            {
-                foundedItems && foundedItems.map((element) => {
-                    return (
-                        <div key={element._id}>
-                            {isEditing ?
 
-                                <Form onSubmit={(e) => editItem(e)}>
-                                    <h4 className="mb-3">Modify your data</h4>
 
-                                    <Form.Group>
-                                        <Form.Label>Name</Form.Label>
-                                        <Form.Control type="text" placeholder="Name" value={title} onChange={(e) => setTitle(e.target.value)} />
-                                    </Form.Group>
+            {isEditing &&
+                <Form onSubmit={(e) => editItem(e)}>
+                    <h4 className="mb-3">Modify this article</h4>
 
-                                    <Form.Group>
-                                        <Form.Label>Price</Form.Label>
-                                        <Form.Control type="number" placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
-                                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control type="text" placeholder="Name" value={title} onChange={(e) => setTitle(e.target.value)} />
+                    </Form.Group>
 
-                                    <Form.Group>
-                                        <Form.Label>Is Outlet?</Form.Label>
-                                        <Form.Control type="checkbox" value={isOutlet} onChange={(e) => seIsOutlet(e.target.value)} />
-                                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Price</Form.Label>
+                        <Form.Control type="number" placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
+                    </Form.Group>
 
-                                    <Form.Group>
-                                        <Form.Label>Small Description</Form.Label>
-                                        <Form.Control type="text" placeholder="Small Description" value={smallDescription} onChange={(e) => setSmallDescription(e.target.value)} />
-                                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Is Outlet?</Form.Label>
+                        <Form.Control type="checkbox" checked={isOutlet} onChange={(e) => seIsOutlet(e.target.value)} />
+                    </Form.Group>
 
-                                    <Form.Group>
-                                        <Form.Label>Full Description</Form.Label>
-                                        <Form.Control type="text" placeholder="Full Description" value={fullDescription} onChange={(e) => setFullDescription(e.target.value)} />
-                                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Small Description</Form.Label>
+                        <Form.Control type="text" placeholder="Small Description" value={smallDescription} onChange={(e) => setSmallDescription(e.target.value)} />
+                    </Form.Group>
 
-                                    <Form.Group>
-                                        {/* change it for ADD IMAGE */}
-                                        <Form.Label>Image URL</Form.Label>
-                                        <Form.Control type="text" placeholder="Image URL" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} />
-                                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Full Description</Form.Label>
+                        <Form.Control type="text" placeholder="Full Description" value={fullDescription} onChange={(e) => setFullDescription(e.target.value)} />
+                    </Form.Group>
 
-                                    <div className="d-flex">
-                                        <Button type="submit"> Submit </Button>
-                                        <Button variant="warning" onClick={() => { if (window.confirm(`Are you sure you don't wish save your changes?`)) setIsEditing(false) }} >Cancel</Button>
-                                    </div>
-                                </Form>
-                                :
-                                <div>
-                                    <span><b>{element.title}</b></span>
+                    <Form.Group>
+                        {/* change it for ADD IMAGE */}
+                        <Form.Label>Image URL</Form.Label>
+                        <Form.Control type="text" placeholder="Image URL" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} />
+                    </Form.Group>
 
-                                    <i className="bi bi-pencil ml-4 mr-3" onClick={() => setIsEditing(true)}></i>
-                                    <i className="bi bi-trash3 pointer" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) deleteItem() }}></i>
+                    <div className="d-flex">
+                        <Button type="submit"> Submit </Button>
+                        <Button variant="warning" onClick={() => { if (window.confirm(`Are you sure you don't wish save your changes?`)) { resetStates(); setIsEditing(false) } }} >Cancel</Button>
+                    </div>
+                </Form>}
 
-                                    <ul>
-                                        <li>{element.price}€</li>
-                                        {/* <li>{element.category}€</li> */}
-                                        {/* <li>{element.mainCategory}€</li> */}
-                                        {/* <li>{element.brand}€</li> */}
-                                        <li>{element.isOutlet ? <span>is in outlet</span> : <span> is not in outlet</span>}</li>
-                                        <li>{element.description}</li>
-                                        <li>{element.fullDescription}</li>
-                                        <li>{element.image}</li>
-                                    </ul>
-                                </div>
-                            }
-                            <hr />
-                        </div>
-                    )
-                })
-            }
+            {!isEditing &&
+                <div>
+                    {foundedItems.map((element) => {
+
+                        return (
+
+                            <div>
+                                <span><b>{element.title}</b></span>
+
+                                <i className="bi bi-pencil ml-4 mr-3" onClick={() => setIsEditing(true)}></i>
+                                <i className="bi bi-trash3 pointer" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) deleteItem() }}></i>
+
+                                <ul>
+                                    <li>{element.price}€</li>
+                                    {/* <li>{element.category}€</li> */}
+                                    {/* <li>{element.mainCategory}€</li> */}
+                                    {/* <li>{element.brand}€</li> */}
+                                    <li>{element.isOutlet ? <span>is in outlet</span> : <span> is not in outlet</span>}</li>
+                                    <li>{element.description}</li>
+                                    <li>{element.fullDescription}</li>
+                                    <li>{element.image}</li>
+                                </ul>
+                                <hr />
+                            </div>
+                        )
+                    })}
+
+                </div>}
+
+
+
         </>
     )
 }

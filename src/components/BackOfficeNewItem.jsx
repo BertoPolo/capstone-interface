@@ -10,7 +10,7 @@ import { addBrands } from "../slices/brands/brandsSlice"
 const BackOficceNewItem = () => {
 
     const [name, setName] = useState("")
-    const [price, setPrice] = useState("")
+    const [price, setPrice] = useState(0)
     const [img, setImg] = useState(null)
     const [mainCategory, setMainCategory] = useState("")
     const [category, setCategory] = useState("")
@@ -183,7 +183,7 @@ const BackOficceNewItem = () => {
                 <Form.Group>
 
                     <Form.Control type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
-                    <Form.Control type="text" placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
+                    <Form.Control type="number" placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
                     <Form.Control type="text" placeholder="Main Category" value={mainCategory} onChange={(e) => setMainCategory(e.target.value)} />
                     <Form.Control type="text" placeholder="Category" value={category} onChange={(e) => setCategory(e.target.value)} />
                     <Form.Control type="text" placeholder="Short Description" value={shortDescription} onChange={(e) => setShortDescription(e.target.value)} />
