@@ -201,7 +201,7 @@ const BackOfficeItems = () => {
                 </Form.Group>
 
 
-                <Button type="submit">Submit</Button>
+                <Button type="submit" disabled={!searchByTitle}>Submit</Button>
             </Form >
 
             <h4 className="my-3" > <u>Results</u></h4>

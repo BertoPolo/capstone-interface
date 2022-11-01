@@ -8,8 +8,11 @@ import 'react-toastify/dist/ReactToastify.css'
 
 
 const BackOfficeUsers = () => {
-    const [foundedUsers, setFoundedUsers] = useState([])
+    const [foundUsers, setFoundUsers] = useState([])
     const [userInput, setUserInput] = useState("")
+
+    const [editMode, setEditMode] = useState(false)
+
 
     const { usersName, usersAdress } = useSelector((state) => state.usersSlice);
     // const usersAdress = useSelector((state) => state.usersSlice.adress);
@@ -32,13 +35,13 @@ const BackOfficeUsers = () => {
         e.preventDefault()
         try {
             const response = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/${userInput}&sort=title`);
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/${userInput}`);
 
             if (response.status === 200) {
                 const data = await response.json();
                 if (data) {
                     setUserInput("")
-                    setFoundedUsers(data)
+                    setFoundUsers(data)
                 } else notifyError()
             }
         } catch (error) {
@@ -108,31 +111,31 @@ const BackOfficeUsers = () => {
                     <Form.Control type="text" className="justify-content-center w-25" placeholder="Name" value={userInput} onChange={(e) => setUserInput(e.target.value)} />
                 </Form.Group>
 
-                {userInput ?
-                    <Button type="submit"> Submit </Button>
-                    :
-                    <Button type="submit" disabled> Submit </Button>
+                <Button type="submit" disabled={!userInput}> Submit </Button>
 
-                }
             </Form >
 
             <h4 className=""><u>Results</u></h4>
             {
-                foundedUsers && foundedUsers.map((element) => {
+                foundUsers && foundUsers.map((element) => {
                     return (
                         <div key={element._id}>
                             {/* on click open dropdown with a filled form to edit it */}
                             <span>Name : <b>{element.name}</b> </span>
                             <span>Adress : <b>{element.adress}</b></span>
-                            <i className="bi bi-pencil"></i>
+                            <i className="bi bi-pencil pointer mx-3" onClick={() => setEditMode(true)}></i>
 
-                            <i className="bi bi-trash3 pointer" onClick={() => deleteUser(element.name)}></i>
+                            <i className="bi bi-trash3 pointer" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) deleteUser(element._id) }}></i>
 
                             <hr />
                         </div>
                     )
                 })
             }
+
+            {/* el mapeo de F */}
+
+
         </>
 
     )
