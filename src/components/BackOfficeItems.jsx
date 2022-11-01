@@ -104,77 +104,79 @@ const BackOfficeItems = () => {
             <h4 className="my-3" > <u>Results</u></h4>
 
 
+            {foundedItems && <div>
 
-            {isEditing &&
-                <Form onSubmit={(e) => editItem(e)}>
-                    <h4 className="mb-3">Modify this article</h4>
+                {isEditing ?
+                    <Form onSubmit={(e) => editItem(e)}>
+                        <h4 className="mb-3">Modify this article</h4>
 
-                    <Form.Group>
-                        <Form.Label>Name</Form.Label>
-                        <Form.Control type="text" placeholder="Name" value={title} onChange={(e) => setTitle(e.target.value)} />
-                    </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Name</Form.Label>
+                            <Form.Control type="text" placeholder="Name" value={title} onChange={(e) => setTitle(e.target.value)} />
+                        </Form.Group>
 
-                    <Form.Group>
-                        <Form.Label>Price</Form.Label>
-                        <Form.Control type="number" placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
-                    </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Price</Form.Label>
+                            <Form.Control type="number" placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
+                        </Form.Group>
 
-                    <Form.Group>
-                        <Form.Label>Is Outlet?</Form.Label>
-                        <Form.Control type="checkbox" checked={isOutlet} onChange={(e) => seIsOutlet(e.target.value)} />
-                    </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Is Outlet?</Form.Label>
+                            <Form.Control type="checkbox" checked={isOutlet} onChange={(e) => seIsOutlet(e.target.value)} />
+                        </Form.Group>
 
-                    <Form.Group>
-                        <Form.Label>Small Description</Form.Label>
-                        <Form.Control type="text" placeholder="Small Description" value={smallDescription} onChange={(e) => setSmallDescription(e.target.value)} />
-                    </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Small Description</Form.Label>
+                            <Form.Control type="text" placeholder="Small Description" value={smallDescription} onChange={(e) => setSmallDescription(e.target.value)} />
+                        </Form.Group>
 
-                    <Form.Group>
-                        <Form.Label>Full Description</Form.Label>
-                        <Form.Control type="text" placeholder="Full Description" value={fullDescription} onChange={(e) => setFullDescription(e.target.value)} />
-                    </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Full Description</Form.Label>
+                            <Form.Control type="text" placeholder="Full Description" value={fullDescription} onChange={(e) => setFullDescription(e.target.value)} />
+                        </Form.Group>
 
-                    <Form.Group>
-                        {/* change it for ADD IMAGE */}
-                        <Form.Label>Image URL</Form.Label>
-                        <Form.Control type="text" placeholder="Image URL" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} />
-                    </Form.Group>
+                        <Form.Group>
+                            {/* change it for ADD IMAGE */}
+                            <Form.Label>Image URL</Form.Label>
+                            <Form.Control type="text" placeholder="Image URL" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} />
+                        </Form.Group>
 
-                    <div className="d-flex">
-                        <Button type="submit"> Submit </Button>
-                        <Button variant="warning" onClick={() => { if (window.confirm(`Are you sure you don't wish save your changes?`)) { resetStates(); setIsEditing(false) } }} >Cancel</Button>
-                    </div>
-                </Form>}
+                        <div className="d-flex">
+                            <Button type="submit"> Submit </Button>
+                            <Button variant="warning" onClick={() => { if (window.confirm(`Are you sure you don't wish save your changes?`)) { resetStates(); setIsEditing(false) } }} >Cancel</Button>
+                        </div>
+                    </Form>
 
-            {!isEditing &&
-                <div>
-                    {foundedItems.map((element) => {
+                    :
+                    <div>
+                        {foundedItems.map((element) => {
 
-                        return (
+                            return (
 
-                            <div>
-                                <span><b>{element.title}</b></span>
+                                <div>
+                                    <span><b>{element.title}</b></span>
 
-                                <i className="bi bi-pencil ml-4 mr-3" onClick={() => setIsEditing(true)}></i>
-                                <i className="bi bi-trash3 pointer" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) deleteItem() }}></i>
+                                    <i className="bi bi-pencil ml-4 mr-3" onClick={() => setIsEditing(true)}></i>
+                                    <i className="bi bi-trash3 pointer" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) deleteItem() }}></i>
 
-                                <ul>
-                                    <li>{element.price}€</li>
-                                    {/* <li>{element.category}€</li> */}
-                                    {/* <li>{element.mainCategory}€</li> */}
-                                    {/* <li>{element.brand}€</li> */}
-                                    <li>{element.isOutlet ? <span>is in outlet</span> : <span> is not in outlet</span>}</li>
-                                    <li>{element.description}</li>
-                                    <li>{element.fullDescription}</li>
-                                    <li>{element.image}</li>
-                                </ul>
-                                <hr />
-                            </div>
-                        )
-                    })}
+                                    <ul>
+                                        <li>{element.price}€</li>
+                                        {/* <li>{element.category}€</li> */}
+                                        {/* <li>{element.mainCategory}€</li> */}
+                                        {/* <li>{element.brand}€</li> */}
+                                        <li>{element.isOutlet ? <span>is in outlet</span> : <span> is not in outlet</span>}</li>
+                                        <li>{element.description}</li>
+                                        <li>{element.fullDescription}</li>
+                                        <li>{element.image}</li>
+                                    </ul>
+                                    <hr />
+                                </div>
+                            )
+                        })}
 
-                </div>}
+                    </div>}
 
+            </div>}
 
 
         </>
