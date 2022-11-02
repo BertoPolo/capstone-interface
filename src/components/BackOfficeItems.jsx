@@ -192,17 +192,15 @@ const BackOfficeItems = () => {
             />
 
             {/* Search item */}
-            < Form className="d-flex justify-content-center flex-column" onSubmit={(e) => searchArticleSubmit(e)}> {/* check onSubmit if its calling the right function */}
+            {!isEditing && < Form className="d-flex justify-content-center flex-column" onSubmit={(e) => searchArticleSubmit(e)}> {/* check onSubmit if its calling the right function */}
                 <h4 className="mb-3" >Search an article</h4>
-
 
                 <Form.Group>
                     <Form.Control type="text" placeholder="Name" value={searchByTitle} onChange={(e) => setSearchByTitle(e.target.value)} />
                 </Form.Group>
 
-
                 <Button type="submit" disabled={!searchByTitle}>Submit</Button>
-            </Form >
+            </Form >}
 
             <h4 className="my-3" > <u>Results</u></h4>
 
