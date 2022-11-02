@@ -123,47 +123,53 @@ const BackOfficeUsers = () => {
             <h4 className=""><u>Results</u></h4>
             {/* el mapeo de foundUsers ha de estar al final, despues  del ":" en la condicion negativa de edit mode.   */}
 
-            {
-                foundUsers && foundUsers.map((element) => {
-                    return (
-                        <div key={element._id}>
-                            {/* on click open dropdown with a filled form to edit it */}
-                            <span>Name : <b>{element.name}</b> </span>
-                            <span>Adress : <b>{element.adress}</b></span>
-                            <i className="bi bi-pencil pointer mx-3" onClick={() => setEditMode(true)}></i>
+            {editMode ?
 
-                            <i className="bi bi-trash3 pointer" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) deleteUser(element._id) }}></i>
+                <Form>
+                    <h4>Change user's data</h4>
 
-                            <hr />
-                        </div>
-                    )
-                })
+                    <Form.Group>
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control type="number" value={nameInput} onChange={(e) => setNameInput(e.target.value)} />
+                    </Form.Group>
+
+                    <Form.Group>
+                        <Form.Label>Username</Form.Label>
+                        <Form.Control type="number" value={userNameInput} onChange={(e) => setUserNameInput(e.target.value)} />
+                    </Form.Group>
+
+                    <Form.Group>
+                        <Form.Label>Email</Form.Label>
+                        <Form.Control type="number" value={emailInput} onChange={(e) => setEmailInput(e.target.value)} />
+                    </Form.Group>
+
+                    <Form.Group>
+                        <Form.Label>Adress</Form.Label>
+                        <Form.Control type="number" value={adressInput} onChange={(e) => setAdressInput(e.target.value)} />
+                    </Form.Group>
+                </Form>
+
+                :
+                <>
+                    {foundUsers && foundUsers.map((element) => {
+                        return (
+                            <div key={element._id}>
+                                {/* on click open dropdown with a filled form to edit it */}
+                                <span>Name : <b>{element.name}</b> </span>
+                                <span>Adress : <b>{element.adress}</b></span>
+                                <i className="bi bi-pencil pointer mx-3" onClick={() => setEditMode(true)}></i>
+
+                                <i className="bi bi-trash3 pointer" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) deleteUser(element._id) }}></i>
+
+                                <hr />
+                            </div>
+                        )
+                    })
+                    }
+                </>
             }
 
-            <Form>
-                <h4>Change user's data</h4>
 
-                <Form.Group>
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control type="number" value={nameInput} onChange={(e) => setNameInput(e.target.value)} />
-                </Form.Group>
-
-                <Form.Group>
-                    <Form.Label>Username</Form.Label>
-                    <Form.Control type="number" value={userNameInput} onChange={(e) => setUserNameInput(e.target.value)} />
-                </Form.Group>
-
-                <Form.Group>
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control type="number" value={emailInput} onChange={(e) => setEmailInput(e.target.value)} />
-                </Form.Group>
-
-                <Form.Group>
-                    <Form.Label>Adress</Form.Label>
-                    <Form.Control type="number" value={adressInput} onChange={(e) => setAdressInput(e.target.value)} />
-                </Form.Group>
-
-            </Form>
 
 
         </>
