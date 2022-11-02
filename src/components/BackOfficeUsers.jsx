@@ -46,6 +46,13 @@ const BackOfficeUsers = () => {
         theme: "dark",
     })
 
+    const resetStates = () => {
+        setNameInput("")
+        setUserNameInput("")
+        setEmailInput("")
+        setAdressInput("")
+
+    }
 
     const searchUserSubmit = async (e) => {
         e.preventDefault()
@@ -85,7 +92,9 @@ const BackOfficeUsers = () => {
 
                 }
             );
-            if (response.ok) notifyOk("Client data changed successfully")
+            if (response.ok) { notifyOk("Client data changed successfully"); resetStates(); }
+            else notifyError("oops!something went wrong")
+
         } catch (error) {
             console.log(error)
         }
@@ -114,7 +123,7 @@ const BackOfficeUsers = () => {
             {/* Toaster */}
             <ToastContainer
                 position="top-center"
-                autoClose={5000}
+                autoClose={2500}
                 limit={1}
                 hideProgressBar={false}
                 newestOnTop={false}
@@ -141,7 +150,7 @@ const BackOfficeUsers = () => {
 
             {editMode ?
 
-                <Form>
+                <Form onSubmit={(e) => editUser(e)}>
                     <h4>Change user's data</h4>
 
                     <Form.Group>
@@ -163,6 +172,10 @@ const BackOfficeUsers = () => {
                         <Form.Label>Adress</Form.Label>
                         <Form.Control type="number" value={adressInput} onChange={(e) => setAdressInput(e.target.value)} />
                     </Form.Group>
+                    <div className="d-flex">
+                        <Button type="submit"> Submit </Button>
+                        <Button variant="warning" onClick={() => { if (window.confirm(`Are you sure you don't wish save your changes?`)) { resetStates(); setEditMode(false) } }} >Cancel</Button>
+                    </div>
                 </Form>
 
                 :
