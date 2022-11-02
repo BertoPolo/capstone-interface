@@ -202,7 +202,7 @@ const BackOfficeItems = () => {
                 <Button type="submit" disabled={!searchByTitle}>Submit</Button>
             </Form >}
 
-            <h4 className="my-3" > <u>Results</u></h4>
+            {!isEditing && <h4 className="my-3" > <u>Results</u></h4>}
 
 
             {foundItems && <div>

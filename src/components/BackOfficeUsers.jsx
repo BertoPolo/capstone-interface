@@ -157,6 +157,7 @@ const BackOfficeUsers = () => {
                 pauseOnHover
                 theme="dark"
             />
+
             {/* Search user */}
             {!editMode && <Form className="d-flex justify-content-center flex-column mb-3" onSubmit={(e) => searchUserSubmit(e)}>
                 <h4 className="mb-3">Search an user</h4>
@@ -169,7 +170,7 @@ const BackOfficeUsers = () => {
 
             </Form >}
 
-            <h4 className=""><u>Results</u></h4>
+            {!editMode && <h4 className=""><u>Results</u></h4>}
 
             {editMode ?
 
