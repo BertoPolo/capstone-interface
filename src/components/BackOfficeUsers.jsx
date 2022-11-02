@@ -13,6 +13,11 @@ const BackOfficeUsers = () => {
 
     const [editMode, setEditMode] = useState(false)
 
+    const { nameInput, setNameInput } = useState("")
+    const { userNameInput, setUserNameInput } = useState("")
+    const { emailInput, setEmailInput } = useState("")
+    const { adressInput, setAdressInput } = useState("")
+
 
     const { usersName, usersAdress } = useSelector((state) => state.usersSlice);
     // const usersAdress = useSelector((state) => state.usersSlice.adress);
@@ -116,6 +121,8 @@ const BackOfficeUsers = () => {
             </Form >
 
             <h4 className=""><u>Results</u></h4>
+            {/* el mapeo de foundUsers ha de estar al final, despues  del ":" en la condicion negativa de edit mode.   */}
+
             {
                 foundUsers && foundUsers.map((element) => {
                     return (
@@ -133,7 +140,30 @@ const BackOfficeUsers = () => {
                 })
             }
 
-            {/* el mapeo de F */}
+            <Form>
+                <h4>Change user's data</h4>
+
+                <Form.Group>
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control type="number" value={nameInput} onChange={(e) => setNameInput(e.target.value)} />
+                </Form.Group>
+
+                <Form.Group>
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control type="number" value={userNameInput} onChange={(e) => setUserNameInput(e.target.value)} />
+                </Form.Group>
+
+                <Form.Group>
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control type="number" value={emailInput} onChange={(e) => setEmailInput(e.target.value)} />
+                </Form.Group>
+
+                <Form.Group>
+                    <Form.Label>Adress</Form.Label>
+                    <Form.Control type="number" value={adressInput} onChange={(e) => setAdressInput(e.target.value)} />
+                </Form.Group>
+
+            </Form>
 
 
         </>
