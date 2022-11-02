@@ -23,6 +23,10 @@ const BackOficceNewItem = () => {
     const [newBrandInput, setNewBrandInput] = useState("")
     const [itemId, setItemId] = useState("")
 
+    const [selectedBrand, setSelectedBrand] = useState("")
+    const [selectedCategory, setSelectedCategory] = useState("")
+    const [selectedMainCategory, setSelectedMainCategory] = useState("")
+
     const brands = useSelector((state) => state.brandsSlice.brands);
     const categories = useSelector((state) => state.categoriesSlice.categories);
     const mainCategories = useSelector((state) => state.mainCategoriesSlice.mainCategories);
@@ -56,8 +60,7 @@ const BackOficceNewItem = () => {
         try {
             const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}brands/all`);
             const data = await response.json();
-            dispatch(addBrands(data));
-
+            if (data) dispatch(addBrands(data));
         } catch (error) {
             console.log(error)
         }
@@ -67,7 +70,9 @@ const BackOficceNewItem = () => {
         try {
             const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}categories/all`);
             const data = await response.json();
-            dispatch(addCategories(data.categories));
+            if (data) dispatch(addCategories(data));
+            console.log(data)
+
 
         } catch (error) {
             console.log(error)
@@ -78,7 +83,7 @@ const BackOficceNewItem = () => {
         try {
             const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}mainCategories/all`);
             const data = await response.json();
-            dispatch(addMainCategories(data.mainCategories));
+            if (data) dispatch(addMainCategories(data));
 
         } catch (error) {
             console.log(error)
@@ -212,44 +217,50 @@ const BackOficceNewItem = () => {
 
                     <Form.Control type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
                     <Form.Control type="number" placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
-                    <Form.Control type="text" placeholder="Main Category" value={mainCategory} onChange={(e) => setMainCategory(e.target.value)} />
-                    <Form.Control type="text" placeholder="Category" value={category} onChange={(e) => setCategory(e.target.value)} />
                     <Form.Control type="text" placeholder="Short Description" value={shortDescription} onChange={(e) => setShortDescription(e.target.value)} />
                     <Form.Control as="textarea" rows={3} placeholder="Full Description" value={fullDescription} onChange={(e) => setFullDescription(e.target.value)} />
-                    <Dropdown>
-                        <Dropdown.Toggle variant="warning">Choose</Dropdown.Toggle>
+                    <Form.Check type="checkbox" label="Outlet" value={isItOutlet} onChange={(e) => setIsItOutlet(!isItOutlet)} />
 
+                </Form.Group>
+
+                <Form.Group className="d-flex justify-content-around">
+
+                    <Dropdown>
+                        <Dropdown.Toggle variant="warning">{selectedBrand || "Choose"}</Dropdown.Toggle>
                         <Dropdown.Menu>
                             {brands.map((element) => {
                                 return (
-                                    <Dropdown.Item key={element._id} onClick={() => setBrand(element._id)}>{element.brands}</Dropdown.Item>
+                                    <Dropdown.Item key={element._id} onClick={() => { setSelectedBrand(element.brands); setBrand(element._id) }}>{element.brands}</Dropdown.Item>
                                 )
                             })}
                         </Dropdown.Menu>
+                    </Dropdown>
 
-                        {/* 
-                        <Dropdown.Menu>
-                            {categories.map((element) => {
-                                return (
-                                    <Dropdown.Item key={element._id} href="" onClick={() => setBrand(element._id)}>{element.category}</Dropdown.Item>
-                                )
-                            })}
-                        </Dropdown.Menu>
+                    <Dropdown>
+                        <Dropdown.Toggle variant="warning">{selectedMainCategory || "Choose"}</Dropdown.Toggle>
 
                         <Dropdown.Menu>
                             {mainCategories.map((element) => {
                                 return (
-                                    <Dropdown.Item key={element._id} href="" onClick={() => setBrand(element._id)}>{element.mainCategory}</Dropdown.Item>
+                                    <Dropdown.Item key={element._id} onClick={() => { setSelectedMainCategory(element.mainCategories); setMainCategory(element._id) }}>{element.mainCategories}</Dropdown.Item>
                                 )
                             })}
-
-                        </Dropdown.Menu> */}
-
+                        </Dropdown.Menu>
                     </Dropdown>
-                    <Form.Check type="checkbox" label="Outlet" value={isItOutlet} onChange={(e) => setIsItOutlet(!isItOutlet)} />
 
-                    <Button type="submit"> Submit </Button>
+                    <Dropdown>
+                        <Dropdown.Toggle variant="warning">{selectedCategory || "Choose"}</Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            {categories.map((element) => {
+                                return (
+                                    <Dropdown.Item key={element._id} onClick={() => { setSelectedCategory(element.categories); setCategory(element._id) }}>{element.categories}</Dropdown.Item>
+                                )
+                            })}
+                        </Dropdown.Menu>
+                    </Dropdown>
                 </Form.Group>
+
+                <Button type="submit" className=""> Submit </Button>
             </Form >
 
             {/* create a new brand */}
