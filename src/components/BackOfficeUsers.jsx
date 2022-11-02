@@ -24,9 +24,20 @@ const BackOfficeUsers = () => {
 
     const dispatch = useDispatch()
 
-    const notifyError = () => toast.error(`Check if you writted it right, cause looks like we don't have any client with this name`, {
+    const notifyError = (message) => toast.error(message, {
         position: "top-center",
         autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+    })
+
+    const notifyOk = (message) => toast.success(message, {
+        position: "top-center",
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -47,39 +58,43 @@ const BackOfficeUsers = () => {
                 if (data) {
                     setUserInput("")
                     setFoundUsers(data)
-                } else notifyError()
+                } else notifyError(`Check if you writted it right, cause looks like we don't have any client with this name`)
             }
         } catch (error) {
             console.log(error)
         }
     }
 
-    // const editUser = async (username) => {
-    //     const body = {
+    const editUser = async (id) => {
+        const body = {
+            name: nameInput,
+            username: userNameInput,
+            email: emailInput,
+            adress: adressInput
+        }
 
-    //     }
-
-    //     try {
-    //         const response = await fetch(
-    //             `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/edit/${username}`,
-    //             {
-    //                 method: "PUT",
-    //                 headers: {
-    //                     "Content-Type": "application/json",
-    //                 },
-    //                 body: JSON.stringify(body)
-
-    //             }
-    //         );
-    //     } catch (error) {
-    //         console.log(error)
-    //     }
-    // }
-
-    const deleteUser = async (name) => {
         try {
             const response = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/delete/${name}`,
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/edit/${id}`,
+                {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(body)
+
+                }
+            );
+            if (response.ok) notifyOk("Client data changed successfully")
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const deleteUser = async (id) => {
+        try {
+            const response = await fetch(
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/delete/${id}`,
                 {
                     method: "DELETE",
                     headers: {
@@ -87,6 +102,8 @@ const BackOfficeUsers = () => {
                     },
                 }
             );
+            if (response.ok) notifyOk('Client removed')
+            else notifyError("oops! Something went wrong");
         } catch (error) {
             console.log(error)
         }
@@ -121,7 +138,6 @@ const BackOfficeUsers = () => {
             </Form >
 
             <h4 className=""><u>Results</u></h4>
-            {/* el mapeo de foundUsers ha de estar al final, despues  del ":" en la condicion negativa de edit mode.   */}
 
             {editMode ?
 
