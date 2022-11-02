@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from "react-redux"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { addBrands } from "../slices/brands/brandsSlice"
+import { addCategories } from "../slices/categories/categoriesSlice"
+import { addMainCategories } from "../slices/mainCategories/mainCategoriesSlice"
 
 
 
@@ -22,7 +24,10 @@ const BackOficceNewItem = () => {
     const [itemId, setItemId] = useState("")
 
     const brands = useSelector((state) => state.brandsSlice.brands);
+    const categories = useSelector((state) => state.categoriesSlice.categories);
+    const mainCategories = useSelector((state) => state.mainCategoriesSlice.mainCategories);
 
+    const dispatch = useDispatch();
 
     const notifyError = () => toast.error('Check the form again, looks like you forgot something', {
         position: "top-center",
@@ -34,6 +39,7 @@ const BackOficceNewItem = () => {
         progress: undefined,
         theme: "dark",
     })
+
     const notify = () => toast.success(`Item created!,upload it's image now`, {
         position: "top-center",
         autoClose: 4000,
@@ -45,14 +51,34 @@ const BackOficceNewItem = () => {
         theme: "dark",
     });
 
-    const dispatch = useDispatch();
-
 
     const getBrands = async () => {
         try {
             const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}brands/all`);
             const data = await response.json();
             dispatch(addBrands(data));
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const getCategories = async () => {
+        try {
+            const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}categories/all`);
+            const data = await response.json();
+            dispatch(addCategories(data.categories));
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const getMainCategories = async () => {
+        try {
+            const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}mainCategories/all`);
+            const data = await response.json();
+            dispatch(addMainCategories(data.mainCategories));
 
         } catch (error) {
             console.log(error)
@@ -159,6 +185,8 @@ const BackOficceNewItem = () => {
 
     useEffect(() => {
         getBrands()
+        getCategories()
+        getMainCategories()
     }, [])
 
 
