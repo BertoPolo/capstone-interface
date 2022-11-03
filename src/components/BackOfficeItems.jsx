@@ -1,4 +1,4 @@
-import { Form, Button } from "react-bootstrap"
+import { Form, Button, Row } from "react-bootstrap"
 import { useState } from "react"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
@@ -151,6 +151,7 @@ const BackOfficeItems = () => {
     const postImg = async () => {
 
         try {
+            console.log(imageUrl)
             const res = await fetch(
                 `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/${itemId}/img`,
                 {
@@ -232,21 +233,23 @@ const BackOfficeItems = () => {
                         <Form onSubmit={(e) => editItem(e)}>
                             <h4 className="mb-3">Modify this article</h4>
 
-                            <label> set a new image</label>
-                            <input type="file" label="Image URL" accept=",.jpg,.jpeg,.png" onChange={(e) => setImageUrl(e.target.value)} />
+                            <Form.Label> set a new image</Form.Label>
+                            <Form.Control type="file" label="Image URL" accept=",.jpg,.jpeg,.png" onChange={(e) => setImageUrl(e.target.value)} />
                             <Button variant="primary" disabled={!imageUrl} onClick={() => postImg()}>Upload image</Button>
-                            <Form.Group>
-                                <Form.Label>Name</Form.Label>
-                                <Form.Control type="text" placeholder="Name" value={title} onChange={(e) => setTitle(e.target.value)} />
-                            </Form.Group>
+                            <Row>
+                                <Form.Group>
+                                    <Form.Label>Name</Form.Label>
+                                    <Form.Control type="text" placeholder="Name" value={title} onChange={(e) => setTitle(e.target.value)} />
+                                </Form.Group>
+
+                                <Form.Group>
+                                    <Form.Label>Price</Form.Label>
+                                    <Form.Control type="number" placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
+                                </Form.Group>
+                            </Row>
 
                             <Form.Group>
-                                <Form.Label>Price</Form.Label>
-                                <Form.Control type="number" placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
-                            </Form.Group>
-
-                            <Form.Group>
-                                <Form.Label>Price</Form.Label>
+                                <Form.Label>Outlet Price</Form.Label>
                                 <Form.Control type="number" placeholder="Price" value={outletPrice} onChange={(e) => setOutletPrice(e.target.value)} />
                             </Form.Group>
 
@@ -290,7 +293,7 @@ const BackOfficeItems = () => {
                                         {/* <li>{element.category}€</li> */}
                                         {/* <li>{element.mainCategory}€</li> */}
                                         {/* <li>{element.brand}€</li> */}
-                                        <li>{element.isOutlet ? <span>is in outlet</span> : <span> is not in outlet</span>}</li>
+                                        <li>{element.isOutlet ? <span>it is outlet an item</span> : <span> it is not outlet an item</span>}</li>
                                         <li>{element.description}</li>
                                         <li>{element.fullDescription}</li>
                                         <li>{element.image}</li>
