@@ -83,7 +83,7 @@ const HomeItem = ({ currentItem }) => {
           <Card.Text>{currentItem.description}</Card.Text>
 
           <div className="d-flex justify-content-between">
-            {isOnOutlet ? <Card.Title className="d-inline "> <b>{currentItem.outletPrice}</b> <s>{currentItem.price}</s> </Card.Title> : <Card.Title className="d-inline ">{currentItem.price} </Card.Title>}
+            {isOnOutlet ? <Card.Title className="d-inline "> <b>{currentItem.outletPrice} €</b> <s>{currentItem.price}€</s> </Card.Title> : <Card.Title className="d-inline ">{currentItem.price}€ </Card.Title>}
 
             {!isAdmin && <Button variant="primary" onClick={() => checkIfIsAlreadyInCart()}>Add to cart</Button>}
 

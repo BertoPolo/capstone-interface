@@ -85,7 +85,7 @@ const Home = () => {
       </Container>
 
       <Container fluid >
-        <CategoriesMenuDropdown className="d-md-none" />
+        <CategoriesMenuDropdown />
         {/* left column, categories */}
         <Row className="ml-2 mt-4">
           <Col className="d-none col-md-2 d-md-block">

@@ -27,7 +27,7 @@ const SingleItem = () => {
       <h2>{selectedItem.title}</h2>
       <img src={selectedItem.image} alt={selectedItem.title} />
       <p>{selectedItem.fullDescription}</p>
-      {isOnOutlet ? <h3>{selectedItem.price}</h3> : <h3>{selectedItem.outletPrice}</h3>}
+      {isOnOutlet ? <h3>{selectedItem.price}€</h3> : <h3>{selectedItem.outletPrice}</h3>}
 
       <div>
 

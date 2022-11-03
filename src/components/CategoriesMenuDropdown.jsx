@@ -40,7 +40,7 @@ const CategoriesMenuDropdown = () => {
         <>
 
 
-            <Accordion>
+            <Accordion className="d-md-none">
                 <Card>
                     <Card.Header>
                         <Accordion.Toggle as={Card.Header} eventKey="0" className="pointer" >

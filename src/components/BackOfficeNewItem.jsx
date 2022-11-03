@@ -98,11 +98,12 @@ const BackOficceNewItem = () => {
             price: price,
             brand: brand,
             mainCategory: mainCategory,
-            category: category,
+
             isOutlet: isItOutlet,
             description: shortDescription,
             fullDescription: fullDescription
         }
+        if (category) body.category = category
 
         try {
             const res = await fetch(
@@ -237,7 +238,7 @@ const BackOficceNewItem = () => {
                 <Form.Group className="d-flex justify-content-around">
 
                     <Dropdown>
-                        <Dropdown.Toggle variant="warning">{selectedBrand || "Choose"}</Dropdown.Toggle>
+                        <Dropdown.Toggle variant="warning">{selectedBrand || "Choose Brand"}</Dropdown.Toggle>
                         <Dropdown.Menu>
                             {brands.map((element) => {
                                 return (
@@ -248,7 +249,7 @@ const BackOficceNewItem = () => {
                     </Dropdown>
 
                     <Dropdown>
-                        <Dropdown.Toggle variant="warning">{selectedMainCategory || "Choose"}</Dropdown.Toggle>
+                        <Dropdown.Toggle variant="warning">{selectedMainCategory || "Choose Main Category"}</Dropdown.Toggle>
 
                         <Dropdown.Menu>
                             {mainCategories.map((element) => {
@@ -260,7 +261,7 @@ const BackOficceNewItem = () => {
                     </Dropdown>
 
                     <Dropdown>
-                        <Dropdown.Toggle variant="warning">{selectedCategory || "Choose"}</Dropdown.Toggle>
+                        <Dropdown.Toggle variant="warning">{selectedCategory || "Choose Category"}</Dropdown.Toggle>
                         <Dropdown.Menu>
                             {categories.map((element) => {
                                 return (
