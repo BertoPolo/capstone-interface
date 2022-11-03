@@ -17,6 +17,7 @@ const NavFilter = () => {
     const [maxPrice, setMaxPrice] = useState(1000)
     const [sorting, setSorting] = useState("")
     const [brandId, setBrandId] = useState("")
+    const [selectedBrand, setSelectedBrand] = useState("")
     // const [category, setCategory] = useState("")
     // const [mainCategory, setMainCategory] = useState("")
 
@@ -166,12 +167,12 @@ const NavFilter = () => {
 
                         {/* BY BRAND*/}
                         <Dropdown>
-                            <Dropdown.Toggle variant="warning">Choose Brand</Dropdown.Toggle>
+                            <Dropdown.Toggle variant="warning">{selectedBrand || "Choose Brand"}</Dropdown.Toggle>
 
                             <Dropdown.Menu>
                                 {brands.map((element) => {
                                     return (
-                                        <Dropdown.Item key={element._id} href="" onClick={() => { setBrandId(element._id); getFilteredItems() }}>{element.brands}</Dropdown.Item>
+                                        <Dropdown.Item key={element._id} onClick={(e) => { setBrandId(element._id); setSelectedBrand(element.selectedBrand); getFilteredItems(e) }}>{element.brands}</Dropdown.Item>
                                     )
                                 })}
                             </Dropdown.Menu>

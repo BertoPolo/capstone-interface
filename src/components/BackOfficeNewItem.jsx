@@ -267,9 +267,29 @@ const BackOficceNewItem = () => {
                 pauseOnHover
                 theme="dark" />
 
+            <h4 className="mb-3" > Add a new article</h4 >
+
+            <Row>
+                {/* create a new brand */}
+                <Form onSubmit={(e) => createNewBrand(e)}>
+                    <Form.Control type="text" placeholder="New brand" value={newBrandInput} onChange={(e) => setNewBrandInput(e.target.value)} />
+                    <Button type="submit"> Submit </Button>
+                </Form>
+
+                {/* Create a new category */}
+                <Form onSubmit={(e) => createNewCategory(e)}>
+                    <Form.Control type="text" placeholder="New category" value={newBrandInput} onChange={(e) => setNewBrandInput(e.target.value)} />
+                    <Button type="submit"> Submit </Button>
+                </Form>
+                {/* Create a new main category */}
+                <Form onSubmit={(e) => createNewMainCategory(e)}>
+                    <Form.Control type="text" placeholder="New main category" value={newBrandInput} onChange={(e) => setNewBrandInput(e.target.value)} />
+                    <Button type="submit"> Submit </Button>
+                </Form>
+            </Row>
+
             {/* Post new item */}
             < Form className="" onSubmit={(e) => addNewArticleSubmit(e)}> {/* check onSubmit */}
-                <h4 className="mb-3" > Add a new article</h4 >
 
                 <Row>
                     <Form.Group as={Col}>
@@ -332,24 +352,7 @@ const BackOficceNewItem = () => {
                 <Button type="submit" className=""> Submit </Button>
             </Form >
 
-            <Row>
-                {/* create a new brand */}
-                <Form onSubmit={(e) => createNewBrand(e)}>
-                    <Form.Control type="text" placeholder="New brand" value={newBrandInput} onChange={(e) => setNewBrandInput(e.target.value)} />
-                    <Button type="submit"> Submit </Button>
-                </Form>
 
-                {/* Create a new category */}
-                <Form onSubmit={(e) => createNewCategory(e)}>
-                    <Form.Control type="text" placeholder="New category" value={newBrandInput} onChange={(e) => setNewBrandInput(e.target.value)} />
-                    <Button type="submit"> Submit </Button>
-                </Form>
-                {/* Create a new main category */}
-                <Form onSubmit={(e) => createNewMainCategory(e)}>
-                    <Form.Control type="text" placeholder="New main category" value={newBrandInput} onChange={(e) => setNewBrandInput(e.target.value)} />
-                    <Button type="submit"> Submit </Button>
-                </Form>
-            </Row>
 
             {/* Post item's image */}
             <input className="mt-5" type="file" label="Add An Image" accept=",.jpg,.jpeg,.png" onChange={() => setImg(img)} />
