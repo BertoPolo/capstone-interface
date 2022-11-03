@@ -20,8 +20,10 @@ const BackOficceNewItem = () => {
     const [shortDescription, setShortDescription] = useState("")
     const [fullDescription, setFullDescription] = useState("")
     const [isItOutlet, setIsItOutlet] = useState(false)
-    const [newBrandInput, setNewBrandInput] = useState("")
     const [itemId, setItemId] = useState("")
+    const [newBrandInput, setNewBrandInput] = useState("")
+    const [newCategoryInput, setNewCategoryInput] = useState("")
+    const [newMainCategoryInput, setNewMainCategoryInput] = useState("")
 
     const [selectedBrand, setSelectedBrand] = useState("")
     const [selectedCategory, setSelectedCategory] = useState("")
@@ -127,6 +129,9 @@ const BackOficceNewItem = () => {
                 setBrand("")
                 setShortDescription("")
                 setFullDescription("")
+                setSelectedBrand("")
+                setSelectedCategory("")
+                setSelectedMainCategory("")
 
                 notify()
             }
@@ -181,6 +186,58 @@ const BackOficceNewItem = () => {
             if (res.status === 201) {
                 getBrands()
                 setNewBrandInput("")
+            }
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const createNewCategory = async (e) => {
+        e.preventDefault()
+        const categoryBody = {
+            categories: newCategoryInput
+        }
+        try {
+            const res = await fetch(
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}categories/new`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(categoryBody)
+                }
+            );
+            if (res.status === 201) {
+                getCategories()
+                setNewCategoryInput("")
+            }
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const createNewMainCategory = async (e) => {
+        e.preventDefault()
+        const mCatBody = {
+            mainCategories: newMainCategoryInput
+        }
+        try {
+            const res = await fetch(
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}mainCategories/new`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(mCatBody)
+                }
+            );
+            if (res.status === 201) {
+                getMainCategories()
+                setNewMainCategoryInput("")
             }
 
         } catch (error) {
@@ -275,12 +332,24 @@ const BackOficceNewItem = () => {
                 <Button type="submit" className=""> Submit </Button>
             </Form >
 
-            {/* create a new brand */}
-            <Form onSubmit={(e) => createNewBrand(e)}>
-                <Form.Control type="text" placeholder="New Brand" value={newBrandInput} onChange={(e) => setNewBrandInput(e.target.value)} />
-                <Button type="submit"> Submit </Button>
+            <Row>
+                {/* create a new brand */}
+                <Form onSubmit={(e) => createNewBrand(e)}>
+                    <Form.Control type="text" placeholder="New brand" value={newBrandInput} onChange={(e) => setNewBrandInput(e.target.value)} />
+                    <Button type="submit"> Submit </Button>
+                </Form>
 
-            </Form>
+                {/* Create a new category */}
+                <Form onSubmit={(e) => createNewCategory(e)}>
+                    <Form.Control type="text" placeholder="New category" value={newBrandInput} onChange={(e) => setNewBrandInput(e.target.value)} />
+                    <Button type="submit"> Submit </Button>
+                </Form>
+                {/* Create a new main category */}
+                <Form onSubmit={(e) => createNewMainCategory(e)}>
+                    <Form.Control type="text" placeholder="New main category" value={newBrandInput} onChange={(e) => setNewBrandInput(e.target.value)} />
+                    <Button type="submit"> Submit </Button>
+                </Form>
+            </Row>
 
             {/* Post item's image */}
             <input className="mt-5" type="file" label="Add An Image" accept=",.jpg,.jpeg,.png" onChange={() => setImg(img)} />
