@@ -92,9 +92,6 @@ const NavFilter = () => {
                 `${process.env.React_APP_LOCAL_SERVER}items?price>${minPrice}&price<${maxPrice}&sort=${sorting}&title=/^${searchInput}/i&brand=${brandId}`);
 
             if (response.ok) {
-                console.log(response.url)
-                console.log(minPrice, maxPrice)
-
                 const data = await response.json();
                 dispatch(addItems(data));
             }
@@ -142,19 +139,19 @@ const NavFilter = () => {
                 </Row>
 
                 <Row>
-                    <Navbar className="d-flex justify-content-between w-100"> {/* expand="lg" */}
+                    <Navbar className="d-flex justify-content-between w-100">
                         {/*PRICE SORTING */}
                         <Nav>
                             <NavDropdown title="Price sorting" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1" onClick={(e) => { setSorting("sort=price"); getFilteredItems(e) }}>Asc</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2" onClick={(e) => { setSorting("sort=-price"); getFilteredItems(e) }}>Desc</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.1" onClick={(e) => { setSorting("price"); getFilteredItems(e) }}>Asc</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2" onClick={(e) => { setSorting("-price"); getFilteredItems(e) }}>Desc</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
 
                         {/* BY PRICE RANGE */}
 
 
-                        <Form >
+                        <Form onSubmit={(e) => getFilteredItems(e)}>
                             <Row>
                                 <Form.Group >
                                     <Form.Label>From </Form.Label>
@@ -165,7 +162,7 @@ const NavFilter = () => {
                                     <Form.Control type="number" value={maxPrice} min="0" max="1000" onChange={(e) => setMaxPrice(e.target.value)} />
                                 </Form.Group>
                             </Row>
-                            <Button onClick={(e) => getFilteredItems(e)}> </Button>
+                            <Button type="submit" className="d-flex ">Filter </Button>
 
                         </Form>
 
