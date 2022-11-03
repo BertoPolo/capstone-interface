@@ -92,6 +92,9 @@ const NavFilter = () => {
                 `${process.env.React_APP_LOCAL_SERVER}items?price>${minPrice}&price<${maxPrice}&sort=${sorting}&title=/^${searchInput}/i&brand=${brandId}`);
 
             if (response.ok) {
+                console.log(response.url)
+                console.log(minPrice, maxPrice)
+
                 const data = await response.json();
                 dispatch(addItems(data));
             }
@@ -149,20 +152,21 @@ const NavFilter = () => {
                         </Nav>
 
                         {/* BY PRICE RANGE */}
-                        <Form >
-                            <Form.Group >
-                                <Form.Label>From <output>{minPrice}€</output></Form.Label>
-                                <Form.Control type="range" value={minPrice} min="0" max="1000" onChange={(e) => { setMinPrice(e.target.value); getFilteredItems(e) }} />
 
-                            </Form.Group>
-                        </Form>
 
                         <Form >
-                            <Form.Group >
-                                <Form.Label>To <output>{maxPrice}€</output></Form.Label>
-                                <Form.Control type="range" value={maxPrice} min="0" max="1000" onChange={(e) => { setMaxPrice(e.target.value); getFilteredItems(e) }} />
+                            <Row>
+                                <Form.Group >
+                                    <Form.Label>From </Form.Label>
+                                    <Form.Control type="number" value={minPrice} min="0" max="1000" onChange={(e) => setMinPrice(e.target.value)} />
+                                </Form.Group>
+                                <Form.Group >
+                                    <Form.Label>To </Form.Label>
+                                    <Form.Control type="number" value={maxPrice} min="0" max="1000" onChange={(e) => setMaxPrice(e.target.value)} />
+                                </Form.Group>
+                            </Row>
+                            <Button onClick={(e) => getFilteredItems(e)}> </Button>
 
-                            </Form.Group>
                         </Form>
 
                         {/* BY BRAND*/}
