@@ -143,14 +143,12 @@ const NavFilter = () => {
                         {/*PRICE SORTING */}
                         <Nav>
                             <NavDropdown title="Price sorting" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1" onClick={(e) => { setSorting("price"); getFilteredItems(e) }}>Asc</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2" onClick={(e) => { setSorting("-price"); getFilteredItems(e) }}>Desc</NavDropdown.Item>
+                                <NavDropdown.Item onClick={(e) => { setSorting("price"); getFilteredItems(e) }}>Asc</NavDropdown.Item>
+                                <NavDropdown.Item onClick={(e) => { setSorting("-price"); getFilteredItems(e) }}>Desc</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
 
                         {/* BY PRICE RANGE */}
-
-
                         <Form onSubmit={(e) => getFilteredItems(e)}>
                             <Row>
                                 <Form.Group >
