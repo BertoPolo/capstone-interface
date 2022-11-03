@@ -46,7 +46,7 @@ const BackOfficeItems = () => {
         theme: "dark",
     });
 
-    const notifyError = () => toast.error(`Check if you writted it right, cause looks like we don't have anything with this name`, {
+    const notifyError = (message) => toast.error(message, {
         position: "top-center",
         autoClose: 3000,
         hideProgressBar: false,
@@ -88,7 +88,7 @@ const BackOfficeItems = () => {
                 //     setImageUrl(cu => [...cu, element.image])
                 // });
 
-            } else notifyError()
+            } else notifyError(`Check if you writted it right, cause looks like we don't have anything with this name`,)
 
         } catch (error) {
             console.log(error)
@@ -161,11 +161,18 @@ const BackOfficeItems = () => {
                     body: JSON.stringify(imageUrl)
                 }
             );
+            if (res.ok) {
+                setImageUrl("")
+                setItemId("")
+                notifyOk("image uploaded")
+
+            } else notifyError("oops, something happened")
 
         } catch (error) {
             console.log(error)
         }
     }
+
     const deleteItem = async (id) => {
 
         try {
@@ -205,7 +212,7 @@ const BackOfficeItems = () => {
             />
 
             {/* Search item */}
-            {!isEditing && < Form className="d-flex justify-content-center flex-column" onSubmit={(e) => searchArticleSubmit(e)}> {/* check onSubmit if its calling the right function */}
+            {!isEditing && < Form className="d-flex justify-content-center flex-column" onSubmit={(e) => searchArticleSubmit(e)}>
                 <h4 className="mb-3" >Search an article</h4>
 
                 <Form.Group>
@@ -275,7 +282,7 @@ const BackOfficeItems = () => {
                                 <div key={element._id}>
                                     <span><b>{element.title}</b></span>
 
-                                    <i className="bi bi-pencil ml-4 mr-3" onClick={() => { setIsEditing(true); getItem(element._id) }}></i>
+                                    <i className="bi bi-pencil ml-4 mr-3 pointer" onClick={() => { setIsEditing(true); getItem(element._id) }}></i>
                                     <i className="bi bi-trash3 pointer" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) deleteItem(element._id) }}></i>
 
                                     <ul>
