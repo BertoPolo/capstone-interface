@@ -1,4 +1,4 @@
-import { Form, Button, Row } from "react-bootstrap"
+import { Form, Button, Row, Container } from "react-bootstrap"
 import { useState } from "react"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
@@ -148,8 +148,8 @@ const BackOfficeItems = () => {
 
     }
 
-    const postImg = async () => {
-
+    const postImg = async (e) => {
+        e.preventDefault()
         try {
             console.log(imageUrl)
             const res = await fetch(
@@ -159,7 +159,7 @@ const BackOfficeItems = () => {
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify(imageUrl)
+                    body: JSON.stringify({ "image": imageUrl })
                 }
             );
             if (res.ok) {
@@ -211,103 +211,109 @@ const BackOfficeItems = () => {
                 pauseOnHover
                 theme="dark"
             />
+            <Container fluid>
 
-            {/* Search item */}
-            {!isEditing && < Form className="d-flex justify-content-center flex-column" onSubmit={(e) => searchArticleSubmit(e)}>
-                <h4 className="mb-3" >Search an article</h4>
+                {/* Search item */}
+                {!isEditing && < Form className="d-flex justify-content-center flex-column" onSubmit={(e) => searchArticleSubmit(e)}>
+                    <h4 className="mb-3" >Search an article</h4>
 
-                <Form.Group>
-                    <Form.Control type="text" placeholder="Name" value={searchByTitle} onChange={(e) => setSearchByTitle(e.target.value)} />
-                </Form.Group>
+                    <Form.Group>
+                        <Form.Control type="text" placeholder="Name" value={searchByTitle} onChange={(e) => setSearchByTitle(e.target.value)} />
+                    </Form.Group>
 
-                <Button type="submit" disabled={!searchByTitle}>Submit</Button>
-            </Form >}
+                    <Button type="submit" disabled={!searchByTitle}>Submit</Button>
+                </Form >}
 
-            {!isEditing && <h4 className="my-3" > <u>Results</u></h4>}
+                {!isEditing && <h4 className="my-3" > <u>Results</u></h4>}
 
 
-            {foundItems && <div>
+                {foundItems && <div>
 
-                {isEditing ?
-                    <>
-                        <Form onSubmit={(e) => editItem(e)}>
+                    {isEditing ?
+                        <>
                             <h4 className="mb-3">Modify this article</h4>
 
-                            <Form.Label> set a new image</Form.Label>
-                            <Form.Control type="file" label="Image URL" accept=",.jpg,.jpeg,.png" onChange={(e) => setImageUrl(e.target.value)} />
-                            <Button variant="primary" disabled={!imageUrl} onClick={() => postImg()}>Upload image</Button>
-                            <Row>
+                            <Form onSubmit={(e) => postImg(e)}>
+                                <Form.Label> Set a new image</Form.Label>
+                                <Form.Control type="file" accept=",.jpg,.jpeg,.png" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} />
+                                <Button type="submit" disabled={!imageUrl} >Upload</Button>
+
+                            </Form>
+
+                            <Form onSubmit={(e) => editItem(e)}>
+                                <Row>
+                                    <Form.Group>
+                                        <Form.Label>Name</Form.Label>
+                                        <Form.Control type="text" placeholder="Name" value={title} onChange={(e) => setTitle(e.target.value)} />
+                                    </Form.Group>
+
+                                    <Form.Group>
+                                        <Form.Label>Price</Form.Label>
+                                        <Form.Control type="number" placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
+                                    </Form.Group>
+                                </Row>
+
                                 <Form.Group>
-                                    <Form.Label>Name</Form.Label>
-                                    <Form.Control type="text" placeholder="Name" value={title} onChange={(e) => setTitle(e.target.value)} />
+                                    <Form.Label>Outlet Price</Form.Label>
+                                    <Form.Control type="number" placeholder="Price" value={outletPrice} onChange={(e) => setOutletPrice(e.target.value)} />
                                 </Form.Group>
 
                                 <Form.Group>
-                                    <Form.Label>Price</Form.Label>
-                                    <Form.Control type="number" placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
+                                    <Form.Label>Is Outlet?</Form.Label>
+                                    <Form.Control type="checkbox" checked={isOutlet} onChange={(e) => setIsOutlet(!isOutlet)} />
                                 </Form.Group>
-                            </Row>
 
-                            <Form.Group>
-                                <Form.Label>Outlet Price</Form.Label>
-                                <Form.Control type="number" placeholder="Price" value={outletPrice} onChange={(e) => setOutletPrice(e.target.value)} />
-                            </Form.Group>
+                                <Form.Group>
+                                    <Form.Label>Small Description</Form.Label>
+                                    <Form.Control type="text" placeholder="Small Description" value={smallDescription} onChange={(e) => setSmallDescription(e.target.value)} />
+                                </Form.Group>
 
-                            <Form.Group>
-                                <Form.Label>Is Outlet?</Form.Label>
-                                <Form.Control type="checkbox" checked={isOutlet} onChange={(e) => setIsOutlet(!isOutlet)} />
-                            </Form.Group>
+                                <Form.Group>
+                                    <Form.Label>Full Description</Form.Label>
+                                    <Form.Control type="text" placeholder="Full Description" value={fullDescription} onChange={(e) => setFullDescription(e.target.value)} />
+                                </Form.Group>
 
-                            <Form.Group>
-                                <Form.Label>Small Description</Form.Label>
-                                <Form.Control type="text" placeholder="Small Description" value={smallDescription} onChange={(e) => setSmallDescription(e.target.value)} />
-                            </Form.Group>
-
-                            <Form.Group>
-                                <Form.Label>Full Description</Form.Label>
-                                <Form.Control type="text" placeholder="Full Description" value={fullDescription} onChange={(e) => setFullDescription(e.target.value)} />
-                            </Form.Group>
-
-                            <div className="d-flex">
-                                <Button type="submit"> Submit </Button>
-                                <Button variant="warning" onClick={() => { if (window.confirm(`Are you sure you don't wish save your changes?`)) { resetStates(); setIsEditing(false) } }} >Cancel</Button>
-                            </div>
-                        </Form>
-
-
-                    </>
-                    :
-                    <div>
-                        {foundItems.map((element) => {
-
-                            return (
-
-                                <div key={element._id}>
-                                    <span><b>{element.title}</b></span>
-
-                                    <i className="bi bi-pencil ml-4 mr-3 pointer" onClick={() => { setIsEditing(true); getItem(element._id) }}></i>
-                                    <i className="bi bi-trash3 pointer" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) deleteItem(element._id) }}></i>
-
-                                    <ul>
-                                        <li>{element.price}€</li>
-                                        {/* <li>{element.category}€</li> */}
-                                        {/* <li>{element.mainCategory}€</li> */}
-                                        {/* <li>{element.brand}€</li> */}
-                                        <li>{element.isOutlet ? <span>it is outlet an item</span> : <span> it is not outlet an item</span>}</li>
-                                        <li>{element.description}</li>
-                                        <li>{element.fullDescription}</li>
-                                        <li>{element.image}</li>
-                                    </ul>
-                                    <hr />
+                                <div className="d-flex">
+                                    <Button type="submit"> Submit </Button>
+                                    <Button variant="warning" onClick={() => { if (window.confirm(`Are you sure you don't wish save your changes?`)) { resetStates(); setIsEditing(false) } }} >Cancel</Button>
                                 </div>
-                            )
-                        })}
-
-                    </div>}
-
-            </div>}
+                            </Form>
 
 
+                        </>
+                        :
+                        <div>
+                            {foundItems.map((element) => {
+
+                                return (
+
+                                    <div key={element._id}>
+                                        <span><b>{element.title}</b></span>
+
+                                        <i className="bi bi-pencil ml-4 mr-3 pointer" onClick={() => { setIsEditing(true); getItem(element._id) }}></i>
+                                        <i className="bi bi-trash3 pointer" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) deleteItem(element._id) }}></i>
+
+                                        <ul>
+                                            <li>{element.price}€</li>
+                                            {/* <li>{element.category}€</li> */}
+                                            {/* <li>{element.mainCategory}€</li> */}
+                                            {/* <li>{element.brand}€</li> */}
+                                            <li>{element.isOutlet ? <span>it is outlet an item</span> : <span> it is not outlet an item</span>}</li>
+                                            <li>{element.description}</li>
+                                            <li>{element.fullDescription}</li>
+                                            <li>{element.image}</li>
+                                        </ul>
+                                        <hr />
+                                    </div>
+                                )
+                            })}
+
+                        </div>}
+
+                </div>}
+
+
+            </Container>
         </>
     )
 }

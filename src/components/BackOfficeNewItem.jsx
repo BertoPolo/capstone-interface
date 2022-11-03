@@ -149,21 +149,21 @@ const BackOficceNewItem = () => {
 
     const postImg = async () => {
 
-        try {
-            const res = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/${itemId}/img`,
-                {
-                    method: "PUT",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(img)
-                }
-            );
+        // try {
+        //     const res = await fetch(
+        //         `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/${itemId}/img`,
+        //         {
+        //             method: "PUT",
+        //             headers: {
+        //                 "Content-Type": "application/json",
+        //             },
+        //             body: JSON.stringify(img)
+        //         }
+        //     );
 
-        } catch (error) {
-            console.log(error)
-        }
+        // } catch (error) {
+        //     console.log(error)
+        // }
     }
 
 
