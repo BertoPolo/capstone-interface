@@ -80,15 +80,15 @@ const Home = () => {
         </div>}
 
         {/* FILTERING BAR*/}
-        <NavFilter />
+        {isOnHome && <NavFilter />}
 
       </Container>
 
       <Container fluid >
+        <CategoriesMenuDropdown className="d-md-none" />
         {/* left column, categories */}
-        <CategoriesMenuDropdown />
         <Row className="ml-2 mt-4">
-          <Col className="col-md-2 d-none d-md-block">
+          <Col className="d-none col-md-2 d-md-block">
             <CategoriesMenu />
 
           </Col>

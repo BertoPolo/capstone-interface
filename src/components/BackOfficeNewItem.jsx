@@ -1,4 +1,4 @@
-import { Form, Button, Dropdown, } from "react-bootstrap"
+import { Form, Button, Dropdown, Row, Col } from "react-bootstrap"
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { ToastContainer, toast } from 'react-toastify';
@@ -210,15 +210,26 @@ const BackOficceNewItem = () => {
                 theme="dark" />
 
             {/* Post new item */}
-            < Form className="d-flex justify-content-center flex-column" onSubmit={(e) => addNewArticleSubmit(e)}> {/* check onSubmit */}
+            < Form className="" onSubmit={(e) => addNewArticleSubmit(e)}> {/* check onSubmit */}
                 <h4 className="mb-3" > Add a new article</h4 >
 
-                <Form.Group>
+                <Row>
+                    <Form.Group as={Col}>
+                        <Form.Label>Name</Form.Label>
 
-                    <Form.Control type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
-                    <Form.Control type="number" placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
-                    <Form.Control type="text" placeholder="Short Description" value={shortDescription} onChange={(e) => setShortDescription(e.target.value)} />
-                    <Form.Control as="textarea" rows={3} placeholder="Full Description" value={fullDescription} onChange={(e) => setFullDescription(e.target.value)} />
+                        <Form.Control type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                    </Form.Group>
+                    <Form.Group as={Col}>
+                        <Form.Label>Price</Form.Label>
+                        <Form.Control type="number" value={price} onChange={(e) => setPrice(e.target.value)} />
+                    </Form.Group>
+                </Row>
+
+                <Form.Group>
+                    <Form.Label>Short Description</Form.Label>
+                    <Form.Control type="textarea" rows={2} value={shortDescription} onChange={(e) => setShortDescription(e.target.value)} />
+                    <Form.Label>Full Description</Form.Label>
+                    <Form.Control as="textarea" rows={3} value={fullDescription} onChange={(e) => setFullDescription(e.target.value)} />
                     <Form.Check type="checkbox" label="Outlet" value={isItOutlet} onChange={(e) => setIsItOutlet(!isItOutlet)} />
 
                 </Form.Group>
