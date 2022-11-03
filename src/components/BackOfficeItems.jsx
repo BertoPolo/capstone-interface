@@ -151,15 +151,21 @@ const BackOfficeItems = () => {
     const postImg = async (e) => {
         e.preventDefault()
         try {
+            console.log(itemId)
             console.log(imageUrl)
+
+            const data = new FormData();
+            data.append("image", imageUrl);
+            console.log(data)
+
             const res = await fetch(
                 `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/${itemId}/img`,
                 {
                     method: "PUT",
+                    body: data,
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify({ "image": imageUrl })
                 }
             );
             if (res.ok) {
@@ -235,7 +241,7 @@ const BackOfficeItems = () => {
 
                             <Form onSubmit={(e) => postImg(e)}>
                                 <Form.Label> Set a new image</Form.Label>
-                                <Form.Control type="file" accept=",.jpg,.jpeg,.png" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} />
+                                <Form.Control type="file" accept=",.jpg,.jpeg,.png" value={imageUrl} onChange={(e) => setImageUrl(e.target.files[0])} />
                                 <Button type="submit" disabled={!imageUrl} >Upload</Button>
 
                             </Form>
