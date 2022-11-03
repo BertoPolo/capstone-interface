@@ -57,6 +57,17 @@ const BackOfficeItems = () => {
         theme: "dark",
     })
 
+    const notifyOk = (message) => toast.success(message, {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+    })
+
 
     const searchArticleSubmit = async (e) => {
         e.preventDefault()
@@ -129,7 +140,6 @@ const BackOfficeItems = () => {
             if (res.ok) {
                 resetStates()
                 notifyUpdated()
-
             }
 
         } catch (error) {
@@ -168,6 +178,9 @@ const BackOfficeItems = () => {
                     },
                 }
             );
+            if (response.ok)
+                notifyOk("client deleted")
+            setFoundItems("")
         } catch (error) {
             console.log(error)
         }
