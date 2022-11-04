@@ -26,7 +26,7 @@ const NavFilter = () => {
 
     const brands = useSelector((state) => state.brandsSlice.brands);
     const items = useSelector((state) => state.itemsSlice.items);
-    const filters = useSelector((state) => state.user.filters)
+    // const filters = useSelector((state) => state.itemsSlice.filters)
 
     const dispatch = useDispatch()
 
@@ -95,7 +95,7 @@ const NavFilter = () => {
             // console.log("state: ", brandId);
             // console.log("state: ", selectedBrand);
             /*setSelectedBrand(e.target);*/
-            await getFilteredItems()
+            // await getFilteredItems()
 
         } catch (error) {
             console.log(error)
@@ -159,8 +159,8 @@ const NavFilter = () => {
                         {/*PRICE SORTING */}
                         <Nav>
                             <NavDropdown title="Price sorting" id="basic-nav-dropdown">
-                                <NavDropdown.Item onChange={(e) => { setSorting("price"); getFilteredItems(e); console.log(sorting) }}>Asc</NavDropdown.Item>
-                                <NavDropdown.Item onChange={(e) => { setSorting("-price"); getFilteredItems(e); console.log(sorting) }}>Desc</NavDropdown.Item>
+                                <NavDropdown.Item onChange={(e) => { setSorting("price"); getFilteredItems(e) }}>Asc</NavDropdown.Item>
+                                <NavDropdown.Item onChange={(e) => { setSorting("-price"); getFilteredItems(e) }}>Desc</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
 
