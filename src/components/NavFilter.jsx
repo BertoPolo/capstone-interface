@@ -26,6 +26,7 @@ const NavFilter = () => {
 
     const brands = useSelector((state) => state.brandsSlice.brands);
     const items = useSelector((state) => state.itemsSlice.items);
+    const filters = useSelector((state) => state.user.filters)
 
     const dispatch = useDispatch()
 
@@ -82,11 +83,28 @@ const NavFilter = () => {
     //     }
     // }
 
+    const handleChange = async e => {
+        try {
+
+            // dispatch() the filter here
+
+            // console.log("b", brandId);
+            // console.log("id: ", e.target.value)
+            // setBrandId(e.target.value);
+            // setSelectedBrand(e.target.value)
+            // console.log("state: ", brandId);
+            // console.log("state: ", selectedBrand);
+            /*setSelectedBrand(e.target);*/
+            await getFilteredItems()
+
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
 
 
-    const getFilteredItems = async (e) => {
-        e.preventDefault()
-
+    const getFilteredItems = async () => {
         try {
             const response = await fetch(`${process.env.React_APP_SERVER}` ||
                 `${process.env.React_APP_LOCAL_SERVER}items?price>${minPrice}&price<${maxPrice}&sort=${sorting}&title=/^${searchInput}/i&brand=${brandId}`);
@@ -131,10 +149,8 @@ const NavFilter = () => {
                     {/* search bar */}
                     <Form inline className="d-flex justify-content-center w-100" onSubmit={(e) => getFilteredItems(e)}>
                         <FormControl type="text" value={searchInput} placeholder="Check if we have it" className="w-25 searchBar" onChange={(e) => setSearchinput(e.target.value)} />
-                        <Button type="submit" variant="outline-success" className="ml-2 mr-2">
-                            <i className="bi bi-search "></i>
-                        </Button>
-                        <Button variant="outline-primary" onClick={() => { getItems(); resetStates() }}>X</Button>
+                        {/* <i className="bi bi-search pointer mx-3"></i> */}
+                        <Button variant="outline-dark" className="pointer ml-3" onClick={() => { getItems(); resetStates() }}>Clean</Button>
                     </Form>
                 </Row>
 
@@ -143,8 +159,8 @@ const NavFilter = () => {
                         {/*PRICE SORTING */}
                         <Nav>
                             <NavDropdown title="Price sorting" id="basic-nav-dropdown">
-                                <NavDropdown.Item onClick={(e) => { setSorting("price"); getFilteredItems(e) }}>Asc</NavDropdown.Item>
-                                <NavDropdown.Item onClick={(e) => { setSorting("-price"); getFilteredItems(e) }}>Desc</NavDropdown.Item>
+                                <NavDropdown.Item onChange={(e) => { setSorting("price"); getFilteredItems(e); console.log(sorting) }}>Asc</NavDropdown.Item>
+                                <NavDropdown.Item onChange={(e) => { setSorting("-price"); getFilteredItems(e); console.log(sorting) }}>Desc</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
 
@@ -161,21 +177,27 @@ const NavFilter = () => {
                                 </Form.Group>
                             </Row>
                             <Button type="submit" className="d-flex ">Filter </Button>
-
+                            <Form.Group>
+                                <Form.Label>adasdas</Form.Label>
+                                <Form.Control as="select" onChange={handleChange}>{
+                                    brands.map(b => <option value={b._id}>{b.brands}</option>)
+                                }</Form.Control>
+                            </Form.Group>
                         </Form>
 
                         {/* BY BRAND*/}
-                        <Dropdown>
+
+                        {/* <Dropdown >
                             <Dropdown.Toggle variant="warning">{selectedBrand || "Choose Brand"}</Dropdown.Toggle>
 
                             <Dropdown.Menu>
                                 {brands.map((element) => {
                                     return (
-                                        <Dropdown.Item key={element._id} onClick={(e) => { setBrandId(element._id); setSelectedBrand(element.selectedBrand); getFilteredItems(e) }}>{element.brands}</Dropdown.Item>
+                                        <Dropdown.Item key={element._id} value={element._id} onClick={handleChange} >{element.brands}</Dropdown.Item>
                                     )
                                 })}
                             </Dropdown.Menu>
-                        </Dropdown>
+                        </Dropdown> */}
                     </Navbar>
                 </Row>
             </Container>

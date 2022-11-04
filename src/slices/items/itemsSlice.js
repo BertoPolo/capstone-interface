@@ -5,6 +5,13 @@ const itemsSlice = createSlice({
   initialState: {
     items: [],
     selectedItem: {},
+    currentFilters: {
+      priceRange: [1, 1000],
+      brand: "",
+      title: "",
+      category: "",
+      mainCategory: "",
+    },
   },
   reducers: {
     addItems: (state, action) => {
