@@ -291,6 +291,22 @@ const BackOficceNewItem = () => {
                 <Form onSubmit={(e) => createNewMainCategory(e)}>
                     <Form.Control type="text" placeholder="New main category" value={newMainCategoryInput} onChange={(e) => setNewMainCategoryInput(e.target.value)} />
 
+                    {/* crear un nuevo state para la MC selecionada,pero pasa el objeto entero,para el fecth usa _id y para display usa el nombre
+                        hacer 1 post para crear la category y 1 put para agregar la category a la MC selecionada */}
+
+                    <Dropdown>
+                        <Dropdown.Toggle variant="success">{selectedBrand || "Choose Main category first"}</Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            {mainCategories.map((element) => {
+                                return (
+                                    <Dropdown.Item key={element._id} onClick={() => { setSelectedMainCategory(element.mainCategory); setMainCategory(element._id) }}>{element.mainCategory}</Dropdown.Item>
+                                )
+                            })}
+                        </Dropdown.Menu>
+                    </Dropdown>
+
+
+
                     <Button type="submit"> Submit </Button>
                 </Form>
             </Row>
