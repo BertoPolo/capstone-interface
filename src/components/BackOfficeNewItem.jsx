@@ -73,7 +73,6 @@ const BackOficceNewItem = () => {
             const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}categories/all`);
             const data = await response.json();
             if (data) dispatch(addCategories(data));
-            console.log(data)
 
 
         } catch (error) {
@@ -229,7 +228,7 @@ const BackOficceNewItem = () => {
     const createNewMainCategory = async (e) => {
         e.preventDefault()
         const mCatBody = {
-            mainCategories: newMainCategoryInput
+            mainCategory: newMainCategoryInput
         }
         try {
             const res = await fetch(
@@ -285,12 +284,13 @@ const BackOficceNewItem = () => {
 
                 {/* Create a new category */}
                 <Form onSubmit={(e) => createNewCategory(e)}>
-                    <Form.Control type="text" placeholder="New category" value={newBrandInput} onChange={(e) => setNewBrandInput(e.target.value)} />
+                    <Form.Control type="text" placeholder="New category" value={newCategoryInput} onChange={(e) => setNewCategoryInput(e.target.value)} />
                     <Button type="submit"> Submit </Button>
                 </Form>
                 {/* Create a new main category */}
                 <Form onSubmit={(e) => createNewMainCategory(e)}>
-                    <Form.Control type="text" placeholder="New main category" value={newBrandInput} onChange={(e) => setNewBrandInput(e.target.value)} />
+                    <Form.Control type="text" placeholder="New main category" value={newMainCategoryInput} onChange={(e) => setNewMainCategoryInput(e.target.value)} />
+
                     <Button type="submit"> Submit </Button>
                 </Form>
             </Row>
@@ -338,7 +338,7 @@ const BackOficceNewItem = () => {
                         <Dropdown.Menu>
                             {mainCategories.map((element) => {
                                 return (
-                                    <Dropdown.Item key={element._id} onClick={() => { setSelectedMainCategory(element.mainCategories); setMainCategory(element._id) }}>{element.mainCategories}</Dropdown.Item>
+                                    <Dropdown.Item key={element._id} onClick={() => { setSelectedMainCategory(element.mainCategory); setMainCategory(element._id) }}>{element.mainCategory}</Dropdown.Item>
                                 )
                             })}
                         </Dropdown.Menu>
@@ -364,7 +364,7 @@ const BackOficceNewItem = () => {
             {/* Post item's image */}
             <Form onSubmit={(e) => postImg(e)}>
                 <Form.Label> Set an image</Form.Label>
-                <Form.Control type="file" accept=",.jpg,.jpeg,.png" onChange={(e) => { console.log(itemId); setImage(e.target.files[0]) }} />
+                <Form.Control type="file" accept=",.jpg,.jpeg,.png" onChange={(e) => setImage(e.target.files[0])} />
                 <Button type="submit" disabled={!image && !itemId}>Upload</Button>
             </Form>
 

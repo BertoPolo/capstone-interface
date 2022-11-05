@@ -104,7 +104,7 @@ function CategoriesMenu() {
 
 
         {mainCategories.map((mainElement) => {
-          console.log(mainElement.categories)
+          // console.log(mainElement.categories[0].categories)
 
           return (
 
