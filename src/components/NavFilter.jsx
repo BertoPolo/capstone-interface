@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
-import { addItems } from "../slices/items/itemsSlice"
+import { addItems, changeCurrentFilters } from "../slices/items/itemsSlice"
 import { addBrands } from "../slices/brands/brandsSlice"
 import { toggleIsOnCategory, toggleIsOnBrands } from "../slices/sheets/sheetsSlice"
 
@@ -26,7 +26,7 @@ const NavFilter = () => {
 
     const brands = useSelector((state) => state.brandsSlice.brands);
     const items = useSelector((state) => state.itemsSlice.items);
-    // const filters = useSelector((state) => state.itemsSlice.filters)
+    const currentFilters = useSelector((state) => state.itemsSlice.currentFilters)
 
     const dispatch = useDispatch()
 
@@ -86,7 +86,7 @@ const NavFilter = () => {
     const handleChange = async e => {
         try {
 
-            // dispatch() the filter here
+            // dispatch(changeCurrentFilters()) the filter here
 
             // console.log("b", brandId);
             // console.log("id: ", e.target.value)
@@ -103,7 +103,7 @@ const NavFilter = () => {
 
     }
 
-
+    let filterQuery
     const getFilteredItems = async () => {
         try {
             const response = await fetch(`${process.env.React_APP_SERVER}` ||
