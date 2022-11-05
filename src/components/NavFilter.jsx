@@ -76,7 +76,7 @@ const NavFilter = () => {
         e.preventDefault()
         try {
             const response = await fetch(`${process.env.React_APP_SERVER}` ||
-                `${process.env.React_APP_LOCAL_SERVER}items?${filterQuery}`);
+                `${process.env.React_APP_LOCAL_SERVER}items?price>${minPrice}&price<${maxPrice}&sort=${sorting}&title=/^${searchInput}/i&brand=${brandId}`);
             // ${filterQuery}
             // price>${minPrice}&price<${maxPrice}&sort=${sorting}&title=/^${searchInput}/i&brand=${brandId}
 
@@ -121,7 +121,7 @@ const NavFilter = () => {
                     <Form inline className="d-flex justify-content-center w-100" onSubmit={(e) => getFilteredItems(e)}>
                         <FormControl type="text" value={searchInput} placeholder="Check if we have it" className="w-25 searchBar" onChange={(e) => setSearchinput(e.target.value)} />
                         {/* <i className="bi bi-search pointer mx-3"></i> */}
-                        <Button variant="outline-dark" className="pointer ml-3" onClick={() => { getItems(); resetStates() }}>Clean</Button>
+                        <Button variant="outline-dark" className="pointer ml-3" onClick={() => { getItems(); resetStates() }}>Clean filters</Button>
                     </Form>
                 </Row>
 

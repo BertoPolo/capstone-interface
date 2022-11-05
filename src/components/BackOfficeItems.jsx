@@ -15,7 +15,7 @@ const BackOfficeItems = () => {
     const [isOutlet, setIsOutlet] = useState(false)
     const [smallDescription, setSmallDescription] = useState("")
     const [fullDescription, setFullDescription] = useState("")
-    const [imageUrl, setImageUrl] = useState("")
+    const [image, setImage] = useState(null)
     const [outletPrice, setOutletPrice] = useState(0)
     const [itemId, setItemId] = useState(null)
 
@@ -26,7 +26,7 @@ const BackOfficeItems = () => {
         setIsOutlet(false)
         setSmallDescription("")
         setFullDescription("")
-        setImageUrl("")
+        setImage("")
         setOutletPrice(0)
         setItemId(null)
 
@@ -94,6 +94,7 @@ const BackOfficeItems = () => {
             console.log(error)
         }
     }
+
     const getItem = async (article) => {
         try {
             const res = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?_id=${article}`);
@@ -115,6 +116,7 @@ const BackOfficeItems = () => {
             console.log(error)
         }
     }
+
     const editItem = async (e) => {
         e.preventDefault()
         const body = {
@@ -151,25 +153,19 @@ const BackOfficeItems = () => {
     const postImg = async (e) => {
         e.preventDefault()
         try {
-            console.log(itemId)
-            console.log(imageUrl)
 
             const data = new FormData();
-            data.append("image", imageUrl);
-            console.log(data)
+            data.append("image", image)
 
             const res = await fetch(
                 `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/${itemId}/img`,
                 {
                     method: "PUT",
                     body: data,
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
                 }
             );
             if (res.ok) {
-                setImageUrl("")
+                setImage("")
                 setItemId("")
                 notifyOk("image uploaded")
 
@@ -241,8 +237,8 @@ const BackOfficeItems = () => {
 
                             <Form onSubmit={(e) => postImg(e)}>
                                 <Form.Label> Set a new image</Form.Label>
-                                <Form.Control type="file" accept=",.jpg,.jpeg,.png" value={imageUrl} onChange={(e) => setImageUrl(e.target.files[0])} />
-                                <Button type="submit" disabled={!imageUrl} >Upload</Button>
+                                <Form.Control type="file" accept=",.jpg,.jpeg,.png" onChange={(e) => setImage(e.target.files[0])} />
+                                <Button type="submit" disabled={!image} >Upload</Button>
 
                             </Form>
 

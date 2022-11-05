@@ -13,14 +13,14 @@ const BackOficceNewItem = () => {
 
     const [name, setName] = useState("")
     const [price, setPrice] = useState(0)
-    const [img, setImg] = useState(null)
+    const [image, setImage] = useState(null)
     const [mainCategory, setMainCategory] = useState("")
     const [category, setCategory] = useState("")
     const [brand, setBrand] = useState("")
     const [shortDescription, setShortDescription] = useState("")
     const [fullDescription, setFullDescription] = useState("")
     const [isItOutlet, setIsItOutlet] = useState(false)
-    const [itemId, setItemId] = useState("")
+    const [itemId, setItemId] = useState(null)
     const [newBrandInput, setNewBrandInput] = useState("")
     const [newCategoryInput, setNewCategoryInput] = useState("")
     const [newMainCategoryInput, setNewMainCategoryInput] = useState("")
@@ -147,23 +147,30 @@ const BackOficceNewItem = () => {
 
     }
 
-    const postImg = async () => {
+    const postImg = async (e) => {
+        e.preventDefault()
+        try {
 
-        // try {
-        //     const res = await fetch(
-        //         `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/${itemId}/img`,
-        //         {
-        //             method: "PUT",
-        //             headers: {
-        //                 "Content-Type": "application/json",
-        //             },
-        //             body: JSON.stringify(img)
-        //         }
-        //     );
+            const data = new FormData();
+            data.append("image", image)
 
-        // } catch (error) {
-        //     console.log(error)
-        // }
+            const res = await fetch(
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/${itemId}/img`,
+                {
+                    method: "PUT",
+                    body: data,
+                }
+            );
+            if (res.ok) {
+                setImage("")
+                setItemId("")
+                // notifyOk("image uploaded")
+
+            } else notifyError("oops, something happened")
+
+        } catch (error) {
+            console.log(error)
+        }
     }
 
 
@@ -355,10 +362,12 @@ const BackOficceNewItem = () => {
 
 
             {/* Post item's image */}
-            <input className="mt-5" type="file" label="Add An Image" accept=",.jpg,.jpeg,.png" onChange={() => setImg(img)} />
+            <Form onSubmit={(e) => postImg(e)}>
+                <Form.Label> Set an image</Form.Label>
+                <Form.Control type="file" accept=",.jpg,.jpeg,.png" onChange={(e) => { console.log(itemId); setImage(e.target.files[0]) }} />
+                <Button type="submit" disabled={!image && !itemId} >Upload</Button>
 
-
-            <Button variant="primary" disabled={!itemId} onClick={() => postImg()}>Upload image</Button>
+            </Form>
 
 
 
