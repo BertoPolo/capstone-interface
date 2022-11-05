@@ -365,8 +365,7 @@ const BackOficceNewItem = () => {
             <Form onSubmit={(e) => postImg(e)}>
                 <Form.Label> Set an image</Form.Label>
                 <Form.Control type="file" accept=",.jpg,.jpeg,.png" onChange={(e) => { console.log(itemId); setImage(e.target.files[0]) }} />
-                <Button type="submit" disabled={!image && !itemId} >Upload</Button>
-
+                <Button type="submit" disabled={!image && !itemId}>Upload</Button>
             </Form>
 
 

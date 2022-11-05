@@ -104,27 +104,25 @@ function CategoriesMenu() {
 
 
         {mainCategories.map((mainElement) => {
+          console.log(mainElement.categories)
+
           return (
 
             <Card key={mainElement._id}>
               <Card.Header>
                 <Accordion.Toggle as={Card.Header} eventKey={mainElement._id} className="pointer" >
-                  {mainElement.mainCategories}
+                  {mainElement.mainCategory}
                 </Accordion.Toggle>
               </Card.Header>
+              {/* repeat */}
+              <Accordion.Collapse eventKey={mainElement._id} >
 
-              {categories.map(element => {
-                return (
+                <Card.Body  >
+                  <p className="pointer" onClick={() => getByCategory(mainElement._id)}>{mainElement.categories.categories}</p>
 
-                  // element.mainCategory._id === mainElement.mainCategories._id && // this line is wrong
-                  <Accordion.Collapse eventKey={mainElement._id} key={element._id}>
-                    <Card.Body  >
-                      <p className="pointer" onClick={() => getByCategory(element._id)}>{element.categories}</p>
-
-                    </Card.Body>
-                  </Accordion.Collapse>
-                )
-              })}
+                </Card.Body>
+              </Accordion.Collapse>
+              {/*  */}
 
             </Card>
 
