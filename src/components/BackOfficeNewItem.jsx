@@ -24,6 +24,7 @@ const BackOficceNewItem = () => {
     const [newBrandInput, setNewBrandInput] = useState("")
     const [newCategoryInput, setNewCategoryInput] = useState("")
     const [newMainCategoryInput, setNewMainCategoryInput] = useState("")
+    const [mcatForCatCreation, setMcatForCatCreation] = useState({})
 
     const [selectedBrand, setSelectedBrand] = useState("")
     const [selectedCategory, setSelectedCategory] = useState("")
@@ -202,8 +203,11 @@ const BackOficceNewItem = () => {
     const createNewCategory = async (e) => {
         e.preventDefault()
         const categoryBody = {
-            categories: newCategoryInput
+            categories: newCategoryInput,
         }
+
+
+
         try {
             const res = await fetch(
                 `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}categories/new`,
@@ -215,10 +219,26 @@ const BackOficceNewItem = () => {
                     body: JSON.stringify(categoryBody)
                 }
             );
+
             if (res.status === 201) {
                 getCategories()
                 setNewCategoryInput("")
             }
+
+            const mCatToModify = {
+                mainCategory: mcatForCatCreation
+            }
+
+            const response = await fetch(
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}mainCategories/${mcatId}edit`,
+                {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(mCatToModify)
+                }
+            );
 
         } catch (error) {
             console.log(error)
@@ -295,11 +315,11 @@ const BackOficceNewItem = () => {
                         hacer 1 post para crear la category y 1 put para agregar la category a la MC selecionada */}
 
                     <Dropdown>
-                        <Dropdown.Toggle variant="success">{selectedBrand || "Choose Main category first"}</Dropdown.Toggle>
+                        <Dropdown.Toggle variant="success">{mcatForCatCreation.mainCategory || "Choose Main category first"}</Dropdown.Toggle>
                         <Dropdown.Menu>
                             {mainCategories.map((element) => {
                                 return (
-                                    <Dropdown.Item key={element._id} onClick={() => { setSelectedMainCategory(element.mainCategory); setMainCategory(element._id) }}>{element.mainCategory}</Dropdown.Item>
+                                    <Dropdown.Item key={element._id} onClick={() => setMcatForCatCreation(element)}>{element.mainCategory}</Dropdown.Item>
                                 )
                             })}
                         </Dropdown.Menu>
