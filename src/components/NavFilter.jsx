@@ -68,46 +68,17 @@ const NavFilter = () => {
         }
     }
 
-    // const getByBrand = async (brand) => { // mergo to main filter function
-    //     try {
-    //         const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?brand=${brand}`);
-    //         const data = await response.json();
-    //         if (data.length > 0) {
-    //             dispatch(addItems(data));
-    //             toggleIsOnCategory(true)
-    //         }
-    //         else notifyNotFound()
-
-    //     } catch (error) {
-    //         console.log(error)
-    //     }
-    // }
-
-    const handleChange = async e => {
-        try {
-
-            // dispatch(changeCurrentFilters()) the filter here
-
-            // console.log("b", brandId);
-            // console.log("id: ", e.target.value)
-            // setBrandId(e.target.value);
-            // setSelectedBrand(e.target.value)
-            // console.log("state: ", brandId);
-            // console.log("state: ", selectedBrand);
-            /*setSelectedBrand(e.target);*/
-            // await getFilteredItems()
-
-        } catch (error) {
-            console.log(error)
-        }
-
-    }
 
     let filterQuery
-    const getFilteredItems = async () => {
+    // if filter query is empty then push without &, else push with it 
+
+    const getFilteredItems = async (e) => {
+        e.preventDefault()
         try {
             const response = await fetch(`${process.env.React_APP_SERVER}` ||
-                `${process.env.React_APP_LOCAL_SERVER}items?price>${minPrice}&price<${maxPrice}&sort=${sorting}&title=/^${searchInput}/i&brand=${brandId}`);
+                `${process.env.React_APP_LOCAL_SERVER}items?${filterQuery}`);
+            // ${filterQuery}
+            // price>${minPrice}&price<${maxPrice}&sort=${sorting}&title=/^${searchInput}/i&brand=${brandId}
 
             if (response.ok) {
                 const data = await response.json();
@@ -156,17 +127,17 @@ const NavFilter = () => {
 
                 <Row>
                     <Navbar className="d-flex justify-content-between w-100">
-                        {/*PRICE SORTING */}
-                        <Nav>
-                            <NavDropdown title="Price sorting" id="basic-nav-dropdown">
-                                <NavDropdown.Item onChange={(e) => { setSorting("price"); getFilteredItems(e) }}>Asc</NavDropdown.Item>
-                                <NavDropdown.Item onChange={(e) => { setSorting("-price"); getFilteredItems(e) }}>Desc</NavDropdown.Item>
-                            </NavDropdown>
-                        </Nav>
-
-                        {/* BY PRICE RANGE */}
                         <Form onSubmit={(e) => getFilteredItems(e)}>
+                            {/*PRICE SORTING */}
+                            <Nav>
+                                <NavDropdown title="Price sorting" id="basic-nav-dropdown">
+                                    <NavDropdown.Item onSelect={(e) => { setSorting("price") }}>Asc</NavDropdown.Item>
+                                    <NavDropdown.Item onSelect={(e) => { setSorting("-price") }}>Desc</NavDropdown.Item>
+                                </NavDropdown>
+                            </Nav>
                             <Row>
+
+                                {/* BY PRICE RANGE */}
                                 <Form.Group >
                                     <Form.Label>From </Form.Label>
                                     <Form.Control type="number" value={minPrice} min="0" max="1000" onChange={(e) => setMinPrice(e.target.value)} />
@@ -177,27 +148,21 @@ const NavFilter = () => {
                                 </Form.Group>
                             </Row>
                             <Button type="submit" className="d-flex ">Filter </Button>
-                            <Form.Group>
-                                <Form.Label>adasdas</Form.Label>
-                                <Form.Control as="select" onChange={handleChange}>{
-                                    brands.map(b => <option value={b._id}>{b.brands}</option>)
-                                }</Form.Control>
-                            </Form.Group>
+
+                            {/* BY BRAND*/}
+                            <Dropdown >
+                                <Dropdown.Toggle variant="warning">{selectedBrand || "Choose Brand"}</Dropdown.Toggle>
+
+                                <Dropdown.Menu>
+                                    {brands.map((element) => {
+                                        return (
+                                            <Dropdown.Item key={element._id} value={element._id} onClick={() => { setSelectedBrand(element.brands); setBrandId(element._id) }} >{element.brands}</Dropdown.Item>
+                                        )
+                                    })}
+                                </Dropdown.Menu>
+                            </Dropdown>
                         </Form>
 
-                        {/* BY BRAND*/}
-
-                        {/* <Dropdown >
-                            <Dropdown.Toggle variant="warning">{selectedBrand || "Choose Brand"}</Dropdown.Toggle>
-
-                            <Dropdown.Menu>
-                                {brands.map((element) => {
-                                    return (
-                                        <Dropdown.Item key={element._id} value={element._id} onClick={handleChange} >{element.brands}</Dropdown.Item>
-                                    )
-                                })}
-                            </Dropdown.Menu>
-                        </Dropdown> */}
                     </Navbar>
                 </Row>
             </Container>
