@@ -25,6 +25,8 @@ const BackOficceNewItem = () => {
     const [newCategoryInput, setNewCategoryInput] = useState("")
     const [newMainCategoryInput, setNewMainCategoryInput] = useState("")
     const [mcatForCatCreation, setMcatForCatCreation] = useState({})
+    const [newCategoryId, setNewCategoryId] = useState({})
+
 
     const [selectedBrand, setSelectedBrand] = useState("")
     const [selectedCategory, setSelectedCategory] = useState("")
@@ -200,13 +202,12 @@ const BackOficceNewItem = () => {
         }
     }
 
+
     const createNewCategory = async (e) => {
         e.preventDefault()
         const categoryBody = {
             categories: newCategoryInput,
         }
-
-
 
         try {
             const res = await fetch(
@@ -221,24 +222,29 @@ const BackOficceNewItem = () => {
             );
 
             if (res.status === 201) {
+                const data = await res.json();
+                setNewCategoryId(data)
                 getCategories()
                 setNewCategoryInput("")
             }
 
-            const mCatToModify = {
-                mainCategory: mcatForCatCreation
+            const catToAdd = {
+                categories: newCategoryId
             }
+            // categories: `ObjectId('${newCategoryId}')`
+            console.log(newCategoryId)
 
             const response = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}mainCategories/${mcatId}edit`,
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}mainCategories/addCat/${mcatForCatCreation._id}`,
                 {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify(mCatToModify)
+                    body: JSON.stringify(catToAdd)
                 }
             );
+
 
         } catch (error) {
             console.log(error)
@@ -305,17 +311,9 @@ const BackOficceNewItem = () => {
                 {/* Create a new category */}
                 <Form onSubmit={(e) => createNewCategory(e)}>
                     <Form.Control type="text" placeholder="New category" value={newCategoryInput} onChange={(e) => setNewCategoryInput(e.target.value)} />
-                    <Button type="submit"> Submit </Button>
-                </Form>
-                {/* Create a new main category */}
-                <Form onSubmit={(e) => createNewMainCategory(e)}>
-                    <Form.Control type="text" placeholder="New main category" value={newMainCategoryInput} onChange={(e) => setNewMainCategoryInput(e.target.value)} />
-
-                    {/* crear un nuevo state para la MC selecionada,pero pasa el objeto entero,para el fecth usa _id y para display usa el nombre
-                        hacer 1 post para crear la category y 1 put para agregar la category a la MC selecionada */}
-
+                    {/* disabled={!mcatForCatCreation} */}
                     <Dropdown>
-                        <Dropdown.Toggle variant="success">{mcatForCatCreation.mainCategory || "Choose Main category first"}</Dropdown.Toggle>
+                        <Dropdown.Toggle variant="success">{mcatForCatCreation.mainCategory || "Choose Main category"}</Dropdown.Toggle>
                         <Dropdown.Menu>
                             {mainCategories.map((element) => {
                                 return (
@@ -324,7 +322,12 @@ const BackOficceNewItem = () => {
                             })}
                         </Dropdown.Menu>
                     </Dropdown>
+                    <Button type="submit"> Submit </Button>
+                </Form>
 
+                {/* Create a new main category */}
+                <Form onSubmit={(e) => createNewMainCategory(e)}>
+                    <Form.Control type="text" placeholder="New main category" value={newMainCategoryInput} onChange={(e) => setNewMainCategoryInput(e.target.value)} />
 
 
                     <Button type="submit"> Submit </Button>
