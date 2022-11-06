@@ -59,6 +59,16 @@ const BackOficceNewItem = () => {
         progress: undefined,
         theme: "dark",
     });
+    const notifyOk = (message) => toast.success(message, {
+        position: "top-center",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+    });
 
 
     const getBrands = async () => {
@@ -221,29 +231,29 @@ const BackOficceNewItem = () => {
                 }
             );
 
-            if (res.status === 201) {
+            if (res.ok) {
                 const data = await res.json();
                 setNewCategoryId(data)
                 getCategories()
                 setNewCategoryInput("")
-            }
+                setMcatForCatCreation("")
 
-            const catToAdd = {
-                categories: newCategoryId
-            }
-            // categories: `ObjectId('${newCategoryId}')`
-            console.log(newCategoryId)
-
-            const response = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}mainCategories/addCat/${mcatForCatCreation._id}`,
-                {
-                    method: "PUT",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(catToAdd)
+                const catToAdd = {
+                    categories: newCategoryId
                 }
-            );
+
+                const response = await fetch(
+                    `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}mainCategories/addCat/${mcatForCatCreation._id}`,
+                    {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(catToAdd)
+                    }
+                );
+                if (response.ok) notifyOk("Category created successfully")
+            }
 
 
         } catch (error) {
