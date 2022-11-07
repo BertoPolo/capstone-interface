@@ -39,7 +39,6 @@ function CategoriesMenu() {
 
       if (data) dispatch(addCategories(data));
       else notifyNotFound()
-      // console.log("cat:", data)
 
     } catch (error) {
       console.log(error)
@@ -105,6 +104,9 @@ function CategoriesMenu() {
 
         {mainCategories.map((mainElement) => {
           // console.log(mainElement.categories[0].categories)
+          // console.log(mainElement)
+          // console.log(mainCategories)
+          // console.log(categories)
 
           return (
 
@@ -114,15 +116,20 @@ function CategoriesMenu() {
                   {mainElement.mainCategory}
                 </Accordion.Toggle>
               </Card.Header>
-              {/* repeat */}
-              <Accordion.Collapse eventKey={mainElement._id} >
 
-                <Card.Body  >
-                  <p className="pointer" onClick={() => getByCategory(mainElement._id)}>{mainElement.categories.categories}</p>
+              {categories.map(element => {
+                // console.log(element._id)
+                if (mainElement.categories._id === element._id) {
+                  return (
+                    <Accordion.Collapse eventKey={element._id}>
+                      <Card.Body  >
+                        <p className="pointer" onClick={() => getByCategory(element._id)}>{element._categories}</p>
 
-                </Card.Body>
-              </Accordion.Collapse>
-              {/*  */}
+                      </Card.Body>
+                    </Accordion.Collapse>
+                  )
+                }
+              })}
 
             </Card>
 

@@ -252,7 +252,6 @@ const BackOficceNewItem = () => {
                     notifyOk("Category created successfully")
                     setNewCategoryInput("")
                     setMcatForCatCreation("")
-
                 }
             }
 
