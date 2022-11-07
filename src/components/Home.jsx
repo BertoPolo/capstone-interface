@@ -55,24 +55,24 @@ const Home = () => {
         {!isOnSingleItem && <div>
           <Carousel className="mt-3">
             <Carousel.Item>
-              <img className="d-block m-auto carouselImg" src="../../../oilPack.jpg" alt="First slide" />
+              <img className="d-block m-auto carouselImg" src="https://images.unsplash.com/photo-1590227763209-821c686b932f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="First slide" />
               <Carousel.Caption>
-                <h3>Oil Pack Offer</h3>
-                <p>lalala</p>
+                <h2 className="">Oil Pack Offer</h2 >
+                <p>from 50€ </p>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-              <img className="d-block m-auto carouselImg" src="../../../shipping.jpg" alt="Second slide" />
+              <img className="d-block m-auto carouselImg " src="https://images.unsplash.com/photo-1558981420-87aa9dad1c89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="Second slide" />
 
               <Carousel.Caption>
-                <h3>National shipping for just 7€ !!</h3>
+                <h2 className="">National shipping for just 7€ !!</h2 >
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-              <img className="d-block m-auto carouselImg" src="../../../ask us.jpg" alt="Third slide" />
+              <img className="d-block m-auto carouselImg" src="https://plus.unsplash.com/premium_photo-1658527008322-919cc69c5931?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="Third slide" />
 
               <Carousel.Caption>
-                <h3>Send us a message!</h3>
+                <h2 className="">Send us a message!</h2 >
                 <p>8.00 to 13.00 / 15.30 to 20.00 Mon-Fri</p>
               </Carousel.Caption>
             </Carousel.Item>

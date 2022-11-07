@@ -74,8 +74,10 @@ body {
 /* carousel start*/
 
 .carouselImg {
-  width: 700px;
-  height: 400px;
+  /* width: 700px;
+  height: 400px; */
+  object-fit: cover;
+  overflow: hidden;
 }
 /* carousel end*/
 

@@ -8,9 +8,6 @@ import { addBrands } from "../slices/brands/brandsSlice"
 // import { toggleIsOnCategory, toggleIsOnBrands } from "../slices/sheets/sheetsSlice"
 
 
-
-
-
 const NavFilter = () => {
     const [searchInput, setSearchinput] = useState("")
     const [minPrice, setMinPrice] = useState(0)
@@ -22,8 +19,6 @@ const NavFilter = () => {
     // const [mainCategory, setMainCategory] = useState("")
 
 
-
-
     const brands = useSelector((state) => state.brandsSlice.brands);
     const items = useSelector((state) => state.itemsSlice.items);
     const currentFilters = useSelector((state) => state.itemsSlice.currentFilters)
@@ -31,7 +26,10 @@ const NavFilter = () => {
     const dispatch = useDispatch()
 
     const resetStates = () => {
-        setSearchinput(""); setMaxPrice(1000); setMinPrice(0); setSorting("")
+        setSearchinput("")
+        setMaxPrice(1000)
+        setMinPrice(0)
+        setSorting("")
     }
 
     const notifyNotFound = () => toast.warn(`OOPS! looks like we don't anything there`, {
@@ -126,9 +124,9 @@ const NavFilter = () => {
                 </Row>
             </Container>
 
-            <Container>
+            <Container className="mt-3">
                 <Row>
-                    <Form className="d-flex justify-content-between w-100 " onSubmit={(e) => getFilteredItems(e)}>
+                    <Form className="d-flex justify-content-between w-100 align-items-center" onSubmit={(e) => getFilteredItems(e)}>
                         {/*PRICE SORTING */}
                         <Dropdown >
                             <Dropdown.Toggle variant="warning">{selectedBrand || "Choose sorting"}</Dropdown.Toggle>
@@ -136,24 +134,7 @@ const NavFilter = () => {
                                 <Dropdown.Item onSelect={() => { setSorting("price") }}>Price ascendant</Dropdown.Item>
                                 <Dropdown.Item onSelect={() => { setSorting("-price") }}>Price descendant</Dropdown.Item>
                             </Dropdown.Menu>
-
                         </Dropdown>
-
-                        {/* <Row> */}
-
-                        {/* BY PRICE RANGE */}
-                        {/* <div className="d-flex"> */}
-                        <Form.Group >
-                            <Form.Label>From </Form.Label>
-                            <Form.Control type="number" value={minPrice} min="0" max="1000" onChange={(e) => setMinPrice(e.target.value)} />
-                        </Form.Group>
-                        <Form.Group >
-                            <Form.Label>To </Form.Label>
-                            <Form.Control type="number" value={maxPrice} min="0" max="1000" onChange={(e) => setMaxPrice(e.target.value)} />
-                        </Form.Group>
-                        {/* </Row> */}
-                        <Button type="submit" className="d-flex ">Filter </Button>
-                        {/* </div> */}
 
                         {/* BY BRAND*/}
                         <Dropdown >
@@ -167,6 +148,19 @@ const NavFilter = () => {
                                 })}
                             </Dropdown.Menu>
                         </Dropdown>
+
+                        {/* BY PRICE RANGE */}
+                        <Form.Group >
+                            <span>From </span>
+                            <Form.Control type="number" value={minPrice} min="0" max="1000" onChange={(e) => setMinPrice(e.target.value)} />
+                        </Form.Group>
+                        <Form.Group >
+                            <span>To </span>
+                            <Form.Control type="number" value={maxPrice} min="0" max="1000" onChange={(e) => setMaxPrice(e.target.value)} />
+                        </Form.Group>
+                        <Button type="submit" className="d-flex ">Enter Filters </Button>
+
+
                     </Form>
 
                 </Row>
