@@ -26,15 +26,8 @@ const itemsSlice = createSlice({
         selectedItem: action.payload,
       }
     },
-
-    changeCurrentFilters: (state, action) => {
-      return {
-        ...state,
-        currentFilters: action.payload,
-      }
-    },
   },
 })
 
 export default itemsSlice.reducer
-export const { addItems, changeSelectedItem, changeCurrentFilters } = itemsSlice.actions
+export const { addItems, changeSelectedItem } = itemsSlice.actions

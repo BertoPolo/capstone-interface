@@ -1,11 +1,11 @@
-import { Dropdown, Navbar, Nav, NavDropdown, Button, Form, FormControl, Container, Row } from "react-bootstrap"
+import { Dropdown, Button, Form, FormControl, Container, Row } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
-import { addItems, changeCurrentFilters } from "../slices/items/itemsSlice"
+import { addItems } from "../slices/items/itemsSlice"
 import { addBrands } from "../slices/brands/brandsSlice"
-import { toggleIsOnCategory, toggleIsOnBrands } from "../slices/sheets/sheetsSlice"
+// import { toggleIsOnCategory, toggleIsOnBrands } from "../slices/sheets/sheetsSlice"
 
 
 
@@ -69,7 +69,7 @@ const NavFilter = () => {
     }
 
 
-    let filterQuery
+    // let filterQuery
     // if filter query is empty then push without &, else push with it 
 
     const getFilteredItems = async (e) => {
