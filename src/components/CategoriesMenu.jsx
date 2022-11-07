@@ -117,19 +117,14 @@ function CategoriesMenu() {
                 </Accordion.Toggle>
               </Card.Header>
 
-              {categories.map(element => {
-                // console.log(element._id)
-                if (mainElement.categories._id === element._id) {
-                  return (
-                    <Accordion.Collapse eventKey={element._id}>
-                      <Card.Body  >
-                        <p className="pointer" onClick={() => getByCategory(element._id)}>{element._categories}</p>
 
-                      </Card.Body>
-                    </Accordion.Collapse>
-                  )
-                }
-              })}
+              <Accordion.Collapse eventKey={mainElement.categories._id}>
+                <Card.Body  >
+                  {(mainElement.categories.categories) !== undefined && <p className="pointer" onClick={() => getByCategory(mainElement.categories._id)}>{mainElement.categories.categories}</p>}
+
+                </Card.Body>
+              </Accordion.Collapse>
+
 
             </Card>
 

@@ -124,47 +124,49 @@ const NavFilter = () => {
                         <Button variant="outline-dark" className="pointer ml-3" onClick={() => { getItems(); resetStates() }}>Clean filters</Button>
                     </Form>
                 </Row>
+            </Container>
+            <Container>
 
-                <Row>
-                    <Navbar className="d-flex justify-content-between w-100">
-                        <Form onSubmit={(e) => getFilteredItems(e)}>
-                            {/*PRICE SORTING */}
-                            <Nav>
-                                <NavDropdown title="Price sorting" id="basic-nav-dropdown">
-                                    <NavDropdown.Item onSelect={(e) => { setSorting("price") }}>Asc</NavDropdown.Item>
-                                    <NavDropdown.Item onSelect={(e) => { setSorting("-price") }}>Desc</NavDropdown.Item>
-                                </NavDropdown>
-                            </Nav>
-                            <Row>
+                {/* <Row> */}
+                <Navbar className="d-flex justify-content-between w-100">
+                    <Form onSubmit={(e) => getFilteredItems(e)}>
+                        {/*PRICE SORTING */}
+                        <Nav>
+                            <NavDropdown title="Price sorting" id="basic-nav-dropdown">
+                                <NavDropdown.Item onSelect={() => { setSorting("price") }}>Ascendant</NavDropdown.Item>
+                                <NavDropdown.Item onSelect={() => { setSorting("-price") }}>Descendant</NavDropdown.Item>
+                            </NavDropdown>
+                        </Nav>
+                        {/* <Row> */}
 
-                                {/* BY PRICE RANGE */}
-                                <Form.Group >
-                                    <Form.Label>From </Form.Label>
-                                    <Form.Control type="number" value={minPrice} min="0" max="1000" onChange={(e) => setMinPrice(e.target.value)} />
-                                </Form.Group>
-                                <Form.Group >
-                                    <Form.Label>To </Form.Label>
-                                    <Form.Control type="number" value={maxPrice} min="0" max="1000" onChange={(e) => setMaxPrice(e.target.value)} />
-                                </Form.Group>
-                            </Row>
-                            <Button type="submit" className="d-flex ">Filter </Button>
+                        {/* BY PRICE RANGE */}
+                        <Form.Group >
+                            <Form.Label>From </Form.Label>
+                            <Form.Control type="number" value={minPrice} min="0" max="1000" onChange={(e) => setMinPrice(e.target.value)} />
+                        </Form.Group>
+                        <Form.Group >
+                            <Form.Label>To </Form.Label>
+                            <Form.Control type="number" value={maxPrice} min="0" max="1000" onChange={(e) => setMaxPrice(e.target.value)} />
+                        </Form.Group>
+                        {/* </Row> */}
+                        <Button type="submit" className="d-flex ">Filter </Button>
 
-                            {/* BY BRAND*/}
-                            <Dropdown >
-                                <Dropdown.Toggle variant="warning">{selectedBrand || "Choose Brand"}</Dropdown.Toggle>
+                        {/* BY BRAND*/}
+                        <Dropdown >
+                            <Dropdown.Toggle variant="warning">{selectedBrand || "Choose Brand"}</Dropdown.Toggle>
 
-                                <Dropdown.Menu>
-                                    {brands.map((element) => {
-                                        return (
-                                            <Dropdown.Item key={element._id} value={element._id} onClick={() => { setSelectedBrand(element.brands); setBrandId(element._id) }} >{element.brands}</Dropdown.Item>
-                                        )
-                                    })}
-                                </Dropdown.Menu>
-                            </Dropdown>
-                        </Form>
+                            <Dropdown.Menu>
+                                {brands.map((element) => {
+                                    return (
+                                        <Dropdown.Item key={element._id} value={element._id} onClick={() => { setSelectedBrand(element.brands); setBrandId(element._id) }} >{element.brands}</Dropdown.Item>
+                                    )
+                                })}
+                            </Dropdown.Menu>
+                        </Dropdown>
+                    </Form>
 
-                    </Navbar>
-                </Row>
+                </Navbar>
+                {/* </Row> */}
             </Container>
 
 
