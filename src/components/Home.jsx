@@ -109,7 +109,7 @@ const Home = () => {
               </Row>}
 
               {/* OUTLET */}
-              {isOnOutlet && <Outlet />}
+              {isOnOutlet && <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-5"><Outlet /></Row>}
 
               {/* CONTACT US */}
               {isOnCountactUs && <ContactUs />}

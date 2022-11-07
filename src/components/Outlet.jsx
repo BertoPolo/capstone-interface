@@ -13,21 +13,15 @@ const Outlet = () => {
   return (
     <>
 
-      <Col xs={10}>
-        <Col>
-          <Row>
-            {/* map items. filter by Outlet*/}
-            {items.filter((item) => item.isOutlet === true).map((element) => {
-              return (
-                <Col key={element._id}>
-                  <HomeItem currentItem={element} />
-                </Col>
-              )
-            })}
+      {/* map items. filter by Outlet*/}
+      {items.filter((item) => item.isOutlet === true).map((element) => {
+        return (
+          <Col key={element._id}>
+            <HomeItem currentItem={element} />
+          </Col>
+        )
+      })}
 
-          </Row>
-        </Col>
-      </Col>
     </>
   )
 }
