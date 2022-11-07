@@ -1,4 +1,4 @@
-import { Button } from "react-bootstrap"
+import { Button, Container, Row, Col } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
 import { addToCart } from "../slices/cart/cartSlice"
 // import { useNavigate } from "react-router-dom"
@@ -24,19 +24,24 @@ const SingleItem = () => {
 
   return (
     <>
-      <h2>{selectedItem.title}</h2>
-      <img src={selectedItem.image} alt={selectedItem.title} />
-      <p>{selectedItem.fullDescription}</p>
-      {isOnOutlet ? <h3>{selectedItem.price}€</h3> : <h3>{selectedItem.outletPrice}</h3>}
+      <Container>
+        <Row>
+          <Col >
+            <img src={selectedItem.image} alt={selectedItem.title} />
+            {/* style={{ objectFit: "cover", overflow: "hidden" }} */}
+          </Col>
+          <Col>
 
-      <div>
+            <h2>{selectedItem.title}</h2>
+            <p>{selectedItem.fullDescription}</p>
+            {isOnOutlet ? <h3>{selectedItem.outletPrice}€</h3> : <h3>{selectedItem.price}€</h3>}
 
-        {/* <label htmlFor="amount">Amount</label> */}
-        {/* <input type="number" name="amount" placeholder="1" /> */}
-        <Button onClick={() => dispatch(addToCart(selectedItem))} ><i className="bi bi-cart-fill"  ></i>Add to cart</Button>
-        <Button variant="danger" onClick={changeSingleItemToHome}>Back</Button>
+            <Button onClick={() => dispatch(addToCart(selectedItem))} ><i className="bi bi-cart-fill"  ></i>Add to cart</Button>
+            <Button variant="danger" onClick={changeSingleItemToHome}>Back home</Button>
 
-      </div>
+          </Col>
+        </Row>
+      </Container>
 
     </>
   )
