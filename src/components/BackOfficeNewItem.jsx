@@ -25,7 +25,6 @@ const BackOficceNewItem = () => {
     const [newCategoryInput, setNewCategoryInput] = useState("")
     const [newMainCategoryInput, setNewMainCategoryInput] = useState("")
     const [mcatForCatCreation, setMcatForCatCreation] = useState({})
-    const [newCategoryId, setNewCategoryId] = useState({})
 
 
     const [selectedBrand, setSelectedBrand] = useState("")
@@ -233,13 +232,10 @@ const BackOficceNewItem = () => {
 
             if (res.ok) {
                 const data = await res.json();
-                setNewCategoryId(data)
                 getCategories()
-                setNewCategoryInput("")
-                setMcatForCatCreation("")
 
                 const catToAdd = {
-                    categories: newCategoryId
+                    categories: data
                 }
 
                 const response = await fetch(
@@ -252,7 +248,12 @@ const BackOficceNewItem = () => {
                         body: JSON.stringify(catToAdd)
                     }
                 );
-                if (response.ok) notifyOk("Category created successfully")
+                if (response.ok) {
+                    notifyOk("Category created successfully")
+                    setNewCategoryInput("")
+                    setMcatForCatCreation("")
+
+                }
             }
 
 
