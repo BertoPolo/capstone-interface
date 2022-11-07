@@ -125,21 +125,24 @@ const NavFilter = () => {
                     </Form>
                 </Row>
             </Container>
-            <Container>
 
-                {/* <Row> */}
-                <Navbar className="d-flex justify-content-between w-100">
-                    <Form onSubmit={(e) => getFilteredItems(e)}>
+            <Container>
+                <Row>
+                    <Form className="d-flex justify-content-between w-100 " onSubmit={(e) => getFilteredItems(e)}>
                         {/*PRICE SORTING */}
-                        <Nav>
-                            <NavDropdown title="Price sorting" id="basic-nav-dropdown">
-                                <NavDropdown.Item onSelect={() => { setSorting("price") }}>Ascendant</NavDropdown.Item>
-                                <NavDropdown.Item onSelect={() => { setSorting("-price") }}>Descendant</NavDropdown.Item>
-                            </NavDropdown>
-                        </Nav>
+                        <Dropdown >
+                            <Dropdown.Toggle variant="warning">{selectedBrand || "Choose sorting"}</Dropdown.Toggle>
+                            <Dropdown.Menu title="Price sorting" id="basic-nav-dropdown">
+                                <Dropdown.Item onSelect={() => { setSorting("price") }}>Price ascendant</Dropdown.Item>
+                                <Dropdown.Item onSelect={() => { setSorting("-price") }}>Price descendant</Dropdown.Item>
+                            </Dropdown.Menu>
+
+                        </Dropdown>
+
                         {/* <Row> */}
 
                         {/* BY PRICE RANGE */}
+                        {/* <div className="d-flex"> */}
                         <Form.Group >
                             <Form.Label>From </Form.Label>
                             <Form.Control type="number" value={minPrice} min="0" max="1000" onChange={(e) => setMinPrice(e.target.value)} />
@@ -150,6 +153,7 @@ const NavFilter = () => {
                         </Form.Group>
                         {/* </Row> */}
                         <Button type="submit" className="d-flex ">Filter </Button>
+                        {/* </div> */}
 
                         {/* BY BRAND*/}
                         <Dropdown >
@@ -165,8 +169,7 @@ const NavFilter = () => {
                         </Dropdown>
                     </Form>
 
-                </Navbar>
-                {/* </Row> */}
+                </Row>
             </Container>
 
 
