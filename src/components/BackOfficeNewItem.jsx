@@ -12,9 +12,10 @@ import { addMainCategories } from "../slices/mainCategories/mainCategoriesSlice"
 const BackOficceNewItem = () => {
 
     const [name, setName] = useState("")
-    const [price, setPrice] = useState(0)
+    const [price, setPrice] = useState(0.00)
     const [image, setImage] = useState(null)
     const [mainCategory, setMainCategory] = useState("")
+    const [outletPrice, setOutletPrice] = useState(0.00)
     const [category, setCategory] = useState("")
     const [brand, setBrand] = useState("")
     const [shortDescription, setShortDescription] = useState("")
@@ -111,7 +112,7 @@ const BackOficceNewItem = () => {
             price: price,
             brand: brand,
             mainCategory: mainCategory,
-
+            outletPrice: outletPrice,
             isOutlet: isItOutlet,
             description: shortDescription,
             fullDescription: fullDescription
@@ -138,6 +139,8 @@ const BackOficceNewItem = () => {
                 setMainCategory("")
                 setCategory("")
                 setBrand("")
+                setIsItOutlet(false)
+                setOutletPrice(0)
                 setShortDescription("")
                 setFullDescription("")
                 setSelectedBrand("")
@@ -364,6 +367,8 @@ const BackOficceNewItem = () => {
                     <Form.Control type="textarea" rows={2} value={shortDescription} onChange={(e) => setShortDescription(e.target.value)} />
                     <Form.Label>Full Description</Form.Label>
                     <Form.Control as="textarea" rows={3} value={fullDescription} onChange={(e) => setFullDescription(e.target.value)} />
+                    <Form.Label>Outlet Price</Form.Label>
+                    <Form.Control as="text" value={outletPrice} onChange={(e) => setOutletPrice(e.target.value)} />
                     <Form.Check type="checkbox" label="Outlet" value={isItOutlet} onChange={(e) => setIsItOutlet(!isItOutlet)} />
 
                 </Form.Group>
