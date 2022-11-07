@@ -90,22 +90,21 @@ function CategoriesMenu() {
 
   useEffect(() => {
     getMainCategories()
-    getCategories()
+    // getCategories()
   }, [])
 
+  console.log(mainCategories)
 
+  // const cats = mainCategories.categories
   return (
     <>
 
       <h4>CATEGORIES</h4>
       <Accordion>
 
-
-
         {mainCategories.map((mainElement) => {
           // console.log(mainElement.categories[0].categories)
           // console.log(mainElement)
-          // console.log(mainCategories)
           // console.log(categories)
 
           return (
@@ -118,12 +117,19 @@ function CategoriesMenu() {
               </Card.Header>
 
 
-              <Accordion.Collapse eventKey={mainElement.categories._id}>
-                <Card.Body  >
-                  {(mainElement.categories.categories) !== undefined && <p className="pointer" onClick={() => getByCategory(mainElement.categories._id)}>{mainElement.categories.categories}</p>}
+              {/* {
+                (mainCategories.categories).map((cat) => {
+                  return (
 
-                </Card.Body>
-              </Accordion.Collapse>
+                    <Accordion.Collapse key={cat._id} eventKey={cat._id}>
+                      <Card.Body  >
+                        <p className="pointer" >{cat._id}</p>
+
+                      </Card.Body>
+                    </Accordion.Collapse>
+
+                  )
+                })} */}
 
 
             </Card>
