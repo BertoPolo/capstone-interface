@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import MultiRangeSlider from "multi-range-slider-react";
 import { addItems } from "../slices/items/itemsSlice"
 import { addBrands } from "../slices/brands/brandsSlice"
 // import { toggleIsOnCategory, toggleIsOnBrands } from "../slices/sheets/sheetsSlice"
@@ -16,8 +17,8 @@ const NavFilter = () => {
     const [brandId, setBrandId] = useState("")
     const [selectedBrand, setSelectedBrand] = useState("")
     const [selectSorting, setSelectSorting] = useState("")
-    // const [category, setCategory] = useState("")
-    // const [mainCategory, setMainCategory] = useState("")
+    const [minValue, set_minValue] = useState(25);
+    const [maxValue, set_maxValue] = useState(75);
 
 
     const brands = useSelector((state) => state.brandsSlice.brands);
@@ -25,6 +26,12 @@ const NavFilter = () => {
     const currentFilters = useSelector((state) => state.itemsSlice.currentFilters)
 
     const dispatch = useDispatch()
+
+
+    const handleInput = (e) => {
+        setMinPrice(e.minValue);
+        setMaxPrice(e.maxValue);
+    }
 
     const resetStates = () => {
         setSearchinput("")
@@ -151,14 +158,25 @@ const NavFilter = () => {
                         </Dropdown>
 
                         {/* BY PRICE RANGE */}
-                        <Form.Group >
+                        {/* <Form.Group >
                             <span>From </span>
                             <Form.Control type="number" value={minPrice} min="0" max="1000" onChange={(e) => setMinPrice(e.target.value)} />
                         </Form.Group>
                         <Form.Group >
                             <span>To </span>
                             <Form.Control type="number" value={maxPrice} min="0" max="1000" onChange={(e) => setMaxPrice(e.target.value)} />
-                        </Form.Group>
+                        </Form.Group> */}
+                        <MultiRangeSlider
+                            min={0}
+                            max={500}
+                            step={20}
+                            minValue={minPrice}
+                            maxValue={maxPrice}
+                            style={{ width: '20%' }}
+                            onInput={(e) => {
+                                handleInput(e);
+                            }}
+                        />
                         <Button type="submit" className="d-flex ">Enter Filters </Button>
 
 
