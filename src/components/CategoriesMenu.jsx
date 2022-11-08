@@ -64,10 +64,12 @@ function CategoriesMenu() {
 
   const getByCategory = async (category) => {
     try {
-      const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?categories=${category}`);
+
+      const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?categories.categories=${category}`);
       const data = await response.json();
-      if (data.length > 0) {
-        dispatch(addItems(data));
+      if (data) {
+        console.log(data)
+        dispatch(addItems(data))
         toggleIsOnCategory(true)
       }
       else notifyNotFound()
