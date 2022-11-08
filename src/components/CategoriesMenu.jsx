@@ -93,7 +93,7 @@ function CategoriesMenu() {
     // getCategories()
   }, [])
 
-  console.log(mainCategories)
+  // console.log(mainCategories)
 
   // const cats = mainCategories.categories
   return (

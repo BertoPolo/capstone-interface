@@ -77,10 +77,10 @@ const HomeItem = ({ currentItem }) => {
           onClick={() => changeHomeToSingleItem()}
         />
         <Card.Body>
-          <Card.Title className="pointer" onClick={() => changeHomeToSingleItem()} >
+          <Card.Title className="pointer twoLines" onClick={() => changeHomeToSingleItem()} >
             {currentItem.title}
           </Card.Title>
-          <Card.Text>{currentItem.description}</Card.Text>
+          <Card.Text className="line-clamp">{currentItem.description}</Card.Text>
 
           <div className="d-flex justify-content-between">
             {isOnOutlet ? <Card.Title className="d-inline "> <b>{currentItem.outletPrice} €</b> <s>{currentItem.price}€</s> </Card.Title> : <Card.Title className="d-inline ">{currentItem.price}€ </Card.Title>}
