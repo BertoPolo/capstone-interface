@@ -106,6 +106,7 @@ function CategoriesMenu() {
           // console.log(mainElement.categories[0].categories)
           // console.log(mainElement)
           // console.log(categories)
+          console.log(mainCategories)
 
           return (
 
@@ -115,11 +116,22 @@ function CategoriesMenu() {
                   {mainElement.mainCategory}
                 </Accordion.Toggle>
               </Card.Header>
-
-
+              <Accordion.Collapse eventKey={mainElement._id}>
+                <Card.Body>
+                  {<>
+                    {mainElement.categories.map(category => <p className="pointer" >{category.categories}</p>)}
+                    {/* <p className="pointer" >{mainElement.mainCategory}</p>
+                    <p className="pointer" >{mainElement.mainCategory}</p> */}
+                  </>}
+                  {/* <p className="pointer" onClick={() => getByCategory("Front Lights")}>Front Lights</p>
+                  <p className="pointer" onClick={() => getByCategory("Rear Lights")}>Rear Lights</p>
+                  <p className="pointer" onClick={() => getByCategory("Signal Lights")}>Signal Lights</p> */}
+                </Card.Body>
+              </Accordion.Collapse>
               {/* {
-                (mainCategories.categories).map((cat) => {
+                mainCategories.categories && mainCategories.categories.length > 0 && (mainCategories.categories).map((cat) => {
                   return (
+
 
                     <Accordion.Collapse key={cat._id} eventKey={cat._id}>
                       <Card.Body  >
@@ -130,10 +142,7 @@ function CategoriesMenu() {
 
                   )
                 })} */}
-
-
             </Card>
-
           )
         })}
 
