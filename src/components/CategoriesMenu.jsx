@@ -64,7 +64,7 @@ function CategoriesMenu() {
 
   const getByCategory = async (category) => {
     try {
-      const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?category=${category}`);
+      const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?categories=${category}`);
       const data = await response.json();
       if (data.length > 0) {
         dispatch(addItems(data));
@@ -101,7 +101,7 @@ function CategoriesMenu() {
       <Accordion>
 
         {mainCategories.map((mainElement) => {
-
+          // console.log(mainElement.categories)
           return (
 
             <Card key={mainElement._id}>
@@ -113,7 +113,13 @@ function CategoriesMenu() {
               <Accordion.Collapse eventKey={mainElement._id}>
                 <Card.Body>
                   {<>
-                    {mainElement.categories.map(category => <p className="pointer" >{category.categories}</p>)}
+                    {mainElement.categories.map(category => {
+                      // console.log(category.categories)
+                      return (
+                        <p className="pointer" key={category.categories} onClick={() => getByCategory(category.categories)} >{category.categories}</p>
+                      )
+                    })
+                    }
                   </>}
 
                 </Card.Body>
