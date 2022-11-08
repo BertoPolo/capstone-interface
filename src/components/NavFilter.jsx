@@ -130,7 +130,7 @@ const NavFilter = () => {
                     <Form className="d-flex justify-content-between w-100 align-items-center" onSubmit={(e) => getFilteredItems(e)}>
                         {/*PRICE SORTING */}
                         <Dropdown >
-                            <Dropdown.Toggle variant="warning">{selectSorting || "Choose sorting"}</Dropdown.Toggle>
+                            <Dropdown.Toggle variant="outline">{selectSorting || "Choose sorting"}</Dropdown.Toggle>
                             <Dropdown.Menu title="Price sorting" id="basic-nav-dropdown">
                                 <Dropdown.Item onSelect={() => { setSorting("price"); setSelectSorting("Ascendant") }}>Price ascendant</Dropdown.Item>
                                 <Dropdown.Item onSelect={() => { setSorting("-price"); setSelectSorting("Descendant") }}>Price descendant</Dropdown.Item>
@@ -139,7 +139,7 @@ const NavFilter = () => {
 
                         {/* BY BRAND*/}
                         <Dropdown >
-                            <Dropdown.Toggle variant="warning">{selectedBrand || "Choose Brand"}</Dropdown.Toggle>
+                            <Dropdown.Toggle variant="outline">{selectedBrand || "Choose Brand"}</Dropdown.Toggle>
 
                             <Dropdown.Menu>
                                 {brands.map((element) => {

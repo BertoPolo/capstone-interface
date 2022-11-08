@@ -16,25 +16,9 @@ const BackOffice = () => {
     const { isOnUsers, isOnItems, isOnNewItems } = useSelector((state) => state.sheetsSlice)
 
 
-
-    // search user
-    // delete user => from DB ,in redux: re-fetching is enough
-    // edit user => from DB, in redux: re-fetching is enough
-    //see user's details
-
-    // setTimeout(navigate("/home"), 1500)
-
-
     // const voucherCreatorSubmit = (e) => {
     //     e.preventDefault()
-    //     setTimeout(navigate("/home"),1500)
     // }
-
-
-    // create fetch function tofetch and  fill "foundedUsers" with DB results
-    // create options for item's results - delete, edit =>name etc,set it as outlet
-
-
 
     return (
         <>
