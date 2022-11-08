@@ -93,9 +93,7 @@ function CategoriesMenu() {
     // getCategories()
   }, [])
 
-  // console.log(mainCategories)
 
-  // const cats = mainCategories.categories
   return (
     <>
 
@@ -103,10 +101,6 @@ function CategoriesMenu() {
       <Accordion>
 
         {mainCategories.map((mainElement) => {
-          // console.log(mainElement.categories[0].categories)
-          // console.log(mainElement)
-          // console.log(categories)
-          console.log(mainCategories)
 
           return (
 
@@ -120,136 +114,16 @@ function CategoriesMenu() {
                 <Card.Body>
                   {<>
                     {mainElement.categories.map(category => <p className="pointer" >{category.categories}</p>)}
-                    {/* <p className="pointer" >{mainElement.mainCategory}</p>
-                    <p className="pointer" >{mainElement.mainCategory}</p> */}
                   </>}
-                  {/* <p className="pointer" onClick={() => getByCategory("Front Lights")}>Front Lights</p>
-                  <p className="pointer" onClick={() => getByCategory("Rear Lights")}>Rear Lights</p>
-                  <p className="pointer" onClick={() => getByCategory("Signal Lights")}>Signal Lights</p> */}
+
                 </Card.Body>
               </Accordion.Collapse>
-              {/* {
-                mainCategories.categories && mainCategories.categories.length > 0 && (mainCategories.categories).map((cat) => {
-                  return (
 
-
-                    <Accordion.Collapse key={cat._id} eventKey={cat._id}>
-                      <Card.Body  >
-                        <p className="pointer" >{cat._id}</p>
-
-                      </Card.Body>
-                    </Accordion.Collapse>
-
-                  )
-                })} */}
             </Card>
           )
         })}
 
-        {/* <Card>
-          <Card.Header>
-            <Accordion.Toggle as={Card.Header} eventKey="0" className="pointer" >
-              Lights
-            </Accordion.Toggle>
-          </Card.Header>
-          <Accordion.Collapse eventKey="0">
-            <Card.Body>
-              <p className="pointer" onClick={() => getByCategory("Front Lights")}>Front Lights</p>
-              <p className="pointer" onClick={() => getByCategory("Rear Lights")}>Rear Lights</p>
-              <p className="pointer" onClick={() => getByCategory("Signal Lights")}>Signal Lights</p>
-            </Card.Body>
-          </Accordion.Collapse>
-        </Card>
 
-        <Card>
-          <Card.Header>
-            <Accordion as={Card.Header} className="pointer" >
-              <p className="pointer" onClick={() => getByCategory("Tools")}>Tools</p>
-            </Accordion>
-          </Card.Header>
-          <Accordion.Collapse >
-            <Card.Body></Card.Body>
-          </Accordion.Collapse>
-        </Card>
-
-        <Card>
-          <Card.Header>
-            <Accordion.Toggle as={Card.Header} eventKey="2" className="pointer" >
-              <p className="pointer" onClick={() => getByCategory("Clothes")}>Clothes</p>
-            </Accordion.Toggle>
-          </Card.Header>
-          <Accordion.Collapse eventKey="2">
-            <Card.Body>
-              <p className="pointer" onClick={() => getByCategory("Gloves")}>Gloves</p>
-              <p className="pointer" onClick={() => getByCategory("Hats")}>Hats</p>
-              <p className="pointer" onClick={() => getByCategory("Shirts")}>Shirts</p>
-
-            </Card.Body>
-          </Accordion.Collapse>
-        </Card>
-
-        <Card>
-          <Card.Header>
-            <Accordion.Toggle as={Card.Header} eventKey="3" className="pointer" >
-              On Hands
-            </Accordion.Toggle>
-          </Card.Header>
-          <Accordion.Collapse eventKey="3">
-            <Card.Body>
-              <p className="pointer" onClick={() => getByCategory("Gloves")}>Handlebars</p>
-              <p className="pointer" onClick={() => getByCategory("Risers")}>Risers</p>
-              <p className="pointer" onClick={() => getByCategory("Mirrors")}>Mirrors</p>
-              <p className="pointer" onClick={() => getByCategory("Grips")}>Grips</p>
-
-            </Card.Body>
-          </Accordion.Collapse>
-        </Card>
-
-        <Card>
-          <Card.Header>
-            <Accordion.Toggle as={Card.Header} eventKey="4" className="pointer" >
-              On Feet
-            </Accordion.Toggle>
-
-          </Card.Header>
-          <Accordion.Collapse eventKey="4">
-            <Card.Body>
-              <p className="pointer" onClick={() => getByCategory("Stands")}>Stands</p>
-              <p className="pointer" onClick={() => getByCategory("Footpegs")}>Footpegs</p>
-              <p className="pointer" onClick={() => getByCategory("Mid Controls")}>Mid Controls</p>
-
-            </Card.Body>
-          </Accordion.Collapse>
-        </Card>
-
-        <Card>
-          <Card.Header>
-            <Accordion as={Card.Header} className="pointer" >
-              <p className="pointer" onClick={() => getByMainCategory("Seats")}>Seats</p>
-            </Accordion>
-          </Card.Header>
-          <Accordion.Collapse >
-            <Card.Body></Card.Body>
-          </Accordion.Collapse>
-        </Card>
-
-        <Card>
-          <Card.Header>
-            <Accordion.Toggle as={Card.Header} eventKey="6" className="pointer" >
-              Helmets
-            </Accordion.Toggle>
-
-          </Card.Header>
-          <Accordion.Collapse eventKey="6">
-            <Card.Body>
-              <p className="pointer" onClick={() => getByCategory("Jet")}>Jet</p>
-              <p className="pointer" onClick={() => getByCategory("Modular")}>Modular</p>
-              <p className="pointer" onClick={() => getByCategory("Full Face")}>Full Face</p>
-              <p className="pointer" onClick={() => getByCategory("Accesories")}>Accesories</p>
-
-            </Card.Body>
-          </Accordion.Collapse>
-        </Card> */}
       </Accordion>
     </>
 
