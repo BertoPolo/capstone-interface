@@ -1,10 +1,13 @@
 import { Modal, Button, Dropdown } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
+import { useNavigate } from "react-router-dom";
 import { removeItem, setItemsQuantity } from "../slices/cart/cartSlice";
 
 
 const CartModal = ({ handleClose, show }) => {
     const cart = useSelector((state) => state.cartSlice.cart);
+
+    const navigate = useNavigate()
     const dispatch = useDispatch();
 
 
@@ -48,7 +51,7 @@ const CartModal = ({ handleClose, show }) => {
                 <Button variant="secondary" onClick={handleClose}>
                     Close
                 </Button>
-                <Button variant="primary" onClick={handleClose}>
+                <Button variant="primary" onClick={() => { handleClose(); navigate("/cartResume") }}>
                     Finish your shopping
                 </Button>
             </Modal.Footer>
