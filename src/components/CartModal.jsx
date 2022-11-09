@@ -51,7 +51,7 @@ const CartModal = ({ handleClose, show }) => {
                 <Button variant="secondary" onClick={handleClose}>
                     Close
                 </Button>
-                <Button variant="primary" onClick={() => { handleClose(); navigate("/cartResume") }}>
+                <Button variant="primary" onClick={() => { handleClose(); navigate("/resume") }}>
                     Finish your shopping
                 </Button>
             </Modal.Footer>

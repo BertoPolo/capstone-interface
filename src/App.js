@@ -7,6 +7,7 @@ import Home from "./components/Home"
 import CreateUser from "./components/CreateUser"
 import NotFound from "./components/NotFound"
 import BackOfficeMenu from "./components/BackOfficeMenu"
+import ResumingCart from "./components/ResumingCart"
 
 import { Provider } from "react-redux"
 import configureStore from "./app/store"
@@ -25,6 +26,7 @@ function App() {
             <Route path="/myAccount" element={<MyAccount />} />
             <Route path="/home" element={<Home />} />
             <Route path="/backOfficeMenu" element={<BackOfficeMenu />} />
+            <Route path="/resume" element={<ResumingCart />} />
           </Routes>
         </BrowserRouter>
       </Provider>
