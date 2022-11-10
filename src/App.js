@@ -8,28 +8,22 @@ import CreateUser from "./components/CreateUser"
 import NotFound from "./components/NotFound"
 import BackOfficeMenu from "./components/BackOfficeMenu"
 import ResumingCart from "./components/ResumingCart"
-
-import { Provider } from "react-redux"
-import configureStore from "./app/store"
-
 import MyAccount from "./components/MyAccount"
 
 function App() {
   return (
     <div>
-      <Provider store={configureStore}>
-        <BrowserRouter>
-          <Routes>
-            <Route path="*" element={<NotFound />} />
-            <Route path="/" element={<Login />} />
-            <Route path="/newUser" element={<CreateUser />} />
-            <Route path="/myAccount" element={<MyAccount />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/backOfficeMenu" element={<BackOfficeMenu />} />
-            <Route path="/resume" element={<ResumingCart />} />
-          </Routes>
-        </BrowserRouter>
-      </Provider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/newUser" element={<CreateUser />} />
+          <Route path="/myAccount" element={<MyAccount />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/backOfficeMenu" element={<BackOfficeMenu />} />
+          <Route path="/resume" element={<ResumingCart />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }
