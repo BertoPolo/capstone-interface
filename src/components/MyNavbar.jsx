@@ -59,7 +59,7 @@ const MyNavbar = () => {
                 <Nav.Link href="" onClick={handleShow}>
                   <i className="bi bi-cart"></i>Cart({cart.length})
                 </Nav.Link>
-                <Nav.Link href="/myAccount">My Account</Nav.Link>
+                {isLogged && <Nav.Link href="/myAccount">My Account</Nav.Link>}
               </>
             }
 

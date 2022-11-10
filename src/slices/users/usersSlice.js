@@ -9,6 +9,7 @@ const usersSlice = createSlice({
     email: "",
     isAdmin: false,
     token: "",
+    isLogged: false,
   },
   reducers: {
     addName: (state, action) => {
@@ -37,8 +38,14 @@ const usersSlice = createSlice({
         token: action.payload,
       }
     },
+    changeIsLogged: (state, action) => {
+      return {
+        ...state,
+        isLogged: action.payload,
+      }
+    },
   },
 })
 
 export default usersSlice.reducer
-export const { addName, addAdress, addEmail, changeToken } = usersSlice.actions
+export const { addName, addAdress, addEmail, changeToken, changeIsLogged } = usersSlice.actions
