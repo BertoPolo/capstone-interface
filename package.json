@@ -26,6 +26,7 @@
     "react-toastify": "^9.0.8",
     "redux-persist": "^6.0.0",
     "redux-persist-transform-encrypt": "^3.0.1",
+    "stripe": "^10.17.0",
     "turf": "^7.0.0-alpha.1",
     "web-vitals": "^2.1.4",
     "xmldom": "^0.6.0"
