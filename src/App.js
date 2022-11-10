@@ -10,22 +10,20 @@ import BackOfficeMenu from "./components/BackOfficeMenu"
 import ResumingCart from "./components/ResumingCart"
 import MyAccount from "./components/MyAccount"
 
-function App() {
-  return (
-    <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="*" element={<NotFound />} />
-          <Route path="/" element={<Login />} />
-          <Route path="/newUser" element={<CreateUser />} />
-          <Route path="/myAccount" element={<MyAccount />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/backOfficeMenu" element={<BackOfficeMenu />} />
-          <Route path="/resume" element={<ResumingCart />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
-  )
-}
+const App = () => (
+  <div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/newUser" element={<CreateUser />} />
+        <Route path="/myAccount" element={<MyAccount />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/backOfficeMenu" element={<BackOfficeMenu />} />
+        <Route path="/resume" element={<ResumingCart />} />
+      </Routes>
+    </BrowserRouter>
+  </div>
+)
 
 export default App
