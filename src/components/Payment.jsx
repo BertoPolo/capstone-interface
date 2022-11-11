@@ -11,15 +11,6 @@ const Payment = () => {
 
     //form to pay
 
-    const stripe = new Stripe('sk_test_...');
-
-    (async () => {
-        const customer = await stripe.customers.create({
-            email: 'customer@example.com',
-        });
-
-        console.log(customer.id);
-    })();
 
     return (
         <Container>
