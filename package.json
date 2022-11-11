@@ -5,6 +5,8 @@
   "dependencies": {
     "@mapbox/polyline": "^1.1.1",
     "@reduxjs/toolkit": "^1.8.2",
+    "@stripe/react-stripe-js": "^1.14.2",
+    "@stripe/stripe-js": "^1.43.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
@@ -26,7 +28,6 @@
     "react-toastify": "^9.0.8",
     "redux-persist": "^6.0.0",
     "redux-persist-transform-encrypt": "^3.0.1",
-    "stripe": "^10.17.0",
     "turf": "^7.0.0-alpha.1",
     "web-vitals": "^2.1.4",
     "xmldom": "^0.6.0"
