@@ -41,14 +41,7 @@ const HomeItem = ({ currentItem }) => {
     }
   }
 
-  const changeHomeToSingleItem = () => {
-    dispatch(toggleIsOnHome(false))
-    dispatch(toggleIsOnOutlet(false))
-    dispatch(toggleIsCountactUs(false))
-    dispatch(toggleIsOnCategory(false))
-    dispatch(toggleIsOnSingleItem(true))
-    dispatch(changeSelectedItem(currentItem))
-  }
+
 
   return (
 
@@ -74,10 +67,10 @@ const HomeItem = ({ currentItem }) => {
           src={currentItem.image}
           alt={currentItem.title}
           className="pointer"
-          onClick={() => changeHomeToSingleItem()}
+          onClick={() => { dispatch(toggleIsOnSingleItem(true)); dispatch(changeSelectedItem(currentItem)) }}
         />
         <Card.Body>
-          <Card.Title className="pointer twoLines" onClick={() => changeHomeToSingleItem()} >
+          <Card.Title className="pointer twoLines" onClick={() => { dispatch(toggleIsOnSingleItem(true)); dispatch(changeSelectedItem(currentItem)) }} >
             {currentItem.title}
           </Card.Title>
           <Card.Text className="line-clamp">{currentItem.description}</Card.Text>

@@ -1,7 +1,7 @@
 import { Button, Container, Row, Col } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
 import { addToCart } from "../slices/cart/cartSlice"
-// import { addItems } from "../slices/items/itemsSlice"
+import { addItems } from "../slices/items/itemsSlice"
 import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs, toggleIsOnSingleItem } from "../slices/sheets/sheetsSlice"
 
 
@@ -9,15 +9,10 @@ import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs, toggleIsOnSingleI
 const SingleItem = () => {
 
   const cart = useSelector((state) => state.cartSlice.cart);
-  const selectedItem = useSelector((state) => state.itemsSlice.selectedItem);
-  const isOnOutlet = useSelector((state) => state.itemsSlice.cart);
+  const { selectedItem, isOnOutlet, items } = useSelector((state) => state.itemsSlice);
   const dispatch = useDispatch();
 
 
-  const changeSingleItemToHome = () => {
-    dispatch(toggleIsOnHome(true))
-    dispatch(toggleIsOnSingleItem(false))
-  }
 
   // const getRandomItems = async () => {
   //   try {
@@ -45,7 +40,7 @@ const SingleItem = () => {
             {isOnOutlet ? <h3>{selectedItem.outletPrice}€</h3> : <h3>{selectedItem.price}€</h3>}
 
             <Button onClick={() => dispatch(addToCart(selectedItem))} ><i className="bi bi-cart-fill"></i>Add to cart</Button>
-            <Button variant="danger" onClick={changeSingleItemToHome}>Back home</Button>
+            <Button variant="danger" onClick={() => dispatch(toggleIsOnHome(true))}>Back home</Button>
 
           </Col>
         </Row>

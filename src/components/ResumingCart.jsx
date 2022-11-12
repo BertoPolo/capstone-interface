@@ -10,7 +10,7 @@ const ResumingCart = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    let totalAmount
+    let totalCartAmount
 
     return (
         <>
@@ -27,7 +27,7 @@ const ResumingCart = () => {
                 </Row>
                 <Row>
                     {cart.map(element => {
-                        totalAmount += element.price * element.quantity
+                        totalCartAmount += element.price * element.quantity
 
                         return (
                             // <Row key={element._id}>

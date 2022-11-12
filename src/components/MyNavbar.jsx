@@ -22,20 +22,7 @@ const MyNavbar = () => {
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
-  const homeToContactUs = () => {
-    dispatch(toggleIsOnHome(false))
-    dispatch(toggleIsOnOutlet(false))
-    dispatch(toggleIsCountactUs(true))
-  }
 
-  const homeToOutlet = () => {
-    dispatch(toggleIsOnHome(false))
-    dispatch(toggleIsCountactUs(false))
-    dispatch(toggleIsOnSingleItem(false))
-    dispatch(toggleIsOnOutlet(true))
-  }
-
-  // bug about why logo is not working = location, if you move it to a different location then works
   return (
     <>
       <Navbar expand="lg" className="sticky-top navbarBg">
@@ -46,8 +33,8 @@ const MyNavbar = () => {
         <Navbar.Toggle />
         <Navbar.Collapse>
           <Nav className="mr-auto">
-            <Nav.Link href="" onClick={() => homeToOutlet()}>Outlet</Nav.Link>
-            <Nav.Link href="" onClick={() => homeToContactUs()}>Contact Us</Nav.Link>
+            <Nav.Link onClick={() => dispatch(toggleIsOnOutlet(true))}>Outlet</Nav.Link>
+            <Nav.Link onClick={() => dispatch(toggleIsCountactUs(true))}>Contact Us</Nav.Link>
             {/* <Nav.Link href="/news">News</Nav.Link> */}
           </Nav>
           <Nav className="ml-auto mr-4">
