@@ -341,8 +341,6 @@ const BackOficceNewItem = () => {
                 {/* Create a new main category */}
                 <Form onSubmit={(e) => createNewMainCategory(e)}>
                     <Form.Control type="text" placeholder="New main category" value={newMainCategoryInput} onChange={(e) => setNewMainCategoryInput(e.target.value)} />
-
-
                     <Button type="submit"> Submit </Button>
                 </Form>
             </Row>
@@ -353,9 +351,9 @@ const BackOficceNewItem = () => {
                 <Row>
                     <Form.Group as={Col}>
                         <Form.Label>Name</Form.Label>
-
                         <Form.Control type="text" value={name} onChange={(e) => setName(e.target.value)} />
                     </Form.Group>
+
                     <Form.Group as={Col}>
                         <Form.Label>Price</Form.Label>
                         <Form.Control type="number" value={price} onChange={(e) => setPrice(e.target.value)} />
@@ -391,9 +389,8 @@ const BackOficceNewItem = () => {
 
                         <Dropdown.Menu>
                             {mainCategories.map((element) => {
-                                return (
-                                    <Dropdown.Item key={element._id} onClick={() => { setSelectedMainCategory(element.mainCategory); setMainCategory(element._id) }}>{element.mainCategory}</Dropdown.Item>
-                                )
+                                return <Dropdown.Item key={element._id} onClick={() => { setSelectedMainCategory(element.mainCategory); setMainCategory(element._id) }}>{element.mainCategory}</Dropdown.Item>
+
                             })}
                         </Dropdown.Menu>
                     </Dropdown>
