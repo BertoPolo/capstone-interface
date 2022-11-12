@@ -6,6 +6,7 @@ import { removeItem, setItemsQuantity } from "../slices/cart/cartSlice";
 
 const CartModal = ({ handleClose, show }) => {
     const cart = useSelector((state) => state.cartSlice.cart);
+    const isLogged = useSelector((state) => state.usersSlice.isLogged);
 
     const navigate = useNavigate()
     const dispatch = useDispatch();
@@ -51,9 +52,11 @@ const CartModal = ({ handleClose, show }) => {
                 <Button variant="secondary" onClick={handleClose}>
                     Close
                 </Button>
-                <Button variant="primary" onClick={() => { handleClose(); navigate("/resume") }}>
+                {isLogged ? <Button variant="primary" onClick={() => { handleClose(); navigate("/resume") }}>
                     Finish your shopping
-                </Button>
+                </Button> : <Button variant="warning" onClick={() => { handleClose(); navigate("/") }}>
+                    Go login first
+                </Button>}
             </Modal.Footer>
         </Modal >
     )
