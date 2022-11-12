@@ -9,6 +9,7 @@ const Payment = () => {
     // button to go to change adress
 
     //form to pay
+    //after payment clean cart
 
 
     return (

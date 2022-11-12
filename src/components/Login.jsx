@@ -10,7 +10,7 @@ import { changeIsLogged } from "../slices/users/usersSlice"
 const Login = () => {
   const [usernameInput, setUsernameInput] = useState("")
   const [passwordInput, setPasswordInput] = useState("")
-  const [isRemember, setIsRemember] = useState(false)
+  // const [isRemember, setIsRemember] = useState(false)
   const isLogged = useSelector((state) => state.usersSlice.isLogged);
 
   const dispatch = useDispatch()
@@ -18,6 +18,7 @@ const Login = () => {
 
   const handleSubmit = () => {
     dispatch(changeIsLogged(true))
+    //fetch user and set to user redux,then u know if its user or admin
     navigate("/home")
   }
 
@@ -42,9 +43,9 @@ const Login = () => {
                 <Form.Control type="password" placeholder="Password" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
               </Form.Group>
 
-              <Form.Group>
+              {/* <Form.Group>
                 <Form.Check type="checkbox" label="Remember me" className="login-small-font" onClick={() => setIsRemember(!isRemember)} />
-              </Form.Group>
+              </Form.Group> */}
 
               <Button variant="primary" type="submit" disabled={(!usernameInput) || (!passwordInput)} >
                 Enter

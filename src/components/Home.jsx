@@ -80,7 +80,7 @@ const Home = () => {
         </div>}
 
         {/* FILTERING BAR*/}
-        {isOnHome && <NavFilter />}
+        {(isOnOutlet || isOnHome) && <NavFilter />}
 
       </Container>
 
