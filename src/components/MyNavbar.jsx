@@ -26,7 +26,7 @@ const MyNavbar = () => {
   return (
     <>
       <Navbar expand="lg" className="sticky-top navbarBg">
-        <Navbar.Brand href="/home">
+        <Navbar.Brand className="pointer" onClick={() => dispatch(toggleIsOnHome(true))}>
           Stuff To Route
           <Image src={`${process.env.PUBLIC_URL}/mbIcon.png`} alt="main logo" style={{ width: "1.5rem", marginLeft: "1rem" }} />
         </Navbar.Brand>
