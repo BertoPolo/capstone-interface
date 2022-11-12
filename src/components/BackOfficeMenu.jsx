@@ -12,7 +12,7 @@ const BackOffice = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch();
 
-    const { isOnUsers, isOnItems, isOnNewItems } = useSelector((state) => state.sheetsSlice)
+    const { isOnUserSearch, isOnItemSearch, isOnCreateNewItems } = useSelector((state) => state.sheetsSlice)
 
 
     // const voucherCreatorSubmit = (e) => {
@@ -42,9 +42,9 @@ const BackOffice = () => {
                 <Button variant="danger" onClick={() => navigate("/home")}>Return Home</Button >
             </div>
 
-            {isOnUsers && <BackOfficeUsers />}
-            {isOnItems && <BackOfficeItems />}
-            {isOnNewItems && <BackOfficeNewItem />}
+            {isOnUserSearch && <BackOfficeUsers />}
+            {isOnItemSearch && <BackOfficeItems />}
+            {isOnCreateNewItems && <BackOfficeNewItem />}
 
         </>
     )

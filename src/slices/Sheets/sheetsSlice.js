@@ -24,9 +24,9 @@ const sheetsSlice = createSlice({
         isOnSingleItem: false,
         isOnCategory: false,
         isOnBrands: false,
-        isOnUsers: false,
-        isOnItems: false,
-        isOnNewItems: false,
+        isOnUserSearch: false,
+        isOnItemSearch: false,
+        isOnCreateNewItem: false,
       }
     },
     toggleIsOnOutlet: (state, action) => {
@@ -38,9 +38,9 @@ const sheetsSlice = createSlice({
         isOnSingleItem: false,
         isOnCategory: false,
         isOnBrands: false,
-        isOnUsers: false,
-        isOnItems: false,
-        isOnNewItems: false,
+        isOnUserSearch: false,
+        isOnItemSearch: false,
+        isOnCreateNewItem: false,
       }
     },
     toggleIsCountactUs: (state, action) => {
@@ -52,9 +52,9 @@ const sheetsSlice = createSlice({
         isOnSingleItem: false,
         isOnCategory: false,
         isOnBrands: false,
-        isOnUsers: false,
-        isOnItems: false,
-        isOnNewItems: false,
+        isOnUserSearch: false,
+        isOnItemSearch: false,
+        isOnCreateNewItem: false,
       }
     },
     toggleIsOnSingleItem: (state, action) => {
@@ -66,9 +66,9 @@ const sheetsSlice = createSlice({
         isOnCountactUs: false,
         isOnCategory: false,
         isOnBrands: false,
-        isOnUsers: false,
-        isOnItems: false,
-        isOnNewItems: false,
+        isOnUserSearch: false,
+        isOnItemSearch: false,
+        isOnCreateNewItem: false,
       }
     },
     toggleIsOnCategory: (state, action) => {
@@ -80,9 +80,9 @@ const sheetsSlice = createSlice({
         isOnCountactUs: false,
         isOnSingleItem: false,
         isOnBrands: false,
-        isOnUsers: false,
-        isOnItems: false,
-        isOnNewItems: false,
+        isOnUserSearch: false,
+        isOnItemSearch: false,
+        isOnCreateNewItem: false,
       }
     },
     toggleIsOnBrands: (state, action) => {
