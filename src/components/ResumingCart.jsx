@@ -30,19 +30,19 @@ const ResumingCart = () => {
                         totalCartAmount += element.price * element.quantity
 
                         return (
-                            // <Row key={element._id}>
 
-                            <>
-                                <Col xs={2} ><Image style={{ width: "50%" }} src={element.image}></Image></Col>
-                                <Col xs={4}><span>{element.title}<span> <br /> ref:</span>{element._id}</span></Col>
-                                <Col ><span>{element.price}</span></Col>
-                                <Col xs={2}><span>  <Dropdown>
-                                    <Dropdown.Toggle size="sm" variant="outline-dark" id="dropdown-basic">
-                                        {element.quantity}
-                                    </Dropdown.Toggle>
+                            <Container key={element._id}>
+                                <Row >
+                                    <Col xs={2} ><Image style={{ width: "50%" }} src={element.image}></Image></Col>
+                                    <Col xs={4}><span>{element.title}<span> <br /> ref:</span>{element._id}</span></Col>
+                                    <Col ><span>{element.price}</span></Col>
+                                    <Col xs={2}><span>  <Dropdown>
+                                        <Dropdown.Toggle size="sm" variant="outline-dark" id="dropdown-basic">
+                                            {element.quantity}
+                                        </Dropdown.Toggle>
 
-                                    <Dropdown.Menu>
-                                        {/* <Dropdown.Item onClick={() => { dispatch(setItemsQuantity([element._id, 1])); }}>1</Dropdown.Item>
+                                        <Dropdown.Menu>
+                                            {/* <Dropdown.Item onClick={() => { dispatch(setItemsQuantity([element._id, 1])); }}>1</Dropdown.Item>
                                                 <Dropdown.Item onClick={() => dispatch(setItemsQuantity([element._id, 2]))}>2</Dropdown.Item>
                                                 <Dropdown.Item onClick={() => dispatch(setItemsQuantity([element._id, 3]))}>3</Dropdown.Item>
                                                 <Dropdown.Item onClick={() => dispatch(setItemsQuantity([element._id, 4]))}>4</Dropdown.Item>
@@ -51,12 +51,12 @@ const ResumingCart = () => {
                                                 <Dropdown.Item onClick={() => dispatch(setItemsQuantity([element._id, 7]))}>7</Dropdown.Item>
                                                 <Dropdown.Item onClick={() => dispatch(setItemsQuantity([element._id, 8]))}>8</Dropdown.Item>
                                                 <Dropdown.Item onClick={() => dispatch(setItemsQuantity([element._id, 9]))}>9</Dropdown.Item> */}
-                                    </Dropdown.Menu>
-                                </Dropdown></span></Col>
-                                <Col xs={1}><span><i className="bi bi-trash3-fill pointer"></i></span></Col>
-                                <Col ><span>{element.price * element.quantity}</span></Col>
-                                {/* </Row> */}
-                            </>
+                                        </Dropdown.Menu>
+                                    </Dropdown></span></Col>
+                                    <Col xs={1}><span><i className="bi bi-trash3-fill pointer"></i></span></Col>
+                                    <Col ><span>{element.price * element.quantity}</span></Col>
+                                </Row>
+                            </Container>
 
                         )
                     })}

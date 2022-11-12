@@ -19,7 +19,6 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    //fetch user and set to user redux,then u know if its user or admin
     const res = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/username/${usernameInput}`);
     if (res.ok) {
       const data = await res.json()
