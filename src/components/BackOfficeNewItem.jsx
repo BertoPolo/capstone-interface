@@ -364,15 +364,14 @@ const BackOficceNewItem = () => {
                     <Form.Label>Short Description</Form.Label>
                     <Form.Control type="textarea" rows={2} value={shortDescription} onChange={(e) => setShortDescription(e.target.value)} />
                     <Form.Label>Full Description</Form.Label>
-                    <Form.Control as="textarea" rows={3} value={fullDescription} onChange={(e) => setFullDescription(e.target.value)} />
+                    <Form.Control type="textarea" rows={3} value={fullDescription} onChange={(e) => setFullDescription(e.target.value)} />
                     <Form.Label>Outlet Price</Form.Label>
-                    <Form.Control as="text" value={outletPrice} onChange={(e) => setOutletPrice(e.target.value)} />
+                    <Form.Control type="number" value={outletPrice} onChange={(e) => setOutletPrice(e.target.value)} />
                     <Form.Check type="checkbox" label="Outlet" value={isItOutlet} onChange={(e) => setIsItOutlet(!isItOutlet)} />
 
                 </Form.Group>
 
                 <Form.Group className="d-flex justify-content-around">
-
                     <Dropdown>
                         <Dropdown.Toggle variant="warning">{selectedBrand || "Choose Brand"}</Dropdown.Toggle>
                         <Dropdown.Menu>
@@ -407,10 +406,8 @@ const BackOficceNewItem = () => {
                     </Dropdown>
                 </Form.Group>
 
-                <Button type="submit" className=""> Submit </Button>
+                <Button type="submit"> Submit </Button>
             </Form >
-
-
 
             {/* Post item's image */}
             <Form onSubmit={(e) => postImg(e)}>
@@ -418,8 +415,6 @@ const BackOficceNewItem = () => {
                 <Form.Control type="file" accept=",.jpg,.jpeg,.png" onChange={(e) => setImage(e.target.files[0])} />
                 <Button type="submit" disabled={!image && !itemId}>Upload</Button>
             </Form>
-
-
 
         </>
     )
