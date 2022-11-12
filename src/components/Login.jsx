@@ -4,22 +4,33 @@ import { Form, Button, Col, Row } from "react-bootstrap"
 import { useNavigate, Link } from "react-router-dom"
 import { useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { changeIsLogged } from "../slices/users/usersSlice"
+import { changeIsLogged, addName, addUserName, addAdress, addEmail } from "../slices/users/usersSlice"
 
 
 const Login = () => {
   const [usernameInput, setUsernameInput] = useState("")
   const [passwordInput, setPasswordInput] = useState("")
+
   // const [isRemember, setIsRemember] = useState(false)
-  const isLogged = useSelector((state) => state.usersSlice.isLogged);
+  const { isLogged, name, username, adress, email } = useSelector((state) => state.usersSlice.isLogged);
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const handleSubmit = () => {
-    dispatch(changeIsLogged(true))
+  const handleSubmit = async (e) => {
+    e.preventDefault()
     //fetch user and set to user redux,then u know if its user or admin
-    navigate("/home")
+    const res = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/username/${usernameInput}`);
+    if (res.ok) {
+      const data = await res.json()
+      console.log(data.name)
+      dispatch(addName(data.name))
+      dispatch(addUserName(data.username))
+      dispatch(addAdress(data.adress))
+      dispatch(addEmail(data.email))
+      dispatch(changeIsLogged(true))
+      // navigate("/home")
+    }
   }
 
   return (

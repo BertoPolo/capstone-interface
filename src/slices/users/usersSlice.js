@@ -12,21 +12,16 @@ const usersSlice = createSlice({
     isLogged: false,
   },
   reducers: {
-    updateUser: (state, action) => {
-      return {
-        ...state,
-        name: action.payload,
-        username: action.payload,
-        adress: action.payload,
-        email: action.payload,
-        isAdmin: action.payload,
-        token: action.payload,
-      }
-    },
     addName: (state, action) => {
       return {
         ...state,
         name: action.payload,
+      }
+    },
+    addUserName: (state, action) => {
+      return {
+        ...state,
+        username: action.payload,
       }
     },
 
@@ -59,4 +54,4 @@ const usersSlice = createSlice({
 })
 
 export default usersSlice.reducer
-export const { updateUser, addName, addAdress, addEmail, changeToken, changeIsLogged } = usersSlice.actions
+export const { updateUser, addName, addUserName, addAdress, addEmail, changeToken, changeIsLogged } = usersSlice.actions
