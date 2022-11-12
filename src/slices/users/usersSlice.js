@@ -18,6 +18,7 @@ const usersSlice = createSlice({
         name: action.payload,
       }
     },
+
     addUserName: (state, action) => {
       return {
         ...state,
@@ -31,10 +32,18 @@ const usersSlice = createSlice({
         adress: action.payload,
       }
     },
+
     addEmail: (state, action) => {
       return {
         ...state,
         email: action.payload,
+      }
+    },
+
+    addIsAdmin: (state, action) => {
+      return {
+        ...state,
+        isAdmin: action.payload,
       }
     },
 
@@ -54,4 +63,4 @@ const usersSlice = createSlice({
 })
 
 export default usersSlice.reducer
-export const { updateUser, addName, addUserName, addAdress, addEmail, changeToken, changeIsLogged } = usersSlice.actions
+export const { updateUser, addName, addUserName, addAdress, addEmail, addIsAdmin, changeToken, changeIsLogged } = usersSlice.actions

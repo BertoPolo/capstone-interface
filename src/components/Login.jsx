@@ -4,7 +4,7 @@ import { Form, Button, Col, Row } from "react-bootstrap"
 import { useNavigate, Link } from "react-router-dom"
 import { useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { changeIsLogged, addName, addUserName, addAdress, addEmail } from "../slices/users/usersSlice"
+import { changeIsLogged, addName, addUserName, addAdress, addEmail, addIsAdmin } from "../slices/users/usersSlice"
 
 
 const Login = () => {
@@ -12,7 +12,7 @@ const Login = () => {
   const [passwordInput, setPasswordInput] = useState("")
 
   // const [isRemember, setIsRemember] = useState(false)
-  const { isLogged, name, username, adress, email } = useSelector((state) => state.usersSlice.isLogged);
+  const { isLogged, name, username, adress, email } = useSelector((state) => state.usersSlice);
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -23,13 +23,13 @@ const Login = () => {
     const res = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/username/${usernameInput}`);
     if (res.ok) {
       const data = await res.json()
-      console.log(data.name)
       dispatch(addName(data.name))
       dispatch(addUserName(data.username))
       dispatch(addAdress(data.adress))
       dispatch(addEmail(data.email))
+      dispatch(addIsAdmin(data.isAdmin))
       dispatch(changeIsLogged(true))
-      // navigate("/home")
+      navigate("/home")
     }
   }
 

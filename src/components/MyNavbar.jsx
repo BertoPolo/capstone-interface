@@ -2,7 +2,7 @@ import { Navbar, Nav, Image } from "react-bootstrap"
 import { useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs } from "../slices/sheets/sheetsSlice"
-import { changeIsLogged } from "../slices/users/usersSlice"
+import { changeIsLogged, addName, addUserName, addAdress, addEmail, addIsAdmin } from "../slices/users/usersSlice"
 import CartModal from "./CartModal"
 
 
@@ -11,7 +11,7 @@ const MyNavbar = () => {
   //   window.location.href = "/login";
   //   localStorage.removeItem("token");
   // };
-  const { isAdmin, isLogged } = useSelector((state) => state.usersSlice);
+  const { isLogged, name, username, adress, email, isAdmin } = useSelector((state) => state.usersSlice);
   const cart = useSelector((state) => state.cartSlice.cart);
   const [show, setShow] = useState(false)
 
@@ -22,6 +22,14 @@ const MyNavbar = () => {
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
+  const emptyUser = () => {
+    dispatch(addName(""))
+    dispatch(addUserName(""))
+    dispatch(addAdress(""))
+    dispatch(addEmail(""))
+    dispatch(addIsAdmin(false))
+    dispatch(changeIsLogged(false))
+  }
 
   return (
     <>
@@ -49,7 +57,7 @@ const MyNavbar = () => {
               </>
             }
 
-            {isLogged ? <Nav.Link href="/" onClick={() => dispatch(changeIsLogged(false))}>Log Out</Nav.Link>
+            {isLogged ? <Nav.Link href="/" onClick={emptyUser}>Log Out</Nav.Link>
               //  onClick={() => setLogin(false), handleLogOut()}
               :
               <Nav.Link href="/">Login</Nav.Link>
