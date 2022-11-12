@@ -9,10 +9,9 @@ const sheetsSlice = createSlice({
     isOnSingleItem: false,
     isOnCategory: false,
     isOnBrands: false,
-
-    isOnUsers: false,
-    isOnItems: false,
-    isOnNewItems: false,
+    isOnUserSearch: false,
+    isOnItemSearch: false,
+    isOnCreateNewItem: false,
   },
 
   reducers: {
@@ -20,22 +19,28 @@ const sheetsSlice = createSlice({
       return {
         ...state,
         isOnHome: action.payload,
-        // isOnOutlet: false,
-        // isOnCountactUs: false,
-        // isOnSingleItem: false,
-        // isOnCategory: false,
-        // isOnBrands: false,
+        isOnOutlet: false,
+        isOnCountactUs: false,
+        isOnSingleItem: false,
+        isOnCategory: false,
+        isOnBrands: false,
+        isOnUsers: false,
+        isOnItems: false,
+        isOnNewItems: false,
       }
     },
     toggleIsOnOutlet: (state, action) => {
       return {
         ...state,
         isOnOutlet: action.payload,
-        // isOnHome: false,
-        // isOnCountactUs: false,
-        // isOnSingleItem: false,
-        // isOnCategory: false,
-        // isOnBrands: false,
+        isOnHome: false,
+        isOnCountactUs: false,
+        isOnSingleItem: false,
+        isOnCategory: false,
+        isOnBrands: false,
+        isOnUsers: false,
+        isOnItems: false,
+        isOnNewItems: false,
       }
     },
     toggleIsCountactUs: (state, action) => {
@@ -47,6 +52,9 @@ const sheetsSlice = createSlice({
         isOnSingleItem: false,
         isOnCategory: false,
         isOnBrands: false,
+        isOnUsers: false,
+        isOnItems: false,
+        isOnNewItems: false,
       }
     },
     toggleIsOnSingleItem: (state, action) => {
@@ -58,6 +66,9 @@ const sheetsSlice = createSlice({
         isOnCountactUs: false,
         isOnCategory: false,
         isOnBrands: false,
+        isOnUsers: false,
+        isOnItems: false,
+        isOnNewItems: false,
       }
     },
     toggleIsOnCategory: (state, action) => {
@@ -69,6 +80,9 @@ const sheetsSlice = createSlice({
         isOnCountactUs: false,
         isOnSingleItem: false,
         isOnBrands: false,
+        isOnUsers: false,
+        isOnItems: false,
+        isOnNewItems: false,
       }
     },
     toggleIsOnBrands: (state, action) => {
@@ -80,32 +94,35 @@ const sheetsSlice = createSlice({
         isOnCountactUs: false,
         isOnSingleItem: false,
         isOnCategory: false,
+        isOnUserSearch: false,
+        isOnItemSearch: false,
+        isOnCreateNewItem: false,
       }
     },
-    toggleIsOnUser: (state, action) => {
+    toggleIsOnUserSearch: (state, action) => {
       return {
         ...state,
-        isOnUsers: action.payload,
-        isOnItems: false,
-        isOnNewItems: false,
-      }
-    },
-
-    toggleIsOnItem: (state, action) => {
-      return {
-        ...state,
-        isOnItems: action.payload,
-        isOnUsers: false,
-        isOnNewItems: false,
+        isOnUserSearch: action.payload,
+        isOnItemSearch: false,
+        isOnCreateNewItem: false,
       }
     },
 
-    toggleIsOnNewItem: (state, action) => {
+    toggleIsOnItemSearch: (state, action) => {
       return {
         ...state,
-        isOnNewItems: action.payload,
-        isOnItems: false,
-        isOnUsers: false,
+        isOnItemSearch: action.payload,
+        isOnUserSearch: false,
+        isOnCreateNewItem: false,
+      }
+    },
+
+    toggleIsOnCreateNewItem: (state, action) => {
+      return {
+        ...state,
+        isOnCreateNewItem: action.payload,
+        isOnItemSearch: false,
+        isOnUserSearch: false,
       }
     },
   },
@@ -118,7 +135,7 @@ export const {
   toggleIsCountactUs,
   toggleIsOnSingleItem,
   toggleIsOnCategory,
-  toggleIsOnUser,
-  toggleIsOnItem,
-  toggleIsOnNewItem,
+  toggleIsOnUserSearch,
+  toggleIsOnItemSearch,
+  toggleIsOnCreateNewItem,
 } = sheetsSlice.actions

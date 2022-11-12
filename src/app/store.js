@@ -6,9 +6,9 @@ import cartSlice from "../slices/cart/cartSlice"
 import brandsSlice from "../slices/brands/brandsSlice"
 import categoriesSlice from "../slices/categories/categoriesSlice"
 import mainCategoriesSlice from "../slices/mainCategories/mainCategoriesSlice"
-import { persistReducer } from "redux-persist"
 import storage from "redux-persist/lib/storage"
 import { encryptTransform } from "redux-persist-transform-encrypt"
+import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from "redux-persist"
 
 const reducers = combineReducers({
   itemsSlice: itemsSlice,
@@ -34,4 +34,10 @@ const persistedReducer = persistReducer(persistConfig, reducers)
 
 export default configureStore({
   reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 })

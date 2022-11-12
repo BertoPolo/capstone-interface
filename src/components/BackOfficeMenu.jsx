@@ -5,8 +5,7 @@ import MyNavbar from "./MyNavbar"
 import BackOfficeItems from "./BackOfficeItems"
 import BackOfficeNewItem from "./BackOfficeNewItem"
 import BackOfficeUsers from "./BackOfficeUsers"
-// import { changeName, changeAdress } from "../slices/users/usersSlice"
-import { toggleIsOnUser, toggleIsOnItem, toggleIsOnNewItem } from "../slices/sheets/sheetsSlice"
+import { toggleIsOnUserSearch, toggleIsOnItemSearch, toggleIsOnCreateNewItem, } from "../slices/sheets/sheetsSlice"
 
 const BackOffice = () => {
 
@@ -37,9 +36,9 @@ const BackOffice = () => {
             </Form> */}
             <div className=" m-3 d-flex justify-content-between">
 
-                <Button variant="primary" onClick={() => dispatch(toggleIsOnUser(true))} >Search Users</Button >
-                <Button variant="dark" onClick={() => dispatch(toggleIsOnItem(true))} >Search Items</Button >
-                <Button variant="secondary" onClick={() => dispatch(toggleIsOnNewItem(true))}>Create Items</Button >
+                <Button variant="primary" onClick={() => dispatch(toggleIsOnUserSearch(true))} >Search Users</Button >
+                <Button variant="dark" onClick={() => dispatch(toggleIsOnItemSearch(true))} >Search Items</Button >
+                <Button variant="secondary" onClick={() => dispatch(toggleIsOnCreateNewItem(true))}>Create Items</Button >
                 <Button variant="danger" onClick={() => navigate("/home")}>Return Home</Button >
             </div>
 
