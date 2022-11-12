@@ -10,7 +10,7 @@ const ResumingCart = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    let totalCartAmount
+    let totalCartAmount = 0
 
     return (
         <>
@@ -31,10 +31,10 @@ const ResumingCart = () => {
 
                         return (
 
-                            <Container key={element._id}>
+                            <Container key={element._id} className="mt-2">
                                 <Row >
-                                    <Col xs={2} ><Image style={{ width: "50%" }} src={element.image}></Image></Col>
-                                    <Col xs={4}><span>{element.title}<span> <br /> ref:</span>{element._id}</span></Col>
+                                    <Col xs={2} className="pr-0 d-flex justify-content-center" ><Image className="" style={{ width: "50%" }} src={element.image}></Image></Col>
+                                    <Col xs={4} ><span>{element.title}<span> <br /> ref:</span>{element._id}</span></Col>
                                     <Col ><span>{element.price}</span></Col>
                                     <Col xs={2}><span>  <Dropdown>
                                         <Dropdown.Toggle size="sm" variant="outline-dark" id="dropdown-basic">
@@ -60,6 +60,12 @@ const ResumingCart = () => {
 
                         )
                     })}
+                    <Container className="d-flex justify-content-end mb-2">
+                        <Row>
+                            {(totalCartAmount)} total
+                        </Row>
+
+                    </Container>
 
                 </Row>
                 <Row>
