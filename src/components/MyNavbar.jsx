@@ -1,9 +1,8 @@
 import { Navbar, Nav, Image } from "react-bootstrap"
 import { useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs, toggleIsOnSingleItem } from "../slices/sheets/sheetsSlice"
+import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs } from "../slices/sheets/sheetsSlice"
 import CartModal from "./CartModal"
-// import { Link } from "react-router-dom"
 
 
 const MyNavbar = () => {
@@ -11,10 +10,9 @@ const MyNavbar = () => {
   //   window.location.href = "/login";
   //   localStorage.removeItem("token");
   // };
-  const isAdmin = useSelector((state) => state.usersSlice.isAdmin);
+  const { isAdmin, isLogged } = useSelector((state) => state.usersSlice);
   const cart = useSelector((state) => state.cartSlice.cart);
   const [show, setShow] = useState(false)
-  const [isLogged, setIsLogged] = useState(false)  //just to remove the complaining
 
   const dispatch = useDispatch();
 
@@ -35,7 +33,6 @@ const MyNavbar = () => {
           <Nav className="mr-auto">
             <Nav.Link onClick={() => dispatch(toggleIsOnOutlet(true))}>Outlet</Nav.Link>
             <Nav.Link onClick={() => dispatch(toggleIsCountactUs(true))}>Contact Us</Nav.Link>
-            {/* <Nav.Link href="/news">News</Nav.Link> */}
           </Nav>
           <Nav className="ml-auto mr-4">
 
