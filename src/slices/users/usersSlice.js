@@ -7,7 +7,7 @@ const usersSlice = createSlice({
     username: "",
     adress: "",
     email: "",
-    isAdmin: false,
+    isAdmin: true,
     token: "",
     isLogged: false,
   },

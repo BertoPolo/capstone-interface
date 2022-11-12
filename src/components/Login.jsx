@@ -3,14 +3,21 @@
 import { Form, Button, Col, Row } from "react-bootstrap"
 import { useNavigate, Link } from "react-router-dom"
 import { useState } from "react"
+import { useSelector, useDispatch } from "react-redux"
+import { changeIsLogged } from "../slices/users/usersSlice"
+
 
 const Login = () => {
   const [usernameInput, setUsernameInput] = useState("")
   const [passwordInput, setPasswordInput] = useState("")
   const [isRemember, setIsRemember] = useState(false)
+  const isLogged = useSelector((state) => state.usersSlice.isLogged);
 
+  const dispatch = useDispatch()
   const navigate = useNavigate()
+
   const handleSubmit = () => {
+    dispatch(changeIsLogged(true))
     navigate("/home")
   }
 
@@ -20,7 +27,7 @@ const Login = () => {
       <Row>
         <Col className="login-container">
           <p> Aren't You registered yet?</p>
-          <Button onClick={() => handleSubmit()}>Click here to enter without login</Button>
+          <Button onClick={() => navigate("/home")}>Click here to enter without login</Button>
         </Col>
 
         <Col>
@@ -39,7 +46,7 @@ const Login = () => {
                 <Form.Check type="checkbox" label="Remember me" className="login-small-font" onClick={() => setIsRemember(!isRemember)} />
               </Form.Group>
 
-              <Button variant="primary" type="submit" disabled={(!usernameInput) || (!passwordInput)}>
+              <Button variant="primary" type="submit" disabled={(!usernameInput) || (!passwordInput)} >
                 Enter
               </Button>
 
@@ -51,21 +58,7 @@ const Login = () => {
                 <b> Join Us!</b>
               </Link>
 
-              {/* {usernameInput && passwordInput ? (
-                <Button variant="primary" type="submit">
-                  Enter
-                </Button>
-              ) : (
-                <Button variant="secondary" disabled>
-                  Enter
-                </Button>
-              )} */}
-
-
-
-
             </div>
-
           </Form>
         </Col>
       </Row>
