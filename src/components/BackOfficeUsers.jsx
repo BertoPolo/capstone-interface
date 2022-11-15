@@ -24,9 +24,6 @@ const BackOfficeUsers = () => {
     const [adressInput, setAdressInput] = useState("")
 
 
-    // const { usersName, usersAdress } = useSelector((state) => state.usersSlice);
-
-    // const dispatch = useDispatch()
 
     const notifyError = (message) => toast.error(message, {
         position: "top-center",

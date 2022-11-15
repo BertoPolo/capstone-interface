@@ -317,11 +317,11 @@ const BackOfficeItems = () => {
                                         <i className="bi bi-trash3 pointer" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) deleteItem(element._id) }}></i>
 
                                         <ul>
+                                            {/* <li>{element.category}€</li>
+                                            <li>{element.mainCategory}€</li>
+                                        <li>{element.brand}€</li> */}
                                             <li>{element.price}€</li>
-                                            {/* <li>{element.category}€</li> */}
-                                            {/* <li>{element.mainCategory}€</li> */}
-                                            {/* <li>{element.brand}€</li> */}
-                                            <li>{element.isOutlet ? <span>it is outlet an item</span> : <span> it is not outlet an item</span>}</li>
+                                            <li>{element.isOutlet ? <span>it is outlet an item and it's prices is {element.outletPrice}€</span> : <span> it is not outlet an item</span>}</li>
                                             <li>{element.description}</li>
                                             <li>{element.fullDescription}</li>
                                             <li>{element.image}</li>
