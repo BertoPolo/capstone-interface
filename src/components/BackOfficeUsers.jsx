@@ -1,5 +1,5 @@
 import { Form, Button } from "react-bootstrap"
-// import { useSelector, useDispatch } from "react-redux"
+import { useSelector } from "react-redux"
 import { useState } from "react"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
@@ -8,6 +8,10 @@ import 'react-toastify/dist/ReactToastify.css'
 
 
 const BackOfficeUsers = () => {
+
+    const token = useSelector((state) => state.usersSlice.token);
+
+
     const [foundUsers, setFoundUsers] = useState([])
     const [userInput, setUserInput] = useState("")
     const [userId, setUserId] = useState("")
@@ -59,7 +63,11 @@ const BackOfficeUsers = () => {
 
     const getUser = async (id) => {
         try {
-            const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/id/${id}`);
+            const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/id/${id}`, {
+                headers: {
+                    "Authorization": "Bearer " + token
+                }
+            });
 
             const data = await response.json();
             if (data) {
@@ -79,7 +87,11 @@ const BackOfficeUsers = () => {
         e.preventDefault()
         try {
             const response = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/${userInput}`);
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/${userInput}`, {
+                headers: {
+                    "Authorization": "Bearer " + token
+                }
+            });
 
             if (response.ok) {
                 const data = await response.json();
@@ -110,6 +122,7 @@ const BackOfficeUsers = () => {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json",
+                        "Authorization": "Bearer " + token
                     },
                     body: JSON.stringify(body)
 
@@ -131,6 +144,7 @@ const BackOfficeUsers = () => {
                     method: "DELETE",
                     headers: {
                         "Content-Type": "application/json",
+                        "Authorization": "Bearer " + token
                     },
                 }
             );

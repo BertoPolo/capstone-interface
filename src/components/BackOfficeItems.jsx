@@ -108,7 +108,11 @@ const BackOfficeItems = () => {
 
     const getItem = async (article) => {
         try {
-            const res = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?_id=${article}`);
+            const res = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?_id=${article}`, {
+                headers: {
+                    "Authorization": "Bearer " + token
+                }
+            });
 
             if (res.status === 200) {
                 const data = await res.json();
