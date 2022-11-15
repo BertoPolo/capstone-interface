@@ -77,7 +77,13 @@ const BackOfficeItems = () => {
     const searchArticleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const res = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?title=/^${searchByTitle}/i`);
+            const res = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?title=/^${searchByTitle}/i`,
+                {
+                    headers: {
+                        'Content-Type': 'application',
+                        "Authorization": "Bearer " + token
+                    }
+                });
 
             if (res.ok) {
                 const data = await res.json();
@@ -113,7 +119,7 @@ const BackOfficeItems = () => {
                 if (data[0].isOutlet) setIsOutlet(data[0].isOutlet)
                 setSmallDescription(data[0].description)
                 setFullDescription(data[0].fullDescription)
-                // setImageUrl(data[0].image)
+
             }
             // else
 
@@ -139,6 +145,7 @@ const BackOfficeItems = () => {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json",
+                        "Authorization": "Bearer " + token
                     },
 
                     body: JSON.stringify(body),
@@ -167,6 +174,10 @@ const BackOfficeItems = () => {
                 {
                     method: "PUT",
                     body: data,
+                    headers: {
+                        'Content-Type': 'application',
+                        "Authorization": "Bearer " + token
+                    }
                 }
             );
             if (res.ok) {
@@ -190,6 +201,7 @@ const BackOfficeItems = () => {
                     method: "DELETE",
                     headers: {
                         "Content-Type": "application/json",
+                        "Authorization": "Bearer " + token
                     },
                 }
             );

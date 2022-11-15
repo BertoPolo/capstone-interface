@@ -2,7 +2,7 @@ import { Navbar, Nav, Image } from "react-bootstrap"
 import { useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs } from "../slices/sheets/sheetsSlice"
-import { changeIsLogged, addName, addUserName, addAdress, addEmail, addIsAdmin } from "../slices/users/usersSlice"
+import { changeIsLogged, addName, addUserName, addAdress, addEmail, addIsAdmin, changeToken } from "../slices/users/usersSlice"
 import CartModal from "./CartModal"
 
 
@@ -11,7 +11,7 @@ const MyNavbar = () => {
   //   window.location.href = "/login";
   //   localStorage.removeItem("token");
   // };
-  const { isLogged, name, username, adress, email, isAdmin } = useSelector((state) => state.usersSlice);
+  const { isLogged, name, username, adress, email, isAdmin, token } = useSelector((state) => state.usersSlice);
   const cart = useSelector((state) => state.cartSlice.cart);
   const [show, setShow] = useState(false)
 
@@ -29,6 +29,7 @@ const MyNavbar = () => {
     dispatch(addEmail(""))
     dispatch(addIsAdmin(false))
     dispatch(changeIsLogged(false))
+    dispatch(changeToken(""))
   }
 
   return (
