@@ -35,6 +35,8 @@ const BackOficceNewItem = () => {
     const brands = useSelector((state) => state.brandsSlice.brands);
     const categories = useSelector((state) => state.categoriesSlice.categories);
     const mainCategories = useSelector((state) => state.mainCategoriesSlice.mainCategories);
+    const token = useSelector((state) => state.usersSlice.token);
+
 
     const dispatch = useDispatch();
 
@@ -126,6 +128,7 @@ const BackOficceNewItem = () => {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
+                        "Authorization": "Bearer " + token
                     },
                     body: JSON.stringify(body),
                 }
@@ -173,6 +176,10 @@ const BackOficceNewItem = () => {
                 {
                     method: "PUT",
                     body: data,
+                    headers: {
+                        'Content-Type': 'application',
+                        "Authorization": "Bearer " + token
+                    }
                 }
             );
             if (res.ok) {
@@ -200,6 +207,7 @@ const BackOficceNewItem = () => {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
+                        "Authorization": "Bearer " + token
                     },
                     body: JSON.stringify(brandBody)
                 }
@@ -228,6 +236,7 @@ const BackOficceNewItem = () => {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
+                        "Authorization": "Bearer " + token
                     },
                     body: JSON.stringify(categoryBody)
                 }
@@ -276,6 +285,7 @@ const BackOficceNewItem = () => {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
+                        "Authorization": "Bearer " + token
                     },
                     body: JSON.stringify(mCatBody)
                 }
