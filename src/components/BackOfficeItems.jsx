@@ -2,10 +2,15 @@ import { Form, Button, Row, Container } from "react-bootstrap"
 import { useState } from "react"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import { useSelector } from "react-redux"
+
 
 
 
 const BackOfficeItems = () => {
+
+    const token = useSelector((state) => state.usersSlice.token);
+
     const [foundItems, setFoundItems] = useState([])
     const [searchByTitle, setSearchByTitle] = useState("")
     const [isEditing, setIsEditing] = useState(false)

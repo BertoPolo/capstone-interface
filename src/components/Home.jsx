@@ -45,6 +45,7 @@ const Home = () => {
     getRandomItems()
   }, [])
 
+  // console.log(items)
 
   return (
     <>

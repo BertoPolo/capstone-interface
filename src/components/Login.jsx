@@ -1,10 +1,10 @@
-/** @format */
-
 import { Form, Button, Col, Row } from "react-bootstrap"
 import { useNavigate, Link } from "react-router-dom"
 import { useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { changeIsLogged, addName, addUserName, addAdress, addEmail, addIsAdmin } from "../slices/users/usersSlice"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { changeIsLogged, addName, addUserName, addAdress, addEmail, addIsAdmin, changeToken } from "../slices/users/usersSlice"
 
 
 const Login = () => {
@@ -12,28 +12,92 @@ const Login = () => {
   const [passwordInput, setPasswordInput] = useState("")
 
   // const [isRemember, setIsRemember] = useState(false)
-  const { isLogged, name, username, adress, email } = useSelector((state) => state.usersSlice);
+  const { isLogged, name, username, adress, email, isAdmin, token } = useSelector((state) => state.usersSlice);
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
+
+  const notifyError = (message) => toast.error(message, {
+    position: "top-center",
+    autoClose: 4000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+  })
+  const notifyOk = (message) => toast.success(message, {
+    position: "top-center",
+    autoClose: 4000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+  });
+
+
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const res = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/username/${usernameInput}`);
-    if (res.ok) {
-      const data = await res.json()
-      dispatch(addName(data.name))
-      dispatch(addUserName(data.username))
-      dispatch(addAdress(data.adress))
-      dispatch(addEmail(data.email))
-      dispatch(addIsAdmin(data.isAdmin))
-      dispatch(changeIsLogged(true))
-      navigate("/home")
+
+    try {
+      const body = {
+        username: usernameInput,
+        password: passwordInput
+      }
+      const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/login`, {
+
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify(body),
+
+      });
+
+      if (response.ok) {
+        const tok = await response.json()
+        dispatch(changeToken(tok.accessToken))
+
+        const res = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/username/${usernameInput}`);
+        if (res.ok) {
+          const data = await res.json()
+          dispatch(addName(data.name))
+          dispatch(addUserName(data.username))
+          dispatch(addAdress(data.adress))
+          dispatch(addEmail(data.email))
+          dispatch(addIsAdmin(data.isAdmin))
+          dispatch(changeIsLogged(true))
+          navigate("/home")
+
+          notifyOk("Welcome!") // this is not displaying
+        }
+      } else notifyError("Check your credentials again")
+    } catch (error) {
+      console.log(error)
     }
+
   }
 
   return (
     <>
+
+      {/* Toast */}
+      <ToastContainer position="top-center"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark" />
+
       <h1 className="h1">Stuff to Route</h1>
       <Row>
         <Col className="login-container">
