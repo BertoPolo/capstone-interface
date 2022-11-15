@@ -14,7 +14,7 @@ const MyAccount = () => {
   const [passwordInput, setPasswordInput] = useState("")
   const [passwordAgainInput, setPasswordAgainInput] = useState("")
 
-  const username = useSelector((state) => state.usersSlice.username);
+  const { username, token } = useSelector((state) => state.usersSlice);
 
 
   const handleSubmit = async (e) => {
@@ -35,6 +35,8 @@ const MyAccount = () => {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
+              "Authorization": "Bearer " + token
+
             },
 
             body: JSON.stringify(body),

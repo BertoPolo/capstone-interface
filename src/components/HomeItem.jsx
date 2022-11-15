@@ -42,7 +42,6 @@ const HomeItem = ({ currentItem }) => {
   }
 
 
-
   return (
 
     <>

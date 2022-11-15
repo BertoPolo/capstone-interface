@@ -14,17 +14,6 @@ const SingleItem = () => {
 
 
 
-  // const getRandomItems = async () => {
-  //   try {
-  //     const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/random`);
-  //     const data = await response.json();
-  //     if (response.ok) dispatch(addItems(data));
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
-
-
   return (
     <>
       <Container>
