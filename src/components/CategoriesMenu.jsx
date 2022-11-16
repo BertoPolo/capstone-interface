@@ -64,9 +64,9 @@ function CategoriesMenu() {
 
   const getByCategory = async (category) => {
     try {
-
-      const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?categories.categories=${category}`);
+      const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?categories=${category}`);
       const data = await response.json();
+      console.log(response)
       if (data) {
         console.log(data)
         dispatch(addItems(data))
@@ -116,7 +116,6 @@ function CategoriesMenu() {
                 <Card.Body>
                   {<>
                     {mainElement.categories.map(category => {
-                      // console.log(category.categories)
                       return (
                         <p className="pointer" key={category.categories} onClick={() => getByCategory(category.categories)} >{category.categories}</p>
                       )
