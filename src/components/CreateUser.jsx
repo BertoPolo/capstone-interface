@@ -53,7 +53,7 @@ const CreateUser = () => {
       );
       if (res.status === 201) {
         notify("Welcome !!")
-        navigate("/home")
+        navigate("/")
       }
 
     } catch (error) {
