@@ -46,12 +46,12 @@ function CategoriesMenu() {
   }
 
 
-  const getByMainCategory = async (mainCat) => {
+  const getByMainCategory = async (mainCatId) => {
     try {
-      const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?mainCategory=${mainCat}`);
+      const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?mainCategory=${mainCatId}`);
       const data = await response.json();
 
-      if (data.length > 0) {
+      if (data) {
         dispatch(addItems(data));
         toggleIsOnCategory(true)
       }
@@ -108,9 +108,15 @@ function CategoriesMenu() {
 
             <Card key={mainElement._id}>
               <Card.Header>
-                <Accordion.Toggle as={Card.Header} eventKey={mainElement._id} className="pointer" >
-                  {mainElement.mainCategory}
-                </Accordion.Toggle>
+                {mainElement.categories.length > 0 ?
+                  <Accordion.Toggle as={Card.Header} eventKey={mainElement._id} className="pointer" >
+                    {mainElement.mainCategory}
+                  </Accordion.Toggle>
+                  :
+                  <Accordion.Toggle as={Card.Header} eventKey={mainElement._id} className="pointer" onClick={() => getByMainCategory(mainElement._id)} >
+                    {mainElement.mainCategory}
+                  </Accordion.Toggle>}
+
               </Card.Header>
               <Accordion.Collapse eventKey={mainElement._id}>
                 <Card.Body>
