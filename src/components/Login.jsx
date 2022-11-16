@@ -63,7 +63,12 @@ const Login = () => {
         const tok = await response.json()
         dispatch(changeToken(tok.accessToken))
 
-        const res = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/username/${usernameInput}`);
+        const res = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/username/${usernameInput}`,
+          {
+            headers: {
+              "Authorization": "Bearer " + token
+            },
+          });
         if (res.ok) {
           const data = await res.json()
           dispatch(addName(data.name))
