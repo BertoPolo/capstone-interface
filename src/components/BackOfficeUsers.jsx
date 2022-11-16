@@ -58,9 +58,9 @@ const BackOfficeUsers = () => {
         setEditMode(false)
     }
 
-    const getUser = async (id) => {
+    const getUser = async (username) => {
         try {
-            const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/id/${id}`, {
+            const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/username/${username}`, {
                 headers: {
                     "Authorization": "Bearer " + token
                 }
@@ -222,7 +222,7 @@ const BackOfficeUsers = () => {
                                 {/* on click open dropdown with a filled form to edit it */}
                                 <span>Name : <b>{element.name}</b> </span>
                                 <span>Adress : <b>{element.adress}</b></span>
-                                <i className="bi bi-pencil pointer mx-3" onClick={() => { setEditMode(true); setUserId(element._id); getUser(element._id) }}></i>
+                                <i className="bi bi-pencil pointer mx-3" onClick={() => { setEditMode(true); setUserId(element._id); getUser(element.username) }}></i>
 
                                 <i className="bi bi-trash3 pointer" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) deleteUser(element._id) }}></i>
 
