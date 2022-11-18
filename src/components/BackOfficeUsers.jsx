@@ -219,11 +219,11 @@ const BackOfficeUsers = () => {
                     {foundUsers && foundUsers.map((element) => {
                         return (
                             <div key={element._id}>
-                                {/* on click open dropdown with a filled form to edit it */}
                                 <span>Name : <b>{element.name}</b> </span>
+                                <span>Username : <b>{element.username}</b> </span>
                                 <span>Adress : <b>{element.adress}</b></span>
-                                <i className="bi bi-pencil pointer mx-3" onClick={() => { setEditMode(true); setUserId(element._id); getUser(element.username) }}></i>
 
+                                <i className="bi bi-pencil pointer mx-3" onClick={() => { setEditMode(true); setUserId(element._id); getUser(element.username) }}></i>
                                 <i className="bi bi-trash3 pointer" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) deleteUser(element._id) }}></i>
 
                                 <hr />

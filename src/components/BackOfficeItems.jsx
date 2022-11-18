@@ -124,6 +124,7 @@ const BackOfficeItems = () => {
                 setSmallDescription(data[0].description)
                 setFullDescription(data[0].fullDescription)
 
+
             }
             // else
 
@@ -184,6 +185,7 @@ const BackOfficeItems = () => {
                     }
                 }
             );
+            // console.log(res)
             if (res.ok) {
                 setImage("")
                 setItemId("")
