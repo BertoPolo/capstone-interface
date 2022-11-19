@@ -326,33 +326,39 @@ const BackOficceNewItem = () => {
 
             <Row>
                 {/* create a new brand */}
-                <Form onSubmit={(e) => createNewBrand(e)}>
-                    <Form.Control type="text" placeholder="New brand" value={newBrandInput} onChange={(e) => setNewBrandInput(e.target.value)} />
-                    <Button className="searchNSubmitButton" variant="outline" type="submit">Submit</Button>
-                </Form>
+                <Col>
+                    <Form onSubmit={(e) => createNewBrand(e)}>
+                        <Form.Control type="text" placeholder="New brand" value={newBrandInput} onChange={(e) => setNewBrandInput(e.target.value)} />
+                        <Button className="searchNSubmitButton mt-2" variant="outline" type="submit">Create</Button>
+                    </Form>
+                </Col>
 
                 {/* Create a new category */}
-                <Form onSubmit={(e) => createNewCategory(e)}>
-                    <Form.Control type="text" placeholder="New category" value={newCategoryInput} onChange={(e) => setNewCategoryInput(e.target.value)} />
-                    {/* disabled={!mcatForCatCreation} */}
-                    <Dropdown>
-                        <Dropdown.Toggle variant="success">{mcatForCatCreation.mainCategory || "Choose Main Category"}</Dropdown.Toggle>
-                        <Dropdown.Menu>
-                            {mainCategories.map((element) => {
-                                return (
-                                    <Dropdown.Item key={element._id} onClick={() => setMcatForCatCreation(element)}>{element.mainCategory}</Dropdown.Item>
-                                )
-                            })}
-                        </Dropdown.Menu>
-                    </Dropdown>
-                    <Button className="searchNSubmitButton" variant="outline" type="submit">Submit</Button>
-                </Form>
+                <Col>
+                    <Form onSubmit={(e) => createNewCategory(e)}>
+                        <Form.Control type="text" placeholder="New category" value={newCategoryInput} onChange={(e) => setNewCategoryInput(e.target.value)} />
+                        {/* disabled={!mcatForCatCreation} */}
+                        <Dropdown>
+                            <Dropdown.Toggle className="mt-2" variant="success">{mcatForCatCreation.mainCategory || "Choose Main Category"}</Dropdown.Toggle>
+                            <Dropdown.Menu>
+                                {mainCategories.map((element) => {
+                                    return (
+                                        <Dropdown.Item key={element._id} onClick={() => setMcatForCatCreation(element)}>{element.mainCategory}</Dropdown.Item>
+                                    )
+                                })}
+                            </Dropdown.Menu>
+                        </Dropdown>
+                        <Button className="searchNSubmitButton mt-2" variant="outline" type="submit">Create</Button>
+                    </Form>
+                </Col>
 
                 {/* Create a new main category */}
-                <Form onSubmit={(e) => createNewMainCategory(e)}>
-                    <Form.Control type="text" placeholder="New main category" value={newMainCategoryInput} onChange={(e) => setNewMainCategoryInput(e.target.value)} />
-                    <Button className="searchNSubmitButton" variant="outline" type="submit">Submit</Button>
-                </Form>
+                <Col>
+                    <Form onSubmit={(e) => createNewMainCategory(e)}>
+                        <Form.Control type="text" placeholder="New main category" value={newMainCategoryInput} onChange={(e) => setNewMainCategoryInput(e.target.value)} />
+                        <Button className="searchNSubmitButton mt-2" variant="outline" type="submit">Create</Button>
+                    </Form>
+                </Col>
             </Row>
 
             {/* Post new item */}
