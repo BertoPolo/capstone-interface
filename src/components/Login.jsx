@@ -1,4 +1,4 @@
-import { Form, Button, Col, Row } from "react-bootstrap"
+import { Container, Form, Button, Col, Row } from "react-bootstrap"
 import { useNavigate, Link } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
@@ -94,10 +94,8 @@ const Login = () => {
   }
 
 
-
-
   return (
-    <>
+    <Container fluid>
 
       {/* Toast */}
       <ToastContainer position="top-center"
@@ -113,7 +111,7 @@ const Login = () => {
 
       <h1 className="h1">Stuff to Route</h1>
       <Row>
-        <Col className="login-container">
+        <Col className="login-container loginBG">
           <p> Aren't You registered yet?</p>
           <Button onClick={() => navigate("/home")}>Click here to enter without login</Button>
         </Col>
@@ -150,7 +148,7 @@ const Login = () => {
           </Form>
         </Col>
       </Row>
-    </>
+    </Container>
   )
 }
 

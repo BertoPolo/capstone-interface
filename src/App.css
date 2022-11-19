@@ -60,7 +60,7 @@ body {
 
 .login-container {
   /* min-height: 100vh; */
-  margin-top: 10%;
+  /* margin-top: 10%; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,6 +75,15 @@ body {
 
 .login-small-font {
   font-size: calc(1px + 2vmin);
+}
+
+.loginBG {
+  background-image: url("../public/Bglogin.avif");
+  background-repeat: no-repeat;
+  background-size: cover; /* 100% */
+  background-position: center;
+  background-color: #cccccc;
+  /* overflow: hidden; */
 }
 
 /* Login end */
