@@ -1,4 +1,21 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
+
+export const getToken = createAsyncThunk("book/getToken", async (url, thunkAPI) => {
+  try {
+    console.log("Fetching from the usersSlice!")
+    let response = await fetch(url)
+
+    if (response.ok) {
+      let data = await response.json()
+
+      return data
+    } else {
+      return thunkAPI.rejectWithValue()
+    }
+  } catch (error) {
+    return thunkAPI.rejectWithValue()
+  }
+})
 
 const usersSlice = createSlice({
   name: "users",

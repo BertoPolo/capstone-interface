@@ -1,21 +1,26 @@
 import { Form, Button, Col, Row } from "react-bootstrap"
 import { useNavigate, Link } from "react-router-dom"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { changeIsLogged, addName, addUserName, addAdress, addEmail, addIsAdmin, changeToken } from "../slices/users/usersSlice"
-
+import { getToken } from "../slices/users/usersSlice"
 
 const Login = () => {
   const [usernameInput, setUsernameInput] = useState("")
   const [passwordInput, setPasswordInput] = useState("")
-
   // const [isRemember, setIsRemember] = useState(false)
-  const { isLogged, name, username, adress, email, isAdmin, token } = useSelector((state) => state.usersSlice);
+
+  const { name, token } = useSelector((state) => state.usersSlice);
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
+
+  // useEffect(() => {
+  //   getToken()
+
+  // }, [])
 
 
   const notifyError = (message) => toast.error(message, {
@@ -79,7 +84,7 @@ const Login = () => {
           dispatch(changeIsLogged(true))
           navigate("/home")
 
-          notifyOk("Welcome!") // this is not displaying
+          notifyOk(`Welcome! ${name}`) // this is not displaying
         }
       } else notifyError("Check your credentials again")
     } catch (error) {
@@ -87,6 +92,9 @@ const Login = () => {
     }
 
   }
+
+
+
 
   return (
     <>
