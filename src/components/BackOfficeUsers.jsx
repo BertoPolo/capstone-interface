@@ -1,4 +1,4 @@
-import { Form, Button } from "react-bootstrap"
+import { Container, Form, Button } from "react-bootstrap"
 import { useSelector } from "react-redux"
 import { useState } from "react"
 import { ToastContainer, toast } from 'react-toastify';
@@ -153,7 +153,7 @@ const BackOfficeUsers = () => {
     }
 
     return (
-        <>
+        <Container fluid>
 
             {/* Toaster */}
             <ToastContainer
@@ -171,14 +171,17 @@ const BackOfficeUsers = () => {
             />
 
             {/* Search user */}
-            {!editMode && <Form className="d-flex justify-content-center flex-column mb-3" onSubmit={(e) => searchUserSubmit(e)}>
-                <h4 className="mb-3">Search an user</h4>
+            {!editMode && <Form onSubmit={(e) => searchUserSubmit(e)}>
 
-                <Form.Group className="mb-3">
-                    <Form.Control type="text" className="justify-content-center w-25" placeholder="Name" value={userInput} onChange={(e) => setUserInput(e.target.value)} />
-                </Form.Group>
+                <div className="d-flex justify-content-center flex-column ">
+                    <h4 className="mb-3">Search an user</h4>
 
-                <Button type="submit" disabled={!userInput}> Submit </Button>
+                    <Form.Group >
+                        <Form.Control type="text" className="justify-content-center w-25" placeholder="Name" value={userInput} onChange={(e) => setUserInput(e.target.value)} />
+                    </Form.Group>
+                </div>
+
+                <Button type="submit" disabled={!userInput} className="mb-3"> Submit </Button>
 
             </Form >}
 
@@ -237,7 +240,7 @@ const BackOfficeUsers = () => {
 
 
 
-        </>
+        </Container>
 
     )
 }

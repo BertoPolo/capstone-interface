@@ -1,4 +1,4 @@
-import { Form, Button, Dropdown, Row, Col } from "react-bootstrap"
+import { Container, Form, Button, Dropdown, Row, Col } from "react-bootstrap"
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { ToastContainer, toast } from 'react-toastify';
@@ -309,7 +309,7 @@ const BackOficceNewItem = () => {
 
 
     return (
-        <>
+        <Container fluid>
             {/* Toast */}
             <ToastContainer position="top-center"
                 autoClose={4000}
@@ -328,7 +328,7 @@ const BackOficceNewItem = () => {
                 {/* create a new brand */}
                 <Form onSubmit={(e) => createNewBrand(e)}>
                     <Form.Control type="text" placeholder="New brand" value={newBrandInput} onChange={(e) => setNewBrandInput(e.target.value)} />
-                    <Button type="submit"> Submit </Button>
+                    <Button className="searchNSubmitButton" variant="outline" type="submit">Submit</Button>
                 </Form>
 
                 {/* Create a new category */}
@@ -336,7 +336,7 @@ const BackOficceNewItem = () => {
                     <Form.Control type="text" placeholder="New category" value={newCategoryInput} onChange={(e) => setNewCategoryInput(e.target.value)} />
                     {/* disabled={!mcatForCatCreation} */}
                     <Dropdown>
-                        <Dropdown.Toggle variant="success">{mcatForCatCreation.mainCategory || "Choose Main category"}</Dropdown.Toggle>
+                        <Dropdown.Toggle variant="success">{mcatForCatCreation.mainCategory || "Choose Main Category"}</Dropdown.Toggle>
                         <Dropdown.Menu>
                             {mainCategories.map((element) => {
                                 return (
@@ -345,13 +345,13 @@ const BackOficceNewItem = () => {
                             })}
                         </Dropdown.Menu>
                     </Dropdown>
-                    <Button type="submit"> Submit </Button>
+                    <Button className="searchNSubmitButton" variant="outline" type="submit">Submit</Button>
                 </Form>
 
                 {/* Create a new main category */}
                 <Form onSubmit={(e) => createNewMainCategory(e)}>
                     <Form.Control type="text" placeholder="New main category" value={newMainCategoryInput} onChange={(e) => setNewMainCategoryInput(e.target.value)} />
-                    <Button type="submit"> Submit </Button>
+                    <Button className="searchNSubmitButton" variant="outline" type="submit">Submit</Button>
                 </Form>
             </Row>
 
@@ -381,6 +381,7 @@ const BackOficceNewItem = () => {
 
                 </Form.Group>
 
+                {/* choose brand,category and M.category */}
                 <Form.Group className="d-flex justify-content-around">
                     <Dropdown>
                         <Dropdown.Toggle variant="warning">{selectedBrand || "Choose Brand"}</Dropdown.Toggle>
@@ -416,17 +417,17 @@ const BackOficceNewItem = () => {
                     </Dropdown>
                 </Form.Group>
 
-                <Button type="submit"> Submit </Button>
+                <Button className="searchNSubmitButton" variant="outline" type="submit"> Submit </Button>
             </Form >
 
             {/* Post item's image */}
             <Form onSubmit={(e) => postImg(e)}>
                 <Form.Label> Set an image</Form.Label>
                 <Form.Control type="file" accept=",.jpg,.jpeg,.png" onChange={(e) => setImage(e.target.files[0])} />
-                <Button type="submit" disabled={!image && !itemId}>Upload</Button>
+                <Button className="searchNSubmitButton" variant="outline" type="submit" disabled={!image && !itemId}>Upload</Button>
             </Form>
 
-        </>
+        </Container >
     )
 }
 

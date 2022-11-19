@@ -114,8 +114,8 @@ body {
   background-color: #294b66;
   padding: 1rem;
 }
-.searchUsersButton {
-  background: #396080 !important;
+.searchNSubmitButton {
+  background: #476d8b !important;
   color: white !important;
 }
 

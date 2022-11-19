@@ -239,12 +239,14 @@ const BackOfficeItems = () => {
             <Container fluid>
 
                 {/* Search item */}
-                {!isEditing && < Form className="d-flex justify-content-center flex-column" onSubmit={(e) => searchArticleSubmit(e)}>
-                    <h4 className="mb-3" >Search an article</h4>
+                {!isEditing && < Form onSubmit={(e) => searchArticleSubmit(e)}>
+                    <div lassName="d-flex justify-content-center flex-column">
+                        <h4 className="mb-3" >Search an article</h4>
 
-                    <Form.Group>
-                        <Form.Control type="text" placeholder="Name" value={searchByTitle} onChange={(e) => setSearchByTitle(e.target.value)} />
-                    </Form.Group>
+                        <Form.Group>
+                            <Form.Control className="w-25" type="text" placeholder="Name" value={searchByTitle} onChange={(e) => setSearchByTitle(e.target.value)} />
+                        </Form.Group>
+                    </div>
 
                     <Button type="submit" disabled={!searchByTitle}>Submit</Button>
                 </Form >}

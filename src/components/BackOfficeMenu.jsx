@@ -34,11 +34,11 @@ const BackOffice = () => {
 
                 <Button type="submit" disabled > Submit </Button>
             </Form> */}
-            <div className="bOMenu m-3 d-flex justify-content-between">
+            <div className="bOMenu m-3 d-flex justify-content-between mb-4">
 
-                <Button className="searchUsersButton" variant="outline" onClick={() => dispatch(toggleIsOnUserSearch(true))} >Search Users</Button >
-                <Button className="searchUsersButton" variant="outline" onClick={() => dispatch(toggleIsOnItemSearch(true))} >Search Items</Button >
-                <Button className="searchUsersButton" variant="outline" onClick={() => dispatch(toggleIsOnCreateNewItem(true))}>Create Items</Button >
+                <Button className="searchNSubmitButton" variant="outline" onClick={() => dispatch(toggleIsOnUserSearch(true))} ><i className="bi bi-search"></i> Search Users</Button >
+                <Button className="searchNSubmitButton" variant="outline" onClick={() => dispatch(toggleIsOnItemSearch(true))} > <i className="bi bi-search"></i> Search Items</Button >
+                <Button className="searchNSubmitButton" variant="outline" onClick={() => dispatch(toggleIsOnCreateNewItem(true))}><i className="bi bi-hammer"></i> Create Items</Button >
                 <Button variant="danger" onClick={() => navigate("/home")}><i className="bi bi-box-arrow-in-left"></i></Button >
             </div>
 
