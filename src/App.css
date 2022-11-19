@@ -110,5 +110,13 @@ body {
 /* item end */
 
 /* backoffice start*/
+.bOMenu {
+  background-color: #294b66;
+  padding: 1rem;
+}
+.searchUsersButton {
+  background: #396080 !important;
+  color: white !important;
+}
 
 /* backoffice end*/

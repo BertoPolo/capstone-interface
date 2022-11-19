@@ -132,7 +132,7 @@ const NavFilter = () => {
                 </Row>
             </Container>
 
-            <Container className="mt-3">
+            <Container className="my-3">
                 <Row>
                     <Form className="d-flex justify-content-between w-100 align-items-center" onSubmit={(e) => getFilteredItems(e)}>
                         {/*PRICE SORTING */}
@@ -178,7 +178,6 @@ const NavFilter = () => {
                             }}
                         />
                         <Button type="submit" className="d-flex ">Enter Filters </Button>
-
 
                     </Form>
 

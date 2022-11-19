@@ -14,7 +14,7 @@ const MyAccount = () => {
   const [passwordInput, setPasswordInput] = useState("")
   const [passwordAgainInput, setPasswordAgainInput] = useState("")
 
-  const { username, token } = useSelector((state) => state.usersSlice);
+  const { name, username, adress, email, token } = useSelector((state) => state.usersSlice);
 
 
   const handleSubmit = async (e) => {

@@ -22,7 +22,7 @@ const BackOffice = () => {
     return (
         <>
             <MyNavbar />
-            <h1>BACKOFFICE</h1>
+            <h1 className=" d-flex justify-content-center">BACKOFFICE</h1>
             {/* Voucher creator */}
             {/* <Form className="d-flex justify-content-center flex-column" onSubmit={(e) => voucherCreatorSubmit(e)}> check onSubmit
                 <h4 className="mb-3">Voucher creator</h4>
@@ -34,12 +34,12 @@ const BackOffice = () => {
 
                 <Button type="submit" disabled > Submit </Button>
             </Form> */}
-            <div className=" m-3 d-flex justify-content-between">
+            <div className="bOMenu m-3 d-flex justify-content-between">
 
-                <Button variant="primary" onClick={() => dispatch(toggleIsOnUserSearch(true))} >Search Users</Button >
-                <Button variant="dark" onClick={() => dispatch(toggleIsOnItemSearch(true))} >Search Items</Button >
-                <Button variant="secondary" onClick={() => dispatch(toggleIsOnCreateNewItem(true))}>Create Items</Button >
-                <Button variant="danger" onClick={() => navigate("/home")}>Return Home</Button >
+                <Button className="searchUsersButton" variant="outline" onClick={() => dispatch(toggleIsOnUserSearch(true))} >Search Users</Button >
+                <Button className="searchUsersButton" variant="outline" onClick={() => dispatch(toggleIsOnItemSearch(true))} >Search Items</Button >
+                <Button className="searchUsersButton" variant="outline" onClick={() => dispatch(toggleIsOnCreateNewItem(true))}>Create Items</Button >
+                <Button variant="danger" onClick={() => navigate("/home")}><i className="bi bi-box-arrow-in-left"></i></Button >
             </div>
 
             {isOnUserSearch && <BackOfficeUsers />}
