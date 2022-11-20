@@ -18,7 +18,7 @@ const ContactUs = () => {
 
             </Col>
             <Col>
-              <li><i className="bi bi-telephone-fill text-primary"></i> +34 681 32 92 33 </li>
+              <li><i className="bi bi-telephone-fill text-primary"></i> 971 32 92 33 </li>
               <li><i className="bi bi-whatsapp text-success"></i> +34 681 24 55 88</li>               {/* bg-success + borderradious*/}
               <li><i className="bi bi-envelope-fill text-secondary"></i> stufftoroute@info.com </li>
               <li><i className="bi bi-clock-fill "></i> 8.00 to 13.00 / 15.30 to 20.00 Mon-Fri</li>
