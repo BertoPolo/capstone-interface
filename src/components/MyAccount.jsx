@@ -1,4 +1,4 @@
-import { Button, Form } from "react-bootstrap"
+import { Container, Row, Col, Button, Form } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import { useSelector } from "react-redux"
@@ -54,45 +54,54 @@ const MyAccount = () => {
   }
 
   return (
-    <>
+    <Container fluid className="myAccountBg ">
       <MyNavbar />
 
-      <Form className="login-container" onSubmit={(e) => handleSubmit(e)}>
-        <h4 className="mb-3">Modify your data</h4>
+      {/* <Container> */}
+      {/* <Row> */}
+      {/* <Col className="bgGif"></Col> */}
+      {/* <Col> */}
+      <div className="transparency">
+        <Form className="login-container " onSubmit={(e) => handleSubmit(e)}>
+          <h4 className="mb-3">Modify your data</h4>
 
-        {<Form.Group>
-          <Form.Control type="text" placeholder="Full Name" value={nameInput} onChange={(e) => setNameInput(e.target.value)} />
-        </Form.Group>}
+          {<Form.Group>
+            <Form.Control type="text" placeholder="Full Name" value={nameInput} onChange={(e) => setNameInput(e.target.value)} />
+          </Form.Group>}
 
-        <Form.Group>
-          <Form.Control type="text" placeholder="User name" value={userNameInput} onChange={(e) => setUserNameInput(e.target.value)} />
-        </Form.Group>
-        <Form.Group>
-          <Form.Control type="text" placeholder="Email" value={emailInput} onChange={(e) => setEmailInput(e.target.value)} />
-        </Form.Group>
+          <Form.Group>
+            <Form.Control type="text" placeholder="User name" value={userNameInput} onChange={(e) => setUserNameInput(e.target.value)} />
+          </Form.Group>
+          <Form.Group>
+            <Form.Control type="text" placeholder="Email" value={emailInput} onChange={(e) => setEmailInput(e.target.value)} />
+          </Form.Group>
 
-        {<Form.Group>
-          <Form.Control type="text" placeholder="Shipping Adress" value={adressInput} onChange={(e) => setAdressInput(e.target.value)} />
-        </Form.Group>}
+          {<Form.Group>
+            <Form.Control type="text" placeholder="Shipping Adress" value={adressInput} onChange={(e) => setAdressInput(e.target.value)} />
+          </Form.Group>}
 
-        <Form.Group>
-          <Form.Control type="password" placeholder="Password" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
-        </Form.Group>
+          <Form.Group>
+            <Form.Control type="password" placeholder="Password" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
+          </Form.Group>
 
-        <Form.Group>
-          <Form.Control
-            type="password"
-            placeholder="Repeat Your Password"
-            value={passwordAgainInput}
-            onChange={(e) => setPasswordAgainInput(e.target.value)}
-          />
-        </Form.Group>
-        <div className="d-flex">
-          <Button type="submit" disabled={(passwordInput !== passwordAgainInput) || (!passwordInput || !passwordAgainInput)} > Submit </Button>
-          <Button className="ml-3" variant="danger" onClick={() => navigate("/home")}>Back</Button>
-        </div>
-      </Form>
-    </>
+          <Form.Group>
+            <Form.Control
+              type="password"
+              placeholder="Repeat Your Password"
+              value={passwordAgainInput}
+              onChange={(e) => setPasswordAgainInput(e.target.value)}
+            />
+          </Form.Group>
+          <div className="d-flex">
+            <Button type="submit" disabled={(passwordInput !== passwordAgainInput) || (!passwordInput || !passwordAgainInput)} > Submit </Button>
+            <Button className="ml-3" variant="danger" onClick={() => navigate("/home")}>Back</Button>
+          </div>
+        </Form>
+      </div>
+      {/* </Col> */}
+      {/* </Row> */}
+      {/* </Container> */}
+    </Container>
   )
 }
 

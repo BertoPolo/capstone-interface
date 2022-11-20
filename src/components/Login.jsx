@@ -111,7 +111,7 @@ const Login = () => {
 
       <Row>
         <Col className="login-container loginBG">
-          <div className="p-4 transparency">
+          <div className="p-4 transparencywWiteBox">
             <p> Aren't You registered yet?</p>
             <Button onClick={() => navigate("/home")}>Take a look without login</Button>
           </div>

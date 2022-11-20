@@ -1,4 +1,4 @@
-import { Form, Button } from "react-bootstrap"
+import { Form, Button, Container, Row } from "react-bootstrap"
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 import { ToastContainer, toast } from 'react-toastify';
@@ -64,60 +64,48 @@ const CreateUser = () => {
 
 
   return (
-    <>
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        limit={1}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
-      <Form className="login-container" onSubmit={(e) => handleSubmit(e)}>
-        <h4 className="mb-3">Registration</h4>
+    <Container fluid className="bgRegistration">
+      <Row>
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          limit={1}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
+        <Form className="login-container" onSubmit={(e) => handleSubmit(e)}>
+          <h4 className="mb-3">Registration</h4>
 
-        <Form.Group>
-          <Form.Control type="text" placeholder="Full name" onChange={(e) => setNameInput(e.target.value)} />
-          <Form.Control type="text" placeholder="User Name" onChange={(e) => setUserNameInput(e.target.value)} />
-          <Form.Control type="text" placeholder="Email" onChange={(e) => setEmailInput(e.target.value)} />
-          <Form.Control type="text" placeholder="Shipping Adress" onChange={(e) => setAdressInput(e.target.value)} />
-          <Form.Control type="password" placeholder="Password" onChange={(e) => setPasswordInput(e.target.value)} />
-        </Form.Group>
+          <Form.Group>
+            <Form.Control type="text" placeholder="Full name" onChange={(e) => setNameInput(e.target.value)} />
+            <Form.Control type="text" placeholder="User Name" onChange={(e) => setUserNameInput(e.target.value)} />
+            <Form.Control type="text" placeholder="Email" onChange={(e) => setEmailInput(e.target.value)} />
+            <Form.Control type="text" placeholder="Shipping Adress" onChange={(e) => setAdressInput(e.target.value)} />
+            <Form.Control type="password" placeholder="Password" onChange={(e) => setPasswordInput(e.target.value)} />
+          </Form.Group>
 
-        {/* improvements */}
-        {/* <Form.Group>
-        <Form.Control type="text" placeholder="Bike's brand and model" onChange={(e) => setBikeInput(e.target.value)} />
-      </Form.Group> */}
+          <div>
 
-        {/* <Form.Group>
-        <Form.Control type="file" placeholder="Profile Image" onChange={(e) => setBikeInput(e.target.value)} />
-      </Form.Group> */}
-
-
-        <div>
-          {adressInput && passwordInput && nameInput ? (
-            <Button variant="success" type="submit">
+            <Button variant="success" type="submit" disabled={!adressInput && !passwordInput && !nameInput}>
               Register
             </Button>
-          ) : (
-            <Button variant="secondary" type="submit" disabled>
-              Register
-            </Button>
-          )}
 
-          <Link className="ml-2" to="/">
-            <Button variant="danger" type="submit">
-              Go Back
-            </Button>
-          </Link>
-        </div>
-      </Form>
-    </>
+
+            <Link className="ml-2" to="/">
+              <Button variant="danger" type="submit">
+                Go Back
+              </Button>
+            </Link>
+          </div>
+        </Form >
+      </Row>
+    </Container >
 
   )
 }

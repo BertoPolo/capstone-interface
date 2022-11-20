@@ -11,17 +11,17 @@ const ContactUs = () => {
         <ul className="my-4">
           <Row>
             <Col>
-              <li>Frares Street,nº666</li>
+              <li>Plaça Conquesta, nº2</li>
               <li> P.C. 07703</li>
               <li>500m2 surface </li>
               <li>Mahón,Menorca,Spain </li>
 
             </Col>
             <Col>
-              <li>Phone +34 681 32 92 33 </li>
-              <li>Whastapp +34 681 24 55 88</li>
-              <li>Email Stufftoroute@info.com </li>
-              <li>8.00 to 13.00 / 15.30 to 20.00 Mon-Fri</li>
+              <li><i className="bi bi-telephone-fill text-primary"></i> +34 681 32 92 33 </li>
+              <li><i className="bi bi-whatsapp text-success"></i> +34 681 24 55 88</li>               {/* bg-success + borderradious*/}
+              <li><i className="bi bi-envelope-fill text-secondary"></i> stufftoroute@info.com </li>
+              <li><i className="bi bi-clock-fill "></i> 8.00 to 13.00 / 15.30 to 20.00 Mon-Fri</li>
 
             </Col>
 
