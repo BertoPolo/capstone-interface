@@ -109,14 +109,16 @@ const Login = () => {
         pauseOnHover
         theme="dark" />
 
-      <h1 className="h1">Stuff to Route</h1>
       <Row>
         <Col className="login-container loginBG">
-          <p> Aren't You registered yet?</p>
-          <Button onClick={() => navigate("/home")}>Click here to enter without login</Button>
+          <div className="p-4 transparency">
+            <p> Aren't You registered yet?</p>
+            <Button onClick={() => navigate("/home")}>Take a look without login</Button>
+          </div>
         </Col>
 
         <Col>
+          <h1 className="h1">Stuff to Route</h1>
           <Form className="login-container" onSubmit={handleSubmit}>
             <div className="login-modal">
               <h4 className="mb-3">Login</h4>
@@ -137,7 +139,7 @@ const Login = () => {
               </Button>
 
               <Link className="login-small-font d-block mb-3 mt-3" to="/forgotPassword">
-                <b> Forgot the password?</b>
+                <b className="text-danger"> Forgot the password?</b>
               </Link>
 
               <Link className="login-small-font d-block" to="/newUser">
