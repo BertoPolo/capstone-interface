@@ -360,6 +360,7 @@ const BackOficceNewItem = () => {
                     </Form>
                 </Col>
             </Row>
+            <hr />
 
             {/* Post new item */}
             < Form className="" onSubmit={(e) => addNewArticleSubmit(e)}> {/* check onSubmit */}
@@ -425,12 +426,12 @@ const BackOficceNewItem = () => {
 
                 <Button className="searchNSubmitButton" variant="outline" type="submit"> Submit </Button>
             </Form >
-
+            <hr />
             {/* Post item's image */}
-            <Form onSubmit={(e) => postImg(e)}>
+            <Form onSubmit={(e) => postImg(e)} className="mt-3">
                 <Form.Label> Set an image</Form.Label>
                 <Form.Control type="file" accept=",.jpg,.jpeg,.png" onChange={(e) => setImage(e.target.files[0])} />
-                <Button className="searchNSubmitButton" variant="outline" type="submit" disabled={!image && !itemId}>Upload</Button>
+                <Button className="searchNSubmitButton mt-3" variant="outline" type="submit" disabled={!image && !itemId}>Upload</Button>
             </Form>
 
         </Container >
