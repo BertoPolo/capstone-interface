@@ -180,12 +180,11 @@ const BackOfficeItems = () => {
                     method: "PUT",
                     body: data,
                     headers: {
-                        'Content-Type': 'application',
                         "Authorization": "Bearer " + token
                     }
                 }
             );
-            console.log(res)
+            // console.log(data);
             if (res.ok) {
                 setImage("")
                 setItemId("")

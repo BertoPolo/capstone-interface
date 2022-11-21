@@ -177,7 +177,6 @@ const BackOficceNewItem = () => {
                     method: "PUT",
                     body: data,
                     headers: {
-                        'Content-Type': 'application',
                         "Authorization": "Bearer " + token
                     }
                 }
@@ -185,7 +184,7 @@ const BackOficceNewItem = () => {
             if (res.ok) {
                 setImage("")
                 setItemId("")
-                // notifyOk("image uploaded")
+                notifyOk("image uploaded")
 
             } else notifyError("oops, something happened")
 

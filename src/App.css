@@ -50,7 +50,9 @@ body {
   -webkit-box-orient: vertical;
   height: 2.5em;
 }
-
+small {
+  font-size: 15px !important;
+}
 /* HomeItem end */
 /* Login start */
 .h1 {
