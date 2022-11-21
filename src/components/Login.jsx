@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from "react-redux"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { changeIsLogged, addName, addUserName, addAdress, addEmail, addIsAdmin, changeToken } from "../slices/users/usersSlice"
-import { checkAndLogin } from "../slices/users/usersSlice"
 
 const Login = () => {
   const [usernameInput, setUsernameInput] = useState("")
@@ -16,20 +15,6 @@ const Login = () => {
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
-
-  useEffect(() => {
-    checkAndLogin(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/login`, {
-
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-
-      body: JSON.stringify(body),
-
-    });
-
-  }, [])
 
 
   const notifyError = (message) => toast.error(message, {
@@ -53,63 +38,63 @@ const Login = () => {
     theme: "dark",
   });
 
-  // const logIn = async () => {
+  const logIn = async (tok) => {
 
-  //   try {
-  //     const res = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/username/${usernameInput}`,
-  //       {
-  //         headers: {
-  //           "Authorization": "Bearer " + token
-  //         },
-  //       });
-  //     if (res.ok) {
-  //       const data = await res.json()
-  //       dispatch(addName(data.name))
-  //       dispatch(addUserName(data.username))
-  //       dispatch(addAdress(data.adress))
-  //       dispatch(addEmail(data.email))
-  //       dispatch(addIsAdmin(data.isAdmin))
-  //       dispatch(changeIsLogged(true))
-  //       navigate("/home")
+    try {
+      const res = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/username/${usernameInput}`,
+        {
+          headers: {
+            "Authorization": "Bearer " + tok
+          },
+        });
+      if (res.ok) {
+        const data = await res.json()
+        dispatch(addName(data.name))
+        dispatch(addUserName(data.username))
+        dispatch(addAdress(data.adress))
+        dispatch(addEmail(data.email))
+        dispatch(addIsAdmin(data.isAdmin))
+        dispatch(changeIsLogged(true))
+        navigate("/home")
 
-  //       notifyOk(`Welcome! ${name}`) // this is not displaying
-  //     }
-  //   } catch (error) {
-  //     console.log(error)
+        notifyOk(`Welcome! ${name}`) // this is not displaying
+      }
+    } catch (error) {
+      console.log(error)
 
-  //   }
-  // }
+    }
+  }
 
-  // const createToken = async (e) => {
-  //   e.preventDefault()
+  const createToken = async (e) => {
+    e.preventDefault()
 
-  //   try {
-  //     const body = {
-  //       username: usernameInput,
-  //       password: passwordInput
-  //     }
-  //     const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/login`, {
+    try {
+      const body = {
+        username: usernameInput,
+        password: passwordInput
+      }
+      const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/login`, {
 
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
 
-  //       body: JSON.stringify(body),
+        body: JSON.stringify(body),
 
-  //     });
+      });
 
-  //     const data = await response.json()
-  //     if (response.ok) {
-  //       dispatch(changeToken(data.accessToken))
-  //       logIn()
+      if (response.ok) {
+        const data = await response.json()
+        dispatch(changeToken(data.accessToken))
+        logIn(data.accessToken)
 
-  //     } else notifyError("Check your credentials again")
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
+      } else notifyError("Check your credentials again")
+    } catch (error) {
+      console.log(error)
+    }
 
-  // }
+  }
 
 
   return (

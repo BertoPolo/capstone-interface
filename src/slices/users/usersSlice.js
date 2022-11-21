@@ -1,20 +1,20 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 
-export const checkAndLogin = createAsyncThunk("users/checkAndLogin", async (url, thunkAPI) => {
-  // this "users" name have to match with usersSlice's ''name"
-  try {
-    console.log("Fetching from the usersSlice!")
-    let response = await fetch(url)
+// export const checkAndLogin = createAsyncThunk("users/checkAndLogin", async (url, thunkAPI) => {
+//   // this "users" name have to match with usersSlice's ''name"
+//   try {
+//     console.log("Fetching from the usersSlice!")
+//     let response = await fetch(url)
 
-    if (response.ok) {
-      let data = await response.json()
+//     if (response.ok) {
+//       let data = await response.json()
 
-      return data
-    } else return thunkAPI.rejectWithValue()
-  } catch (error) {
-    return thunkAPI.rejectWithValue()
-  }
-})
+//       return data
+//     } else return thunkAPI.rejectWithValue()
+//   } catch (error) {
+//     return thunkAPI.rejectWithValue()
+//   }
+// })
 
 const usersSlice = createSlice({
   name: "users",
@@ -77,28 +77,28 @@ const usersSlice = createSlice({
       }
     },
   },
-  extraReducers: {
-    [checkAndLogin.pending]: (state, action) => {
-      return {
-        ...state,
-        // loading: true,
-      }
-    },
-    [checkAndLogin.fulfilled]: (state, action) => {
-      return {
-        ...state,
-        // loading: false,
-        token: action.payload,
-      }
-    },
-    [checkAndLogin.rejected]: (state, action) => {
-      return {
-        ...state,
-        // loading: false,
-        // error: true,
-      }
-    },
-  },
+  // extraReducers: {
+  //   [checkAndLogin.pending]: (state, action) => {
+  //     return {
+  //       ...state,
+  //       // loading: true,
+  //     }
+  //   },
+  //   [checkAndLogin.fulfilled]: (state, action) => {
+  //     return {
+  //       ...state,
+  //       // loading: false,
+  //       token: action.payload,
+  //     }
+  //   },
+  //   [checkAndLogin.rejected]: (state, action) => {
+  //     return {
+  //       ...state,
+  //       // loading: false,
+  //       // error: true,
+  //     }
+  //   },
+  // },
 })
 
 export default usersSlice.reducer
