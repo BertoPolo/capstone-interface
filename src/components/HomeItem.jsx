@@ -59,7 +59,7 @@ const HomeItem = ({ currentItem }) => {
         theme="dark"
       />
 
-      <Card className="item mt-2" >
+      <Card className="item mt-3" >
         <Card.Img
           style={{ height: "11rem", objectFit: "contain" }}
           variant="top"
