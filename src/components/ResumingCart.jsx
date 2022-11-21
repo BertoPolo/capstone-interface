@@ -64,7 +64,7 @@ const ResumingCart = () => {
                     })}
                     <Container className="d-flex justify-content-end mb-2">
                         <Row>
-                            {(totalCartAmount)} total
+                            {(totalCartAmount).toFixed(2)} total
                         </Row>
 
                     </Container>
