@@ -1,7 +1,16 @@
 import { Button, Dropdown, Container, Form, Col, Row } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom";
+import { loadStripe } from '@stripe/stripe-js';
+import {
+    CardElement,
+    Elements,
+    useStripe,
+    useElements,
+} from '@stripe/react-stripe-js';
 import MyNavbar from "./MyNavbar"
+
+
 
 
 const Payment = () => {

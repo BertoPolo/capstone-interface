@@ -185,7 +185,7 @@ const BackOfficeItems = () => {
                     }
                 }
             );
-            // console.log(res)
+            console.log(res)
             if (res.ok) {
                 setImage("")
                 setItemId("")
@@ -240,7 +240,7 @@ const BackOfficeItems = () => {
 
                 {/* Search item */}
                 {!isEditing && < Form onSubmit={(e) => searchArticleSubmit(e)}>
-                    <div lassName="d-flex justify-content-center flex-column">
+                    <div className="d-flex justify-content-center flex-column">
                         <h4 className="mb-3" >Search an article</h4>
 
                         <Form.Group>
