@@ -78,6 +78,28 @@ const usersSlice = createSlice({
       }
     },
   },
+  extraReducers: {
+    [getToken.pending]: (state, action) => {
+      return {
+        ...state,
+        // loading: true,
+      }
+    },
+    [getToken.fulfilled]: (state, action) => {
+      return {
+        ...state,
+        // loading: false,
+        token: action.payload,
+      }
+    },
+    [getToken.rejected]: (state, action) => {
+      return {
+        ...state,
+        // loading: false,
+        // error: true,
+      }
+    },
+  },
 })
 
 export default usersSlice.reducer
