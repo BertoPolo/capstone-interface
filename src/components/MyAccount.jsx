@@ -7,14 +7,15 @@ import MyNavbar from "./MyNavbar"
 const MyAccount = () => {
   const navigate = useNavigate("")
 
-  const [nameInput, setNameInput] = useState("")
-  const [userNameInput, setUserNameInput] = useState("")
-  const [emailInput, setEmailInput] = useState("")
-  const [adressInput, setAdressInput] = useState("")
+  const { name, username, adress, email, token } = useSelector((state) => state.usersSlice);
+
+  const [nameInput, setNameInput] = useState(name)
+  const [userNameInput, setUserNameInput] = useState(username)
+  const [emailInput, setEmailInput] = useState(email)
+  const [adressInput, setAdressInput] = useState(adress)
   const [passwordInput, setPasswordInput] = useState("")
   const [passwordAgainInput, setPasswordAgainInput] = useState("")
 
-  const { name, username, adress, email, token } = useSelector((state) => state.usersSlice);
 
 
   const handleSubmit = async (e) => {
@@ -29,7 +30,7 @@ const MyAccount = () => {
       }
       try {
         const res = await fetch(
-          `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/edit/${username}`,
+          `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/edit/me/${username}`,
           {
             method: "PUT",
             headers: {
@@ -42,8 +43,8 @@ const MyAccount = () => {
           }
         );
         if (res.status === 201) {
-          // const data = await res.json();
           navigate("/home")
+          // dispatch changes
         }
 
       } catch (error) {
@@ -81,12 +82,13 @@ const MyAccount = () => {
           </Form.Group>}
 
           <Form.Group>
-            <Form.Control type="password" placeholder="Password" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
+            <Form.Control type="password" required placeholder="Password" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
           </Form.Group>
 
           <Form.Group>
             <Form.Control
               type="password"
+              required
               placeholder="Repeat Your Password"
               value={passwordAgainInput}
               onChange={(e) => setPasswordAgainInput(e.target.value)}
