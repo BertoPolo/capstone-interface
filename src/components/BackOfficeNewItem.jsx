@@ -325,7 +325,7 @@ const BackOficceNewItem = () => {
             <h4 className="mb-3" > Add a new article</h4 >
 
             <Row>
-                {/* create a new brand */}
+                {/* Create a new brand */}
                 <Col>
                     <Form onSubmit={(e) => createNewBrand(e)}>
                         <Form.Control type="text" placeholder="New brand" value={newBrandInput} onChange={(e) => setNewBrandInput(e.target.value)} />
@@ -363,7 +363,7 @@ const BackOficceNewItem = () => {
             <hr />
 
             {/* Post new item */}
-            < Form className="" onSubmit={(e) => addNewArticleSubmit(e)}> {/* check onSubmit */}
+            < Form onSubmit={(e) => addNewArticleSubmit(e)}> {/* check onSubmit */}
 
                 <Row>
                     <Form.Group as={Col}>
@@ -388,7 +388,7 @@ const BackOficceNewItem = () => {
 
                 </Form.Group>
 
-                {/* choose brand,category and M.category */}
+                {/* Choose brand,category and M.category */}
                 <Form.Group className="d-flex justify-content-around">
                     <Dropdown>
                         <Dropdown.Toggle variant="warning">{selectedBrand || "Choose Brand"}</Dropdown.Toggle>
