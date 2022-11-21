@@ -9,6 +9,7 @@ import NotFound from "./components/NotFound"
 import BackOfficeMenu from "./components/BackOfficeMenu"
 import ResumingCart from "./components/ResumingCart"
 import MyAccount from "./components/MyAccount"
+import Payment from "./components/Payment"
 
 const App = () => (
   <div>
@@ -21,6 +22,7 @@ const App = () => (
         <Route path="/home" element={<Home />} />
         <Route path="/backOfficeMenu" element={<BackOfficeMenu />} />
         <Route path="/resume" element={<ResumingCart />} />
+        <Route path="/payment" element={<Payment />} />
       </Routes>
     </BrowserRouter>
   </div>

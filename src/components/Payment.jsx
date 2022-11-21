@@ -1,6 +1,7 @@
-import { Button, Dropdown, Container, Form } from "react-bootstrap"
+import { Button, Dropdown, Container, Form, Col, Row } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom";
+import MyNavbar from "./MyNavbar"
 
 
 const Payment = () => {
@@ -13,14 +14,46 @@ const Payment = () => {
 
 
     return (
-        <Container>
-            <Form>
-                <Form.Control>
+        <>
+            <MyNavbar />
 
-                </Form.Control>
-            </Form>
+            <Container>
+                <h2>Payment station</h2>
 
-        </Container>
+                <p>shipment info . name and adress</p>
+                <p>total amount</p>
+                {/* when payed => show some pay ID and show a button to go /home */}
+                <Form>
+                    <Form.Group>
+                        <Form.Label>card number</Form.Label>
+                        <Form.Control type="text" placeholder="" />
+                    </Form.Group>
+
+                    <Row>
+                        <Form.Group as={Col}>
+                            <Form.Label>expire month</Form.Label>
+                            <Form.Control className="w-25" type="number" placeholder="" />
+                        </Form.Group>
+
+                        {/* <span>/</span> */}
+                        <Form.Group as={Col} >
+                            <Form.Label>expire year</Form.Label>
+                            <Form.Control className="w-25" type="number" placeholder="" />
+                        </Form.Group>
+
+                        <Form.Group as={Col} >
+                            <Form.Label>CVV</Form.Label>
+                            <Form.Control className="w-25" type="number" placeholder="" />
+                        </Form.Group>
+                    </Row>
+
+                    <Button variant="success">Pay</Button>
+                    <Button variant="danger">Cancel</Button>
+                </Form>
+
+            </Container>
+        </>
+
 
     )
 
