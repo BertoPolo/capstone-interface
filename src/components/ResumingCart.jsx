@@ -72,7 +72,7 @@ const ResumingCart = () => {
                 </Row>
                 <Row>
                     <Button variant="success" onClick={() => navigate("/payment")}>Pay station</Button>
-                    <Button variant="danger" >Continue shopping</Button>
+                    <Button variant="danger" onClick={() => navigate("/home")}>Continue shopping</Button>
                 </Row>
             </Container>
 
