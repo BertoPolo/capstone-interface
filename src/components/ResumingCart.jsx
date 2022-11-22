@@ -56,7 +56,7 @@ const ResumingCart = () => {
                                             <Dropdown.Item onClick={() => dispatch(setItemsQuantity([element._id, 9]))}>9</Dropdown.Item>
                                         </Dropdown.Menu>
                                     </Dropdown></span></Col>
-                                    <Col xs={1}><span><i className="bi bi-trash3-fill pointer" onClick={() => dispatch(removeItem(element.id))}></i></span></Col>
+                                    <Col xs={1}><span><i className="bi bi-trash3 pointer" onClick={() => dispatch(removeItem(element._id))}></i></span></Col>
                                     <Col ><span>{element.price * element.quantity}</span></Col>
                                 </Row>
                             </Container>
