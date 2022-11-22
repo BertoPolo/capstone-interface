@@ -2,15 +2,16 @@ import { Modal, Button, Dropdown, Container, Row, Col, Image } from "react-boots
 import { useSelector, useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import MyNavbar from "./MyNavbar"
-import { setItemsQuantity } from "../slices/cart/cartSlice";
+import { setItemsQuantity, removeItem } from "../slices/cart/cartSlice";
 
 
 
 const ResumingCart = () => {
 
-    const cart = useSelector((state) => state.cartSlice.cart);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    const cart = useSelector((state) => state.cartSlice.cart);
 
     let totalCartAmount = 0
 
@@ -36,7 +37,7 @@ const ResumingCart = () => {
                             <Container key={element._id} className="mt-2">
                                 <Row >
                                     <Col xs={2} className="pr-0 d-flex justify-content-center" ><Image className="" style={{ width: "50%" }} src={element.image}></Image></Col>
-                                    <Col xs={4} ><span>{element.title}<span> <br /> ref:</span>{element._id}</span></Col>
+                                    <Col xs={4} ><span>{element.title}<span> <br /> ref: </span>{element._id}</span></Col>
                                     <Col ><span>{element.price}</span></Col>
                                     <Col xs={2}><span>  <Dropdown>
                                         <Dropdown.Toggle size="sm" variant="outline-dark" id="dropdown-basic">
@@ -55,16 +56,15 @@ const ResumingCart = () => {
                                             <Dropdown.Item onClick={() => dispatch(setItemsQuantity([element._id, 9]))}>9</Dropdown.Item>
                                         </Dropdown.Menu>
                                     </Dropdown></span></Col>
-                                    <Col xs={1}><span><i className="bi bi-trash3-fill pointer"></i></span></Col>
+                                    <Col xs={1}><span><i className="bi bi-trash3-fill pointer" onClick={() => dispatch(removeItem(element.id))}></i></span></Col>
                                     <Col ><span>{element.price * element.quantity}</span></Col>
                                 </Row>
                             </Container>
-
                         )
                     })}
                     <Container className="d-flex justify-content-end mb-2">
                         <Row>
-                            {(totalCartAmount).toFixed(2)} total
+                            <p><b>TOTAL </b> {(totalCartAmount).toFixed(2)}€</p>
                         </Row>
 
                     </Container>
