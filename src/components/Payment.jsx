@@ -1,4 +1,4 @@
-import { Button, Dropdown, Container, Form, Col, Row } from "react-bootstrap"
+import { Button, Form } from "react-bootstrap"
 import { loadStripe } from '@stripe/stripe-js';
 import {
     CardElement,
@@ -25,7 +25,13 @@ const Payment = () => {
                 card: elements.getElement(CardElement),
             });
         };
+        const stripePromise = loadStripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
 
+        const App = () => (
+            <Elements stripe={stripePromise}>
+                <CheckoutForm />
+            </Elements>
+        );
         return (
             <Form onSubmit={handleSubmit}>
                 <CardElement />
@@ -36,13 +42,7 @@ const Payment = () => {
         );
     };
 
-    const stripePromise = loadStripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
 
-    const App = () => (
-        <Elements stripe={stripePromise}>
-            <CheckoutForm />
-        </Elements>
-    );
 }
 export default Payment
 

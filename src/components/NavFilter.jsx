@@ -17,8 +17,8 @@ const NavFilter = () => {
     const [brandId, setBrandId] = useState("")
     const [selectedBrand, setSelectedBrand] = useState("")
     const [selectSorting, setSelectSorting] = useState("")
-    const [minValue, set_minValue] = useState(25);
-    const [maxValue, set_maxValue] = useState(75);
+    // const [minValue, set_minValue] = useState(25);
+    // const [maxValue, set_maxValue] = useState(75);
 
 
     const brands = useSelector((state) => state.brandsSlice.brands);
@@ -56,8 +56,10 @@ const NavFilter = () => {
             const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items`,
 
             );
-            let data = await response.json();
-            dispatch(addItems(data));
+            if (response.ok) {
+                const data = await response.json();
+                dispatch(addItems(data));
+            }
         } catch (error) {
             console.log(error)
         }
