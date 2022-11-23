@@ -23,15 +23,10 @@ const Payment = () => {
             const { error, paymentMethod } = await stripe.createPaymentMethod({
                 type: 'card',
                 card: elements.getElement(CardElement),
+
             });
         };
-        const stripePromise = loadStripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
 
-        const App = () => (
-            <Elements stripe={stripePromise}>
-                <CheckoutForm />
-            </Elements>
-        );
         return (
             <Form onSubmit={handleSubmit}>
                 <CardElement />
@@ -41,7 +36,15 @@ const Payment = () => {
             </Form>
         );
     };
+    const stripePromise = loadStripe('pk_test_51M7N28L6wRylHOkEIZqRROabOb52Tnb7aL1cOEDgTXnpVBqOI6g0Qx58t4qQAyNkmtNMSMh56VnYleYQ847luNTi00k8qYmCNh');
 
+    const App = () => (
+        <Elements stripe={stripePromise}>
+            <CheckoutForm />
+        </Elements>
+    );
+
+    return
 
 }
 export default Payment
