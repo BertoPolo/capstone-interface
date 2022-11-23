@@ -161,3 +161,7 @@ small {
   height: 100vh;
 }
 /* CreateUser end */
+/* Payment start */
+.stripe-card {
+}
+/* Payment end */

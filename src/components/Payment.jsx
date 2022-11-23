@@ -1,4 +1,4 @@
-import { Button, Form } from "react-bootstrap"
+import { Button, Form, Container, Row, Col } from "react-bootstrap"
 import { loadStripe } from '@stripe/stripe-js';
 import {
     CardElement,
@@ -6,47 +6,58 @@ import {
     useStripe,
     useElements,
 } from '@stripe/react-stripe-js';
+// import MyNavbar from "./MyNavbar";
 
-const Payment = () => {
 
-    const CheckoutForm = () => {
-        const stripe = useStripe();
-        const elements = useElements();
+const CheckoutForm = () => {
+    const stripe = useStripe();
+    const elements = useElements();
 
-        const handleSubmit = async (event) => {
-            event.preventDefault();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-            if (elements == null) {
-                return;
-            }
+        if (elements == null) {
+            return;
+        }
 
-            const { error, paymentMethod } = await stripe.createPaymentMethod({
-                type: 'card',
-                card: elements.getElement(CardElement),
+        const { error, paymentMethod } = await stripe.createPaymentMethod({
+            type: 'card',
+            card: elements.getElement(CardElement),
 
-            });
-        };
+        });
+    };
 
-        return (
-            <Form onSubmit={handleSubmit}>
-                <CardElement />
-                <Button type="submit" disabled={!stripe || !elements}>
+    return (
+        <>
+            {/* <MyNavbar /> */}
+            <Form onSubmit={handleSubmit} className="card w-25 p-4">
+                <Form.Group>
+                    <CardElement className="form-control" />
+                </Form.Group>
+                <Button variant="success" type="submit" disabled={!stripe || !elements}>
                     Pay
                 </Button>
+                <Button variant="danger">Cancel</Button>
             </Form>
-        );
-    };
-    const stripePromise = loadStripe('pk_test_51M7N28L6wRylHOkEIZqRROabOb52Tnb7aL1cOEDgTXnpVBqOI6g0Qx58t4qQAyNkmtNMSMh56VnYleYQ847luNTi00k8qYmCNh');
-
-    const App = () => (
-        <Elements stripe={stripePromise}>
-            <CheckoutForm />
-        </Elements>
+        </>
     );
+};
+const stripePromise = loadStripe('pk_test_51M7N28L6wRylHOkEIZqRROabOb52Tnb7aL1cOEDgTXnpVBqOI6g0Qx58t4qQAyNkmtNMSMh56VnYleYQ847luNTi00k8qYmCNh');
 
-    return
+const Payment = () => (
+    <Elements stripe={stripePromise}>
+        <Container className="mt-4">
+            <Row>
+                <Col className="d-flex justify-content-center">
+                    <CheckoutForm />
 
-}
+                </Col>
+            </Row>
+        </Container>
+    </Elements>
+);
+
+
 export default Payment
 
 // import { Button, Dropdown, Container, Form, Col, Row } from "react-bootstrap"
