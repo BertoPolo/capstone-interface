@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { changeIsLogged, addName, addUserName, addAdress, addEmail, addIsAdmin, changeToken } from "../slices/users/usersSlice"
+import { resetCart } from "../slices/cart/cartSlice";
 
 const Login = () => {
   const [usernameInput, setUsernameInput] = useState("")
@@ -12,6 +13,8 @@ const Login = () => {
   // const [isRemember, setIsRemember] = useState(false)
 
   const { name, token } = useSelector((state) => state.usersSlice);
+  const cart = useSelector((state) => state.cartSlice.cart);
+
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -55,6 +58,8 @@ const Login = () => {
         dispatch(addEmail(data.email))
         dispatch(addIsAdmin(data.isAdmin))
         dispatch(changeIsLogged(true))
+        dispatch(resetCart()) // change when cart and user are linked
+
         navigate("/home")
 
         notifyOk(`Welcome! ${name}`) // this is not displaying
