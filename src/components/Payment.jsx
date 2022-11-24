@@ -29,6 +29,7 @@ const CheckoutForm = () => {
         });
         if (!error) {
             console.error(paymentMethod)
+            navigate("/home")
         } else console.log(error)
     };
 
