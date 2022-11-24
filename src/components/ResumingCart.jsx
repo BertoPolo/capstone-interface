@@ -1,4 +1,4 @@
-import { Modal, Button, Dropdown, Container, Row, Col, Image } from "react-bootstrap"
+import { Button, Dropdown, Container, Row, Col, Image } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import MyNavbar from "./MyNavbar"

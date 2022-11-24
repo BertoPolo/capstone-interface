@@ -27,6 +27,10 @@ const CheckoutForm = () => {
             card: elements.getElement(CardElement),
 
         });
+        if (!error) {
+            console.error(paymentMethod)
+            navigate("/home")
+        } else console.log(error)
     };
 
     return (

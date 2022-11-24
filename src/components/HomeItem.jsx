@@ -75,7 +75,7 @@ const HomeItem = ({ currentItem }) => {
           <Card.Text className="line-clamp">{currentItem.description}</Card.Text>
 
           {/* <div className="d-flex justify-content-between"> */}
-          {currentItem.isOutlet ? <Card.Title className="d-inline  "> <b>{currentItem.outletPrice} €</b> <br /> <small><s>{currentItem.price}€</s></small> </Card.Title> : <Card.Title className="d-inline">{currentItem.price}€ </Card.Title>}
+          {currentItem.isOutlet ? <Card.Title className="twoLines "> <b>{currentItem.outletPrice} €</b> <br /> <small><s>{currentItem.price}€</s></small> </Card.Title> : <Card.Title className="twoLines">{currentItem.price}€ </Card.Title>}
 
           {!isAdmin && <Button className="px-1 mt-2 d-block" variant="primary" onClick={() => checkIfIsAlreadyInCart()}>Add to cart</Button>}
 
