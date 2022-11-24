@@ -66,8 +66,8 @@ const MyAccount = () => {
       <MyNavbar />
 
 
-      <div className="transparency">
-        <Form className="login-container " onSubmit={(e) => handleSubmit(e)}>
+      <div className="login-container">
+        <Form className=" transparency-box p-4 mt-4" onSubmit={(e) => handleSubmit(e)}>
           <h4 className="mb-3">Modify your data</h4>
 
           {<Form.Group>

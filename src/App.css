@@ -65,7 +65,7 @@ small {
   text-shadow: 3px 4px 5px #979296;
 }
 
-.transparency {
+.transparency-box {
   background-color: #e9e3e3a6;
 }
 
@@ -150,7 +150,11 @@ small {
 .myAccountBg {
   background: url("https://images.unsplash.com/photo-1596440114792-d3e0ae1763f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
   background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   height: 100vh;
+  /* object-fit: fill;
+  object-position: center; */
 }
 /* Myaccount end */
 
