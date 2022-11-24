@@ -1,17 +1,32 @@
-import { Dropdown, Accordion, Card, Button } from "react-bootstrap"
+import { Accordion, Card } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
+import { useEffect } from "react"
+import { toggleIsOnCategory } from "../slices/sheets/sheetsSlice"
 import { addItems } from "../slices/items/itemsSlice"
-import { addCategories } from "../slices/categories/categoriesSlice"
 import { addMainCategories } from "../slices/mainCategories/mainCategoriesSlice"
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 
 const CategoriesMenuDropdown = () => {
 
     const items = useSelector((state) => state.itemsSlice.items);
+    const brands = useSelector((state) => state.brandsSlice.brands);
     const categories = useSelector((state) => state.categoriesSlice.categories);
     const mainCategories = useSelector((state) => state.mainCategoriesSlice.mainCategories);
 
     const dispatch = useDispatch()
+
+    const notifyNotFound = () => toast.warn(`OOPS! looks like we don't have that`, {
+        position: "top-center",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+    });
 
     const getByMainCategory = async (mainCatId) => {
         try {
