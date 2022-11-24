@@ -226,13 +226,14 @@ const BackOficceNewItem = () => {
         e.preventDefault()
         const categoryBody = {
             categories: newCategoryInput,
+            mainCategory: mcatForCatCreation._id
         }
 
         try {
             const res = await fetch(
                 `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}categories/new`,
                 {
-                    method: "POST",
+                    method: "PUT",
                     headers: {
                         "Content-Type": "application/json",
                         "Authorization": "Bearer " + token
