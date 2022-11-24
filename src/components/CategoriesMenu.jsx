@@ -31,11 +31,10 @@ function CategoriesMenu() {
     }
   }
 
-
   const getByMainCategory = async (mainCatId) => {
     try {
-      console.log(mainCatId)
       const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?mainCategory=${mainCatId}`);
+
       if (response.ok) {
         const data = await response.json();
         dispatch(addItems(data));

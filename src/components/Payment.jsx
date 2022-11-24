@@ -1,4 +1,5 @@
 import { Button, Form, Container, Row, Col } from "react-bootstrap"
+import { useNavigate } from "react-router-dom"
 import { loadStripe } from '@stripe/stripe-js';
 import {
     CardElement,
@@ -12,6 +13,7 @@ import {
 const CheckoutForm = () => {
     const stripe = useStripe();
     const elements = useElements();
+    const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -30,14 +32,14 @@ const CheckoutForm = () => {
     return (
         <>
             {/* <MyNavbar /> */}
-            <Form onSubmit={handleSubmit} className="card w-25 p-4">
+            <Form onSubmit={handleSubmit} className="card w-50 p-4">
                 <Form.Group>
                     <CardElement className="form-control" />
                 </Form.Group>
                 <Button variant="success" type="submit" disabled={!stripe || !elements}>
                     Pay
                 </Button>
-                <Button variant="danger">Cancel</Button>
+                <Button variant="danger" onClick={() => navigate("/resume")}>Cancel</Button>
             </Form>
         </>
     );

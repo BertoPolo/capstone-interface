@@ -168,18 +168,19 @@ const NavFilter = () => {
                             <span>To </span>
                             <Form.Control type="number" value={maxPrice} min="0" max="1000" onChange={(e) => setMaxPrice(e.target.value)} />
                         </Form.Group> */}
+
                         <MultiRangeSlider
                             min={0}
                             max={500}
                             step={20}
                             minValue={minPrice}
                             maxValue={maxPrice}
-                            style={{ width: '20%' }}
+                            style={{ width: '20%', paddingLeft: "2%", paddingRight: "2%" }}
                             onInput={(e) => {
                                 handleInput(e);
                             }}
                         />
-                        <Button type="submit" className="d-flex ">Enter Filters </Button>
+                        <Button type="submit" className="d-flex">Enter Filters</Button>
 
                     </Form>
 
