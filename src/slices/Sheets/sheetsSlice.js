@@ -136,6 +136,7 @@ export const {
   toggleIsOnSingleItem,
   toggleIsOnCategory,
   toggleIsOnUserSearch,
+  toggleIsOnBrands,
   toggleIsOnItemSearch,
   toggleIsOnCreateNewItem,
 } = sheetsSlice.actions
