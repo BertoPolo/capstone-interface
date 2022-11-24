@@ -22,13 +22,13 @@ const Footer = () => {
           <p>
             <a target="_blank" href="https://www.instagram.com" rel="noopener noreferrer">
               <i className="bi bi-instagram"></i>
-              Click To check our Instagram
+              We are on Instagram!
             </a>
           </p>
           <p>
             <a target="_blank" href="https://www.linkedin.com" rel="noopener noreferrer">
               <i className="bi bi-linkedin"></i>
-              Click To check our LinkedIn
+              We are on LinkedIn!
             </a>
           </p>
 

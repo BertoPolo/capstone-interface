@@ -13,23 +13,32 @@ const CategoriesMenuDropdown = () => {
 
     const dispatch = useDispatch()
 
-    const getMainCategories = async () => {
-
+    const getByMainCategory = async (mainCatId) => {
         try {
-            const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}mainCategories/all`);
-            const data = await response.json();
-            if (data) dispatch(addMainCategories(data));
+            const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?mainCategory=${mainCatId}`);
+
+            if (response.ok) {
+                const data = await response.json();
+                dispatch(addItems(data));
+                toggleIsOnCategory(true)
+            }
+            else notifyNotFound()
 
         } catch (error) {
             console.log(error)
         }
     }
 
-    const getCategories = async () => {
+    const getByCategory = async (categoryId) => {
         try {
-            const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}categories/all`);
-            const data = await response.json();
-            if (data) dispatch(addCategories(data));
+            const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?category=${categoryId}`);
+            if (response.ok) {
+                const data = await response.json();
+                dispatch(addItems(data))
+                toggleIsOnCategory(true)
+            }
+            else notifyNotFound()
+
 
         } catch (error) {
             console.log(error)
@@ -41,18 +50,38 @@ const CategoriesMenuDropdown = () => {
 
 
             <Accordion className="d-md-none">
-                <Card>
-                    <Card.Header>
-                        <Accordion.Toggle as={Card.Header} eventKey="0" className="pointer" >
-                            Main category's name
-                        </Accordion.Toggle>
-                    </Card.Header>
-                    <Accordion.Collapse eventKey="0">
-                        <Card.Body>
-                            {/* <p className="pointer" onClick={() => getByCategory(element._id)}>Front Lights</p>*/}
-                        </Card.Body>
-                    </Accordion.Collapse>
-                </Card>
+
+                {mainCategories.map((mainElement) => {
+                    return (
+
+                        <Card key={mainElement._id}>
+                            <Card.Header>
+                                <Accordion.Toggle as={Card.Header} eventKey={mainElement._id} className="pointer" onClick={() => getByMainCategory(mainElement._id)} >
+                                    {mainElement.mainCategory}
+                                </Accordion.Toggle>
+                                {/* <i className="bi bi-plus pointer ml-4"></i> */}
+
+                            </Card.Header>
+                            <Accordion.Collapse eventKey={mainElement._id}>
+                                <Card.Body>
+                                    {<>
+                                        {mainElement.categories.map(category => {
+
+                                            return (
+                                                <p className="pointer" key={category.categories} onClick={() => getByCategory(category._id)} >{category.categories}</p>
+                                            )
+                                        })
+                                        }
+                                    </>}
+
+                                </Card.Body>
+                            </Accordion.Collapse>
+
+                        </Card>
+                    )
+                })}
+
+
 
             </Accordion>
 
