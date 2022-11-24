@@ -55,8 +55,8 @@ const Home = () => {
           <Carousel className="mt-3">
             <Carousel.Item>
               <img fluid="true" className="d-block m-auto carouselImg" src="https://images.unsplash.com/photo-1590227763209-821c686b932f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="First slide" />
-              <Carousel.Caption>
-                <div className="transparencywWiteBox py-1 px-0">
+              <Carousel.Caption className="d-flex justify-content-center">
+                <div className="transparencywWiteBox py-1">
                   <h2 className="">Oil Pack Offer</h2 >
                   <p>from 50€ </p>
                 </div>
@@ -65,14 +65,14 @@ const Home = () => {
             <Carousel.Item>
               <img fluid="true" className="d-block m-auto carouselImg " src="https://images.unsplash.com/photo-1558981420-87aa9dad1c89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="Second slide" />
 
-              <Carousel.Caption>
-                <div className="transparencywWiteBox py-1 px-0"><h2 className="">National shipping for just 7€ !!</h2 ></div>
+              <Carousel.Caption className="d-flex justify-content-center">
+                <div className="transparencywWiteBox py-1"><h2 className="">National shipping for just 7€ !!</h2 ></div>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
               <img fluid="true" className="d-block m-auto carouselImg" src="https://images.pexels.com/photos/8867434/pexels-photo-8867434.jpeg" alt="Third slide" />
-              <Carousel.Caption>
-                <div className="transparencywWiteBox py-1 px-0">
+              <Carousel.Caption className="d-flex justify-content-center">
+                <div className="transparencywWiteBox py-1">
                   <h2 className="">Send us a message!</h2 >
                   <p>8.00 to 13.00 / 15.30 to 20.00 Mon-Fri</p>
                 </div>
