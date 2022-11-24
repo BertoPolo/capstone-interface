@@ -4,7 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import { addToCart } from "../slices/cart/cartSlice"
 import { changeSelectedItem } from "../slices/items/itemsSlice"
-import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs, toggleIsOnSingleItem, toggleIsOnCategory } from "../slices/sheets/sheetsSlice"
+import { toggleIsOnSingleItem } from "../slices/sheets/sheetsSlice"
 
 
 

@@ -1,7 +1,5 @@
 import { Row, Col } from "react-bootstrap"
 
-// center titles
-
 const Footer = () => {
   return (
     <>

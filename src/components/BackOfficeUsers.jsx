@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 const BackOfficeUsers = () => {
 
-    //add dropdown to search users by name or username... etc
+    //add dropdown to select how do you want to search users: by name , username... etc
 
     const token = useSelector((state) => state.usersSlice.token);
 

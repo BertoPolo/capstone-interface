@@ -1,4 +1,5 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit"
+// import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 
 // export const checkAndLogin = createAsyncThunk("users/checkAndLogin", async (url, thunkAPI) => {
 //   // this "users" name have to match with usersSlice's ''name"

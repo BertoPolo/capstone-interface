@@ -1,11 +1,10 @@
 import { Accordion, Card } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
-import { toggleIsOnCategory, toggleIsOnBrands } from "../slices/sheets/sheetsSlice"
+import { toggleIsOnCategory } from "../slices/sheets/sheetsSlice"
 import { addItems } from "../slices/items/itemsSlice"
-import { addCategories } from "../slices/categories/categoriesSlice"
 import { addMainCategories } from "../slices/mainCategories/mainCategoriesSlice"
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
 
@@ -26,19 +25,6 @@ function CategoriesMenu() {
       if (data) dispatch(addMainCategories(data));
       else notifyNotFound()
       // console.log("Mcat:", data)
-
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  const getCategories = async () => {
-    try {
-      const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}categories/all`);
-      const data = await response.json();
-
-      if (data) dispatch(addCategories(data));
-      else notifyNotFound()
 
     } catch (error) {
       console.log(error)

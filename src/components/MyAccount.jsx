@@ -1,11 +1,14 @@
 import { Container, Row, Col, Button, Form } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import MyNavbar from "./MyNavbar"
+import { changeIsLogged, addName, addUserName, addAdress, addEmail, addIsAdmin, changeToken } from "../slices/users/usersSlice"
+
 
 const MyAccount = () => {
   const navigate = useNavigate("")
+  const dispatch = useDispatch()
 
   const { name, username, adress, email, token } = useSelector((state) => state.usersSlice);
 
@@ -42,9 +45,13 @@ const MyAccount = () => {
             body: JSON.stringify(body),
           }
         );
-        if (res.status === 201) {
+        if (res.ok) {
           navigate("/home")
-          // dispatch changes
+          dispatch(addName(nameInput))
+          dispatch(addUserName(userNameInput))
+          dispatch(addAdress(adressInput))
+          dispatch(addEmail(emailInput))
+
         }
 
       } catch (error) {
@@ -58,10 +65,7 @@ const MyAccount = () => {
     <Container fluid className="myAccountBg ">
       <MyNavbar />
 
-      {/* <Container> */}
-      {/* <Row> */}
-      {/* <Col className="bgGif"></Col> */}
-      {/* <Col> */}
+
       <div className="transparency">
         <Form className="login-container " onSubmit={(e) => handleSubmit(e)}>
           <h4 className="mb-3">Modify your data</h4>
@@ -100,9 +104,7 @@ const MyAccount = () => {
           </div>
         </Form>
       </div>
-      {/* </Col> */}
-      {/* </Row> */}
-      {/* </Container> */}
+
     </Container>
   )
 }

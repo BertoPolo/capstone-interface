@@ -1,8 +1,6 @@
-import { Container, Carousel, Col, Row, Form, Button, FormControl } from "react-bootstrap"
+import { Container, Carousel, Col, Row } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
-import { useEffect, useState } from "react"
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'
+import { useEffect } from "react"
 import { addItems } from "../slices/items/itemsSlice"
 import MyNavbar from "./MyNavbar"
 import Footer from "./Footer"
