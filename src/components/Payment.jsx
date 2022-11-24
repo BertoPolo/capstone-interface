@@ -27,6 +27,9 @@ const CheckoutForm = () => {
             card: elements.getElement(CardElement),
 
         });
+        if (!error) {
+            console.error(paymentMethod)
+        } else console.log(error)
     };
 
     return (
