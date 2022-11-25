@@ -145,7 +145,7 @@ const BackOfficeItems = () => {
         }
         try {
             const res = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/edit/${itemId}`,
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/${itemId}`,
                 {
                     method: "PUT",
                     headers: {

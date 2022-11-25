@@ -231,7 +231,7 @@ const BackOficceNewItem = () => {
 
         try {
             const res = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}categories/new`,
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}categories/`,
                 {
                     method: "POST",
                     headers: {
@@ -259,7 +259,7 @@ const BackOficceNewItem = () => {
         }
         try {
             const res = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}mainCategories/new`,
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}mainCategories/`,
                 {
                     method: "POST",
                     headers: {

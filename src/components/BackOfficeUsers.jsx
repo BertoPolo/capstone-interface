@@ -116,7 +116,7 @@ const BackOfficeUsers = () => {
 
         try {
             const response = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/edit/${userId}`,
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/${userId}`,
                 {
                     method: "PUT",
                     headers: {
@@ -138,7 +138,7 @@ const BackOfficeUsers = () => {
     const deleteUser = async (id) => {
         try {
             const response = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/delete/${id}`,
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/${id}`,
                 {
                     method: "DELETE",
                     headers: {
