@@ -1,12 +1,14 @@
 import { Button, Form, Container, Row, Col } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import { loadStripe } from '@stripe/stripe-js';
+import { useSelector, useDispatch } from "react-redux"
 import {
     CardElement,
     Elements,
     useStripe,
     useElements,
 } from '@stripe/react-stripe-js';
+import { resetCart } from "../slices/cart/cartSlice";
 // import MyNavbar from "./MyNavbar";
 
 
@@ -14,6 +16,9 @@ const CheckoutForm = () => {
     const stripe = useStripe();
     const elements = useElements();
     const navigate = useNavigate()
+    const cart = useSelector((state) => state.cartSlice.cart);
+
+    const dispatch = useDispatch()
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -28,7 +33,8 @@ const CheckoutForm = () => {
 
         });
         if (!error) {
-            console.error(paymentMethod)
+            console.log(paymentMethod)
+            dispatch(resetCart())
             navigate("/home")
         } else console.log(error)
     };

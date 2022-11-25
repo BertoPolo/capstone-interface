@@ -233,7 +233,7 @@ const BackOficceNewItem = () => {
             const res = await fetch(
                 `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}categories/new`,
                 {
-                    method: "PUT",
+                    method: "POST",
                     headers: {
                         "Content-Type": "application/json",
                         "Authorization": "Bearer " + token
@@ -243,31 +243,10 @@ const BackOficceNewItem = () => {
             );
 
             if (res.ok) {
-                const data = await res.json();
-                getCategories()
-
-                const catToAdd = {
-                    categories: data
-                }
-
-                const response = await fetch(
-                    `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}mainCategories/addCat/${mcatForCatCreation._id}`,
-                    {
-                        method: "PUT",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify(catToAdd)
-                    }
-                );
-                if (response.ok) {
-                    notifyOk("Category created successfully")
-                    setNewCategoryInput("")
-                    setMcatForCatCreation("")
-                }
+                notifyOk("Category created successfully")
+                setNewCategoryInput("")
+                setMcatForCatCreation("")
             }
-
-
         } catch (error) {
             console.log(error)
         }

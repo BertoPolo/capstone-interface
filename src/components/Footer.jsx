@@ -10,8 +10,7 @@ const Footer = () => {
             <u>About Us</u>
           </h5>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, labore! Accusantium quasi, vitae totam quaerat adipisci necessitatibus
-            veritatis debitis perferendis quisquam. Magnam vel quaerat illo ut, iste beatae ipsam quia!
+            We are a small family company who love motorbikes since we born and now we want to share with others our passion and support. We made this project with the purpose of approach others this lifestyle on an accessible way.
           </p>
 
         </Col>
