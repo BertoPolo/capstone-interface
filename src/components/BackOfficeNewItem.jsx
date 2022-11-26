@@ -272,6 +272,7 @@ const BackOficceNewItem = () => {
             if (res.status === 201) {
                 getMainCategories()
                 setNewMainCategoryInput("")
+                notifyOk("Main Category created successfully")
             }
 
         } catch (error) {

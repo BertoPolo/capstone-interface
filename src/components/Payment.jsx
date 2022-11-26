@@ -8,6 +8,8 @@ import {
     useStripe,
     useElements,
 } from '@stripe/react-stripe-js';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { resetCart } from "../slices/cart/cartSlice";
 // import MyNavbar from "./MyNavbar";
 
@@ -19,6 +21,18 @@ const CheckoutForm = () => {
     const cart = useSelector((state) => state.cartSlice.cart);
 
     const dispatch = useDispatch()
+
+    const notifyOk = (message) => toast.success(message, {
+        position: "top-center",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+    });
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -35,7 +49,10 @@ const CheckoutForm = () => {
         if (!error) {
             console.log(paymentMethod)
             dispatch(resetCart())
+            notifyOk("Purchase completed successfully!")
             navigate("/home")
+
+
         } else console.log(error)
     };
 

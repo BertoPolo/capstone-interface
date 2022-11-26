@@ -15,6 +15,7 @@ const Footer = () => {
 
         </Col>
         <Col>
+          {/* change A tags */}
           <h5>
             <u>Social Networks</u>
           </h5>

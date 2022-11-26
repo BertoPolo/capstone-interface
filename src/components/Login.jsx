@@ -78,6 +78,7 @@ const Login = () => {
         username: usernameInput,
         password: passwordInput
       }
+
       const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/login`, {
 
         method: "POST",
