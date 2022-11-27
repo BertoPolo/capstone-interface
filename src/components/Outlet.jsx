@@ -6,7 +6,7 @@ import HomeItem from "./HomeItem"
 
 const Outlet = () => {
   const items = useSelector((state) => state.itemsSlice.items);
-  const isOnOutlet = useSelector(state => state.sheetsSlice.isOnOutlet)
+  const isOnOutlet = useSelector(state => state.pagesSlice.isOnOutlet)
 
 
 

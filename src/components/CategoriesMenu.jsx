@@ -1,7 +1,7 @@
 import { Accordion, Card } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
-import { toggleIsOnCategory } from "../slices/sheets/sheetsSlice"
+import { toggleIsOnCategory } from "../slices/pages/pagesSlice"
 import { addItems } from "../slices/items/itemsSlice"
 import { addMainCategories } from "../slices/mainCategories/mainCategoriesSlice"
 import { toast } from 'react-toastify';

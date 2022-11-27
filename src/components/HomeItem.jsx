@@ -4,7 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import { addToCart } from "../slices/cart/cartSlice"
 import { changeSelectedItem } from "../slices/items/itemsSlice"
-import { toggleIsOnSingleItem } from "../slices/sheets/sheetsSlice"
+import { toggleIsOnSingleItem } from "../slices/pages/pagesSlice"
 
 
 
@@ -13,7 +13,7 @@ const HomeItem = ({ currentItem }) => {
 
   const cart = useSelector((state) => state.cartSlice.cart);
   const selectedItem = useSelector((state) => state.itemsSlice.selectedItem);
-  const { isOnHome, isOnOutlet, isOnCountactUs, isOnSingleItem } = useSelector(state => state.sheetsSlice)
+  const { isOnHome, isOnOutlet, isOnCountactUs, isOnSingleItem } = useSelector(state => state.pagesSlice)
   const isAdmin = useSelector((state) => state.usersSlice.isAdmin);
 
 

@@ -5,14 +5,14 @@ import MyNavbar from "./MyNavbar"
 import BackOfficeItems from "./BackOfficeItems"
 import BackOfficeNewItem from "./BackOfficeNewItem"
 import BackOfficeUsers from "./BackOfficeUsers"
-import { toggleIsOnUserSearch, toggleIsOnItemSearch, toggleIsOnCreateNewItem, } from "../slices/sheets/sheetsSlice"
+import { toggleIsOnUserSearch, toggleIsOnItemSearch, toggleIsOnCreateNewItem, } from "../slices/pages/pagesSlice"
 
 const BackOffice = () => {
 
     const navigate = useNavigate()
     const dispatch = useDispatch();
 
-    const { isOnUserSearch, isOnItemSearch, isOnCreateNewItem } = useSelector((state) => state.sheetsSlice)
+    const { isOnUserSearch, isOnItemSearch, isOnCreateNewItem } = useSelector((state) => state.pagesSlice)
 
 
     // const voucherCreatorSubmit = (e) => {

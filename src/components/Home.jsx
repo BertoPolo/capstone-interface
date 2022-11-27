@@ -21,7 +21,7 @@ const Home = () => {
 
   const items = useSelector((state) => state.itemsSlice.items);
   const brands = useSelector((state) => state.brandsSlice.brands);
-  const { isOnHome, isOnOutlet, isOnCountactUs, isOnSingleItem, isOnCategory, isOnBrands } = useSelector(state => state.sheetsSlice)
+  const { isOnHome, isOnOutlet, isOnCountactUs, isOnSingleItem, isOnCategory, isOnBrands } = useSelector(state => state.pagesSlice)
   // const isOnHome = useSelector((state) => state.sheetsSlice.isOnHome);
   // const isOnOutlet = useSelector((state) => state.sheetsSlice.isOnOutlet);
   // const isOnCountactUs = useSelector((state) => state.sheetsSlice.isOnCountactUs);

@@ -1,6 +1,6 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit"
 import itemsSlice from "../slices/items/itemsSlice"
-import sheetsSlice from "../slices/sheets/sheetsSlice"
+import pagesSlice from "../slices/pages/pagesSlice"
 import usersSlice from "../slices/users/usersSlice"
 import cartSlice from "../slices/cart/cartSlice"
 import brandsSlice from "../slices/brands/brandsSlice"
@@ -12,7 +12,7 @@ import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, 
 
 const reducers = combineReducers({
   itemsSlice: itemsSlice,
-  sheetsSlice: sheetsSlice,
+  pagesSlice: pagesSlice,
   usersSlice: usersSlice,
   cartSlice: cartSlice,
   brandsSlice: brandsSlice,

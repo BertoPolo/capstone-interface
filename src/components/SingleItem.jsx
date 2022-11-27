@@ -1,7 +1,7 @@
 import { Button, Container, Row, Col } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
 import { addToCart } from "../slices/cart/cartSlice"
-import { toggleIsOnHome } from "../slices/sheets/sheetsSlice"
+import { toggleIsOnHome } from "../slices/pages/pagesSlice"
 
 
 

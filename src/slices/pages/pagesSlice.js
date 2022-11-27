@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-const sheetsSlice = createSlice({
-  name: "sheets",
+const pagesSlice = createSlice({
+  name: "pages",
   initialState: {
     isOnHome: true,
     isOnOutlet: false,
@@ -128,7 +128,7 @@ const sheetsSlice = createSlice({
   },
 })
 
-export default sheetsSlice.reducer
+export default pagesSlice.reducer
 export const {
   toggleIsOnHome,
   toggleIsOnOutlet,
@@ -139,4 +139,4 @@ export const {
   toggleIsOnBrands,
   toggleIsOnItemSearch,
   toggleIsOnCreateNewItem,
-} = sheetsSlice.actions
+} = pagesSlice.actions
