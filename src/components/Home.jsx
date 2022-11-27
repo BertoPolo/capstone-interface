@@ -11,6 +11,8 @@ import SingleItem from "./SingleItem"
 import CategoriesMenu from "./CategoriesMenu"
 import NavFilter from "./NavFilter"
 import CategoriesMenuDropdown from "./CategoriesMenuDropdown"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -54,7 +56,7 @@ const Home = () => {
         {!isOnSingleItem && <div>
           <Carousel className="mt-3">
             <Carousel.Item>
-              <img fluid="true" className="d-block m-auto carouselImg" src="https://images.unsplash.com/photo-1590227763209-821c686b932f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="First slide" />
+              <img fluid="true" className="d-block m-auto carouselImg" src="https://images.unsplash.com/photo-1590227763209-821c686b932f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="Oil Pack Offer slide" />
               <Carousel.Caption className="d-flex justify-content-center">
                 <div className="transparencywWiteBox py-1">
                   <h2 className="">Oil Pack Offer</h2 >
@@ -63,14 +65,15 @@ const Home = () => {
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-              <img fluid="true" className="d-block m-auto carouselImg " src="https://images.unsplash.com/photo-1558981420-87aa9dad1c89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="Second slide" />
+              <img fluid="true" className="d-block m-auto carouselImg " src="https://images.unsplash.com/photo-1558981420-87aa9dad1c89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="National shipping slide" />
 
               <Carousel.Caption className="d-flex justify-content-center">
                 <div className="transparencywWiteBox py-1"><h2 className="">National shipping for just 7€ !!</h2 ></div>
               </Carousel.Caption>
             </Carousel.Item>
+
             <Carousel.Item>
-              <img fluid="true" className="d-block m-auto carouselImg" src="https://images.pexels.com/photos/8867434/pexels-photo-8867434.jpeg" alt="Third slide" />
+              <img fluid="true" className="d-block m-auto carouselImg" src="https://images.pexels.com/photos/8867434/pexels-photo-8867434.jpeg" alt="send us a message slide" />
               <Carousel.Caption className="d-flex justify-content-center">
                 <div className="transparencywWiteBox py-1">
                   <h2 className="">Send us a message!</h2 >
