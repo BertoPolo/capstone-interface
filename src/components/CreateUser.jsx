@@ -28,6 +28,17 @@ const CreateUser = () => {
     theme: "dark",
   });
 
+  const notifyError = (message) => toast.error(message, {
+    position: "top-center",
+    autoClose: 1500,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+  });
+
   const handleSubmit = async (e) => {
     e.preventDefault()
 
@@ -52,9 +63,9 @@ const CreateUser = () => {
         }
       );
       if (res.status === 201) {
-        notify("Welcome !!")
+        notify("Welcome !!") //not displaying
         navigate("/")
-      }
+      } else notifyError("user already exists")
 
     } catch (error) {
       console.log(error)
