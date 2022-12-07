@@ -11,8 +11,8 @@ import SingleItem from "./SingleItem"
 import CategoriesMenu from "./CategoriesMenu"
 import NavFilter from "./NavFilter"
 import CategoriesMenuDropdown from "./CategoriesMenuDropdown"
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -44,8 +44,6 @@ const Home = () => {
   useEffect(() => {
     getRandomItems()
   }, [])
-
-  // console.log(items)
 
   return (
     <>

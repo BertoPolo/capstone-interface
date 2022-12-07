@@ -1,7 +1,6 @@
 import { Navbar, Nav, Image } from "react-bootstrap"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-
 import { useSelector, useDispatch } from "react-redux"
 import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs } from "../slices/pages/pagesSlice"
 import { changeIsLogged, addName, addUserName, addAdress, addEmail, addIsAdmin, changeToken } from "../slices/users/usersSlice"
