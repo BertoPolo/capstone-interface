@@ -18,7 +18,8 @@ const CheckoutForm = () => {
     const stripe = useStripe();
     const elements = useElements();
     const navigate = useNavigate()
-    const cart = useSelector((state) => state.cartSlice.cart);
+    const { cart, totalAmount } = useSelector((state) => state.cartSlice);
+
 
     const dispatch = useDispatch()
 
@@ -60,6 +61,7 @@ const CheckoutForm = () => {
         <>
             {/* <MyNavbar /> */}
             <Form onSubmit={handleSubmit} className="card w-50 p-4">
+                {<p>Amount to pay:{totalAmount} </p>}
                 <Form.Group>
                     <CardElement className="form-control" />
                 </Form.Group>

@@ -2,7 +2,7 @@ import { Button, Dropdown, Container, Row, Col, Image } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import MyNavbar from "./MyNavbar"
-import { setItemsQuantity, removeItem } from "../slices/cart/cartSlice";
+import { setItemsQuantity, removeItem, setTotalAmount } from "../slices/cart/cartSlice";
 
 
 
@@ -11,9 +11,10 @@ const ResumingCart = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const cart = useSelector((state) => state.cartSlice.cart);
+    const { cart, totalAmount } = useSelector((state) => state.cartSlice);
 
     let totalCartAmount = 0
+    dispatch(setTotalAmount(totalCartAmount))
 
     return (
         <>
