@@ -18,7 +18,9 @@ const CheckoutForm = () => {
     const stripe = useStripe();
     const elements = useElements();
     const navigate = useNavigate()
+
     const { cart, totalAmount } = useSelector((state) => state.cartSlice);
+    const email = useSelector((state) => state.usersSlice.email)
 
 
     const dispatch = useDispatch()
@@ -34,6 +36,30 @@ const CheckoutForm = () => {
         theme: "dark",
     });
 
+    const sendPurchase = async (id) => {
+
+        const body = {
+            id: id,
+            amount: totalAmount,
+            email: email
+        }
+        try {
+            const res = await fetch(
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/purchase`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+
+                    body: JSON.stringify(body),
+                }
+            );
+        } catch (error) {
+            console.log(error);
+        }
+
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -49,8 +75,11 @@ const CheckoutForm = () => {
         });
         if (!error) {
             console.log(paymentMethod)
+            const { id } = paymentMethod
+
+            sendPurchase(id)
             dispatch(resetCart())
-            notifyOk("Purchase completed successfully!")
+            notifyOk("Purchase completed successfully! check your mail") //not displaying
             navigate("/home")
 
 
@@ -61,7 +90,7 @@ const CheckoutForm = () => {
         <>
             {/* <MyNavbar /> */}
             <Form onSubmit={handleSubmit} className="card w-50 p-4">
-                {<p>Amount to pay:{totalAmount} </p>}
+                {<p>Amount to pay: <b>{totalAmount} €</b></p>}
                 <Form.Group>
                     <CardElement className="form-control" />
                 </Form.Group>

@@ -14,7 +14,6 @@ const ResumingCart = () => {
     const { cart, totalAmount } = useSelector((state) => state.cartSlice);
 
     let totalCartAmount = 0
-    dispatch(setTotalAmount(totalCartAmount))
 
     return (
         <>
@@ -63,6 +62,7 @@ const ResumingCart = () => {
                             </Container>
                         )
                     })}
+
                     <Container className="d-flex justify-content-end mb-2">
                         <Row>
                             <p><b>TOTAL </b> {(totalCartAmount).toFixed(2)}€</p>
@@ -72,7 +72,7 @@ const ResumingCart = () => {
 
                 </Row>
                 <Row>
-                    <Button variant="success" onClick={() => navigate("/payment")}>Pay station</Button>
+                    <Button variant="success" onClick={() => { navigate("/payment"); dispatch(setTotalAmount(totalCartAmount.toFixed(2))) }}>Pay station</Button>
                     <Button variant="danger" onClick={() => navigate("/home")}>Continue shopping</Button>
                 </Row>
             </Container>
