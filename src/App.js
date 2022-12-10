@@ -10,6 +10,7 @@ import BackOfficeMenu from "./components/BackOfficeMenu"
 import ResumingCart from "./components/ResumingCart"
 import MyAccount from "./components/MyAccount"
 import Payment from "./components/Payment"
+import ForgotPassword from "./components/ForgotPassword"
 
 const App = () => (
   <div>
@@ -23,6 +24,7 @@ const App = () => (
         <Route path="/backOfficeMenu" element={<BackOfficeMenu />} />
         <Route path="/resume" element={<ResumingCart />} />
         <Route path="/payment" element={<Payment />} />
+        <Route path="/forgotPassword" element={<ForgotPassword />} />
       </Routes>
     </BrowserRouter>
   </div>

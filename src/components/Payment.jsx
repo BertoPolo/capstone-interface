@@ -74,7 +74,6 @@ const CheckoutForm = () => {
 
         });
         if (!error) {
-            console.log(paymentMethod)
             const { id } = paymentMethod
 
             sendPurchase(id)
