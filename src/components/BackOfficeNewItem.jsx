@@ -123,7 +123,7 @@ const BackOficceNewItem = () => {
 
         try {
             const res = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/new`,
+                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items`,
                 {
                     method: "POST",
                     headers: {
