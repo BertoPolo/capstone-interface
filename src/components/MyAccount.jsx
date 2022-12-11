@@ -151,7 +151,7 @@ const MyAccount = () => {
               <Form.Control type="text" placeholder="Shipping Adress" value={adressInput} onChange={(e) => setAdressInput(e.target.value)} />
             </Form.Group>}
 
-            <div className="d-flex">
+            <div className="d-flex justify-content-center">
               <Button type="submit"> Submit </Button>
               <Button className="ml-3" variant="danger" onClick={() => navigate("/home")}>Back</Button>
             </div>
@@ -174,7 +174,7 @@ const MyAccount = () => {
               />
             </Form.Group>
 
-            <div className="d-flex">
+            <div className="d-flex justify-content-center">
               <Button type="submit" disabled={(passwordInput !== passwordAgainInput) || (!passwordInput || !passwordAgainInput)} > Submit </Button>
               <Button className="ml-3" variant="danger" onClick={() => navigate("/home")}>Back</Button>
             </div>
