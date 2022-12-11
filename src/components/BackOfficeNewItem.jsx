@@ -243,9 +243,10 @@ const BackOficceNewItem = () => {
             );
 
             if (res.ok) {
-                notifyOk("Category created successfully")
                 setNewCategoryInput("")
                 setMcatForCatCreation("")
+                getCategories()
+                notifyOk("Category created successfully")
             }
         } catch (error) {
             console.log(error)
@@ -272,6 +273,7 @@ const BackOficceNewItem = () => {
             if (res.status === 201) {
                 getMainCategories()
                 setNewMainCategoryInput("")
+                getMainCategories()
                 notifyOk("Main Category created successfully")
             }
 
