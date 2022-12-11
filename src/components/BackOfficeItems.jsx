@@ -184,7 +184,6 @@ const BackOfficeItems = () => {
                     }
                 }
             );
-            // console.log(data);
             if (res.ok) {
                 setImage("")
                 setItemId("")

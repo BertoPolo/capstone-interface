@@ -64,7 +64,7 @@ const CreateUser = () => {
       );
       if (res.status === 201) {
         notify("Welcome !!") //not displaying
-        navigate("/")
+        setTimeout(() => navigate("/"), 1500)
       } else notifyError("user already exists")
 
     } catch (error) {

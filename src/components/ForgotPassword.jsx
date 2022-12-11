@@ -60,13 +60,12 @@ const ForgotPassword = () => {
                     headers: {
                         "Content-Type": "application/json",
                     },
-
                     body: JSON.stringify(body),
                 }
             );
             if (res.ok) {
-                navigate("/")
                 notifyOk("check your mail, you will see your new temporary password, reset it ASAP!")
+                setTimeout(() => navigate("/"), 1500)
             } else notifyError("this credentials don't match")
 
         } catch (error) {

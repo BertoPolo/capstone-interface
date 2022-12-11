@@ -11,7 +11,6 @@ import {
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { resetCart } from "../slices/cart/cartSlice";
-// import MyNavbar from "./MyNavbar";
 
 
 const CheckoutForm = () => {
@@ -51,7 +50,6 @@ const CheckoutForm = () => {
                     headers: {
                         "Content-Type": "application/json",
                     },
-
                     body: JSON.stringify(body),
                 }
             );
@@ -79,7 +77,7 @@ const CheckoutForm = () => {
             sendPurchase(id)
             dispatch(resetCart())
             notifyOk("Purchase completed successfully! check your mail") //not displaying
-            navigate("/home")
+            setTimeout(() => navigate("/home"), 4000)
 
 
         } else console.log(error)

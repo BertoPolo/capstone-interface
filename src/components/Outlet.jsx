@@ -12,8 +12,6 @@ const Outlet = () => {
 
   return (
     <>
-
-      {/* map items. filter by Outlet*/}
       {items.filter((item) => item.isOutlet === true).map((element) => {
         return (
           <Col key={element._id}>

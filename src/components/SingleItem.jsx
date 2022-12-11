@@ -19,7 +19,6 @@ const SingleItem = () => {
         <Row>
           <Col >
             <img src={selectedItem.image} alt={selectedItem.title} />
-            {/* style={{ objectFit: "cover", overflow: "hidden" }} */}
           </Col>
           <Col>
 

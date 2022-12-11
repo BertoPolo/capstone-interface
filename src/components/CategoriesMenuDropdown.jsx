@@ -1,9 +1,7 @@
 import { Accordion, Card } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
-import { useEffect } from "react"
 import { toggleIsOnCategory } from "../slices/pages/pagesSlice"
 import { addItems } from "../slices/items/itemsSlice"
-import { addMainCategories } from "../slices/mainCategories/mainCategoriesSlice"
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -62,8 +60,6 @@ const CategoriesMenuDropdown = () => {
 
     return (
         <>
-
-
             <Accordion className="d-md-none">
 
                 {mainCategories.map((mainElement) => {
@@ -80,27 +76,18 @@ const CategoriesMenuDropdown = () => {
                             <Accordion.Collapse eventKey={mainElement._id}>
                                 <Card.Body>
                                     {<>
-                                        {mainElement.categories.map(category => {
-
-                                            return (
-                                                <p className="pointer" key={category.categories} onClick={() => getByCategory(category._id)} >{category.categories}</p>
-                                            )
-                                        })
+                                        {mainElement.categories.map(category => (
+                                            <p className="pointer" key={category.categories} onClick={() => getByCategory(category._id)} >{category.categories}</p>
+                                        ))
                                         }
                                     </>}
 
                                 </Card.Body>
                             </Accordion.Collapse>
-
                         </Card>
                     )
                 })}
-
-
-
             </Accordion>
-
-
         </>
     )
 }

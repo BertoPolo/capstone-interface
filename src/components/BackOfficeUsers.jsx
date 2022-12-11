@@ -4,15 +4,11 @@ import { useState } from "react"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
-
-
-
 const BackOfficeUsers = () => {
 
     //add dropdown to select how do you want to search users: by name , username... etc
 
     const token = useSelector((state) => state.usersSlice.token);
-
 
     const [foundUsers, setFoundUsers] = useState([])
     const [userInput, setUserInput] = useState("")

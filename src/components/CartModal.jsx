@@ -11,8 +11,6 @@ const CartModal = ({ handleClose, show }) => {
     const navigate = useNavigate()
     const dispatch = useDispatch();
 
-
-
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>

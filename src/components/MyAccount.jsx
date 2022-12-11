@@ -32,7 +32,6 @@ const MyAccount = () => {
   })
 
 
-
   const changeData = async (e) => {
     e.preventDefault()
 
