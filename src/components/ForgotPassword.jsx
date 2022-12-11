@@ -93,25 +93,27 @@ const ForgotPassword = () => {
             />
 
 
-            <Form className=" transparency-box p-4 mt-4" onSubmit={(e) => checkCredentials(e)}>
-                <h4 className="mb-3">Modify your data</h4>
+            <div className="login-container">
+                <Form className=" transparency-box p-4 mt-4" onSubmit={(e) => checkCredentials(e)}>
+                    <h4 className="mb-3">Account recovery</h4>
 
-                {<Form.Group>
-                    <Form.Control type="text" placeholder="Full Name" value={nameInput} onChange={(e) => setNameInput(e.target.value)} />
-                </Form.Group>}
+                    {<Form.Group>
+                        <Form.Control type="text" placeholder="Full Name" value={nameInput} onChange={(e) => setNameInput(e.target.value)} />
+                    </Form.Group>}
 
-                <Form.Group>
-                    <Form.Control type="text" placeholder="User name" value={userNameInput} onChange={(e) => setUserNameInput(e.target.value)} />
-                </Form.Group>
-                <Form.Group>
-                    <Form.Control type="text" placeholder="Email" value={emailInput} onChange={(e) => setEmailInput(e.target.value)} />
-                </Form.Group>
+                    <Form.Group>
+                        <Form.Control type="text" placeholder="User name" value={userNameInput} onChange={(e) => setUserNameInput(e.target.value)} />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Control type="text" placeholder="Email" value={emailInput} onChange={(e) => setEmailInput(e.target.value)} />
+                    </Form.Group>
 
-                <div className="d-flex justify-content-center">
-                    <Button type="submit" disabled={!nameInput || !userNameInput || !emailInput} > Submit </Button>
-                    <Button className="ml-3" variant="danger" onClick={() => navigate("/")}>Back</Button>
-                </div>
-            </Form>
+                    <div className="d-flex justify-content-center">
+                        <Button type="submit" disabled={!nameInput || !userNameInput || !emailInput} > Submit </Button>
+                        <Button className="ml-3" variant="danger" onClick={() => navigate("/")}>Back</Button>
+                    </div>
+                </Form>
+            </div>
         </>
 
     )
