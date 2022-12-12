@@ -174,23 +174,15 @@ const NavFilter = () => {
                             className="d-none d-md-block"
                         />
 
-                        <Form.Control type="number" value={minPrice} min="0" max="1000" className="d-md-none mr-1" onChange={(e) => setMinPrice(e.target.value)} />
-                        <Form.Control type="number" value={maxPrice} min="0" max="1000" className="d-md-none mr-1" onChange={(e) => setMaxPrice(e.target.value)} />
+                        <Form.Control type="number" value={minPrice} min="0" max="500" className="d-md-none mr-1" onChange={(e) => setMinPrice(e.target.value)} />
+                        <Form.Control type="number" value={maxPrice} min="0" max="500" className="d-md-none mr-1" onChange={(e) => setMaxPrice(e.target.value)} />
 
                         <Button type="submit" className="d-flex">Enter Filters</Button>
-
                     </Form>
 
                 </Row>
             </Container>
-            {/* <Form.Group >
-                            <span>From </span>
-                            <Form.Control type="number" value={minPrice} min="0" max="1000" onChange={(e) => setMinPrice(e.target.value)} />
-                        </Form.Group>
-                        <Form.Group >
-                            <span>To </span>
-                            <Form.Control type="number" value={maxPrice} min="0" max="1000" onChange={(e) => setMaxPrice(e.target.value)} />
-                        </Form.Group> */}
+
 
         </>
     )
