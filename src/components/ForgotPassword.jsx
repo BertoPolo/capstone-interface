@@ -93,7 +93,7 @@ const ForgotPassword = () => {
             />
 
 
-            <div className="login-container">
+            <div className="login-container bgForgot">
                 <Form className=" transparency-box p-4 mt-4" onSubmit={(e) => checkCredentials(e)}>
                     <h4 className="mb-3">Account recovery</h4>
 
