@@ -87,6 +87,7 @@ const CategoriesMenuDropdown = () => {
                         </Card>
                     )
                 })}
+
             </Accordion>
         </>
     )

@@ -88,15 +88,17 @@ const Home = () => {
       </Container>
 
       <Container fluid >
+        {/* categories displayed in SM screens */}
         <CategoriesMenuDropdown />
+
         {/* left column, categories */}
         <Row className="ml-2 mt-4">
-          <Col className="d-none col-md-2 d-md-block">
+          <Col className="d-none col-md-3 d-md-block">
             <CategoriesMenu />
 
           </Col>
 
-          <Col xs={10}>
+          <Col > {/* xs={9} md={10} */}
             <Col>
 
               {/* HOME */}

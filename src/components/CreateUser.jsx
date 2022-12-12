@@ -75,7 +75,6 @@ const CreateUser = () => {
 
 
   return (
-    // <Container fluid className="">
     <>
       <ToastContainer
         position="top-center"
@@ -108,7 +107,6 @@ const CreateUser = () => {
               Register
             </Button>
 
-
             <Link className="ml-2" to="/">
               <Button variant="danger" type="submit">
                 Go Back
@@ -118,7 +116,6 @@ const CreateUser = () => {
         </Form >
       </div>
     </>
-    // </Container >
 
   )
 }
