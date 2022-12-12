@@ -76,7 +76,7 @@ const CreateUser = () => {
 
   return (
     <Container fluid className="bgRegistration">
-      <Row>
+      <div className="justify-content-center">
         <ToastContainer
           position="top-center"
           autoClose={5000}
@@ -90,7 +90,7 @@ const CreateUser = () => {
           pauseOnHover
           theme="dark"
         />
-        <Form className="login-container" onSubmit={(e) => handleSubmit(e)}>
+        <Form className="login-container justify-content-center" onSubmit={(e) => handleSubmit(e)}>
           <h4 className="mb-3">Registration</h4>
 
           <Form.Group>
@@ -115,7 +115,7 @@ const CreateUser = () => {
             </Link>
           </div>
         </Form >
-      </Row>
+      </div>
     </Container >
 
   )
