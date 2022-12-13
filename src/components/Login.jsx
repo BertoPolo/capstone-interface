@@ -44,7 +44,7 @@ const Login = () => {
   const logIn = async (tok) => {
 
     try {
-      const res = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/username/${usernameInput}`,
+      const res = await fetch(`${process.env.REACT_APP_SERVER}users/username/${usernameInput}`,
         {
           headers: {
             "Authorization": "Bearer " + tok
@@ -60,7 +60,7 @@ const Login = () => {
         dispatch(changeIsLogged(true))
         dispatch(resetCart()) // change when cart and user are linked
 
-        navigate("/home")
+        setTimeout(navigate("/home"), 1100)
 
         notifyOk(`Welcome! ${name}`) // this is not displaying
       }
