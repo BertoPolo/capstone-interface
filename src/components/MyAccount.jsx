@@ -44,7 +44,7 @@ const MyAccount = () => {
 
     try {
       const res = await fetch(
-        `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/me`,
+        `${process.env.REACT_APP_SERVER}users/me`,
         {
           method: "PUT",
           headers: {
@@ -81,7 +81,7 @@ const MyAccount = () => {
 
       try {
         const res = await fetch(
-          `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/me/password`,
+          `${process.env.REACT_APP_SERVER}users/me/password`,
           {
             method: "PUT",
             headers: {

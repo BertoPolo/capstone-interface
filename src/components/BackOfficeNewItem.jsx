@@ -75,7 +75,7 @@ const BackOficceNewItem = () => {
 
     const getBrands = async () => {
         try {
-            const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}brands/all`);
+            const response = await fetch(`${process.env.REACT_APP_SERVER}brands/all`);
             const data = await response.json();
             if (data) dispatch(addBrands(data));
         } catch (error) {
@@ -85,7 +85,7 @@ const BackOficceNewItem = () => {
 
     const getCategories = async () => {
         try {
-            const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}categories/all`);
+            const response = await fetch(`${process.env.REACT_APP_SERVER}categories/all`);
             const data = await response.json();
             if (data) dispatch(addCategories(data));
 
@@ -97,7 +97,7 @@ const BackOficceNewItem = () => {
 
     const getMainCategories = async () => {
         try {
-            const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}mainCategories/all`);
+            const response = await fetch(`${process.env.REACT_APP_SERVER}mainCategories/all`);
             const data = await response.json();
             if (data) dispatch(addMainCategories(data));
 
@@ -123,7 +123,7 @@ const BackOficceNewItem = () => {
 
         try {
             const res = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items`,
+                `${process.env.REACT_APP_SERVER}items`,
                 {
                     method: "POST",
                     headers: {
@@ -172,7 +172,7 @@ const BackOficceNewItem = () => {
             data.append("image", image)
 
             const res = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/${itemId}/img`,
+                `${process.env.REACT_APP_SERVER}items/${itemId}/img`,
                 {
                     method: "PUT",
                     body: data,
@@ -200,8 +200,7 @@ const BackOficceNewItem = () => {
             brands: newBrandInput
         }
         try {
-            const res = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}brands/new`,
+            const res = await fetch(`${process.env.REACT_APP_SERVER}brands/new`,
                 {
                     method: "POST",
                     headers: {
@@ -231,7 +230,7 @@ const BackOficceNewItem = () => {
 
         try {
             const res = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}categories/`,
+                `${process.env.REACT_APP_SERVER}categories/`,
                 {
                     method: "POST",
                     headers: {
@@ -260,7 +259,7 @@ const BackOficceNewItem = () => {
         }
         try {
             const res = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}mainCategories/`,
+                `${process.env.REACT_APP_SERVER}mainCategories/`,
                 {
                     method: "POST",
                     headers: {

@@ -53,7 +53,7 @@ const NavFilter = () => {
 
     const getItems = async () => {
         try {
-            const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items`,
+            const response = await fetch(`${process.env.REACT_APP_SERVER}items`,
 
             );
             if (response.ok) {
@@ -67,7 +67,7 @@ const NavFilter = () => {
 
     const getBrands = async () => {
         try {
-            const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}brands/all`);
+            const response = await fetch(`${process.env.REACT_APP_SERVER}brands/all`);
             const data = await response.json();
             dispatch(addBrands(data));
 

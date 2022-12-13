@@ -54,7 +54,7 @@ const ForgotPassword = () => {
 
         try {
             const res = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/forgotPassword`,
+                `${process.env.REACT_APP_SERVER}users/forgotPassword`,
                 {
                     method: "PUT",
                     headers: {

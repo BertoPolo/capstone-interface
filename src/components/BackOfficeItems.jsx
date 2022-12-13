@@ -77,7 +77,7 @@ const BackOfficeItems = () => {
     const searchArticleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const res = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?title=/^${searchByTitle}/i`,
+            const res = await fetch(`${process.env.REACT_APP_SERVER}items?title=/^${searchByTitle}/i`,
                 {
                     headers: {
                         'Content-Type': 'application',
@@ -108,7 +108,7 @@ const BackOfficeItems = () => {
 
     const getItem = async (article) => {
         try {
-            const res = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?_id=${article}`, {
+            const res = await fetch(`${process.env.REACT_APP_SERVER}items?_id=${article}`, {
                 headers: {
                     "Authorization": "Bearer " + token
                 }
@@ -145,7 +145,7 @@ const BackOfficeItems = () => {
         }
         try {
             const res = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/${itemId}`,
+                `${process.env.REACT_APP_SERVER}items/${itemId}`,
                 {
                     method: "PUT",
                     headers: {
@@ -175,7 +175,7 @@ const BackOfficeItems = () => {
             data.append("image", image)
 
             const res = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/${itemId}/img`,
+                `${process.env.REACT_APP_SERVER}items/${itemId}/img`,
                 {
                     method: "PUT",
                     body: data,
@@ -200,7 +200,7 @@ const BackOfficeItems = () => {
 
         try {
             const response = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items/delete/${id}`,
+                `${process.env.REACT_APP_SERVER}items/delete/${id}`,
                 {
                     method: "DELETE",
                     headers: {

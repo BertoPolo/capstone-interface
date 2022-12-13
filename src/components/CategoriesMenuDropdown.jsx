@@ -28,7 +28,7 @@ const CategoriesMenuDropdown = () => {
 
     const getByMainCategory = async (mainCatId) => {
         try {
-            const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?mainCategory=${mainCatId}`);
+            const response = await fetch(`${process.env.REACT_APP_SERVER}items?mainCategory=${mainCatId}`);
 
             if (response.ok) {
                 const data = await response.json();
@@ -44,7 +44,7 @@ const CategoriesMenuDropdown = () => {
 
     const getByCategory = async (categoryId) => {
         try {
-            const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?category=${categoryId}`);
+            const response = await fetch(`${process.env.REACT_APP_SERVER}items?category=${categoryId}`);
             if (response.ok) {
                 const data = await response.json();
                 dispatch(addItems(data))

@@ -19,7 +19,7 @@ function CategoriesMenu() {
 
   const getMainCategories = async () => {
     try {
-      const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}mainCategories/all`);
+      const response = await fetch(`${process.env.REACT_APP_SERVER}mainCategories/all`);
       const data = await response.json();
 
       if (data) dispatch(addMainCategories(data));
@@ -33,7 +33,7 @@ function CategoriesMenu() {
 
   const getByMainCategory = async (mainCatId) => {
     try {
-      const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?mainCategory=${mainCatId}`);
+      const response = await fetch(`${process.env.REACT_APP_SERVER}items?mainCategory=${mainCatId}`);
 
       if (response.ok) {
         const data = await response.json();
@@ -49,7 +49,7 @@ function CategoriesMenu() {
 
   const getByCategory = async (categoryId) => {
     try {
-      const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}items?category=${categoryId}`);
+      const response = await fetch(`${process.env.REACT_APP_SERVER}items?category=${categoryId}`);
       if (response.ok) {
         const data = await response.json();
         dispatch(addItems(data))

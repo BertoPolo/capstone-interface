@@ -58,7 +58,7 @@ const BackOfficeUsers = () => {
 
     const getUser = async (username) => {
         try {
-            const response = await fetch(`${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/username/${username}`, {
+            const response = await fetch(`${process.env.REACT_APP_SERVER}users/username/${username}`, {
                 headers: {
                     "Authorization": "Bearer " + token
                 }
@@ -82,7 +82,7 @@ const BackOfficeUsers = () => {
         e.preventDefault()
         try {
             const response = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/${userInput}`, {
+                `${process.env.REACT_APP_SERVER}users/${userInput}`, {
                 headers: {
                     "Authorization": "Bearer " + token
                 }
@@ -112,7 +112,7 @@ const BackOfficeUsers = () => {
 
         try {
             const response = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/${userId}`,
+                `${process.env.REACT_APP_SERVER}users/${userId}`,
                 {
                     method: "PUT",
                     headers: {
@@ -134,7 +134,7 @@ const BackOfficeUsers = () => {
     const deleteUser = async (id) => {
         try {
             const response = await fetch(
-                `${process.env.React_APP_SERVER}` || `${process.env.React_APP_LOCAL_SERVER}users/${id}`,
+                `${process.env.REACT_APP_SERVER}users/${id}`,
                 {
                     method: "DELETE",
                     headers: {
