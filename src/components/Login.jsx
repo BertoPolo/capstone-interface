@@ -46,6 +46,7 @@ const Login = () => {
     try {
       const res = await fetch(`${process.env.REACT_APP_SERVER}users/username/${usernameInput}`,
         {
+          mode: "no-cors",
           headers: {
             "Authorization": "Bearer " + tok
           },
