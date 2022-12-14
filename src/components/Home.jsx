@@ -93,7 +93,7 @@ const Home = () => {
 
         {/* left column, categories */}
         <Row className="ml-2 mt-4">
-          <Col className="d-none col-md-3 d-md-block">
+          <Col className="d-none col-md-3 col-lg-2 d-md-block">
             <CategoriesMenu />
 
           </Col>
