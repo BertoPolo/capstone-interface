@@ -46,7 +46,6 @@ const Login = () => {
     try {
       const res = await fetch(`${process.env.REACT_APP_SERVER}users/username/${usernameInput}`,
         {
-          mode: "no-cors",
           headers: {
             "Authorization": "Bearer " + tok
           },
@@ -61,10 +60,10 @@ const Login = () => {
         dispatch(changeIsLogged(true))
         dispatch(resetCart()) // change when cart and user are linked
 
+        notifyOk(`Welcome! ${name}`) // this is not displaying
         setTimeout(navigate("/home"), 1100)
 
-        notifyOk(`Welcome! ${name}`) // this is not displaying
-      }
+      } else notifyError("Please check your credentials")
     } catch (error) {
       console.log(error)
 
