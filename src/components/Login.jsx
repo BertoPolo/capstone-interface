@@ -61,7 +61,8 @@ const Login = () => {
         dispatch(resetCart()) // change when cart and user are linked
 
         notifyOk(`Welcome! ${name}`) // this is not displaying
-        setTimeout(navigate("/home"), 1100)
+        // setTimeout(() => navigate("/home"), 1100)
+        navigate("/home")
 
       } else notifyError("Please check your credentials")
     } catch (error) {

@@ -37,6 +37,8 @@ const NavFilter = () => {
         setSearchinput("")
         setMaxPrice(1000)
         setMinPrice(0)
+        setSelectSorting("")
+        setSelectedBrand("")
         setSorting("")
     }
 
