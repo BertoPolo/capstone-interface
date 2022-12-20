@@ -1,6 +1,6 @@
 import { Container, Form, Button, Col, Row } from "react-bootstrap"
 import { useNavigate, Link } from "react-router-dom"
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,12 +10,13 @@ import { resetCart } from "../slices/cart/cartSlice";
 const Login = () => {
   const [usernameInput, setUsernameInput] = useState("")
   const [passwordInput, setPasswordInput] = useState("")
+  const [isCharging, setIsCharging] = useState(false)
   // const [isRemember, setIsRemember] = useState(false)
 
   const { name, token } = useSelector((state) => state.usersSlice);
   const cart = useSelector((state) => state.cartSlice.cart);
 
-
+  const btnRef = useRef()
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -41,6 +42,18 @@ const Login = () => {
     theme: "dark",
   });
 
+  const disableBtn = e => {
+    if (btnRef.current) {
+      btnRef.current.setAttribute("disabled", "disabled");
+    }
+  }
+
+  const ableBtn = e => {
+    if (btnRef.current) {
+      btnRef.current.removeAttribute("disabled");
+    }
+  }
+
   const logIn = async (tok) => {
 
     try {
@@ -64,7 +77,10 @@ const Login = () => {
         // setTimeout(() => navigate("/home"), 1100)
         navigate("/home")
 
-      } else notifyError("Please check your credentials")
+      } else {
+        notifyError("Check your credentials again")
+        ableBtn()
+      }
     } catch (error) {
       console.log(error)
 
@@ -74,7 +90,11 @@ const Login = () => {
   const createToken = async (e) => {
     e.preventDefault()
 
+    btnRef.current.setAttribute("disabled", "disabled");
+
+
     try {
+
       const body = {
         username: usernameInput,
         password: passwordInput
@@ -96,7 +116,11 @@ const Login = () => {
         dispatch(changeToken(data.accessToken))
         logIn(data.accessToken)
 
-      } else notifyError("Check your credentials again")
+      } else {
+        notifyError("Check your credentials again")
+        ableBtn()
+      }
+
     } catch (error) {
       console.log(error)
     }
@@ -129,6 +153,7 @@ const Login = () => {
 
         <Col>
           <h1 className="h1">Stuff to Route</h1>
+
           <Form className="login-container" onSubmit={createToken}>
             <div className="login-modal">
               <h4 className="mb-3">Login</h4>
@@ -144,7 +169,7 @@ const Login = () => {
                 <Form.Check type="checkbox" label="Remember me" className="login-small-font" onClick={() => setIsRemember(!isRemember)} />
               </Form.Group> */}
 
-              <Button variant="primary" type="submit" disabled={(!usernameInput) || (!passwordInput)} >
+              <Button variant="primary" type="submit" ref={btnRef} disabled={(!usernameInput) || (!passwordInput)} >
                 Enter
               </Button>
 
