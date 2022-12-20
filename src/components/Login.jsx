@@ -42,12 +42,6 @@ const Login = () => {
     theme: "dark",
   });
 
-  const disableBtn = e => {
-    if (btnRef.current) {
-      btnRef.current.setAttribute("disabled", "disabled");
-    }
-  }
-
   const ableBtn = e => {
     if (btnRef.current) {
       btnRef.current.removeAttribute("disabled");
@@ -89,10 +83,7 @@ const Login = () => {
 
   const createToken = async (e) => {
     e.preventDefault()
-
     btnRef.current.setAttribute("disabled", "disabled");
-
-
     try {
 
       const body = {

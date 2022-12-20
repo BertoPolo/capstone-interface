@@ -1,6 +1,6 @@
 import { Form, Button, Container, Row } from "react-bootstrap"
 import { Link, useNavigate } from "react-router-dom"
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 // import { useSelector, useDispatch } from "react-redux"
@@ -14,6 +14,8 @@ const CreateUser = () => {
   // const [bikeInput, setBikeInput] = useState("")
 
   const navigate = useNavigate()
+  const btnRef = useRef()
+
 
   // const { name, adress } = useSelector((state) => state.usersSlice);
 
@@ -39,9 +41,15 @@ const CreateUser = () => {
     theme: "dark",
   });
 
+  const ableBtn = e => {
+    if (btnRef.current) {
+      btnRef.current.removeAttribute("disabled");
+    }
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
-
+    btnRef.current.setAttribute("disabled", "disabled");
     let body = {
       name: nameInput,
       username: userNameInput,
@@ -65,7 +73,10 @@ const CreateUser = () => {
       if (res.status === 201) {
         notify("Welcome !!") //not displaying
         navigate("/")
-      } else notifyError("user already exists")
+      } else {
+        notifyError("user already exists")
+        ableBtn()
+      }
 
     } catch (error) {
       console.log(error)
@@ -103,7 +114,7 @@ const CreateUser = () => {
 
           <div>
 
-            <Button variant="success" type="submit" disabled={!adressInput && !passwordInput && !nameInput}>
+            <Button variant="success" type="submit" ref={btnRef} disabled={!adressInput && !passwordInput && !nameInput}>
               Register
             </Button>
 
