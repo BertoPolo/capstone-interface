@@ -64,7 +64,7 @@ const CreateUser = () => {
       );
       if (res.status === 201) {
         notify("Welcome !!") //not displaying
-        setTimeout(() => navigate("/"), 1500)
+        navigate("/")
       } else notifyError("user already exists")
 
     } catch (error) {
@@ -96,7 +96,7 @@ const CreateUser = () => {
           <Form.Group>
             <Form.Control type="text" placeholder="Full name" onChange={(e) => setNameInput(e.target.value)} />
             <Form.Control type="text" placeholder="User Name" onChange={(e) => setUserNameInput(e.target.value)} />
-            <Form.Control type="text" placeholder="Email" onChange={(e) => setEmailInput(e.target.value)} />
+            <Form.Control type="email" placeholder="Email" onChange={(e) => setEmailInput(e.target.value)} />
             <Form.Control type="text" placeholder="Shipping Adress" onChange={(e) => setAdressInput(e.target.value)} />
             <Form.Control type="password" placeholder="Password" onChange={(e) => setPasswordInput(e.target.value)} />
           </Form.Group>
