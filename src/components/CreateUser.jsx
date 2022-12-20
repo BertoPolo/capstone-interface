@@ -1,4 +1,4 @@
-import { Form, Button, Container, Row } from "react-bootstrap"
+import { Form, Button, Spinner } from "react-bootstrap"
 import { Link, useNavigate } from "react-router-dom"
 import { useState, useRef } from "react"
 import { ToastContainer, toast } from 'react-toastify';
@@ -11,10 +11,13 @@ const CreateUser = () => {
   const [emailInput, setEmailInput] = useState("")
   const [adressInput, setAdressInput] = useState("")
   const [passwordInput, setPasswordInput] = useState("")
+  const [isCharging, setIsCharging] = useState(false)
+
   // const [bikeInput, setBikeInput] = useState("")
 
   const navigate = useNavigate()
-  const btnRef = useRef()
+  const registerBtnRef = useRef()
+  const backBtnRef = useRef()
 
 
   // const { name, adress } = useSelector((state) => state.usersSlice);
@@ -42,14 +45,17 @@ const CreateUser = () => {
   });
 
   const ableBtn = e => {
-    if (btnRef.current) {
-      btnRef.current.removeAttribute("disabled");
+    if (registerBtnRef.current) {
+      registerBtnRef.current.removeAttribute("disabled");
+      backBtnRef.current.removeAttribute("disabled");
     }
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    btnRef.current.setAttribute("disabled", "disabled");
+    registerBtnRef.current.setAttribute("disabled", "disabled");
+    backBtnRef.current.setAttribute("disabled", "disabled");
+    setIsCharging(true)
     let body = {
       name: nameInput,
       username: userNameInput,
@@ -70,12 +76,13 @@ const CreateUser = () => {
           body: JSON.stringify(body),
         }
       );
-      if (res.status === 201) {
+      if (res.ok) {
         notify("Welcome !!") //not displaying
         navigate("/")
       } else {
         notifyError("user already exists")
         ableBtn()
+        setIsCharging(false)
       }
 
     } catch (error) {
@@ -101,6 +108,7 @@ const CreateUser = () => {
         theme="dark"
       />
       <div className=" login-container bgRegistration">
+        {isCharging && <Spinner animation="grow" variant="success" />}
         <Form className=" transparency-box p-4 mt-4" onSubmit={(e) => handleSubmit(e)}>
           <h4 className="mb-3">Registration</h4>
 
@@ -114,12 +122,12 @@ const CreateUser = () => {
 
           <div>
 
-            <Button variant="success" type="submit" ref={btnRef} disabled={!adressInput && !passwordInput && !nameInput}>
+            <Button variant="success" type="submit" ref={registerBtnRef} disabled={!adressInput || !passwordInput || !nameInput || !emailInput}>
               Register
             </Button>
 
             <Link className="ml-2" to="/">
-              <Button variant="danger" type="submit">
+              <Button variant="danger" ref={backBtnRef}>
                 Go Back
               </Button>
             </Link>

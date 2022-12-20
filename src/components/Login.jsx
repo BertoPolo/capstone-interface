@@ -1,4 +1,4 @@
-import { Container, Form, Button, Col, Row } from "react-bootstrap"
+import { Container, Form, Button, Col, Row, Spinner } from "react-bootstrap"
 import { useNavigate, Link } from "react-router-dom"
 import { useState, useRef } from "react"
 import { useSelector, useDispatch } from "react-redux"
@@ -74,6 +74,7 @@ const Login = () => {
       } else {
         notifyError("Check your credentials again")
         ableBtn()
+        setIsCharging(false)
       }
     } catch (error) {
       console.log(error)
@@ -84,6 +85,7 @@ const Login = () => {
   const createToken = async (e) => {
     e.preventDefault()
     btnRef.current.setAttribute("disabled", "disabled");
+    setIsCharging(true)
     try {
 
       const body = {
@@ -110,6 +112,8 @@ const Login = () => {
       } else {
         notifyError("Check your credentials again")
         ableBtn()
+        setIsCharging(false)
+
       }
 
     } catch (error) {
@@ -147,7 +151,8 @@ const Login = () => {
 
           <Form className="login-container" onSubmit={createToken}>
             <div className="login-modal">
-              <h4 className="mb-3">Login</h4>
+
+              <h4 className="mb-3">Login </h4>
               <Form.Group>
                 <Form.Control type="text" placeholder="Username" value={usernameInput} onChange={(e) => setUsernameInput(e.target.value)} />
               </Form.Group>
@@ -171,6 +176,7 @@ const Login = () => {
               <Link className="login-small-font d-block" to="/newUser">
                 <b> Join Us!</b>
               </Link>
+              {isCharging && <Spinner animation="grow" variant="success" />}
 
             </div>
           </Form>
