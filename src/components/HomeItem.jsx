@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { Card, Button } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
 import { ToastContainer, toast } from 'react-toastify';
@@ -6,8 +6,6 @@ import 'react-toastify/dist/ReactToastify.css'
 import { addToCart } from "../slices/cart/cartSlice"
 import { changeSelectedItem } from "../slices/items/itemsSlice"
 import { toggleIsOnSingleItem } from "../slices/pages/pagesSlice"
-
-
 
 
 const HomeItem = ({ currentItem }) => {
@@ -44,10 +42,12 @@ const HomeItem = ({ currentItem }) => {
 
     } else {
       dispatch(addToCart(currentItem))
-      // btnRef.current.setAttribute("disabled", "disabled");
     }
   }
-
+  useEffect(() => {
+    if (cart.some((element) => element._id === currentItem._id)) btnRef.current.setAttribute("disabled", "disabled")
+    else ableBtn()
+  }, [cart])
 
   return (
 
