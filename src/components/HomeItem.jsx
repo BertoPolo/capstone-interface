@@ -19,16 +19,25 @@ const HomeItem = ({ currentItem }) => {
   const dispatch = useDispatch();
   const btnRef = useRef()
 
-  const notifyAlready = () => toast.warn(`Item already in cart :)`, {
-    position: "top-center",
-    autoClose: 1500,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "dark",
-  });
+  // const notifyAlready = () => toast.warn(`Item already in cart :)`, {
+  //   position: "top-center",
+  //   autoClose: 1500,
+  //   hideProgressBar: false,
+  //   closeOnClick: true,
+  //   pauseOnHover: true,
+  //   draggable: true,
+  //   progress: undefined,
+  //   theme: "dark",
+  // });
+
+  // const checkIfIsAlreadyInCart = () => {
+  //   if (!cart.some((element) => element._id === currentItem._id)) {
+  //     // notifyAlready()
+  //     dispatch(addToCart(currentItem))
+  //   } else {
+  //     dispatch(addToCart(currentItem))
+  //   }
+  // }
 
   const ableBtn = e => {
     if (btnRef.current) {
@@ -36,14 +45,7 @@ const HomeItem = ({ currentItem }) => {
     }
   }
 
-  const checkIfIsAlreadyInCart = () => {
-    if (cart.some((element) => element._id === currentItem._id)) {
-      notifyAlready()
 
-    } else {
-      dispatch(addToCart(currentItem))
-    }
-  }
   useEffect(() => {
     if (cart.some((element) => element._id === currentItem._id)) btnRef.current.setAttribute("disabled", "disabled")
     else ableBtn()
@@ -83,7 +85,7 @@ const HomeItem = ({ currentItem }) => {
 
           {currentItem.isOutlet ? <Card.Title className="twoLines "> <b>{currentItem.outletPrice} €</b> <br /> <small><s>{currentItem.price}€</s></small> </Card.Title> : <Card.Title className="twoLines">{currentItem.price}€ </Card.Title>}
 
-          {!isAdmin && <Button className="px-1 mt-2 d-block" variant="primary" ref={btnRef} onClick={() => checkIfIsAlreadyInCart()}>Add to cart</Button>}
+          {!isAdmin && <Button className="px-1 mt-2 d-block" variant="primary" ref={btnRef} onClick={() => dispatch(addToCart(currentItem))}>Add to cart</Button>}
 
         </Card.Body>
       </Card >

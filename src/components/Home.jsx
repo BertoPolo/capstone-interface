@@ -1,4 +1,4 @@
-import { Container, Carousel, Col, Row } from "react-bootstrap"
+import { Container, Carousel, Col, Row, Button } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect } from "react"
 import { addItems } from "../slices/items/itemsSlice"
@@ -11,6 +11,7 @@ import SingleItem from "./SingleItem"
 import CategoriesMenu from "./CategoriesMenu"
 import NavFilter from "./NavFilter"
 import CategoriesMenuDropdown from "./CategoriesMenuDropdown"
+import { useState } from "react"
 // import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 
@@ -26,6 +27,8 @@ const Home = () => {
   // const isOnOutlet = useSelector((state) => state.sheetsSlice.isOnOutlet);
   // const isOnCountactUs = useSelector((state) => state.sheetsSlice.isOnCountactUs);
   // const isOnSingleItem = useSelector((state) => state.sheetsSlice.isOnSingleItem);
+
+  const [isCategoriesMenuDropdown, setIsCategoriesDropdown] = useState(false)
 
 
 
@@ -98,7 +101,9 @@ const Home = () => {
 
       <Container fluid >
         {/* categories displayed in SM screens */}
-        <CategoriesMenuDropdown />
+        <Button onClick={() => setIsCategoriesDropdown(!isCategoriesMenuDropdown)}>Menu </Button>
+        {isCategoriesMenuDropdown && <CategoriesMenuDropdown />}
+
 
         {/* left column, categories */}
         <Row className="ml-2 mt-4">
