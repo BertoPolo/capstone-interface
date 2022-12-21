@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { Card, Button } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
 import { ToastContainer, toast } from 'react-toastify';
@@ -18,6 +19,7 @@ const HomeItem = ({ currentItem }) => {
 
 
   const dispatch = useDispatch();
+  const btnRef = useRef()
 
   const notifyAlready = () => toast.warn(`Item already in cart :)`, {
     position: "top-center",
@@ -30,14 +32,19 @@ const HomeItem = ({ currentItem }) => {
     theme: "dark",
   });
 
+  const ableBtn = e => {
+    if (btnRef.current) {
+      btnRef.current.removeAttribute("disabled");
+    }
+  }
 
   const checkIfIsAlreadyInCart = () => {
-
     if (cart.some((element) => element._id === currentItem._id)) {
       notifyAlready()
 
     } else {
       dispatch(addToCart(currentItem))
+      // btnRef.current.setAttribute("disabled", "disabled");
     }
   }
 
@@ -74,12 +81,10 @@ const HomeItem = ({ currentItem }) => {
           </Card.Title>
           <Card.Text className="line-clamp">{currentItem.description}</Card.Text>
 
-          {/* <div className="d-flex justify-content-between"> */}
           {currentItem.isOutlet ? <Card.Title className="twoLines "> <b>{currentItem.outletPrice} €</b> <br /> <small><s>{currentItem.price}€</s></small> </Card.Title> : <Card.Title className="twoLines">{currentItem.price}€ </Card.Title>}
 
-          {!isAdmin && <Button className="px-1 mt-2 d-block" variant="primary" onClick={() => checkIfIsAlreadyInCart()}>Add to cart</Button>}
+          {!isAdmin && <Button className="px-1 mt-2 d-block" variant="primary" ref={btnRef} onClick={() => checkIfIsAlreadyInCart()}>Add to cart</Button>}
 
-          {/* </div> */}
         </Card.Body>
       </Card >
     </>
