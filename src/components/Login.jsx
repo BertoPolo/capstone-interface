@@ -124,8 +124,7 @@ const Login = () => {
 
 
   return (
-    <Container fluid>
-
+    <>
       {/* Toast */}
       <ToastContainer position="top-center"
         autoClose={4000}
@@ -138,52 +137,97 @@ const Login = () => {
         pauseOnHover
         theme="dark" />
 
-      <Row>
-        <Col className="login-container loginBG">
-          <div className="p-4 transparencywWiteBox">
-            <p> Aren't You registered yet?</p>
-            <Button onClick={() => navigate("/home")}>Take a look without login</Button>
+      {/* small screens view */}
+      <Container className="d-sm-none">
+        <h1 className="">Stuff to Route</h1>
+        <Form className="login-container" onSubmit={createToken}>
+          <div className="login-modal">
+
+            <h4 className="mb-3">Login </h4>
+            <Form.Group>
+              <Form.Control type="text" placeholder="Username" value={usernameInput} onChange={(e) => setUsernameInput(e.target.value)} />
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Control type="password" placeholder="Password" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
+            </Form.Group>
+
+            <Button variant="primary" type="submit" ref={btnRef} disabled={(!usernameInput) || (!passwordInput)} >
+              Enter
+            </Button>
+
+            <Link className="login-small-font d-block mb-3 mt-3" to="/forgotPassword">
+              <b className="text-danger"> Forgot the password?</b>
+            </Link>
+
+            <Link className="login-small-font d-block" to="/newUser">
+              <b> Join Us!</b>
+            </Link>
+            {isCharging && <Spinner animation="grow" variant="success" />}
+
           </div>
-        </Col>
+        </Form>
 
-        <Col>
-          <h1 className="h1">Stuff to Route</h1>
+        {/* option for not registered users */}
+        <div className="p-4 ">
+          <p> Aren't You registered yet?</p>
+          <Button onClick={() => navigate("/home")}>Take a look without login</Button>
+        </div>
 
-          <Form className="login-container" onSubmit={createToken}>
-            <div className="login-modal">
+        <Row>
 
-              <h4 className="mb-3">Login </h4>
-              <Form.Group>
-                <Form.Control type="text" placeholder="Username" value={usernameInput} onChange={(e) => setUsernameInput(e.target.value)} />
-              </Form.Group>
+        </Row>
+      </Container>
 
-              <Form.Group>
-                <Form.Control type="password" placeholder="Password" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
-              </Form.Group>
-
-              {/* <Form.Group>
-                <Form.Check type="checkbox" label="Remember me" className="login-small-font" onClick={() => setIsRemember(!isRemember)} />
-              </Form.Group> */}
-
-              <Button variant="primary" type="submit" ref={btnRef} disabled={(!usernameInput) || (!passwordInput)} >
-                Enter
-              </Button>
-
-              <Link className="login-small-font d-block mb-3 mt-3" to="/forgotPassword">
-                <b className="text-danger"> Forgot the password?</b>
-              </Link>
-
-              <Link className="login-small-font d-block" to="/newUser">
-                <b> Join Us!</b>
-              </Link>
-              {isCharging && <Spinner animation="grow" variant="success" />}
-
+      {/* since md screen */}
+      <Container fluid className="d-none d-sm-block">
+        <Row>
+          <Col className="login-container loginBG">
+            <div className="p-4 transparencywWiteBox">
+              <p> Aren't You registered yet?</p>
+              <Button onClick={() => navigate("/home")}>Take a look without login</Button>
             </div>
-          </Form>
-        </Col>
-      </Row>
-    </Container>
-  )
+          </Col>
+
+          <Col>
+            <h1 className="h1 ">Stuff to Route</h1>
+
+            <Form className="login-container" onSubmit={createToken}>
+              <div className="login-modal">
+
+                <h4 className="mb-3">Login </h4>
+                <Form.Group>
+                  <Form.Control type="text" placeholder="Username" value={usernameInput} onChange={(e) => setUsernameInput(e.target.value)} />
+                </Form.Group>
+
+                <Form.Group>
+                  <Form.Control type="password" placeholder="Password" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
+                </Form.Group>
+
+                {/* <Form.Group>
+                  <Form.Check type="checkbox" label="Remember me" className="login-small-font" onClick={() => setIsRemember(!isRemember)} />
+                </Form.Group> */}
+
+                <Button variant="primary" type="submit" ref={btnRef} disabled={(!usernameInput) || (!passwordInput)} >
+                  Enter
+                </Button>
+
+                <Link className="login-small-font d-block mb-3 mt-3" to="/forgotPassword">
+                  <b className="text-danger"> Forgot the password?</b>
+                </Link>
+
+                <Link className="login-small-font d-block" to="/newUser">
+                  <b> Join Us!</b>
+                </Link>
+                {isCharging && <Spinner animation="grow" variant="success" />}
+
+              </div>
+            </Form>
+          </Col>
+        </Row>
+      </Container>
+
+    </>)
 }
 
 export default Login

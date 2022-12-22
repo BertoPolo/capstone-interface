@@ -105,10 +105,10 @@ const Payment = () => (
     <Elements stripe={stripePromise}>
         <Container className="mt-4">
             <Row>
-                <Col className="d-flex justify-content-center">
+                <div className="d-flex justify-content-center w-100">
                     <CheckoutForm />
 
-                </Col>
+                </div>
             </Row>
         </Container>
     </Elements>

@@ -125,6 +125,7 @@ const NavFilter = () => {
             />
 
             <Container className="mt-4">
+                <hr />
                 <Row>
                     {/* search bar */}
                     <Form inline className="d-flex justify-content-center w-100" onSubmit={(e) => getFilteredItems(e)}>
@@ -152,7 +153,7 @@ const NavFilter = () => {
                         {/* BY BRAND*/}
                         <Col xs={3}>
                             <Dropdown >
-                                <Dropdown.Toggle variant="outline">{selectedBrand || "Choose Brand"}</Dropdown.Toggle>
+                                <Dropdown.Toggle variant="outline">{selectedBrand || "Brand"}</Dropdown.Toggle>
 
                                 <Dropdown.Menu>
                                     {brands.map((element) => {
@@ -192,6 +193,7 @@ const NavFilter = () => {
                     </Form>
 
                 </Row>
+                <hr />
             </Container>
 
 

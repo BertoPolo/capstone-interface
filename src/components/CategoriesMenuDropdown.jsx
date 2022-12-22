@@ -60,7 +60,7 @@ const CategoriesMenuDropdown = () => {
 
     return (
         <>
-            <Accordion className="d-md-none">
+            <Accordion className="d-md-none mt-2">
 
                 {mainCategories.map((mainElement) => {
                     return (

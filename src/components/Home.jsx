@@ -101,7 +101,7 @@ const Home = () => {
 
       <Container fluid >
         {/* categories displayed in SM screens */}
-        <Button onClick={() => setIsCategoriesDropdown(!isCategoriesMenuDropdown)}>Menu </Button>
+        <Button variant="outline-dark" className="d-md-none" onClick={() => setIsCategoriesDropdown(!isCategoriesMenuDropdown)}>Show categories menu </Button>
         {isCategoriesMenuDropdown && <CategoriesMenuDropdown />}
 
 
