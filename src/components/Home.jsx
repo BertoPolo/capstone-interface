@@ -101,9 +101,9 @@ const Home = () => {
 
       <Container fluid >
         {/* categories displayed in SM screens */}
-        <Button variant="outline-dark" className="d-md-none" onClick={() => setIsCategoriesDropdown(!isCategoriesMenuDropdown)}>Show categories menu </Button>
-        {isCategoriesMenuDropdown && <CategoriesMenuDropdown />}
-
+        {/* if SingleItem=== true dont display cats and button */}
+        {!isOnSingleItem && <> <Button variant="outline-dark" className="d-md-none" onClick={() => setIsCategoriesDropdown(!isCategoriesMenuDropdown)}>Show categories menu </Button>
+          {isCategoriesMenuDropdown && <CategoriesMenuDropdown />}</>}
 
         {/* left column, categories */}
         <Row className="ml-2 mt-4">
