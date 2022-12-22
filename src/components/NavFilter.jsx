@@ -69,7 +69,7 @@ const NavFilter = () => {
 
     const getBrands = async () => {
         try {
-            const response = await fetch(`${process.env.REACT_APP_SERVER}brands/all`);
+            const response = await fetch(`${process.env.REACT_APP_SERVER}brands/`);
             const data = await response.json();
             dispatch(addBrands(data));
 
@@ -85,8 +85,7 @@ const NavFilter = () => {
     const getFilteredItems = async (e) => {
         e.preventDefault()
         try {
-            const response = await fetch(`${process.env.React_APP_SERVER}` ||
-                `${process.env.React_APP_LOCAL_SERVER}items?price>${minPrice}&price<${maxPrice}&sort=${sorting}&title=/^${searchInput}/i&brand=${brandId}`);
+            const response = await fetch(`${process.env.REACT_APP_SERVER}items?price>${minPrice}&price<${maxPrice}&sort=${sorting}&title=/^${searchInput}/i&brand=${brandId}`);
             // ${filterQuery}
             // price>${minPrice}&price<${maxPrice}&sort=${sorting}&title=/^${searchInput}/i&brand=${brandId}
 
@@ -186,6 +185,7 @@ const NavFilter = () => {
                             {/*  */}
                         </Col>
 
+                        {/*submit button  */}
                         <Col className="d-flex justify-content-center">
                             <Button type="submit" className="d-flex">Enter Filters</Button>
                         </Col>

@@ -75,7 +75,7 @@ const BackOficceNewItem = () => {
 
     const getBrands = async () => {
         try {
-            const response = await fetch(`${process.env.REACT_APP_SERVER}brands/all`);
+            const response = await fetch(`${process.env.REACT_APP_SERVER}brands/`);
             const data = await response.json();
             if (data) dispatch(addBrands(data));
         } catch (error) {
