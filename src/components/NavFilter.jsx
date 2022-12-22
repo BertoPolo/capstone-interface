@@ -1,4 +1,4 @@
-import { Dropdown, Button, Form, FormControl, Container, Row } from "react-bootstrap"
+import { Dropdown, Button, Form, FormControl, Container, Row, Col } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { ToastContainer, toast } from 'react-toastify';
@@ -130,8 +130,8 @@ const NavFilter = () => {
                     {/* search bar */}
                     <Form inline className="d-flex justify-content-center w-100" onSubmit={(e) => getFilteredItems(e)}>
                         <FormControl type="text" value={searchInput} placeholder="Check if we have it" className="w-25 searchBar" onChange={(e) => setSearchinput(e.target.value)} />
-                        {/* <i className="bi bi-search pointer mx-3"></i> */}
                         <Button variant="outline-dark" className="pointer ml-3" onClick={() => { getItems(); resetStates() }}>Clean filters</Button>
+                        {/* <i className="bi bi-search pointer mx-3"></i> */}
                     </Form>
                 </Row>
             </Container>
@@ -140,46 +140,55 @@ const NavFilter = () => {
                 <Row>
                     <Form className="d-flex justify-content-between w-100 align-items-center" onSubmit={(e) => getFilteredItems(e)}>
                         {/*PRICE SORTING */}
-                        <Dropdown >
-                            <Dropdown.Toggle variant="outline">{selectSorting || "Sorting by"}</Dropdown.Toggle>
-                            <Dropdown.Menu title="Price sorting" id="basic-nav-dropdown">
-                                <Dropdown.Item onSelect={() => { setSorting("price"); setSelectSorting("Ascendant") }}>Price ascendant</Dropdown.Item>
-                                <Dropdown.Item onSelect={() => { setSorting("-price"); setSelectSorting("Descendant") }}>Price descendant</Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
+                        <Col xs={3}>
+                            <Dropdown >
+                                <Dropdown.Toggle variant="outline">{selectSorting || "Sorting by"}</Dropdown.Toggle>
+                                <Dropdown.Menu title="Price sorting" id="basic-nav-dropdown">
+                                    <Dropdown.Item onSelect={() => { setSorting("price"); setSelectSorting("Ascendant") }}>Price ascendant</Dropdown.Item>
+                                    <Dropdown.Item onSelect={() => { setSorting("-price"); setSelectSorting("Descendant") }}>Price descendant</Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
 
+                        </Col>
                         {/* BY BRAND*/}
-                        <Dropdown >
-                            <Dropdown.Toggle variant="outline">{selectedBrand || "Choose Brand"}</Dropdown.Toggle>
+                        <Col xs={3}>
+                            <Dropdown >
+                                <Dropdown.Toggle variant="outline">{selectedBrand || "Choose Brand"}</Dropdown.Toggle>
 
-                            <Dropdown.Menu>
-                                {brands.map((element) => {
-                                    return (
-                                        <Dropdown.Item key={element._id} value={element._id} onClick={() => { setSelectedBrand(element.brands); setBrandId(element._id) }} >{element.brands}</Dropdown.Item>
-                                    )
-                                })}
-                            </Dropdown.Menu>
-                        </Dropdown>
+                                <Dropdown.Menu>
+                                    {brands.map((element) => {
+                                        return (
+                                            <Dropdown.Item key={element._id} value={element._id} onClick={() => { setSelectedBrand(element.brands); setBrandId(element._id) }} >{element.brands}</Dropdown.Item>
+                                        )
+                                    })}
+                                </Dropdown.Menu>
+                            </Dropdown>
 
+                        </Col>
                         {/* BY PRICE RANGE */}
+                        <Col xs={3}>
 
-                        <MultiRangeSlider
-                            min={0}
-                            max={500}
-                            step={20}
-                            minValue={minPrice}
-                            maxValue={maxPrice}
-                            style={{ width: '20%', paddingLeft: "2%", paddingRight: "2%" }}
-                            onInput={(e) => {
-                                handleInput(e);
-                            }}
-                            className="d-none d-md-block"
-                        />
+                            <MultiRangeSlider
+                                min={0}
+                                max={500}
+                                step={20}
+                                minValue={minPrice}
+                                maxValue={maxPrice}
+                                style={{ width: '100%', paddingLeft: "2%", paddingRight: "2%" }}
+                                onInput={(e) => {
+                                    handleInput(e);
+                                }}
+                                className="d-none d-md-block"
+                            />
 
-                        <Form.Control type="number" value={minPrice} min="0" max="500" className="d-md-none mr-1" onChange={(e) => setMinPrice(e.target.value)} />
-                        <Form.Control type="number" value={maxPrice} min="0" max="500" className="d-md-none mr-1" onChange={(e) => setMaxPrice(e.target.value)} />
+                            <Form.Control type="number" value={minPrice} min="0" max="500" className="d-md-none mr-1" onChange={(e) => setMinPrice(e.target.value)} />
+                            <Form.Control type="number" value={maxPrice} min="0" max="500" className="d-md-none mr-1" onChange={(e) => setMaxPrice(e.target.value)} />
+                            {/*  */}
+                        </Col>
 
-                        <Button type="submit" className="d-flex">Enter Filters</Button>
+                        <Col className="d-flex justify-content-center">
+                            <Button type="submit" className="d-flex">Enter Filters</Button>
+                        </Col>
                     </Form>
 
                 </Row>
