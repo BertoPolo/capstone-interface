@@ -18,7 +18,7 @@ const SingleItem = () => {
       <Container>
         <Row>
           <Col >
-            <img src={selectedItem.image} alt={selectedItem.title} />
+            <img src={selectedItem.image} alt={selectedItem.title} style={{ height: "35vh", objectFit: "contain" }} />
           </Col>
           <Col>
 
