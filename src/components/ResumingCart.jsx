@@ -22,7 +22,7 @@ const ResumingCart = () => {
                 <Row className="bg-primary d-flex justify-content-around">
                     <Col xs={2}><span>Product</span></Col>
                     <Col xs={4}><span>Description</span></Col>
-                    <Col ><span>Unit price</span></Col>
+                    <Col ><span>Price /u</span></Col>
                     <Col xs={2}><span>Quantity</span></Col>
                     <Col xs={1}><span></span></Col>
                     <Col ><span>Total</span></Col>
