@@ -139,7 +139,7 @@ const Login = () => {
 
       {/* small screens view */}
       <Container className="d-sm-none">
-        <h1 className="">Stuff to Route</h1>
+        <h1 className="h1XsScreen">Stuff to Route</h1>
         <Form className="login-container" onSubmit={createToken}>
           <div className="login-modal">
 
@@ -169,9 +169,11 @@ const Login = () => {
         </Form>
 
         {/* option for not registered users */}
-        <div className="p-4 ">
-          <p> Aren't You registered yet?</p>
-          <Button onClick={() => navigate("/home")}>Take a look without login</Button>
+        <div className="d-flex justify-content-center">
+          <div className="p-4 ">
+            <p> Aren't You registered yet?</p>
+            <Button onClick={() => navigate("/home")}>Take a look without login</Button>
+          </div>
         </div>
 
         <Row>
@@ -190,7 +192,7 @@ const Login = () => {
           </Col>
 
           <Col>
-            <h1 className="h1 ">Stuff to Route</h1>
+            <h1 className="h1MdScreen ">Stuff to Route</h1>
 
             <Form className="login-container" onSubmit={createToken}>
               <div className="login-modal">
