@@ -13,3 +13,4 @@
 - Responsive login= in sm screen see with other classes
 - Resp. Card payment
 - Resp. /resume
+- improve styling ,remove default stuff ( like colors )
