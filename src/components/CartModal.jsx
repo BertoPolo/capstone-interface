@@ -52,7 +52,7 @@ const CartModal = ({ handleClose, show }) => {
                 <Button variant="secondary" onClick={handleClose}>
                     Close
                 </Button>
-                {isLogged ? <Button variant="primary" onClick={() => { handleClose(); navigate("/resume") }}>
+                {isLogged ? <Button className="submitButton" disabled={cart.length === 0} onClick={() => { handleClose(); navigate("/resume") }}>
                     Finish your shopping
                 </Button> : <Button variant="warning" onClick={() => { handleClose(); navigate("/") }}>
                     Go login first
