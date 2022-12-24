@@ -188,7 +188,7 @@ const NavFilter = () => {
 
                         {/*submit button  */}
                         <Col className="d-flex justify-content-center">
-                            <Button type="submit" className="d-flex">Enter Filters</Button>
+                            <Button type="submit" className="d-flex submitButton">Enter Filters</Button>
                         </Col>
                     </Form>
 

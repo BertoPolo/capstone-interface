@@ -370,8 +370,6 @@ const BackOficceNewItem = () => {
                 </Form.Group>
 
                 {/* Choose brand,category and M.category */}
-                {/* <Container> */}
-                {/* <Row> */}
                 <Form.Group className="d-flex justify-content-around">
                     <Col xs={4}>
                         <Dropdown>
@@ -412,8 +410,6 @@ const BackOficceNewItem = () => {
                         </Dropdown>
                     </Col>
                 </Form.Group>
-                {/* </Row> */}
-                {/* </Container> */}
 
                 <Button className="searchNSubmitButton" variant="outline" type="submit"> Submit </Button>
             </Form >
