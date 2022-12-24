@@ -19,6 +19,10 @@ body {
   background-color: #b41414 !important ;
   border: none !important;
 }
+
+.submitButton {
+  background-color: #32663b !important ;
+}
 /* Global end */
 /* Home start */
 
