@@ -15,6 +15,10 @@ body {
 .pointer {
   cursor: pointer;
 }
+.buttonBack {
+  background-color: #b41414 !important ;
+  border: none !important;
+}
 /* Global end */
 /* Home start */
 
@@ -53,7 +57,13 @@ body {
 small {
   font-size: 15px !important;
 }
+.addToCartButton {
+  background-color: rgb(52, 52, 151) !important;
+  width: 100%;
+}
+
 /* HomeItem end */
+
 /* Login start */
 .h1MdScreen {
   display: flex;

@@ -26,9 +26,10 @@ const SingleItem = () => {
             <p>{selectedItem.fullDescription}</p>
             {isOnOutlet ? <h3>{selectedItem.outletPrice}€</h3> : <h3>{selectedItem.price}€</h3>}
 
-            <Button onClick={() => dispatch(addToCart(selectedItem))} ><i className="bi bi-cart-fill"></i>Add to cart</Button>
-            <Button variant="danger" onClick={() => dispatch(toggleIsOnHome(true))}>Back home</Button>
-
+            <div className="d-flex justify-content-between mt-3">
+              <Button className="addToCartButton w-25 " onClick={() => dispatch(addToCart(selectedItem))}><i className="bi bi-cart-plus"></i></Button>
+              <Button className="w-25 buttonBack" onClick={() => dispatch(toggleIsOnHome(true))}><i className="bi bi-box-arrow-in-left"></i></Button>
+            </div>
           </Col>
         </Row>
       </Container>

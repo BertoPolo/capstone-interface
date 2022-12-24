@@ -85,7 +85,7 @@ const HomeItem = ({ currentItem }) => {
 
           {currentItem.isOutlet ? <Card.Title className="twoLines "> <b>{currentItem.outletPrice} €</b> <br /> <small><s>{currentItem.price}€</s></small> </Card.Title> : <Card.Title className="twoLines">{currentItem.price}€ </Card.Title>}
 
-          {!isAdmin && <Button className="px-1 mt-2 d-block" variant="primary" ref={btnRef} onClick={() => dispatch(addToCart(currentItem))}>Add to cart</Button>}
+          {!isAdmin && <Button className="px-1 mt-2 d-block AddToCartButton" ref={btnRef} onClick={() => dispatch(addToCart(currentItem))}><i className="bi bi-cart-plus"></i></Button>}
 
         </Card.Body>
       </Card >
