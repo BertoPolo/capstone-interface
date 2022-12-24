@@ -174,7 +174,7 @@ const NavFilter = () => {
                                 step={20}
                                 minValue={minPrice}
                                 maxValue={maxPrice}
-                                style={{ width: '100%', paddingLeft: "2%", paddingRight: "2%" }}
+                                style={{ width: '100%', paddingLeft: "4%", paddingRight: "4%" }}
                                 onInput={(e) => {
                                     handleInput(e);
                                 }}
