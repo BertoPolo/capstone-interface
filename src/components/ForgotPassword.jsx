@@ -108,9 +108,9 @@ const ForgotPassword = () => {
                         <Form.Control type="text" placeholder="Email" value={emailInput} onChange={(e) => setEmailInput(e.target.value)} />
                     </Form.Group>
 
-                    <div className="d-flex justify-content-center">
-                        <Button type="submit" disabled={!nameInput || !userNameInput || !emailInput} > Submit </Button>
-                        <Button className="ml-3" variant="danger" onClick={() => navigate("/")}>Back</Button>
+                    <div className="d-flex justify-content-around">
+                        <Button className="submitButton" type="submit" disabled={!nameInput || !userNameInput || !emailInput} > Submit </Button>
+                        <Button className="buttonBack" onClick={() => navigate("/")}>Back</Button>
                     </div>
                 </Form>
             </div>
