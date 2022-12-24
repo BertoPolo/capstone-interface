@@ -39,7 +39,7 @@ const BackOffice = () => {
                 <Button className="searchNSubmitButton" variant="outline" onClick={() => dispatch(toggleIsOnUserSearch(true))} ><i className="bi bi-search"></i> Search Users</Button >
                 <Button className="searchNSubmitButton" variant="outline" onClick={() => dispatch(toggleIsOnItemSearch(true))} > <i className="bi bi-search"></i> Search Items</Button >
                 <Button className="searchNSubmitButton" variant="outline" onClick={() => dispatch(toggleIsOnCreateNewItem(true))}><i className="bi bi-hammer"></i> Create Items</Button >
-                <Button variant="danger" onClick={() => navigate("/home")}><i className="bi bi-box-arrow-in-left"></i></Button >
+                <Button className="buttonBack" onClick={() => navigate("/home")}><i className="bi bi-box-arrow-in-left"></i></Button >
             </div>
 
             {isOnUserSearch && <BackOfficeUsers />}

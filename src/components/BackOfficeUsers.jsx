@@ -179,7 +179,7 @@ const BackOfficeUsers = () => {
                     </Form.Group>
                 </div>
 
-                <Button type="submit" disabled={!userInput} className="mb-3"> Submit </Button>
+                <Button type="submit" disabled={!userInput} className="mb-3 submitButton"> Submit </Button>
 
             </Form >}
 

@@ -246,7 +246,7 @@ const BackOfficeItems = () => {
                         </Form.Group>
                     </div>
 
-                    <Button type="submit" disabled={!searchByTitle}>Submit</Button>
+                    <Button className="submitButton" type="submit" disabled={!searchByTitle}>Submit</Button>
                 </Form >}
 
                 {!isEditing && <h4 className="my-3" > <u>Results</u></h4>}
@@ -261,7 +261,7 @@ const BackOfficeItems = () => {
                             <Form onSubmit={(e) => postImg(e)}>
                                 <Form.Label> Set a new image</Form.Label>
                                 <Form.Control type="file" accept=",.jpg,.jpeg,.png" onChange={(e) => setImage(e.target.files[0])} />
-                                <Button type="submit" disabled={!image} >Upload</Button>
+                                <Button className="submitButton" type="submit" disabled={!image} >Upload</Button>
 
                             </Form>
 
@@ -299,7 +299,7 @@ const BackOfficeItems = () => {
                                 </Form.Group>
 
                                 <div className="d-flex">
-                                    <Button type="submit"> Submit </Button>
+                                    <Button className="submitButton" type="submit"> Submit </Button>
                                     <Button variant="warning" onClick={() => { if (window.confirm(`Are you sure you don't wish save your changes?`)) { resetStates(); setIsEditing(false) } }} >Cancel</Button>
                                 </div>
                             </Form>

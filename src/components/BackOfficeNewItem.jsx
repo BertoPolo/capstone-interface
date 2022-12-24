@@ -310,7 +310,7 @@ const BackOficceNewItem = () => {
                 <Col>
                     <Form onSubmit={(e) => createNewBrand(e)}>
                         <Form.Control type="text" placeholder="New brand" value={newBrandInput} onChange={(e) => setNewBrandInput(e.target.value)} />
-                        <Button className="searchNSubmitButton mt-2" variant="outline" type="submit">Create</Button>
+                        <Button className="searchNSubmitButton mt-2 submitButton" type="submit">Create</Button>
                     </Form>
                 </Col>
 
@@ -370,40 +370,50 @@ const BackOficceNewItem = () => {
                 </Form.Group>
 
                 {/* Choose brand,category and M.category */}
+                {/* <Container> */}
+                {/* <Row> */}
                 <Form.Group className="d-flex justify-content-around">
-                    <Dropdown>
-                        <Dropdown.Toggle variant="warning">{selectedBrand || "Choose Brand"}</Dropdown.Toggle>
-                        <Dropdown.Menu>
-                            {brands.map((element) => {
-                                return (
-                                    <Dropdown.Item key={element._id} onClick={() => { setSelectedBrand(element.brands); setBrand(element._id) }}>{element.brands}</Dropdown.Item>
-                                )
-                            })}
-                        </Dropdown.Menu>
-                    </Dropdown>
+                    <Col xs={4}>
+                        <Dropdown>
+                            <Dropdown.Toggle variant="warning">{selectedBrand || "Choose Brand"}</Dropdown.Toggle>
+                            <Dropdown.Menu>
+                                {brands.map((element) => {
+                                    return (
+                                        <Dropdown.Item key={element._id} onClick={() => { setSelectedBrand(element.brands); setBrand(element._id) }}>{element.brands}</Dropdown.Item>
+                                    )
+                                })}
+                            </Dropdown.Menu>
+                        </Dropdown>
+                    </Col>
 
-                    <Dropdown>
-                        <Dropdown.Toggle variant="warning">{selectedMainCategory || "Choose Main Category"}</Dropdown.Toggle>
+                    <Col xs={4}>
+                        <Dropdown>
+                            <Dropdown.Toggle variant="warning">{selectedMainCategory || "Choose Main Category"}</Dropdown.Toggle>
 
-                        <Dropdown.Menu>
-                            {mainCategories.map((element) => {
-                                return <Dropdown.Item key={element._id} onClick={() => { setSelectedMainCategory(element.mainCategory); setMainCategory(element._id) }}>{element.mainCategory}</Dropdown.Item>
+                            <Dropdown.Menu>
+                                {mainCategories.map((element) => {
+                                    return <Dropdown.Item key={element._id} onClick={() => { setSelectedMainCategory(element.mainCategory); setMainCategory(element._id) }}>{element.mainCategory}</Dropdown.Item>
 
-                            })}
-                        </Dropdown.Menu>
-                    </Dropdown>
+                                })}
+                            </Dropdown.Menu>
+                        </Dropdown>
+                    </Col>
 
-                    <Dropdown>
-                        <Dropdown.Toggle variant="warning">{selectedCategory || "Choose Category"}</Dropdown.Toggle>
-                        <Dropdown.Menu>
-                            {categories.map((element) => {
-                                return (
-                                    <Dropdown.Item key={element._id} onClick={() => { setSelectedCategory(element.categories); setCategory(element._id) }}>{element.categories}</Dropdown.Item>
-                                )
-                            })}
-                        </Dropdown.Menu>
-                    </Dropdown>
+                    <Col xs={4}>
+                        <Dropdown>
+                            <Dropdown.Toggle variant="warning">{selectedCategory || "Choose Category"}</Dropdown.Toggle>
+                            <Dropdown.Menu>
+                                {categories.map((element) => {
+                                    return (
+                                        <Dropdown.Item key={element._id} onClick={() => { setSelectedCategory(element.categories); setCategory(element._id) }}>{element.categories}</Dropdown.Item>
+                                    )
+                                })}
+                            </Dropdown.Menu>
+                        </Dropdown>
+                    </Col>
                 </Form.Group>
+                {/* </Row> */}
+                {/* </Container> */}
 
                 <Button className="searchNSubmitButton" variant="outline" type="submit"> Submit </Button>
             </Form >
