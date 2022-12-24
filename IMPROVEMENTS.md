@@ -1,4 +1,4 @@
-## IMPROVEMENTS
+## IMPROVEMENTS / TO DO
 
 - merge functions ,there are too much wich are similar or equal... to share functions between components
 - when create item, to add a new brand: open a modal to create it. ALSO WITH CATEGORIES... and display selected ones
@@ -10,7 +10,8 @@
 - implement remove cats and Mcats
 - improve pages changing. removing functions to set true/false and reseting when go back
 - FE routes
-- Responsive login= in sm screen see with other classes
-- Resp. Card payment
-- Resp. /resume
-- improve styling ,remove default stuff ( like colors )
+- Responsive. Card payment
+- Responsive. /resume
+- styling problem with new spinners Login,createUser, add "waiting .." => put the spinner in a emergent window?
+- add "token required" to swagger and finish it
+- fix not displaying toasters
