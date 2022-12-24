@@ -71,9 +71,9 @@ const ResumingCart = () => {
                     </Container>
 
                 </Row>
-                <Row>
-                    <Button variant="success" onClick={() => { navigate("/payment"); dispatch(setTotalAmount(totalCartAmount.toFixed(2))) }}>Pay station</Button>
-                    <Button variant="danger" onClick={() => navigate("/home")}>Continue shopping</Button>
+                <Row className="justify-content-around">
+                    <Button className="buttonBack" onClick={() => navigate("/home")}>Continue shopping</Button>
+                    <Button className="submitButton" onClick={() => { navigate("/payment"); dispatch(setTotalAmount(totalCartAmount.toFixed(2))) }}>Pay station</Button>
                 </Row>
             </Container>
 
