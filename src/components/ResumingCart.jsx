@@ -18,14 +18,14 @@ const ResumingCart = () => {
     return (
         <>
             <MyNavbar />
-            <Container>
-                <Row className="bg-primary d-flex justify-content-around">
-                    <Col xs={2}><span>Product</span></Col>
-                    <Col xs={4}><span>Description</span></Col>
-                    <Col ><span>Price /u</span></Col>
-                    <Col xs={2}><span>Quantity</span></Col>
-                    <Col xs={1}><span></span></Col>
-                    <Col ><span>Total</span></Col>
+            <Container className="mt-2">
+                <Row className="bg-resume d-flex justify-content-around">
+                    <Col xs={2}><b>Product</b></Col>
+                    <Col xs={4}><b>Description</b></Col>
+                    <Col ><b>Price /u</b></Col>
+                    <Col xs={2}><b>Quantity</b></Col>
+                    <Col xs={1}><b></b></Col>
+                    <Col ><b>Total</b></Col>
 
                 </Row>
                 <Row>
@@ -65,9 +65,8 @@ const ResumingCart = () => {
 
                     <Container className="d-flex justify-content-end mb-2">
                         <Row>
-                            <p><b>TOTAL </b> {(totalCartAmount).toFixed(2)}€</p>
+                            <p><b>TOTAL</b> {(totalCartAmount).toFixed(2)}€</p>
                         </Row>
-
                     </Container>
 
                 </Row>

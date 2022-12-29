@@ -191,10 +191,13 @@ small {
   background-position: center;
 }
 /* CreateUser end */
-/* Payment start */
-.stripe-card {
+
+/* Payment % resume start */
+.bg-resume {
+  background: #32663b4d;
 }
-/* Payment end */
+/* Payment % resume end */
+
 /* forgotPass start */
 .bgForgot {
   background-image: url("https://images.unsplash.com/photo-1659968982077-516324bb1c03?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80");
