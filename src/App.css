@@ -65,6 +65,9 @@ small {
   background-color: rgb(52, 52, 151) !important;
   width: 80%;
 }
+.grayOnHover:hover {
+  background-color: #f0ebeb67;
+}
 
 /* HomeItem end */
 
