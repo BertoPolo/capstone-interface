@@ -44,7 +44,7 @@ const MyAccount = () => {
 
     try {
       const res = await fetch(
-        `${process.env.REACT_APP_SERVER}users/me`,
+        `${process.env.REACT_APP_SERVER}users/me/data`,
         {
           method: "PUT",
           headers: {
