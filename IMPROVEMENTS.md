@@ -16,3 +16,4 @@
 - add "token required" to swagger and finish it
 - fix not displaying toasters
 - empty user and set login to off after change password
+- SECURITY!!
