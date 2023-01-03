@@ -94,11 +94,12 @@ const MyAccount = () => {
           }
         );
         if (res.ok) {
-          navigate("/home")
+          navigate("/")
           dispatch(addName(nameInput))
           dispatch(addUserName(userNameInput))
           dispatch(addAdress(adressInput))
           dispatch(addEmail(emailInput))
+          // empty user and set login to off
 
         }
 

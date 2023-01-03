@@ -224,8 +224,8 @@ const BackOfficeUsers = () => {
                                 <span>Username : <b>{element.username}</b> </span>
                                 <span>Adress : <b>{element.adress}</b></span>
 
-                                <i className="bi bi-pencil pointer mx-3" onClick={() => { setEditMode(true); setUserId(element._id); getUser(element.username) }}></i>
-                                <i className="bi bi-trash3 pointer" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) deleteUser(element._id) }}></i>
+                                <i className="bi bi-pencil pointer mx-3 bg-success p-1 text-white" onClick={() => { setEditMode(true); setUserId(element._id); getUser(element.username) }}></i>
+                                <i className="bi bi-trash3 pointer bg-danger p-1 text-white" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) deleteUser(element._id) }}></i>
 
                                 <hr />
                             </div>

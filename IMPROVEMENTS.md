@@ -8,10 +8,11 @@
 - at createitem,when choose main category,should only displays related categories
 - change the filter query for an array : `${process.env.React_APP_SERVER}items?${filterQuery}`
 - implement remove cats and Mcats
-- improve pages changing. removing functions to set true/false and reseting when go back
+- improve pages changing. removing functions setting true/false and reseting when go back of do a sort of a dictionary and say to "where" you want to go,
 - FE routes
 - Responsive. Card payment
 - Responsive. /resume
 - styling problem with new spinners Login,createUser, add "waiting .." => put the spinner in a emergent window?
 - add "token required" to swagger and finish it
 - fix not displaying toasters
+- empty user and set login to off after change password
