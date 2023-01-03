@@ -200,7 +200,7 @@ const BackOficceNewItem = () => {
             brands: newBrandInput
         }
         try {
-            const res = await fetch(`${process.env.REACT_APP_SERVER}brands/new`,
+            const res = await fetch(`${process.env.REACT_APP_SERVER}brands/`,
                 {
                     method: "POST",
                     headers: {
@@ -213,6 +213,8 @@ const BackOficceNewItem = () => {
             if (res.status === 201) {
                 getBrands()
                 setNewBrandInput("")
+                notifyOk("Brand created successfully")
+
             }
 
         } catch (error) {
