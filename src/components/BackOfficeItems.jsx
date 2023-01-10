@@ -1,7 +1,6 @@
 import { Form, Button, Row, Container } from "react-bootstrap"
 import { useState } from "react"
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'
+import { toast } from 'react-toastify';
 import { useSelector } from "react-redux"
 
 
@@ -220,20 +219,7 @@ const BackOfficeItems = () => {
 
     return (
         <>
-            {/* Toast */}
-            <ToastContainer
-                position="top-center"
-                autoClose={3000}
-                limit={1}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="dark"
-            />
+
             <Container fluid>
 
                 {/* Search item */}

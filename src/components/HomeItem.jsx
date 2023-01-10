@@ -1,8 +1,6 @@
 import { useRef, useEffect } from "react";
 import { Card, Button } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'
 import { addToCart } from "../slices/cart/cartSlice"
 import { changeSelectedItem } from "../slices/items/itemsSlice"
 import { toggleIsOnSingleItem } from "../slices/pages/pagesSlice"
@@ -54,19 +52,6 @@ const HomeItem = ({ currentItem }) => {
   return (
 
     <>
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        limit={1}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
 
       <Card className="item mt-3 grayOnHover" >
         <Card.Img

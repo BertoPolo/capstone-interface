@@ -1,8 +1,7 @@
 import { Container, Form, Button } from "react-bootstrap"
 import { useSelector } from "react-redux"
 import { useState } from "react"
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'
+import { toast } from 'react-toastify';
 
 const BackOfficeUsers = () => {
 
@@ -152,21 +151,6 @@ const BackOfficeUsers = () => {
 
     return (
         <Container fluid>
-
-            {/* Toaster */}
-            <ToastContainer
-                position="top-center"
-                autoClose={2500}
-                limit={1}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="dark"
-            />
 
             {/* Search user */}
             {!editMode && <Form onSubmit={(e) => searchUserSubmit(e)}>

@@ -12,9 +12,26 @@ import MyAccount from "./components/MyAccount"
 import Payment from "./components/Payment"
 import ForgotPassword from "./components/ForgotPassword"
 
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+
 const App = () => (
   <div>
     <BrowserRouter>
+      {/* Toast */}
+      <ToastContainer
+        position="top-center"
+        autoClose={2500}
+        limit={1}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <Routes>
         <Route path="*" element={<NotFound />} />
         <Route path="/" element={<Login />} />

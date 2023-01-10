@@ -2,8 +2,7 @@ import { Container, Form, Button, Col, Row, Spinner } from "react-bootstrap"
 import { useNavigate, Link } from "react-router-dom"
 import { useState, useRef } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 import { changeIsLogged, addName, addUserName, addAdress, addEmail, addIsAdmin, changeToken } from "../slices/users/usersSlice"
 import { resetCart } from "../slices/cart/cartSlice";
 
@@ -125,17 +124,6 @@ const Login = () => {
 
   return (
     <>
-      {/* Toast */}
-      <ToastContainer position="top-center"
-        autoClose={4000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark" />
 
       {/* small screens view */}
       <Container className="d-sm-none">

@@ -1,4 +1,4 @@
-import { Button, Form, Container, Row, Col } from "react-bootstrap"
+import { Button, Form, Container, Row } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import { loadStripe } from '@stripe/stripe-js';
 import { useSelector, useDispatch } from "react-redux"
@@ -8,8 +8,7 @@ import {
     useStripe,
     useElements,
 } from '@stripe/react-stripe-js';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 import { resetCart } from "../slices/cart/cartSlice";
 
 

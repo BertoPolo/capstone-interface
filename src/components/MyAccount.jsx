@@ -1,11 +1,10 @@
-import { Container, Row, Col, Button, Form } from "react-bootstrap"
+import { Container, Button, Form } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import MyNavbar from "./MyNavbar"
-import { changeIsLogged, addName, addUserName, addAdress, addEmail, addIsAdmin, changeToken } from "../slices/users/usersSlice"
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { addName, addUserName, addAdress, addEmail, } from "../slices/users/usersSlice"
+import { toast } from 'react-toastify';
 
 const MyAccount = () => {
   const navigate = useNavigate("")
@@ -115,17 +114,6 @@ const MyAccount = () => {
 
   return (
     <>
-      {/* Toast */}
-      < ToastContainer position="top-center"
-        autoClose={4000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark" />
 
       <Container fluid className="myAccountBg ">
         <MyNavbar />

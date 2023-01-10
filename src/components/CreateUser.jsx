@@ -1,8 +1,7 @@
 import { Form, Button, Spinner } from "react-bootstrap"
 import { Link, useNavigate } from "react-router-dom"
 import { useState, useRef } from "react"
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'
+import { toast } from 'react-toastify';
 // import { useSelector, useDispatch } from "react-redux"
 
 const CreateUser = () => {
@@ -94,19 +93,7 @@ const CreateUser = () => {
 
   return (
     <>
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        limit={1}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
+
       <div className=" login-container bgRegistration">
         {isCharging && <Spinner animation="grow" variant="success" />}
         <Form className=" transparency-box p-4 mt-4" onSubmit={(e) => handleSubmit(e)}>

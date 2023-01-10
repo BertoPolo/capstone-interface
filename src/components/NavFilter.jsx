@@ -1,8 +1,7 @@
 import { Dropdown, Button, Form, FormControl, Container, Row, Col } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'
+import { toast } from 'react-toastify';
 import MultiRangeSlider from "multi-range-slider-react";
 import { addItems } from "../slices/items/itemsSlice"
 import { addBrands } from "../slices/brands/brandsSlice"
@@ -102,27 +101,14 @@ const NavFilter = () => {
 
 
     useEffect(() => {
-
+        // getItems()
         getBrands()
     }, [])
 
     return (
         <>
 
-            {/* Toast */}
-            <ToastContainer
-                position="top-center"
-                autoClose={2500}
-                limit={1}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="dark"
-            />
+
 
             <Container className="mt-4">
                 <hr />

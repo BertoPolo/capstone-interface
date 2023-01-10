@@ -1,8 +1,7 @@
 import { Container, Form, Button, Dropdown, Row, Col } from "react-bootstrap"
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 import { addBrands } from "../slices/brands/brandsSlice"
 import { addCategories } from "../slices/categories/categoriesSlice"
 import { addMainCategories } from "../slices/mainCategories/mainCategoriesSlice"
@@ -293,17 +292,7 @@ const BackOficceNewItem = () => {
 
     return (
         <Container fluid>
-            {/* Toast */}
-            <ToastContainer position="top-center"
-                autoClose={4000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="dark" />
+
 
             <h4 className="mb-3" > Add a new article</h4 >
 

@@ -1,9 +1,8 @@
-import { Container, Form, Button, Col, Row } from "react-bootstrap"
+import { Form, Button } from "react-bootstrap"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useSelector } from "react-redux"
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'
+import { toast } from 'react-toastify';
 
 
 
@@ -77,22 +76,6 @@ const ForgotPassword = () => {
 
     return (
         <>
-
-            <ToastContainer
-                position="top-center"
-                autoClose={5000}
-                limit={1}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="dark"
-            />
-
-
             <div className="login-container bgForgot">
                 <Form className=" transparency-box p-4 mt-4" onSubmit={(e) => checkCredentials(e)}>
                     <h4 className="mb-3">Account recovery</h4>
