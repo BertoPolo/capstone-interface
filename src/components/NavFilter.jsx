@@ -102,7 +102,7 @@ const NavFilter = () => {
 
 
     useEffect(() => {
-        getItems()
+
         getBrands()
     }, [])
 
