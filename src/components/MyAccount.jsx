@@ -30,6 +30,16 @@ const MyAccount = () => {
     theme: "dark",
   })
 
+  const notifyOk = (message) => toast.success(message, {
+    position: "top-center",
+    autoClose: 4000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+  });
 
   const changeData = async (e) => {
     e.preventDefault()
@@ -61,6 +71,7 @@ const MyAccount = () => {
         dispatch(addUserName(userNameInput))
         dispatch(addAdress(adressInput))
         dispatch(addEmail(emailInput))
+        notifyOk("your data has been updated successfully")
 
       }
 
@@ -98,6 +109,7 @@ const MyAccount = () => {
           dispatch(addUserName(userNameInput))
           dispatch(addAdress(adressInput))
           dispatch(addEmail(emailInput))
+          notifyOk("your password has been updated")
           // empty user and set login to off
 
         }
