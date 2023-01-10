@@ -97,16 +97,16 @@ const Home = () => {
 
       <Container fluid >
         {/* categories displayed in SM screens */}
-        {/* if isOnHome=== true dont display cats and button */}
-        {isOnHome && <> <Button variant="outline-dark" className="d-md-none" onClick={() => setIsCategoriesDropdown(!isCategoriesMenuDropdown)}>Show categories menu </Button>
+        {/* if isOnHome dont display cats and button */}
+        {isOnHome && !isOnCountactUs && <> <Button variant="outline-dark" className="d-md-none" onClick={() => setIsCategoriesDropdown(!isCategoriesMenuDropdown)}>Show categories menu </Button>
           {isCategoriesMenuDropdown && <CategoriesMenuDropdown />}</>}
 
-        {/* left column, categories */}
+        {/* left column, categories MD screens */}
         <Row className="ml-2 mt-4">
-          <Col className="d-none col-md-3 col-lg-2 d-md-block">
+          {!isOnCountactUs && <Col className="d-none col-md-3 col-lg-2 d-md-block">
             <CategoriesMenu />
 
-          </Col>
+          </Col>}
 
           <Col > {/* xs={9} md={10} */}
             <Col>
