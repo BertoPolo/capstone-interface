@@ -1,5 +1,6 @@
-import { Button, Form, Container, Row } from "react-bootstrap"
+import { Button, Form, Container, Row, Spinner } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
+import { useState } from "react";
 import { loadStripe } from '@stripe/stripe-js';
 import { useSelector, useDispatch } from "react-redux"
 import {
@@ -20,6 +21,8 @@ const CheckoutForm = () => {
     const { cart, totalAmount } = useSelector((state) => state.cartSlice);
     const email = useSelector((state) => state.usersSlice.email)
 
+    const [isCharging, setIsCharging] = useState(false)
+
 
     const dispatch = useDispatch()
 
@@ -36,6 +39,7 @@ const CheckoutForm = () => {
 
     const sendPurchase = async (id) => {
 
+        setIsCharging(true)
         const body = {
             id: id,
             amount: totalAmount,
@@ -52,6 +56,7 @@ const CheckoutForm = () => {
                     body: JSON.stringify(body),
                 }
             );
+            if (res.ok) setIsCharging(false)
         } catch (error) {
             console.log(error);
         }
@@ -94,6 +99,7 @@ const CheckoutForm = () => {
                     Pay
                 </Button>
                 <Button variant="danger" onClick={() => navigate("/resume")}>Cancel</Button>
+                {isCharging && <Spinner animation="grow" variant="success" />}
             </Form>
         </>
     );
