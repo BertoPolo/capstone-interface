@@ -52,6 +52,7 @@ const Home = () => {
         {/* CAROUSEL */}
         {!isOnSingleItem && <div>
           <Carousel className="mt-3">
+            {/*  */}
             <Carousel.Item>
               <img fluid="true" className="d-block m-auto carouselImg" src="https://images.unsplash.com/photo-1548880021-76c14b1f6602?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="under construction" />
               <Carousel.Caption className="d-flex justify-content-center">
@@ -61,6 +62,8 @@ const Home = () => {
                 </div>
               </Carousel.Caption>
             </Carousel.Item>
+            {/*  */}
+
             <Carousel.Item>
               <img fluid="true" className="d-block m-auto carouselImg" src="https://images.unsplash.com/photo-1590227763209-821c686b932f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="Oil Pack Offer slide" />
               <Carousel.Caption className="d-flex justify-content-center">
@@ -70,6 +73,7 @@ const Home = () => {
                 </div>
               </Carousel.Caption>
             </Carousel.Item>
+
             <Carousel.Item>
               <img fluid="true" className="d-block m-auto carouselImg " src="https://images.unsplash.com/photo-1558981420-87aa9dad1c89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="National shipping slide" />
 
