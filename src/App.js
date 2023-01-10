@@ -17,7 +17,7 @@ import ForgotPassword from "./components/ForgotPassword"
 const App = () => (
   <div>
     <BrowserRouter>
-      {/* Toast */}
+      {/* Toaster */}
       <ToastContainer
         position="top-center"
         autoClose={2500}
