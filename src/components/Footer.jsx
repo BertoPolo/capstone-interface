@@ -10,7 +10,7 @@ const Footer = () => {
             <u>About Us</u>
           </h5>
           <p>
-            We are a small family company who love motorbikes since we born and now we want to share with others our passion and support. We made this project with the purpose of approach others this lifestyle on an accessible way.
+            We are a small family company who love motorbikes since we born, and now we want to share with others our passion and support. We made this project with the purpose of approach others this lifestyle on an accessible way.
           </p>
 
         </Col>
