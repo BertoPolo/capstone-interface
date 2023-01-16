@@ -14,7 +14,12 @@
 - Responsive. /resume
 - styling problem with new spinners Login,createUser, add "waiting .." => put the spinner in a emergent window?
 - add "token required" to swagger and finish it
-- fix not displaying toasters
 - empty user and set login to off after change password
 - BackEnd - don't send all filtered items if not asking
 - SECURITY!!
+- use user's bike to tell if it fits on it's bike
+- show some graphs in the backoffice about sales or whatever you want => https://nivo.rocks/line/
+- when search users ( API -GET ) , be able to choose how to search by name or username
+- create vouchers
+- link Cart with token/user
+- spinner --- let a red light if something went wrong and setTimeout to remove it
