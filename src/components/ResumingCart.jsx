@@ -36,10 +36,10 @@ const ResumingCart = () => {
 
                             <Container key={element._id} className="mt-2">
                                 <Row >
-                                    <Col xs={2} className="pr-0 d-flex justify-content-center" ><Image className="" style={{ width: "50%" }} src={element.image}></Image></Col>
-                                    <Col xs={4} ><span>{element.title}<span> <br /> ref: </span>{element._id}</span></Col>
-                                    <Col ><span>{element.price}</span></Col>
-                                    <Col xs={2}><span>  <Dropdown>
+                                    {/*Product img*/}     <Col xs={2} className="pr-0 d-flex justify-content-center" ><Image className="" style={{ width: "50%" }} src={element.image}></Image></Col>
+                                    {/*Description */}    <Col xs={4} ><span>{element.title}<span> <br /> ref: </span>{element._id}</span></Col>
+                                    {/* Price*/}     <Col ><span>{element.price}</span></Col>
+                                    {/* Quantity*/}     <Col xs={2}><span>  <Dropdown>
                                         <Dropdown.Toggle size="sm" variant="outline-dark" id="dropdown-basic">
                                             {element.quantity}
                                         </Dropdown.Toggle>
@@ -56,8 +56,8 @@ const ResumingCart = () => {
                                             <Dropdown.Item onClick={() => dispatch(setItemsQuantity([element._id, 9]))}>9</Dropdown.Item>
                                         </Dropdown.Menu>
                                     </Dropdown></span></Col>
-                                    <Col xs={1}><span><i className="bi bi-trash3 pointer bg-danger p-1 text-white" onClick={() => dispatch(removeItem(element._id))}></i></span></Col>
-                                    <Col ><span>{element.price * element.quantity}</span></Col>
+                                    {/* Delete icon*/}  <Col xs={1}><span><i className="bi bi-trash3 pointer bg-danger p-1 text-white" onClick={() => dispatch(removeItem(element._id))}></i></span></Col>
+                                    {/* Total  */} <Col ><span>{element.price * element.quantity.toFixed(2)}</span></Col>
                                 </Row>
                             </Container>
                         )
