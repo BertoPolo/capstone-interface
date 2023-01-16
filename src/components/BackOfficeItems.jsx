@@ -247,13 +247,13 @@ const BackOfficeItems = () => {
                             <Form onSubmit={(e) => postImg(e)}>
                                 <Form.Label> Set a new image</Form.Label>
                                 <Form.Control type="file" accept=",.jpg,.jpeg,.png" onChange={(e) => setImage(e.target.files[0])} />
-                                <Button className="submitButton" type="submit" disabled={!image} >Upload</Button>
+                                <Button className="submitButton mt-2" type="submit" disabled={!image} >Upload</Button>
 
                             </Form>
 
                             <Form onSubmit={(e) => editItem(e)}>
-                                <Row>
-                                    <Form.Group>
+                                <Form.Row>
+                                    <Form.Group className="mr-2">
                                         <Form.Label>Name</Form.Label>
                                         <Form.Control type="text" placeholder="Name" value={title} onChange={(e) => setTitle(e.target.value)} />
                                     </Form.Group>
@@ -262,7 +262,7 @@ const BackOfficeItems = () => {
                                         <Form.Label>Price</Form.Label>
                                         <Form.Control type="number" placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
                                     </Form.Group>
-                                </Row>
+                                </Form.Row>
 
                                 <Form.Group>
                                     <Form.Label>Outlet Price</Form.Label>
@@ -271,7 +271,7 @@ const BackOfficeItems = () => {
 
                                 <Form.Group>
                                     <Form.Label>Is Outlet?</Form.Label>
-                                    <Form.Control type="checkbox" checked={isOutlet} onChange={(e) => setIsOutlet(!isOutlet)} />
+                                    <Form.Check type="checkbox" checked={isOutlet} onChange={(e) => setIsOutlet(!isOutlet)} />
                                 </Form.Group>
 
                                 <Form.Group>
