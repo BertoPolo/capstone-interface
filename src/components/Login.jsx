@@ -147,11 +147,11 @@ const Login = () => {
                 Enter
               </Button>
 
-              <Link className="login-small-font d-block mb-3 mt-3" to="/forgotPassword">
+              <Link className=" d-block mb-3 mt-3" to="/forgotPassword">
                 <b className="text-danger"> Forgot the password?</b>
               </Link>
 
-              <Link className="login-small-font d-block" to="/newUser">
+              <Link className=" d-block" to="/newUser">
                 <b> Join Us!</b>
               </Link>
               {isCharging && <Spinner animation="grow" variant="success" />}
