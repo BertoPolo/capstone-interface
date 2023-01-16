@@ -99,7 +99,7 @@ function CategoriesMenu() {
                 {/* </div> */}
 
               </Card.Header>
-              <Accordion.Collapse eventKey={mainElement._id}>
+              {mainElement.categories.length > 0 && <Accordion.Collapse eventKey={mainElement._id}>
                 <Card.Body>
                   {<>
                     {mainElement.categories.map(category => {
@@ -112,7 +112,7 @@ function CategoriesMenu() {
                   </>}
 
                 </Card.Body>
-              </Accordion.Collapse>
+              </Accordion.Collapse>}
 
             </Card>
           )
