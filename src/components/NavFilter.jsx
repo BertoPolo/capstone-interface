@@ -126,9 +126,9 @@ const NavFilter = () => {
                 <Row>
                     <Form className="d-flex justify-content-between w-100 align-items-center" onSubmit={(e) => getFilteredItems(e)}>
                         {/*PRICE SORTING */}
-                        <Col xs={3}>
+                        <Col xs={3} className="p-0">
                             <Dropdown >
-                                <Dropdown.Toggle variant="outline">{selectSorting || "Sorting by"}</Dropdown.Toggle>
+                                <Dropdown.Toggle variant="outline" >{selectSorting || "Sorting by"}</Dropdown.Toggle>
                                 <Dropdown.Menu title="Price sorting" id="basic-nav-dropdown">
                                     <Dropdown.Item onSelect={() => { setSorting("price"); setSelectSorting("Ascendant") }}>Price ascendant</Dropdown.Item>
                                     <Dropdown.Item onSelect={() => { setSorting("-price"); setSelectSorting("Descendant") }}>Price descendant</Dropdown.Item>

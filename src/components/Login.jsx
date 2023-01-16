@@ -66,7 +66,7 @@ const Login = () => {
         dispatch(changeIsLogged(true))
         dispatch(resetCart()) // change when cart and user are linked
 
-        notifyOk(`Welcome! ${data.name}`)
+        notifyOk(`Welcome ${data.name}!`)
         // setTimeout(() => navigate("/home"), 1100)
         navigate("/home")
 
