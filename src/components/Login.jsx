@@ -126,47 +126,48 @@ const Login = () => {
     <>
 
       {/* small screens view */}
-      <Container className="d-sm-none">
+      <Container className="d-sm-none loginBG">
         <h1 className="h1XsScreen">Stuff to Route</h1>
-        <Form className="login-container" onSubmit={createToken}>
-          <div className="login-modal">
 
-            <h4 className="mb-3">Login </h4>
-            <Form.Group>
-              <Form.Control type="text" placeholder="Username" value={usernameInput} onChange={(e) => setUsernameInput(e.target.value)} />
-            </Form.Group>
+        <div className="transparencywWiteBox">
 
-            <Form.Group>
-              <Form.Control type="password" placeholder="Password" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
-            </Form.Group>
+          <Form className="login-container " onSubmit={createToken}>
+            <div className="login-modal">
 
-            <Button variant="primary" type="submit" ref={btnRef} disabled={(!usernameInput) || (!passwordInput)} >
-              Enter
-            </Button>
+              <h4 className="mb-3">Login </h4>
+              <Form.Group>
+                <Form.Control type="text" placeholder="Username" value={usernameInput} onChange={(e) => setUsernameInput(e.target.value)} />
+              </Form.Group>
 
-            <Link className="login-small-font d-block mb-3 mt-3" to="/forgotPassword">
-              <b className="text-danger"> Forgot the password?</b>
-            </Link>
+              <Form.Group>
+                <Form.Control type="password" placeholder="Password" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
+              </Form.Group>
 
-            <Link className="login-small-font d-block" to="/newUser">
-              <b> Join Us!</b>
-            </Link>
-            {isCharging && <Spinner animation="grow" variant="success" />}
+              <Button variant="primary" type="submit" ref={btnRef} disabled={(!usernameInput) || (!passwordInput)} >
+                Enter
+              </Button>
 
-          </div>
-        </Form>
+              <Link className="login-small-font d-block mb-3 mt-3" to="/forgotPassword">
+                <b className="text-danger"> Forgot the password?</b>
+              </Link>
 
-        {/* option for not registered users */}
-        <div className="d-flex justify-content-center">
-          <div className="p-4 ">
-            <p> Aren't You registered yet?</p>
-            <Button onClick={() => navigate("/home")}>Take a look without login</Button>
+              <Link className="login-small-font d-block" to="/newUser">
+                <b> Join Us!</b>
+              </Link>
+              {isCharging && <Spinner animation="grow" variant="success" />}
+
+            </div>
+          </Form>
+
+          {/* option for not registered users */}
+          <div className="d-flex justify-content-center">
+            <div className="p-4 ">
+              <p> Aren't You registered yet?</p>
+              <Button onClick={() => navigate("/home")}>Take a look without login</Button>
+            </div>
           </div>
         </div>
 
-        <Row>
-
-        </Row>
       </Container>
 
       {/* since md screen */}
