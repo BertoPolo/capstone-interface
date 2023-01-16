@@ -352,11 +352,13 @@ const BackOficceNewItem = () => {
                 <Form.Group>
                     <Form.Label>Short Description</Form.Label>
                     <Form.Control type="textarea" rows={2} value={shortDescription} onChange={(e) => setShortDescription(e.target.value)} />
+
                     <Form.Label>Full Description</Form.Label>
                     <Form.Control type="textarea" rows={3} value={fullDescription} onChange={(e) => setFullDescription(e.target.value)} />
+
                     <Form.Label>Outlet Price</Form.Label>
                     <Form.Control type="number" value={outletPrice} onChange={(e) => setOutletPrice(e.target.value)} />
-                    <Form.Check type="checkbox" label="Outlet" value={isItOutlet} onChange={(e) => setIsItOutlet(!isItOutlet)} />
+                    <Form.Check type="checkbox" label="Outlet" className="mt-2" value={isItOutlet} onChange={(e) => setIsItOutlet(!isItOutlet)} />
 
                 </Form.Group>
 
