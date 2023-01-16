@@ -95,7 +95,7 @@ const CreateUser = () => {
     <>
 
       <div className=" login-container bgRegistration">
-        {isCharging && <Spinner animation="grow" variant="success" />}
+        {isCharging && <Spinner animation="border" variant="success" />}
         <Form className=" transparency-box p-4 mt-4" onSubmit={(e) => handleSubmit(e)}>
           <h4 className="mb-3">Registration</h4>
 

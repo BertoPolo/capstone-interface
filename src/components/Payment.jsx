@@ -99,7 +99,7 @@ const CheckoutForm = () => {
                     Pay
                 </Button>
                 <Button variant="danger" onClick={() => navigate("/resume")}>Cancel</Button>
-                {isCharging && <Spinner animation="grow" variant="success" />}
+                {isCharging && <Spinner animation="border" variant="success" />}
             </Form>
         </>
     );

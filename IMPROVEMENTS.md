@@ -12,7 +12,7 @@
 - FE routes
 - Responsive. Card payment
 - Responsive. /resume
-- Styling problem with new spinners Login,createUser, add "waiting .." => put the spinner in a emergent window?
+- Styling problem with new spinners Login,createUser => put the spinner in a emergent window?
 - Add "token required" to swagger and finish it
 - Empty user and set login to off after change password
 - BackEnd - don't send all filtered items if not asking

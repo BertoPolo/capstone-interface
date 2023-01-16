@@ -154,7 +154,7 @@ const Login = () => {
               <Link className=" d-block" to="/newUser">
                 <b> Join Us!</b>
               </Link>
-              {isCharging && <Spinner animation="grow" variant="success" />}
+              {isCharging && <Spinner animation="border" variant="success" />}
 
             </div>
           </Form>
@@ -210,7 +210,7 @@ const Login = () => {
                 <Link className="login-small-font d-block" to="/newUser">
                   <b> Join Us!</b>
                 </Link>
-                {isCharging && <Spinner animation="grow" variant="success" />}
+                {isCharging && <Spinner animation="border" variant="success" />}
 
               </div>
             </Form>
