@@ -11,6 +11,7 @@ const CartModal = ({ handleClose, show }) => {
     const navigate = useNavigate()
     const dispatch = useDispatch();
 
+    let totalCartAmount = 0
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
@@ -19,6 +20,8 @@ const CartModal = ({ handleClose, show }) => {
 
             <Modal.Body>
                 {cart.map((element) => {
+                    totalCartAmount += element.price * element.quantity
+
                     return (
                         <div key={element._id} className="d-flex justify-content-between">
                             <span ><b>{element.title}</b></span>
@@ -49,6 +52,7 @@ const CartModal = ({ handleClose, show }) => {
                 })}
             </Modal.Body>
             <Modal.Footer>
+                <u className="mr-auto">{totalCartAmount.toFixed(2)}€</u>
                 <Button variant="secondary" onClick={handleClose}>
                     Close
                 </Button>
