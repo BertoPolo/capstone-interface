@@ -127,7 +127,7 @@ const Login = () => {
   return (
     <>
 
-      {/* small screens view */}
+      {/* extra-small screens view */}
       <Container className="d-sm-none loginBG">
         <h1 className="h1XsScreen">Stuff to Route</h1>
 
@@ -174,7 +174,7 @@ const Login = () => {
 
       </Container>
 
-      {/* since md screen */}
+      {/* since small screens */}
       <Container fluid className="d-none d-sm-block">
         <Row>
           <Col className="login-container loginBG">
