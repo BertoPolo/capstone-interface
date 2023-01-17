@@ -10,6 +10,7 @@ const Login = () => {
   const [usernameInput, setUsernameInput] = useState("")
   const [passwordInput, setPasswordInput] = useState("")
   const [isCharging, setIsCharging] = useState(false)
+  const [isError, setIsError] = useState(false)
   // const [isRemember, setIsRemember] = useState(false)
 
   const { name, token } = useSelector((state) => state.usersSlice);
@@ -112,7 +113,8 @@ const Login = () => {
         notifyError("Check your credentials again")
         ableBtn()
         setIsCharging(false)
-
+        setIsError(true)
+        setTimeout(() => setIsError(false), 3000)
       }
 
     } catch (error) {
@@ -154,7 +156,9 @@ const Login = () => {
               <Link className=" d-block" to="/newUser">
                 <b> Join Us!</b>
               </Link>
+
               {isCharging && <Spinner className="mt-2" animation="border" variant="success" />}
+              {isError && <Spinner className="mt-2" animation="grow" variant="danger" />}
 
             </div>
           </Form>
@@ -211,7 +215,7 @@ const Login = () => {
                   <b> Join Us!</b>
                 </Link>
                 {isCharging && <Spinner className="mt-2" animation="border" variant="success" />}
-
+                {isError && <Spinner className="mt-2" animation="grow" variant="danger" />}
               </div>
             </Form>
           </Col>
