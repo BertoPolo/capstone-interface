@@ -129,9 +129,9 @@ const Login = () => {
       <Container className="d-sm-none loginBG">
         <h1 className="h1XsScreen">Stuff to Route</h1>
 
-        <div className="transparencywWiteBox p-3">
+        <div className="transparencywWiteBox p-3 mt-5">
 
-          <Form className="login-container " onSubmit={createToken}>
+          <Form className="login-container" onSubmit={createToken}>
             <div >
 
               <h4 className="mb-3">Login </h4>
@@ -161,7 +161,7 @@ const Login = () => {
           <hr />
           {/* option for not registered users */}
           <div className="d-flex justify-content-center">
-            <div className="p-4 ">
+            <div className="p-4">
               <p> Aren't You registered yet?</p>
               <Button onClick={() => navigate("/home")}>Take a look without login</Button>
             </div>
