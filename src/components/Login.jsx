@@ -157,8 +157,8 @@ const Login = () => {
                 <b> Join Us!</b>
               </Link>
 
-              {isCharging && <Spinner className="mt-2" animation="border" variant="success" />}
-              {isError && <Spinner className="mt-2" animation="grow" variant="danger" />}
+              {isCharging ? <Spinner className="mt-2" animation="border" variant="success" /> : <Spinner className="mt-2 invisible" animation="border" variant="success" />}
+              {isError ? <Spinner className="mt-2" animation="grow" variant="danger" /> : <Spinner className="mt-2 invisible" animation="grow" variant="danger" />}
 
             </div>
           </Form>
@@ -214,8 +214,8 @@ const Login = () => {
                 <Link className="login-small-font d-block" to="/newUser">
                   <b> Join Us!</b>
                 </Link>
-                {isCharging && <Spinner className="mt-2" animation="border" variant="success" />}
-                {isError && <Spinner className="mt-2" animation="grow" variant="danger" />}
+                {isCharging ? <Spinner className="mt-2" animation="border" variant="success" /> : <Spinner className="mt-2 invisible" animation="border" variant="success" />}
+                {isError ? <Spinner className="mt-2" animation="grow" variant="danger" /> : <Spinner className="mt-2 invisible" animation="grow" variant="success" />}
               </div>
             </Form>
           </Col>
