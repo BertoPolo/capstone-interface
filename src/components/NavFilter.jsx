@@ -52,9 +52,9 @@ const NavFilter = () => {
         theme: "dark",
     });
 
-    const getItems = async () => {
+    const getRandomItems = async () => {
         try {
-            const response = await fetch(`${process.env.REACT_APP_SERVER}items`,
+            const response = await fetch(`${process.env.REACT_APP_SERVER}items/random`,
 
             );
             if (response.ok) {
@@ -116,7 +116,7 @@ const NavFilter = () => {
                     {/* search bar */}
                     <Form inline className="d-flex justify-content-center w-100" onSubmit={(e) => getFilteredItems(e)}>
                         <FormControl type="text" value={searchInput} placeholder="Check if we have it" className="w-25 searchBar" onChange={(e) => setSearchinput(e.target.value)} />
-                        <Button variant="outline-dark" className="pointer ml-3" onClick={() => { getItems(); resetStates() }}>Clean filters</Button>
+                        <Button variant="outline-dark" className="pointer ml-3" onClick={() => { getRandomItems(); resetStates() }}>Clean filters</Button>
                         {/* <i className="bi bi-search pointer mx-3"></i> */}
                     </Form>
                 </Row>
