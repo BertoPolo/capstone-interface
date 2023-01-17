@@ -2,25 +2,23 @@
 
 - Merge functions ,there are too much wich are similar or equal... to share functions between components
 - When create item, to add a new brand: open a modal to create it. ALSO WITH CATEGORIES... and display selected ones
-- (img)placeholder for items with no img // or add option propertie like : publish = true/false
+- (img)placeholder for items with no img // or add option property like : publish = true/false
 - Add breadcrumbs (visual route links) https://react-bootstrap-v4.netlify.app/components/breadcrumb/
 - If you go out from creating new item without uploading an image, get an alert
 - At createitem,when choose main category,should only displays related categories
 - Change the filter query for an array : `${process.env.React_APP_SERVER}items?${filterQuery}`
-- Implement remove cats and Mcats
-- Improve pages changing. removing functions setting true/false and reseting when go back of do a sort of a dictionary and say to "where" you want to go,
-- FE routes
+- Improve pages changing/navigation. removing functions setting just where you are, without true/false. Do a dictionary with routes,
+- FE routes / URL routes
 - Responsive. Card payment
 - Responsive. /resume
 - Styling problem with new spinners Login,createUser => put the spinner in a emergent window?
 - Add "token required" to swagger and finish it
-- Empty user and set login to off after change password
 - BackEnd - don't send all filtered items if not asking
 - SECURITY!!
 - Use user's bike to tell if it fits on it's bike
 - Show some graphs in the backoffice about sales or whatever you want => https://nivo.rocks/line/
-- When search users ( API -GET ) , be able to choose how to search by name or username
+- When search users ( -GET /users ) , be able to choose how to search by name or username
 - Create vouchers
 - Link Cart with token/user
-- Spinner --- let a red light if something went wrong and setTimeout to remove it
-- Redo Login without duplicating code, (using display none / display block )
+- Spinner --- let a red light if something went wrong and setTimeout to remove it( only done in Login )
+- Redo Login without duplicating code, ( using display none / display block )
