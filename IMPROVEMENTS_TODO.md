@@ -10,7 +10,6 @@
 - Improve pages changing/navigation. removing functions setting just where you are, without true/false. Do a dictionary with routes,
 - FE routes / URL routes
 - Responsive. Card payment
-- Responsive. /resume
 - Styling problem with new spinners Login,createUser => put the spinner in a emergent window?
 - Add "token required" to swagger and finish it
 - BackEnd - don't send all filtered items if not asking
