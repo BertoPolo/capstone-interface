@@ -16,8 +16,8 @@
 - SECURITY!!
 - Use user's bike to tell if it fits on it's bike
 - Show some graphs in the backoffice about sales or whatever you want => https://nivo.rocks/line/
-- When search users ( -GET /users ) , be able to choose how to search by name or username
+- When search users ( -GET /users ) , be able to choose how to search by name or username (BE ready)
 - Create vouchers
 - Link Cart with token/user
 - Spinner --- let a red light if something went wrong and setTimeout to remove it( only done in Login )
-- Redo Login without duplicating code, ( using display none / display block )
+- Redo Login without duplicating code

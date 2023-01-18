@@ -39,6 +39,7 @@ const NavFilter = () => {
         setSelectSorting("")
         setSelectedBrand("")
         setSorting("")
+        setBrandId("")
     }
 
     const notifyNotFound = () => toast.warn(`OOPS! looks like we don't anything there`, {
@@ -78,7 +79,7 @@ const NavFilter = () => {
     }
 
 
-    // let filterQuery
+    // let filterQuery ( example :  if searchInput is true => push " &title=/^${searchInput}/i" to "filterQuery")
     // if filter query is empty then push without &, else push with it 
 
     const getFilteredItems = async (e) => {
