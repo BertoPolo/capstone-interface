@@ -53,7 +53,7 @@ const Home = () => {
         {!isOnSingleItem && <div>
           <Carousel className="mt-3">
             {/*  */}
-            <Carousel.Item>
+            {/* <Carousel.Item>
               <img fluid="true" className="d-block m-auto carouselImg" src="https://images.unsplash.com/photo-1548880021-76c14b1f6602?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="under construction" />
               <Carousel.Caption className="d-flex justify-content-center">
                 <div className="transparencywWiteBox p-2">
@@ -61,7 +61,7 @@ const Home = () => {
                   <p></p>
                 </div>
               </Carousel.Caption>
-            </Carousel.Item>
+            </Carousel.Item> */}
             {/*  */}
 
             <Carousel.Item>
