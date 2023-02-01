@@ -33,7 +33,7 @@ const WhatIUsed = () => {
                 <li>Nodemailer</li>
             </ul>
 
-            <Button className="mt-3" variant="danger" onClick={navigate("/home")}>Go back</Button >
+            <Button className="mt-3" variant="danger" onClick={() => navigate("/home")}>Go back</Button >
 
         </Container>
     )
