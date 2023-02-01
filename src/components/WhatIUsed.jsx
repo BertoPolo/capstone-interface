@@ -13,18 +13,18 @@ const WhatIUsed = () => {
                 <li>ReactJs</li>
                 <li>Redux</li>
                 <li>Bootstrap</li>
-
+                <br />
                 <li>Redux-persist</li>
 
             </ul>
-
+            <hr />
             <h4><b>Backend</b></h4>
             <ul>
                 <li>Javascript</li>
                 <li>ExpressJs</li>
                 <li>Cors</li>
                 <li>Mongoose</li>
-
+                <br />
                 <li>Swagger</li>
                 <li>Bcrypt</li>
                 <li>Stripe</li>

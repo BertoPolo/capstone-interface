@@ -13,6 +13,7 @@ import ResumingCart from "./components/ResumingCart"
 import MyAccount from "./components/MyAccount"
 import Payment from "./components/Payment"
 import ForgotPassword from "./components/ForgotPassword"
+import WhatIUsed from "./components/WhatIUsed"
 
 const App = () => (
   <div>
@@ -41,6 +42,7 @@ const App = () => (
         <Route path="/resume" element={<ResumingCart />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/forgotPassword" element={<ForgotPassword />} />
+        <Route path="/whatiused" element={<WhatIUsed />} />
       </Routes>
     </BrowserRouter>
   </div>
