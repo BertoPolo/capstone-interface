@@ -144,7 +144,7 @@ const MyAccount = () => {
               <Form.Control type="text" placeholder="User name" value={userNameInput} onChange={(e) => setUserNameInput(e.target.value)} />
             </Form.Group>
             <Form.Group>
-              <Form.Control type="text" placeholder="Email" value={emailInput} onChange={(e) => setEmailInput(e.target.value)} />
+              <Form.Control type="email" placeholder="Email" value={emailInput} onChange={(e) => setEmailInput(e.target.value)} />
             </Form.Group>
 
             {<Form.Group>
