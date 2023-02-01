@@ -28,14 +28,12 @@ const WhatIUsed = () => {
                 <li>Mongoose</li>
                 <br />
                 <li>Swagger</li>
-                <li>Bcrypt</li>
                 <li>Stripe</li>
-                <li>Jsonwebtoken</li>
+                <li>JsonWebToken</li>
                 <li>Nodemailer</li>
-                <li>Cloudinary</li>
             </ul>
 
-            <Button variant="danger" onClick={navigate("/home")}>Go back</Button >
+            <Button className="mt-3" variant="danger" onClick={navigate("/home")}>Go back</Button >
 
         </Container>
     )
