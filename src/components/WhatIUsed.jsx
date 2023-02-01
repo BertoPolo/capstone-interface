@@ -1,13 +1,15 @@
-import { Container, Col, Row } from "react-bootstrap"
+import { Container, Button } from "react-bootstrap"
+import { useNavigate } from "react-router-dom"
 
 const WhatIUsed = () => {
 
+    const navigate = useNavigate()
 
     return (
 
         <Container>
 
-            <h4><b>Frontend</b></h4>
+            <h4 className="mt-5"><b>Frontend</b></h4>
             <ul>
                 <li>Javascript</li>
                 <li>ReactJs</li>
@@ -32,6 +34,9 @@ const WhatIUsed = () => {
                 <li>Nodemailer</li>
                 <li>Cloudinary</li>
             </ul>
+
+            <Button variant="danger" onClick={navigate("/home")}>Go back</Button >
+
         </Container>
     )
 }
