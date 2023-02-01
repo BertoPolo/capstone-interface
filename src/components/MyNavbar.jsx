@@ -54,6 +54,7 @@ const MyNavbar = () => {
             {/* could be better do an if statement like : if params !/home => go home  ?? to do not navigate always*/}
             <Nav.Link onClick={() => { navigate("/home"); dispatch(toggleIsOnOutlet(true)) }}>Outlet</Nav.Link>
             <Nav.Link onClick={() => { navigate("/home"); dispatch(toggleIsCountactUs(true)) }}>Contact Us</Nav.Link>
+            <Nav.Link onClick={() => { navigate("/whatiused") }}>What I Used</Nav.Link>
           </Nav>
           <Nav className="ml-auto mr-4">
 
