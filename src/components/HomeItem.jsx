@@ -1,6 +1,7 @@
 import { useRef, useEffect } from "react";
 import { Card, Button } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
+import { useNavigate } from "react-router-dom";
 import { addToCart } from "../slices/cart/cartSlice"
 import { changeSelectedItem } from "../slices/items/itemsSlice"
 import { toggleIsOnSingleItem } from "../slices/pages/pagesSlice"
@@ -13,7 +14,7 @@ const HomeItem = ({ currentItem }) => {
   const { isOnHome, isOnOutlet, isOnCountactUs, isOnSingleItem } = useSelector(state => state.pagesSlice)
   const isAdmin = useSelector((state) => state.usersSlice.isAdmin);
 
-
+  const navigate = useNavigate()
   const dispatch = useDispatch();
   const btnRef = useRef()
 
@@ -60,7 +61,7 @@ const HomeItem = ({ currentItem }) => {
           src={currentItem.image}
           alt={currentItem.title}
           className="pointer"
-          onClick={() => { dispatch(toggleIsOnSingleItem(true)); dispatch(changeSelectedItem(currentItem)) }}
+          onClick={() => { dispatch(toggleIsOnSingleItem(true)); dispatch(changeSelectedItem(currentItem)); navigate(`/home/${currentItem.title}`) }}
         />
         <Card.Body style={{ padding: "15px" }}>
           <Card.Title className="pointer twoLines" onClick={() => { dispatch(toggleIsOnSingleItem(true)); dispatch(changeSelectedItem(currentItem)) }} >

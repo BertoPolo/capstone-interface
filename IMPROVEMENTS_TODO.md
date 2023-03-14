@@ -1,4 +1,4 @@
-## IMPROVEMENTS / TO DO
+## IMPROVEMENTS / TO DO / NICE TO HAVE
 
 - Merge functions ,there are too much wich are similar or equal... to share functions between components
 - (img)placeholder for items with no img // or add option property like : publish = true/false
@@ -7,7 +7,7 @@
 - At createitem,when choose main category,should only displays related categories
 - Change the filter query for an array : `${process.env.React_APP_SERVER}items?${filterQuery}`
 - Improve pages changing/navigation. removing functions setting just where you are, without true/false. Do a dictionary with routes,
-- FE routes / URL routes
+- FE / URL routes
 - Responsive. Card payment
 - Styling problem with new spinners Login,createUser => put the spinner in a emergent window?
 - Add "token required" to swagger and finish it
@@ -20,3 +20,4 @@
 - Link Cart with token/user
 - Spinner --- let a red light if something went wrong and setTimeout to remove it ( only done in Login )
 - Redo Login without duplicating code ( about responsiveness )
+- Filters, change how are working

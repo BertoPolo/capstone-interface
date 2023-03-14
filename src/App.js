@@ -38,6 +38,7 @@ const App = () => (
         <Route path="/newUser" element={<CreateUser />} />
         <Route path="/myAccount" element={<MyAccount />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/home/:itemTitle" element={<Home />} />
         <Route path="/backOfficeMenu" element={<BackOfficeMenu />} />
         <Route path="/resume" element={<ResumingCart />} />
         <Route path="/payment" element={<Payment />} />
