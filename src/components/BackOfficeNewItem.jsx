@@ -315,10 +315,30 @@ const BackOficceNewItem = () => {
             <Row>
                 {/* Create a new brand */}
                 <Col>
-                    <Form onSubmit={(e) => createNewBrand(e)}>
-                        <Form.Control type="text" placeholder="New brand" value={newBrandInput} onChange={(e) => setNewBrandInput(e.target.value)} />
-                        <Button className="searchNSubmitButton mt-2 submitButton" type="submit">Create</Button>
-                    </Form>
+
+                    <Button variant="primary" onClick={handleShowBrand}>
+                        Create a new Brand
+                    </Button>
+
+                    <Modal show={showBrand} onHide={handleCloseBrand}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Create a new Brand</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <Form onSubmit={(e) => createNewBrand(e)}>
+                                <Form.Control type="text" placeholder="New brand" value={newBrandInput} onChange={(e) => setNewBrandInput(e.target.value)} />
+                                <Button className="searchNSubmitButton mt-2 submitButton" type="submit">Create</Button>
+                                {/* createdBrand && <span className="text-success">{createdBrand}</span> */}
+
+                            </Form>
+
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="danger" onClick={handleCloseBrand}>
+                                Close
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
                 </Col>
 
                 {/* Create a new category */}
@@ -348,7 +368,7 @@ const BackOficceNewItem = () => {
                                     </Dropdown.Menu>
                                 </Dropdown>
                                 <Button className="searchNSubmitButton mt-2" variant="outline" type="submit">Create</Button>
-                                {/* createdCategory && <span>{createdCategory}</span> */}
+                                {/* createdCategory && <span className="text-success">{createdCategory}</span> */}
 
                             </Form>
                         </Modal.Body>
@@ -377,7 +397,7 @@ const BackOficceNewItem = () => {
                             <Form onSubmit={(e) => createNewMainCategory(e)}>
                                 <Form.Control type="text" placeholder="New main category" value={newMainCategoryInput} onChange={(e) => setNewMainCategoryInput(e.target.value)} />
                                 <Button className="searchNSubmitButton mt-2" variant="outline" type="submit">Create</Button>
-                                {/* createdMainCategory && <span>{createdMainCategory}</span> */}
+                                {/* createdMainCategory && <span className="text-success">{createdMainCategory}</span> */}
 
                             </Form>
                         </Modal.Body>
