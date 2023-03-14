@@ -313,6 +313,7 @@ const BackOficceNewItem = () => {
             <h4 className="mb-3" > Add a new article</h4 >
 
             <Row>
+
                 {/* Create a new brand */}
                 <Col>
 
@@ -331,7 +332,6 @@ const BackOficceNewItem = () => {
                                 {/* createdBrand && <span className="text-success">{createdBrand}</span> */}
 
                             </Form>
-
                         </Modal.Body>
                         <Modal.Footer>
                             <Button variant="danger" onClick={handleCloseBrand}>
@@ -341,9 +341,35 @@ const BackOficceNewItem = () => {
                     </Modal>
                 </Col>
 
-                {/* Create a new category */}
+                {/* Create a new main category */}
                 <Col>
 
+                    <Button variant="primary" onClick={handleShowMainCategory}>
+                        Create a new main category
+                    </Button>
+
+                    <Modal show={showMainCategory} onHide={handleCloseMainCategory}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Create a new main category</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <Form onSubmit={(e) => createNewMainCategory(e)}>
+                                <Form.Control type="text" placeholder="New main category" value={newMainCategoryInput} onChange={(e) => setNewMainCategoryInput(e.target.value)} />
+                                <Button className="searchNSubmitButton mt-2" variant="outline" type="submit">Create</Button>
+                                {/* createdMainCategory && <span className="text-success">{createdMainCategory}</span> */}
+
+                            </Form>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="danger" onClick={handleCloseMainCategory}>
+                                Close
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
+                </Col>
+
+                {/* Create a new category */}
+                <Col>
 
                     <Button variant="primary" onClick={handleShowCategory}>
                         Create a new  category
@@ -382,33 +408,7 @@ const BackOficceNewItem = () => {
 
                 </Col>
 
-                {/* Create a new main category */}
-                <Col>
 
-                    <Button variant="primary" onClick={handleShowMainCategory}>
-                        Create a new main category
-                    </Button>
-
-                    <Modal show={showMainCategory} onHide={handleCloseMainCategory}>
-                        <Modal.Header closeButton>
-                            <Modal.Title>Create a new main category</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <Form onSubmit={(e) => createNewMainCategory(e)}>
-                                <Form.Control type="text" placeholder="New main category" value={newMainCategoryInput} onChange={(e) => setNewMainCategoryInput(e.target.value)} />
-                                <Button className="searchNSubmitButton mt-2" variant="outline" type="submit">Create</Button>
-                                {/* createdMainCategory && <span className="text-success">{createdMainCategory}</span> */}
-
-                            </Form>
-                        </Modal.Body>
-                        <Modal.Footer>
-                            <Button variant="danger" onClick={handleCloseMainCategory}>
-                                Close
-                            </Button>
-                        </Modal.Footer>
-                    </Modal>
-
-                </Col>
 
             </Row>
 
