@@ -166,7 +166,7 @@ const MyAccount = () => {
               <Form.Control
                 type="password"
                 required
-                placeholder="Repeat your new password"
+                placeholder="Repeat your new pass"
                 value={passwordAgainInput}
                 onChange={(e) => setPasswordAgainInput(e.target.value)}
               />

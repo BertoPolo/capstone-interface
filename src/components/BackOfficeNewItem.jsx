@@ -317,7 +317,7 @@ const BackOficceNewItem = () => {
                 {/* Create a new brand */}
                 <Col>
 
-                    <Button variant="primary" onClick={handleShowBrand}>
+                    <Button variant="info" onClick={handleShowBrand}>
                         Create a new Brand
                     </Button>
 
@@ -344,7 +344,7 @@ const BackOficceNewItem = () => {
                 {/* Create a new main category */}
                 <Col>
 
-                    <Button variant="primary" onClick={handleShowMainCategory}>
+                    <Button variant="info" onClick={handleShowMainCategory}>
                         Create a new main category
                     </Button>
 
@@ -371,7 +371,7 @@ const BackOficceNewItem = () => {
                 {/* Create a new category */}
                 <Col>
 
-                    <Button variant="primary" onClick={handleShowCategory}>
+                    <Button variant="info" onClick={handleShowCategory}>
                         Create a new  category
                     </Button>
 
