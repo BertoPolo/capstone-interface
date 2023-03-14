@@ -4,7 +4,7 @@
 - (img)placeholder for items with no img // or add option property like : publish = true/false
 - Add breadcrumbs (visual route links) https://react-bootstrap-v4.netlify.app/components/breadcrumb/
 - If you go out from creating new item without uploading an image, get an alert
-- At createitem,when choose main category,should only displays related categories
+- At createitem, when choose main category,should only displays related categories
 - Change the filter query for an array : `${process.env.React_APP_SERVER}items?${filterQuery}`
 - Improve pages changing/navigation. removing functions setting just where you are, without true/false. Do a dictionary with routes,
 - URL routes ( single Item done)

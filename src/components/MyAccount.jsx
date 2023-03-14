@@ -81,7 +81,6 @@ const MyAccount = () => {
 
   }
 
-
   const changePass = async (e) => {
     e.preventDefault()
     if (passwordInput === passwordAgainInput) {
@@ -121,7 +120,6 @@ const MyAccount = () => {
     } else notifyError("both password input have to be the same")
 
   }
-
 
 
   return (
