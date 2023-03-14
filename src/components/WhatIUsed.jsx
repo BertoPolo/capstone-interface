@@ -14,9 +14,8 @@ const WhatIUsed = () => {
                 <li>Javascript</li>
                 <li>ReactJs</li>
                 <li>Redux</li>
-                <li>Bootstrap</li>
-                <br />
                 <li>Redux-persist</li>
+                <li>Bootstrap</li>
 
             </ul>
             <hr />
@@ -26,8 +25,8 @@ const WhatIUsed = () => {
                 <li>ExpressJs</li>
                 <li>Cors</li>
                 <li>Mongoose</li>
-                <br />
-                <li>Swagger</li>
+                {/* <br /> */}
+                <li className="">Swagger</li>
                 <li>Stripe</li>
                 <li>JsonWebToken</li>
                 <li>Nodemailer</li>
