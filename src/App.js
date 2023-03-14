@@ -40,10 +40,12 @@ const App = () => (
         <Route path="/myAccount" element={<MyAccount />} />
         <Route path="/home" element={<Home />} />
         <Route path="/home/:itemTitle" element={<Home />} />
+        <Route path="/home/contactUs" element={<Home />} />
+        <Route path="/home/outlet" element={<Home />} />
         <Route path="/backOfficeMenu" element={<BackOfficeMenu />} />
-        <Route path="/backOfficeMenu/BackOfficeUsers" element={<BackOfficeMenu />} />
-        <Route path="/backOfficeMenu/BackOfficeItems" element={<BackOfficeMenu />} />
-        <Route path="/backOfficeMenu/BackOfficeNewItem" element={<BackOfficeMenu />} />
+        <Route path="/backOfficeMenu/backOfficeUsers" element={<BackOfficeMenu />} />
+        <Route path="/backOfficeMenu/backOfficeItems" element={<BackOfficeMenu />} />
+        <Route path="/backOfficeMenu/backOfficeNewItem" element={<BackOfficeMenu />} />
         <Route path="/resume" element={<ResumingCart />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/forgotPassword" element={<ForgotPassword />} />
