@@ -51,7 +51,6 @@ const HomeItem = ({ currentItem }) => {
   }, [cart])
 
   return (
-
     <>
 
       <Card className="item mt-3 grayOnHover" >

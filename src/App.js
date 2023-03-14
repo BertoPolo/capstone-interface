@@ -33,6 +33,7 @@ const App = () => (
         theme="dark"
       />
       <Routes>
+        {/*  avoid repeating route elements */}
         <Route path="*" element={<NotFound />} />
         <Route path="/" element={<Login />} />
         <Route path="/newUser" element={<CreateUser />} />
@@ -40,6 +41,9 @@ const App = () => (
         <Route path="/home" element={<Home />} />
         <Route path="/home/:itemTitle" element={<Home />} />
         <Route path="/backOfficeMenu" element={<BackOfficeMenu />} />
+        <Route path="/backOfficeMenu/BackOfficeUsers" element={<BackOfficeMenu />} />
+        <Route path="/backOfficeMenu/BackOfficeItems" element={<BackOfficeMenu />} />
+        <Route path="/backOfficeMenu/BackOfficeNewItem" element={<BackOfficeMenu />} />
         <Route path="/resume" element={<ResumingCart />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/forgotPassword" element={<ForgotPassword />} />
