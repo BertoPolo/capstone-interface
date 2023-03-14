@@ -25,7 +25,9 @@ const BackOficceNewItem = () => {
     const [newCategoryInput, setNewCategoryInput] = useState("")
     const [newMainCategoryInput, setNewMainCategoryInput] = useState("")
     const [mcatForCatCreation, setMcatForCatCreation] = useState({})
-    const [show, setShow] = useState(false);
+    const [showBrand, setShowBrand] = useState(false);
+    const [showCategory, setShowCategory] = useState(false);
+    const [showMainCategory, setShowMainCategory] = useState(false);
 
 
 
@@ -42,8 +44,14 @@ const BackOficceNewItem = () => {
     const dispatch = useDispatch();
 
     //Modal
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleShowBrand = () => setShowBrand(true);
+    const handleCloseBrand = () => setShowBrand(false);
+
+    const handleShowCategory = () => setShowCategory(true);
+    const handleCloseCategory = () => setShowCategory(false);
+
+    const handleShowMainCategory = () => setShowMainCategory(true);
+    const handleCloseMainCategory = () => setShowMainCategory(false);
     //
 
     // Toasters
@@ -302,7 +310,6 @@ const BackOficceNewItem = () => {
     return (
         <Container fluid>
 
-
             <h4 className="mb-3" > Add a new article</h4 >
 
             <Row>
@@ -335,12 +342,32 @@ const BackOficceNewItem = () => {
 
                 {/* Create a new main category */}
                 <Col>
-                    <Form onSubmit={(e) => createNewMainCategory(e)}>
-                        <Form.Control type="text" placeholder="New main category" value={newMainCategoryInput} onChange={(e) => setNewMainCategoryInput(e.target.value)} />
-                        <Button className="searchNSubmitButton mt-2" variant="outline" type="submit">Create</Button>
-                    </Form>
+
+                    <Button variant="primary" onClick={handleShowMainCategory}>
+                        Create a new main category
+                    </Button>
+
+                    <Modal show={showMainCategory} onHide={handleCloseMainCategory}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Create a new main category</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body><Form onSubmit={(e) => createNewMainCategory(e)}>
+                            <Form.Control type="text" placeholder="New main category" value={newMainCategoryInput} onChange={(e) => setNewMainCategoryInput(e.target.value)} />
+                            <Button className="searchNSubmitButton mt-2" variant="outline" type="submit">Create</Button>
+                            {/* createdMainCategory && <span>{createdMainCategory}</span> */}
+
+                        </Form></Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="danger" onClick={handleCloseMainCategory}>
+                                Close
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
+
                 </Col>
+
             </Row>
+
             <hr />
 
             {/* Post new item */}
@@ -424,22 +451,6 @@ const BackOficceNewItem = () => {
                 <Form.Control type="file" accept=",.jpg,.jpeg,.png" onChange={(e) => setImage(e.target.files[0])} />
                 <Button className="searchNSubmitButton mt-3" variant="outline" type="submit" disabled={!image && !itemId}>Upload</Button>
             </Form>
-
-
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Save Changes
-                    </Button>
-                </Modal.Footer>
-            </Modal>
 
         </Container >
     )
