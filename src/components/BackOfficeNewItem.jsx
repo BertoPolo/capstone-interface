@@ -323,21 +323,43 @@ const BackOficceNewItem = () => {
 
                 {/* Create a new category */}
                 <Col>
-                    <Form onSubmit={(e) => createNewCategory(e)}>
-                        <Form.Control type="text" placeholder="New category" value={newCategoryInput} onChange={(e) => setNewCategoryInput(e.target.value)} />
-                        {/* disabled={!mcatForCatCreation} */}
-                        <Dropdown>
-                            <Dropdown.Toggle className="mt-2" variant="success">{mcatForCatCreation.mainCategory || "Choose Main Category"}</Dropdown.Toggle>
-                            <Dropdown.Menu>
-                                {mainCategories.map((element) => {
-                                    return (
-                                        <Dropdown.Item key={element._id} onClick={() => setMcatForCatCreation(element)}>{element.mainCategory}</Dropdown.Item>
-                                    )
-                                })}
-                            </Dropdown.Menu>
-                        </Dropdown>
-                        <Button className="searchNSubmitButton mt-2" variant="outline" type="submit">Create</Button>
-                    </Form>
+
+
+                    <Button variant="primary" onClick={handleShowCategory}>
+                        Create a new  category
+                    </Button>
+
+                    <Modal show={showCategory} onHide={handleCloseCategory}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Create a new category</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <Form onSubmit={(e) => createNewCategory(e)}>
+                                <Form.Control type="text" placeholder="New category" value={newCategoryInput} onChange={(e) => setNewCategoryInput(e.target.value)} />
+                                {/* disabled={!mcatForCatCreation} */}
+                                <Dropdown>
+                                    <Dropdown.Toggle className="mt-2" variant="success">{mcatForCatCreation.mainCategory || "Choose Main Category"}</Dropdown.Toggle>
+                                    <Dropdown.Menu>
+                                        {mainCategories.map((element) => {
+                                            return (
+                                                <Dropdown.Item key={element._id} onClick={() => setMcatForCatCreation(element)}>{element.mainCategory}</Dropdown.Item>
+                                            )
+                                        })}
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                                <Button className="searchNSubmitButton mt-2" variant="outline" type="submit">Create</Button>
+                                {/* createdCategory && <span>{createdCategory}</span> */}
+
+                            </Form>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="danger" onClick={handleCloseCategory}>
+                                Close
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
+
+
                 </Col>
 
                 {/* Create a new main category */}
@@ -351,12 +373,14 @@ const BackOficceNewItem = () => {
                         <Modal.Header closeButton>
                             <Modal.Title>Create a new main category</Modal.Title>
                         </Modal.Header>
-                        <Modal.Body><Form onSubmit={(e) => createNewMainCategory(e)}>
-                            <Form.Control type="text" placeholder="New main category" value={newMainCategoryInput} onChange={(e) => setNewMainCategoryInput(e.target.value)} />
-                            <Button className="searchNSubmitButton mt-2" variant="outline" type="submit">Create</Button>
-                            {/* createdMainCategory && <span>{createdMainCategory}</span> */}
+                        <Modal.Body>
+                            <Form onSubmit={(e) => createNewMainCategory(e)}>
+                                <Form.Control type="text" placeholder="New main category" value={newMainCategoryInput} onChange={(e) => setNewMainCategoryInput(e.target.value)} />
+                                <Button className="searchNSubmitButton mt-2" variant="outline" type="submit">Create</Button>
+                                {/* createdMainCategory && <span>{createdMainCategory}</span> */}
 
-                        </Form></Modal.Body>
+                            </Form>
+                        </Modal.Body>
                         <Modal.Footer>
                             <Button variant="danger" onClick={handleCloseMainCategory}>
                                 Close
