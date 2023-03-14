@@ -45,7 +45,7 @@ const CartModal = ({ handleClose, show }) => {
                                         <Dropdown.Item onClick={() => dispatch(setItemsQuantity([element._id, 9]))}>9</Dropdown.Item>
                                     </Dropdown.Menu>
                                 </Dropdown>
-                                <i className="bi bi-trash3 pointer ml-3" onClick={() => dispatch(removeItem(element._id))}></i>
+                                <i className="bi bi-trash3 pointer ml-3 text-danger" onClick={() => dispatch(removeItem(element._id))}></i>
                             </div>
                         </div>
                     )
@@ -57,7 +57,7 @@ const CartModal = ({ handleClose, show }) => {
                     Close
                 </Button>
                 {isLogged ? <Button className="submitButton" disabled={cart.length === 0} onClick={() => { handleClose(); navigate("/resume") }}>
-                    Finish your shopping
+                    See your cart
                 </Button> : <Button variant="warning" onClick={() => { handleClose(); navigate("/") }}>
                     Go login first
                 </Button>}
