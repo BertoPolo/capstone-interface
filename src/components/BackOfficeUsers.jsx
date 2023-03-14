@@ -57,9 +57,9 @@ const BackOfficeUsers = () => {
         setEditMode(false)
     }
 
-    const getUser = async (username) => {
+    const getUserById = async (id) => {
         try {
-            const response = await fetch(`${process.env.REACT_APP_SERVER}users/username/${username}`, {
+            const response = await fetch(`${process.env.REACT_APP_SERVER}users?_id=${id}`, {
                 headers: {
                     "Authorization": "Bearer " + token
                 }
@@ -67,10 +67,10 @@ const BackOfficeUsers = () => {
 
             const data = await response.json();
             if (data) {
-                setNameInput(data.name)
-                setUserNameInput(data.username)
-                setEmailInput(data.email)
-                setAdressInput(data.adress)
+                setNameInput(data[0].name)
+                setUserNameInput(data[0].username)
+                setEmailInput(data[0].email)
+                setAdressInput(data[0].adress)
             }
 
         } catch (error) {
@@ -83,7 +83,7 @@ const BackOfficeUsers = () => {
         e.preventDefault()
         try {
             const response = await fetch(
-                `${process.env.REACT_APP_SERVER}users/${wayToSearch}=${parameterToSearch}`, {
+                `${process.env.REACT_APP_SERVER}users?${wayToSearch}=${parameterToSearch}`, {
                 headers: {
                     "Authorization": "Bearer " + token
                 }
@@ -168,14 +168,13 @@ const BackOfficeUsers = () => {
                         <Dropdown.Menu>
                             <Dropdown.Item onClick={() => setWayToSearch("name")}>Name</Dropdown.Item>
                             <Dropdown.Item onClick={() => setWayToSearch("username")}>Username</Dropdown.Item>
-                            <Dropdown.Item onClick={() => setWayToSearch("email")}>email</Dropdown.Item>
+                            <Dropdown.Item onClick={() => setWayToSearch("email")}>Email</Dropdown.Item>
                             {/* <Dropdown.Item onClick={() => setWayToSearch("")}>All users</Dropdown.Item> */}
                         </Dropdown.Menu>
                     </Dropdown>
 
                     <Form.Group >
-
-                        <Form.Control type="text" className="justify-content-center w-25" placeholder="Name" value={parameterToSearch} onChange={(e) => setParameterToSearch(e.target.value)} />
+                        <Form.Control type="text" className="justify-content-center w-25" placeholder="Who do you want to search?" value={parameterToSearch} onChange={(e) => setParameterToSearch(e.target.value)} />
                     </Form.Group>
                 </div>
 
@@ -187,7 +186,7 @@ const BackOfficeUsers = () => {
 
             {editMode ?
 
-                <Form onSubmit={(e) => editUser(e,)}>
+                <Form onSubmit={(e) => editUser(e)}>
                     <h4>Change user's data</h4>
 
                     <Form.Group>
@@ -224,7 +223,7 @@ const BackOfficeUsers = () => {
                                 <span>Username : <b>{element.username}</b> </span>
                                 <span>Adress : <b>{element.adress}</b></span>
 
-                                <i className="bi bi-pencil pointer mx-3 bg-success p-1 text-white" onClick={() => { setEditMode(true); setUserId(element._id); getUser(element.username) }}></i>
+                                <i className="bi bi-pencil pointer mx-3 bg-success p-1 text-white" onClick={() => { setEditMode(true); setUserId(element._id); getUserById(element._id) }}></i>
                                 <i className="bi bi-trash3 pointer bg-danger p-1 text-white" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) deleteUser(element._id) }}></i>
 
                                 <hr />
