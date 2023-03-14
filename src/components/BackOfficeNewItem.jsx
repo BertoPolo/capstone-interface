@@ -1,4 +1,4 @@
-import { Container, Form, Button, Dropdown, Row, Col } from "react-bootstrap"
+import { Container, Form, Button, Dropdown, Row, Col, Modal } from "react-bootstrap"
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { toast } from 'react-toastify';
@@ -25,6 +25,8 @@ const BackOficceNewItem = () => {
     const [newCategoryInput, setNewCategoryInput] = useState("")
     const [newMainCategoryInput, setNewMainCategoryInput] = useState("")
     const [mcatForCatCreation, setMcatForCatCreation] = useState({})
+    const [show, setShow] = useState(false);
+
 
 
     const [selectedBrand, setSelectedBrand] = useState("")
@@ -39,6 +41,12 @@ const BackOficceNewItem = () => {
 
     const dispatch = useDispatch();
 
+    //Modal
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    //
+
+    // Toasters
     const notifyError = () => toast.error('Check the form again, looks like you forgot something', {
         position: "top-center",
         autoClose: 4000,
@@ -60,6 +68,7 @@ const BackOficceNewItem = () => {
         progress: undefined,
         theme: "dark",
     });
+
     const notifyOk = (message) => toast.success(message, {
         position: "top-center",
         autoClose: 4000,
@@ -70,7 +79,7 @@ const BackOficceNewItem = () => {
         progress: undefined,
         theme: "dark",
     });
-
+    // 
 
     const getBrands = async () => {
         try {
@@ -415,6 +424,22 @@ const BackOficceNewItem = () => {
                 <Form.Control type="file" accept=",.jpg,.jpeg,.png" onChange={(e) => setImage(e.target.files[0])} />
                 <Button className="searchNSubmitButton mt-3" variant="outline" type="submit" disabled={!image && !itemId}>Upload</Button>
             </Form>
+
+
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Modal heading</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                    <Button variant="primary" onClick={handleClose}>
+                        Save Changes
+                    </Button>
+                </Modal.Footer>
+            </Modal>
 
         </Container >
     )
