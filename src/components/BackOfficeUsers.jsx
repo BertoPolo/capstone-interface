@@ -1,4 +1,4 @@
-import { Container, Form, Button } from "react-bootstrap"
+import { Container, Form, Button, Dropdown } from "react-bootstrap"
 import { useSelector } from "react-redux"
 import { useState } from "react"
 import { toast } from 'react-toastify';
@@ -9,8 +9,10 @@ const BackOfficeUsers = () => {
 
     const token = useSelector((state) => state.usersSlice.token);
 
+    const [wayToSearch, setWayToSearch] = useState("")
+
     const [foundUsers, setFoundUsers] = useState([])
-    const [userInput, setUserInput] = useState("")
+    const [parameterToSearch, setParameterToSearch] = useState("")
     const [userId, setUserId] = useState("")
 
     const [editMode, setEditMode] = useState(false)
@@ -50,7 +52,7 @@ const BackOfficeUsers = () => {
         setEmailInput("")
         setAdressInput("")
         setFoundUsers([])
-        setUserInput("")
+        setParameterToSearch("")
         setUserId("")
         setEditMode(false)
     }
@@ -81,7 +83,7 @@ const BackOfficeUsers = () => {
         e.preventDefault()
         try {
             const response = await fetch(
-                `${process.env.REACT_APP_SERVER}users/${userInput}`, {
+                `${process.env.REACT_APP_SERVER}users/${wayToSearch}=${parameterToSearch}`, {
                 headers: {
                     "Authorization": "Bearer " + token
                 }
@@ -90,7 +92,7 @@ const BackOfficeUsers = () => {
             if (response.ok) {
                 const data = await response.json();
                 if (data) {
-                    setUserInput("")
+                    setParameterToSearch("")
                     setFoundUsers(data)
                 } else notifyError(`Check if you writted it right, cause looks like we don't have any client with this name`)
             } else notifyError("oops! Something wrong happened")
@@ -158,12 +160,26 @@ const BackOfficeUsers = () => {
                 <div className="d-flex justify-content-center flex-column ">
                     <h4 className="mb-3">Search an user</h4>
 
+                    <Dropdown>
+                        <Dropdown.Toggle variant="success" id="dropdown-basic">
+                            {wayToSearch || "Select way to search"}
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                            <Dropdown.Item onClick={() => setWayToSearch("name")}>Name</Dropdown.Item>
+                            <Dropdown.Item onClick={() => setWayToSearch("username")}>Username</Dropdown.Item>
+                            <Dropdown.Item onClick={() => setWayToSearch("email")}>email</Dropdown.Item>
+                            {/* <Dropdown.Item onClick={() => setWayToSearch("")}>All users</Dropdown.Item> */}
+                        </Dropdown.Menu>
+                    </Dropdown>
+
                     <Form.Group >
-                        <Form.Control type="text" className="justify-content-center w-25" placeholder="Name" value={userInput} onChange={(e) => setUserInput(e.target.value)} />
+
+                        <Form.Control type="text" className="justify-content-center w-25" placeholder="Name" value={parameterToSearch} onChange={(e) => setParameterToSearch(e.target.value)} />
                     </Form.Group>
                 </div>
 
-                <Button type="submit" disabled={!userInput} className="mb-3 submitButton"> Submit </Button>
+                <Button type="submit" disabled={!parameterToSearch} className="mb-3 submitButton"> Submit </Button>
 
             </Form >}
 

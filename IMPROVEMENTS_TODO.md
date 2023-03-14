@@ -9,7 +9,7 @@
 - Improve pages changing/navigation. removing functions setting just where you are, without true/false. Do a dictionary with routes,
 - URL routes ( single Item done)
 - Avoid repeating route elements
-- Responsive. Card payment
+- Responsive Card payment
 - Styling problem with new spinners Login,createUser => put the spinner in a emergent window?
 - Add "token required" to swagger and finish it
 - BackEnd - don't send all filtered items if not asking
