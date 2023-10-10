@@ -150,7 +150,8 @@ small {
 
 /* footer start*/
 .footer {
-  background-color: #dfd6d66e;
+padding-top: 2rem;
+ background-color: #dfd6d66e;
 }
 /* footer end*/
 
