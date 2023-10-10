@@ -4,7 +4,7 @@ import { Row, Col } from "react-bootstrap"
 const Footer = () => {
   return (
     <>
-      <Row className="mt-5 footer">
+      <Row className="mt-3 footer">
         <Col>
           <h5>
             <u>About Us</u>
