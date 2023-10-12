@@ -12,14 +12,11 @@ const CreateUser = () => {
   const [passwordInput, setPasswordInput] = useState("")
   const [isCharging, setIsCharging] = useState(false)
 
-  // const [bikeInput, setBikeInput] = useState("")
 
   const navigate = useNavigate()
   const registerBtnRef = useRef()
   const backBtnRef = useRef()
 
-
-  // const { name, adress } = useSelector((state) => state.usersSlice);
 
   const notify = (message) => toast.warn(message, {
     position: "top-center",
