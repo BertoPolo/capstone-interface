@@ -38,7 +38,7 @@ const Footer = () => {
             <u>Contact us</u>
           </h5>
           <p>bertopolo91@gmail.com</p>
-          <p>stufftoroute@info.com</p>
+          <p>stufftoroute@wedontexist.com</p>
         </Col>
       </Row>
     </>

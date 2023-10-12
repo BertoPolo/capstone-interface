@@ -117,7 +117,7 @@ const NavFilter = () => {
                     {/* search bar */}
                     <Form inline className="d-flex justify-content-center w-100" onSubmit={(e) => getFilteredItems(e)}>
                         <FormControl type="text" value={searchInput} placeholder="Check if we have it" className="w-25 searchBar" onChange={(e) => setSearchinput(e.target.value)} />
-                        <Button variant="outline-dark" className="pointer ml-3" onClick={() => { getRandomItems(); resetStates() }}>Clean filters</Button>
+                        <Button variant="outline-dark" className="pointer ml-3 btn-sm" onClick={() => { getRandomItems(); resetStates() }}>Clean filters</Button>
                         {/* <i className="bi bi-search pointer mx-3"></i> */}
                     </Form>
                 </Row>
@@ -175,7 +175,7 @@ const NavFilter = () => {
 
                         {/*submit button  */}
                         <Col className="d-flex justify-content-center">
-                            <Button type="submit" className="d-flex submitButton">Enter Filters</Button>
+                            <Button type="submit" className="d-flex submitButton btn-sm">Enter Filters</Button>
                         </Col>
                     </Form>
 

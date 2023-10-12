@@ -79,7 +79,7 @@ small {
   font-size: 500% !important;
   margin-bottom: 3rem !important;
   margin-top: 1rem;
-  text-shadow: 3px 4px 5px #979296;
+  text-shadow: 3px 4px 5px ##000000c2;
 }
 .h1XsScreen {
   display: flex;
@@ -129,7 +129,7 @@ small {
   background: #f1f0f0f8 !important;
 }
 .cart-color {
-  color: #ffc107 !important;
+  color: #2692e7 !important;
 }
 
 /* Navbar end */
@@ -150,9 +150,9 @@ small {
 
 /* footer start*/
 .footer {
- font-size: small;
- padding-top: 1.5rem;
- background-color: #dfd6d66e;
+  font-size: small;
+  padding-top: 1.5rem;
+  background-color: #dfd6d66e;
 }
 /* footer end*/
 
