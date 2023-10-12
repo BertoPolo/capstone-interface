@@ -21,13 +21,13 @@ const Footer = () => {
           </h5>
           <p>
             <a target="_blank" href="https://www.instagram.com" rel="noopener noreferrer">
-              <i className="bi bi-instagram"></i>
+              <i className="bi bi-instagram mr-1"></i>
               We are on Instagram!
             </a>
           </p>
           <p>
             <a target="_blank" href="https://www.linkedin.com" rel="noopener noreferrer">
-              <i className="bi bi-linkedin"></i>
+              <i className="bi bi-linkedin mr-1"></i>
               We are on LinkedIn!
             </a>
           </p>
