@@ -18,7 +18,9 @@ const WhatIUsed = () => {
                 <li>Bootstrap</li>
 
             </ul>
+
             <hr />
+
             <h4><b>Backend</b></h4>
             <ul>
                 <li>Javascript</li>
@@ -26,10 +28,18 @@ const WhatIUsed = () => {
                 <li>Cors</li>
                 <li>Mongoose</li>
                 {/* <br /> */}
-                <li className="">Swagger</li>
+                <li >Swagger</li>
                 <li>Stripe</li>
                 <li>JsonWebToken</li>
                 <li>Nodemailer</li>
+            </ul>
+
+            <hr />
+
+            <h4><b>Code</b></h4>
+            <ul>
+                <a className="d-block" target="_blank" rel="noopener noreferrer" href="https://github.com/BertoPolo/capstone_backend">https://github.com/BertoPolo/capstone_backend </a>
+                <a className="d-block" target="_blank" rel="noopener noreferrer" href=">https://github.com/BertoPolo/capstone-interface" >https://github.com/BertoPolo/capstone-interface</a>
             </ul>
 
             <Button className="mt-3" variant="danger" onClick={() => navigate("/home")}>Go back</Button >
