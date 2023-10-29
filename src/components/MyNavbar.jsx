@@ -72,7 +72,6 @@ const MyNavbar = () => {
             {isLogged ? <Nav.Link href="/" onClick={emptyUser}>Log Out</Nav.Link>
               :
               <Nav.Link href="/" className="">Login</Nav.Link>
-
             }
 
           </Nav>
