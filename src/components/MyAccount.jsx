@@ -125,13 +125,13 @@ const MyAccount = () => {
   return (
     <>
 
+      <MyNavbar />
       <Container fluid className="myAccountBg ">
-        <MyNavbar />
 
         <div className="login-container">
 
           {/* Data Form */}
-          <Form className=" transparency-box p-4 mt-4" onSubmit={(e) => changeData(e)}>
+          <Form className=" transparency-box p-4 mt-4 rounded" onSubmit={(e) => changeData(e)}>
             <h4 className="mb-3">Modify your data</h4>
 
             {<Form.Group>
@@ -156,7 +156,7 @@ const MyAccount = () => {
           </Form>
 
           {/* password form */}
-          <Form className=" transparency-box p-4 mt-4" onSubmit={(e) => changePass(e)}>
+          <Form className=" transparency-box p-4 mt-4 rounded" onSubmit={(e) => changePass(e)}>
 
             <Form.Group>
               <Form.Control type="password" required placeholder="Password" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
