@@ -429,17 +429,22 @@ const BackOficceNewItem = () => {
                     </Form.Group>
                 </Row>
 
-                <Form.Group>
-                    <Form.Label>Short Description</Form.Label>
-                    <Form.Control type="textarea" rows={2} value={shortDescription} onChange={(e) => setShortDescription(e.target.value)} />
+                <Row>
+                    <Form.Group as={Col}>
+                        <Form.Label>Full Description</Form.Label>
+                        <textarea className="form-control" rows={3} value={fullDescription} onChange={(e) => setFullDescription(e.target.value)} ></textarea>
+                    </Form.Group>
 
-                    <Form.Label>Full Description</Form.Label>
-                    <Form.Control type="textarea" rows={3} value={fullDescription} onChange={(e) => setFullDescription(e.target.value)} />
+                    <Form.Group as={Col}>
+                        <Form.Label>Short Description</Form.Label>
+                        <Form.Control type="text" value={shortDescription} onChange={(e) => setShortDescription(e.target.value)} />
+                    </Form.Group>
+                </Row>
 
+                <Form.Group >
                     <Form.Label>Outlet Price</Form.Label>
-                    <Form.Control type="number" value={outletPrice} onChange={(e) => setOutletPrice(e.target.value)} />
-                    <Form.Check type="checkbox" label="Outlet" className="mt-2" value={isItOutlet} onChange={(e) => setIsItOutlet(!isItOutlet)} />
-
+                    <Form.Control style={{ "width": "10%" }} type="number" value={outletPrice} min="0" onChange={(e) => setOutletPrice(e.target.value)} />
+                    <Form.Check type="checkbox" label=" Is in Outlet?" className="mt-2" value={isItOutlet} onChange={(e) => setIsItOutlet(!isItOutlet)} />
                 </Form.Group>
 
                 {/* Choose brand,category and M.category */}
