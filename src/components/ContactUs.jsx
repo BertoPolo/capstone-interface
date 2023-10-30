@@ -12,7 +12,7 @@ const ContactUs = () => {
               <li>Plaça Conquesta, nº2</li>
               <li> P.C. 07703</li>
               <li>500m2 surface </li>
-              <li>Mahón,Menorca,Spain </li>
+              <li>Mahón, Menorca, Spain </li>
 
             </Col>
             <Col>
