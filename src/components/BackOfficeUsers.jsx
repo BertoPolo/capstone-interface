@@ -161,7 +161,7 @@ const BackOfficeUsers = () => {
                     <h4 className="mb-3">Search an user</h4>
 
                     <Dropdown>
-                        <Dropdown.Toggle variant="success" id="dropdown-basic">
+                        <Dropdown.Toggle variant="success" id="dropdown-basic" className="mb-3">
                             {wayToSearch || "Select way to search"}
                         </Dropdown.Toggle>
 
