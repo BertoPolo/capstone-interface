@@ -35,7 +35,8 @@ body {
   border-top: 0px solid !important;
   border-left: 0px solid !important;
   border-right: 0px solid !important;
-  border-bottom: 0.5px solid !important;
+  border-bottom: 0.5px solid #353434b9 !important;
+  border-radius: 0px !important;
   height: 20px !important;
   width: 160px !important;
 }
