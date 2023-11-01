@@ -163,7 +163,7 @@ const NavFilter = () => {
                                 onInput={(e) => {
                                     handleInput(e);
                                 }}
-                                className="d-none d-md-block border-0 shadow-none p-0"
+                                className="d-none d-md-block border-0 shadow-none p-0 "
                             />
 
 
@@ -182,8 +182,8 @@ const NavFilter = () => {
 
                         {/*submit button  */}
                         <Col className="d-flex justify-content-center">
-                            <Button type="submit" className="d-flex submitButton btn-sm">Enter Filters</Button>
-                            <Button variant="outline-dark" className="pointer ml-3 btn-sm" onClick={() => { getRandomItems(); resetStates() }}>Clean filters</Button>
+                            <Button variant="outline-dark" className="pointer btn-sm" onClick={() => { getRandomItems(); resetStates() }}>Clean filters</Button>
+                            <Button type="submit" className="d-flex submitButton ml-3 btn-sm">Enter Filters</Button>
 
                         </Col>
                     </Form>
