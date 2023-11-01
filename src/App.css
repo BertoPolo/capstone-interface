@@ -139,14 +139,18 @@ small {
 /* carousel start*/
 
 .carouselImg {
-  max-width: 700px;
-  max-height: 400px;
+  width: 80vw !important;
+  height: 50vh !important;
   object-fit: cover !important;
   overflow: hidden !important;
 }
 .transparencywWiteBox {
   background-color: #e9e3e3a6;
   color: black;
+}
+
+.objectPosition {
+  object-position: 50% 7%;
 }
 /* carousel end*/
 

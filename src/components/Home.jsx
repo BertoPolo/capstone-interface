@@ -56,7 +56,7 @@ const Home = () => {
             <Carousel.Item>
               <img fluid="true" className="d-block m-auto carouselImg" src="https://images.unsplash.com/photo-1548880021-76c14b1f6602?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="under construction" />
               <Carousel.Caption className="d-flex justify-content-center">
-                <div className="transparencywWiteBox p-3 text-center">
+                <div className="transparencywWiteBox p-3 ">
                   <h2 className="mb-0" >This website is not finished</h2 >
                 </div>
               </Carousel.Caption>
@@ -66,9 +66,9 @@ const Home = () => {
             <Carousel.Item>
               <img fluid="true" className="d-block m-auto carouselImg" src="https://images.unsplash.com/photo-1590227763209-821c686b932f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="Oil Pack Offer slide" />
               <Carousel.Caption className="d-flex justify-content-center">
-                <div className="transparencywWiteBox p-3">
+                <div className="transparencywWiteBox p-3 ">
                   <h2 className="mb-0">Oil Pack Offer</h2 >
-                  <p>from 50€ </p>
+                  <p className="mb-0">from 50€ </p>
                 </div>
               </Carousel.Caption>
             </Carousel.Item>
@@ -84,11 +84,11 @@ const Home = () => {
             </Carousel.Item>
 
             <Carousel.Item>
-              <img fluid="true" className="d-block m-auto carouselImg" src="https://images.pexels.com/photos/8867434/pexels-photo-8867434.jpeg" alt="send us a message slide" />
+              <img fluid="true" className="d-block m-auto carouselImg objectPosition" src="https://images.pexels.com/photos/8867434/pexels-photo-8867434.jpeg" alt="send us a message slide" />
               <Carousel.Caption className="d-flex justify-content-center">
                 <div className="transparencywWiteBox p-2">
                   <h2 className="">Send us a message!</h2 >
-                  <p>8.00 to 13.00 / 15.30 to 20.00 Mon-Fri</p>
+                  <p className="mb-0">8.00 to 13.00 / 15.30 to 20.00 Mon-Fri</p>
                 </div>
               </Carousel.Caption>
             </Carousel.Item>
