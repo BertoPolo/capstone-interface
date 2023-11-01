@@ -56,9 +56,8 @@ const Home = () => {
             <Carousel.Item>
               <img fluid="true" className="d-block m-auto carouselImg" src="https://images.unsplash.com/photo-1548880021-76c14b1f6602?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="under construction" />
               <Carousel.Caption className="d-flex justify-content-center">
-                <div className="transparencywWiteBox p-2">
-                  <h2 >This website is not finished</h2 >
-                  <p></p>
+                <div className="transparencywWiteBox p-3 text-center">
+                  <h2 className="mb-0" >This website is not finished</h2 >
                 </div>
               </Carousel.Caption>
             </Carousel.Item>
@@ -67,8 +66,8 @@ const Home = () => {
             <Carousel.Item>
               <img fluid="true" className="d-block m-auto carouselImg" src="https://images.unsplash.com/photo-1590227763209-821c686b932f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="Oil Pack Offer slide" />
               <Carousel.Caption className="d-flex justify-content-center">
-                <div className="transparencywWiteBox p-2">
-                  <h2 className="">Oil Pack Offer</h2 >
+                <div className="transparencywWiteBox p-3">
+                  <h2 className="mb-0">Oil Pack Offer</h2 >
                   <p>from 50€ </p>
                 </div>
               </Carousel.Caption>
@@ -78,7 +77,9 @@ const Home = () => {
               <img fluid="true" className="d-block m-auto carouselImg " src="https://images.unsplash.com/photo-1558981420-87aa9dad1c89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="National shipping slide" />
 
               <Carousel.Caption className="d-flex justify-content-center">
-                <div className="transparencywWiteBox p-2"><h2 className="">National shipping for just 7€ !!</h2 ></div>
+                <div className="transparencywWiteBox p-3">
+                  <h2 className="mb-0">National shipping for just 7€ !!</h2 >
+                </div>
               </Carousel.Caption>
             </Carousel.Item>
 
