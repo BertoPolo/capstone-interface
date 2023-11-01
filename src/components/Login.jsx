@@ -134,35 +134,33 @@ const Login = () => {
         <div className="transparencywWiteBox p-3 mt-5">
 
           <Form className="login-container" onSubmit={createToken}>
-            <div >
 
-              <h4 className="mb-3">Login </h4>
-              <Form.Group>
-                <Form.Control type="text" placeholder="Username" value={usernameInput} onChange={(e) => setUsernameInput(e.target.value)} />
-              </Form.Group>
+            <h4 className="mb-3">Login </h4>
+            <Form.Group>
+              <Form.Control type="text" placeholder="Username" value={usernameInput} onChange={(e) => setUsernameInput(e.target.value)} />
+            </Form.Group>
 
-              <Form.Group>
-                <Form.Control type="password" placeholder="Password" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
-              </Form.Group>
+            <Form.Group>
+              <Form.Control type="password" placeholder="Password" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
+            </Form.Group>
 
-              <Button variant="primary" type="submit" ref={btnRef} disabled={(!usernameInput) || (!passwordInput)} >
-                Enter
-              </Button>
+            <Button variant="primary" type="submit" ref={btnRef} disabled={(!usernameInput) || (!passwordInput)} >
+              Enter
+            </Button>
 
-              <Link className=" d-block mb-3 mt-3" to="/forgotPassword">
-                <b className="text-danger"> Forgot the password?</b>
-              </Link>
+            <Link className=" d-block mb-3 mt-3" to="/forgotPassword">
+              <b className="text-danger"> Forgot the password?</b>
+            </Link>
 
-              <Link className=" d-block" to="/newUser">
-                <b> Join Us!</b>
-              </Link>
+            <Link className=" d-block" to="/newUser">
+              <b> Join Us!</b>
+            </Link>
 
-              {isCharging ? <Spinner className="mt-2 mr-1" animation="border" variant="success" /> : <Spinner className="mt-2 mr-1 invisible" animation="border" variant="success" />}
-              {isError ? <Spinner className="mt-2" animation="grow" variant="danger" /> : <Spinner className="mt-2 invisible" animation="grow" variant="danger" />}
-
-            </div>
+            {isCharging && <Spinner className="position-fixed" animation="border" variant="success" />}
+            {isError && <Spinner className="position-fixed" animation="grow" variant="danger" />}
           </Form>
           <hr />
+
           {/* option for not registered users */}
           <div className="d-flex justify-content-center">
             <div className="p-4">
@@ -214,9 +212,9 @@ const Login = () => {
                 <Link className="login-small-font d-block" to="/newUser">
                   <b> Join Us!</b>
                 </Link>
-                {isCharging ? <Spinner className="mt-2 mr-1" animation="border" variant="success" /> : <Spinner className="mt-2 mr-1 invisible" animation="border" variant="success" />}
-                {isError ? <Spinner className="mt-2" animation="grow" variant="danger" /> : <Spinner className="mt-2 invisible" animation="grow" variant="success" />}
               </div>
+              {isCharging && <Spinner className="position-absolute" animation="border" variant="success" />}
+              {isError && <Spinner className="position-absolute" animation="grow" variant="danger" />}
             </Form>
           </Col>
         </Row>
