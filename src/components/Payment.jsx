@@ -90,6 +90,7 @@ const CheckoutForm = () => {
     return (
         <>
             {/* <MyNavbar /> */}
+
             <Form onSubmit={handleSubmit} className="card w-50 p-4">
                 {<p>Amount to pay: <b>{totalAmount} €</b></p>}
                 <Form.Group>
@@ -99,8 +100,9 @@ const CheckoutForm = () => {
                     Pay
                 </Button>
                 <Button variant="danger" onClick={() => navigate("/resume")}>Cancel</Button>
-                {isCharging && <Spinner animation="border" variant="success" />}
             </Form>
+            {isCharging && <Spinner animation="border" variant="success" className="position-absolute" />}
+
         </>
     );
 };

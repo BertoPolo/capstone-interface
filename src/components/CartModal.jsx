@@ -26,7 +26,7 @@ const CartModal = ({ handleClose, show }) => {
                         <div key={element._id} className="d-flex justify-content-between">
                             <span ><b>{element.title}</b></span>
                             <div className="d-flex">
-                                <span className="mr-3"> {element.price}€</span>
+                                <span className="mx-3"> {element.price}€</span>
 
                                 <Dropdown>
                                     <Dropdown.Toggle size="sm" variant="outline-dark" id="dropdown-basic">
