@@ -92,8 +92,8 @@ const CreateUser = () => {
     <>
 
       <div className=" login-container bgRegistration">
-        {isCharging && <Spinner animation="border" variant="success" />}
-        <Form className=" transparency-box p-4 mt-4" onSubmit={(e) => handleSubmit(e)}>
+
+        <Form className=" transparency-box p-4 mt-4 rounded" onSubmit={(e) => handleSubmit(e)}>
           <h4 className="mb-3">Registration</h4>
 
           <Form.Group>
@@ -117,6 +117,7 @@ const CreateUser = () => {
             </Link>
           </div>
         </Form >
+        {isCharging && <Spinner animation="border" variant="success" className="position-absolute" />}
       </div>
     </>
 
