@@ -44,8 +44,8 @@ const MyNavbar = () => {
           <Image src={`${process.env.PUBLIC_URL}/mbIcon.png`} alt="main logo" style={{ width: "1.5rem", marginLeft: "1rem" }} />
         </Navbar.Brand>
 
-        <Nav.Link className="d-md-none  cart-color" href="" onClick={handleShow}>
-          <i className="bi bi-cart"></i>({cart.length})
+        <Nav.Link className="d-md-none cart-color" href="" onClick={handleShow}>
+          <i className="bi bi-cart" /> ({cart.length})
         </Nav.Link>
 
         <Navbar.Toggle />
@@ -63,7 +63,7 @@ const MyNavbar = () => {
               :
               <>
                 <Nav.Link className="d-none d-md-block cart-color" href="" onClick={handleShow}>
-                  <i className="bi bi-cart"></i>Cart({cart.length})
+                  <i className="bi bi-cart" />Cart ({cart.length})
                 </Nav.Link>
                 {isLogged && <Nav.Link href="/myAccount" >My Account</Nav.Link>}
               </>
