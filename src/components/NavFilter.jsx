@@ -115,9 +115,8 @@ const NavFilter = () => {
                 <hr />
                 <Row>
                     {/* search bar */}
-                    <Form inline className="d-flex justify-content-center w-100" onSubmit={(e) => getFilteredItems(e)}>
+                    <Form inline className="d-flex justify-content-center w-100 mb-3" onSubmit={(e) => getFilteredItems(e)}>
                         <FormControl type="text" value={searchInput} placeholder="Check if we have it" className="w-25 searchBar" onChange={(e) => setSearchinput(e.target.value)} />
-                        <Button variant="outline-dark" className="pointer ml-3 btn-sm" onClick={() => { getRandomItems(); resetStates() }}>Clean filters</Button>
                         {/* <i className="bi bi-search pointer mx-3"></i> */}
                     </Form>
                 </Row>
@@ -138,7 +137,7 @@ const NavFilter = () => {
 
                         </Col>
                         {/* BY BRAND*/}
-                        <Col xs={3}>
+                        <Col xs={2}>
                             <Dropdown >
                                 <Dropdown.Toggle variant="outline">{selectedBrand || "Brand"}</Dropdown.Toggle>
 
@@ -154,20 +153,28 @@ const NavFilter = () => {
                         </Col>
                         {/* BY PRICE RANGE */}
                         <Col xs={3}>
-
+                            {/* from md screens */}
                             <MultiRangeSlider
                                 min={0}
                                 max={500}
                                 step={20}
                                 minValue={minPrice}
                                 maxValue={maxPrice}
-                                style={{ width: '100%', paddingLeft: "4%", paddingRight: "4%" }}
                                 onInput={(e) => {
                                     handleInput(e);
                                 }}
-                                className="d-none d-md-block"
+                                className="d-none d-md-block border-0 shadow-none p-0"
                             />
 
+
+                            {/* <Row className="d-xs-none">
+                                <Form.Label className="align-center m-0 d-xs-none"> Min Price</Form.Label>
+                                <Form.Control type="number" value={minPrice} min="0" max="500" className="d-xs-none d-md-block w-25 mr-1" onChange={(e) => setMinPrice(e.target.value)} />
+                                <Form.Control type="number" value={maxPrice} min="0" max="500" className="d-xs-none d-md-block w-25" onChange={(e) => setMaxPrice(e.target.value)} />
+                                <Form.Label className="m-0 d-xs-none"> Max Price</Form.Label>
+                            </Row> */}
+                            {/*  */}
+                            {/* smaller screns */}
                             <Form.Control type="number" value={minPrice} min="0" max="500" className="d-md-none mr-1" onChange={(e) => setMinPrice(e.target.value)} />
                             <Form.Control type="number" value={maxPrice} min="0" max="500" className="d-md-none mr-1" onChange={(e) => setMaxPrice(e.target.value)} />
                             {/*  */}
@@ -176,6 +183,8 @@ const NavFilter = () => {
                         {/*submit button  */}
                         <Col className="d-flex justify-content-center">
                             <Button type="submit" className="d-flex submitButton btn-sm">Enter Filters</Button>
+                            <Button variant="outline-dark" className="pointer ml-3 btn-sm" onClick={() => { getRandomItems(); resetStates() }}>Clean filters</Button>
+
                         </Col>
                     </Form>
 
