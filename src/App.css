@@ -9,7 +9,7 @@
 }
 
 body {
-  background: #ffffff !important;
+  background: #c6c1c11c !important;
 }
 
 .pointer {
@@ -25,10 +25,6 @@ body {
 }
 /* Global end */
 /* Home start */
-
-.bg-main {
-  background-color: #b6b2b2;
-}
 
 .searchBar {
   background-color: transparent !important;
@@ -128,7 +124,7 @@ small {
 
 /* Navbar start */
 .navbarBg {
-  background: #f1f0f0f8 !important;
+  background: #a1b4bd !important;
 }
 .cart-color {
   color: #2692e7 !important;
