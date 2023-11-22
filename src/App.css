@@ -140,9 +140,10 @@ small {
   object-fit: cover !important;
   overflow: hidden !important;
 }
-.transparencywWiteBox {
+.transparencywWhiteBox {
   background-color: #e9e3e3a6;
   color: black;
+  border-radius: 5px;
 }
 
 .objectPosition {

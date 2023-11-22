@@ -131,7 +131,7 @@ const Login = () => {
       <Container className="d-sm-none loginBG">
         <h1 className="h1XsScreen">Stuff to Route</h1>
 
-        <div className="transparencywWiteBox p-3 mt-5">
+        <div className="transparencywWhiteBox p-3 mt-5">
 
           <Form className="login-container" onSubmit={createToken}>
 
@@ -176,7 +176,7 @@ const Login = () => {
       <Container fluid className="d-none d-sm-block">
         <Row>
           <Col className="login-container loginBG">
-            <div className="p-4 transparencywWiteBox">
+            <div className="p-4 transparencywWhiteBox">
               <p> Aren't You registered yet?</p>
               <Button onClick={() => navigate("/home")}>Take a look without login</Button>
             </div>
