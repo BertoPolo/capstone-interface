@@ -185,7 +185,8 @@ const Login = () => {
           </Col>
 
           <Col className="d-flex flex-column">
-            <h1 className="h1SmScreen ">Stuff to Route</h1>
+            {/* <h1 className="h1SmScreen ">Stuff to Route</h1> */}
+            <Image className="mb-3 mt-2 ml-auto mr-auto " src="/STR_LOGIN.png" style={{ maxHeight: "36vh", maxWidth: "38vw" }} />
 
             <Form className="login-container" onSubmit={createToken}>
               <div className="login-modal">
