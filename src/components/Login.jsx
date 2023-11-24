@@ -1,4 +1,4 @@
-import { Container, Form, Button, Col, Row, Spinner } from "react-bootstrap"
+import { Container, Form, Button, Col, Row, Spinner, Image } from "react-bootstrap"
 import { useNavigate, Link } from "react-router-dom"
 import { useState, useRef } from "react"
 import { useSelector, useDispatch } from "react-redux"
@@ -127,8 +127,10 @@ const Login = () => {
   return (
     <>
 
+      {/*  DO NOT REPEAT CODE!!! */}
+
       {/* extra-small screens view */}
-      <Container className="d-sm-none loginBG">
+      <Container fluid className="d-sm-none loginBG">
         <h1 className="h1XsScreen">Stuff to Route</h1>
 
         <div className="transparencywWhiteBox p-3 mt-5">
@@ -164,7 +166,7 @@ const Login = () => {
           {/* option for not registered users */}
           <div className="d-flex justify-content-center">
             <div className="p-4">
-              <p> Aren't You registered yet?</p>
+              <p> Aren't you registered yet?</p>
               <Button onClick={() => navigate("/home")}>Take a look without login</Button>
             </div>
           </div>
@@ -177,13 +179,13 @@ const Login = () => {
         <Row>
           <Col className="login-container loginBG">
             <div className="p-4 transparencywWhiteBox">
-              <p> Aren't You registered yet?</p>
+              <p> Aren't you registered yet?</p>
               <Button onClick={() => navigate("/home")}>Take a look without login</Button>
             </div>
           </Col>
 
-          <Col>
-            <h1 className="h1MdScreen ">Stuff to Route</h1>
+          <Col className="d-flex flex-column">
+            <h1 className="h1SmScreen ">Stuff to Route</h1>
 
             <Form className="login-container" onSubmit={createToken}>
               <div className="login-modal">
