@@ -57,6 +57,7 @@ const Login = () => {
             "Authorization": "Bearer " + tok
           },
         });
+
       if (res.ok) {
         const data = await res.json()
         dispatch(addName(data.name))
@@ -66,9 +67,10 @@ const Login = () => {
         dispatch(addIsAdmin(data.isAdmin))
         dispatch(changeIsLogged(true))
         dispatch(resetCart()) // change when cart and user are linked
+        setIsCharging(false)
+
 
         notifyOk(`Welcome ${data.name}!`)
-        // setTimeout(() => navigate("/home"), 1100)
         navigate("/home")
 
       } else {

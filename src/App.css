@@ -34,8 +34,22 @@ body {
   border-bottom: 0.5px solid #353434b9 !important;
   border-radius: 0px !important;
   height: 20px !important;
-  width: 160px !important;
+  /* width: 160px !important; */
 }
+
+/* Custom classes for centering placeholder in searchBar */
+.centered-placeholder::placeholder {
+  text-align: center;
+}
+/* For Internet Explorer 10-11 */
+.centered-placeholder:-ms-input-placeholder {
+  text-align: center;
+}
+/* For Microsoft Edge */
+.centered-placeholder::-ms-input-placeholder {
+  text-align: center;
+}
+/*  */
 
 /* Home end */
 /* HomeItem start */

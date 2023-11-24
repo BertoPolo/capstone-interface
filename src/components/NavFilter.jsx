@@ -116,7 +116,7 @@ const NavFilter = () => {
                 <Row>
                     {/* search bar */}
                     <Form inline className="d-flex justify-content-center w-100 mb-3" onSubmit={(e) => getFilteredItems(e)}>
-                        <FormControl type="text" value={searchInput} placeholder="Check if we have it" className="w-25 searchBar" onChange={(e) => setSearchinput(e.target.value)} />
+                        <FormControl type="text" value={searchInput} placeholder="Check if we have it" className="searchBar centered-placeholder" onChange={(e) => setSearchinput(e.target.value)} />
                         {/* <i className="bi bi-search pointer mx-3"></i> */}
                     </Form>
                 </Row>
