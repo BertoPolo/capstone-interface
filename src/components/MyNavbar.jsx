@@ -38,10 +38,10 @@ const MyNavbar = () => {
       <Navbar expand="lg" className="sticky-top navbarBg">
         <Navbar.Brand className="pointer" href="/home" onClick={() => dispatch(toggleIsOnHome(true))}>
           Stuff To Route
-          <Image src={`${process.env.PUBLIC_URL}/mbIcon.png`} alt="main logo" style={{ width: "1.5rem", marginLeft: "1rem" }} />
+          <Image src={`${process.env.PUBLIC_URL}/mbIcon.png`} alt="Main logo" style={{ width: "1.5rem", marginLeft: "1rem" }} />
         </Navbar.Brand>
 
-        <Nav.Link className="d-md-none cart-color" href="" onClick={handleShow}>
+        <Nav.Link className="d-md-none cart-color" onClick={handleShow}>
           <i className="bi bi-cart" /> ({cart.length})
         </Nav.Link>
 
