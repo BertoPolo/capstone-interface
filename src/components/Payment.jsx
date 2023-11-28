@@ -88,7 +88,7 @@ const CheckoutForm = () => {
 
     return (
         <>
-            
+
             <Form onSubmit={handleSubmit} className="card w-50 p-4">
                 {<p>Amount to pay: <b>{totalAmount} €</b></p>}
                 <Form.Group>
@@ -104,7 +104,7 @@ const CheckoutForm = () => {
         </>
     );
 };
-const stripePromise = loadStripe('pk_test_51M7N28L6wRylHOkEIZqRROabOb52Tnb7aL1cOEDgTXnpVBqOI6g0Qx58t4qQAyNkmtNMSMh56VnYleYQ847luNTi00k8qYmCNh');
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
 const Payment = () => (
     <Elements stripe={stripePromise}>
