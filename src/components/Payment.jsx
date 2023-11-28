@@ -1,9 +1,7 @@
 import { Container, Row } from "react-bootstrap"
 import React, { Suspense } from "react";
-import {
-    Elements,
-    loadStripe
-} from '@stripe/react-stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 const LazyCheckoutForm = React.lazy(() => import('./Payment_CheckOutForm'));
 
 
