@@ -127,7 +127,6 @@ const Login = () => {
 
   return (
     <>
-
       {/*  DO NOT REPEAT CODE!!! */}
 
       {/* extra-small screens view */}
@@ -187,7 +186,7 @@ const Login = () => {
 
           <Col className="d-flex flex-column">
             {/* <h1 className="h1SmScreen ">Stuff to Route</h1> */}
-            <Image className="mb-3 mt-2 ml-auto mr-auto " src="/STR_LOGIN.png" style={{ maxHeight: "36vh", maxWidth: "38vw" }} />
+            <Image className="mb-3 mt-2 ml-auto mr-auto " src="/STR_LOGIN.avif" style={{ maxHeight: "36vh", maxWidth: "38vw" }} alt="Login Logo" />
 
             <Form className="login-container" onSubmit={createToken}>
               <div className="login-modal">
