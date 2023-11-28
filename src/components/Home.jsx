@@ -60,7 +60,7 @@ const Home = () => {
             {/*  */}
 
             <Carousel.Item>
-              <img fluid="true" className="d-block m-auto carouselImg" src="https://images.unsplash.com/photo-1590227763209-821c686b932f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="Oil Pack Offer slide" />
+              <img fluid="true" className="d-block m-auto carouselImg" src="/oilPack.avif" alt="Oil Pack Offer slide" />
               <Carousel.Caption className="d-flex justify-content-center">
                 <div className="transparencywWhiteBox p-3">
                   <h2 className="mb-0">Oil Pack Offer</h2 >
@@ -70,7 +70,7 @@ const Home = () => {
             </Carousel.Item>
 
             <Carousel.Item>
-              <img fluid="true" className="d-block m-auto carouselImg " src="https://images.unsplash.com/photo-1558981420-87aa9dad1c89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="National shipping slide" />
+              <img fluid="true" className="d-block m-auto carouselImg " src="/shipping.avif" alt="National shipping slide" />
 
               <Carousel.Caption className="d-flex justify-content-center">
                 <div className="transparencywWhiteBox p-3 ">
@@ -80,7 +80,7 @@ const Home = () => {
             </Carousel.Item>
 
             <Carousel.Item>
-              <img fluid="true" className="d-block m-auto carouselImg objectPosition" src="https://images.pexels.com/photos/8867434/pexels-photo-8867434.jpeg" alt="Send us a message slide" />
+              <img fluid="true" className="d-block m-auto carouselImg objectPosition" src="/ask-us.avif" alt="Send us a message slide" />
               <Carousel.Caption className="d-flex justify-content-center">
                 <div className="transparencywWhiteBox p-2">
                   <h2 className="">Send us a message!</h2 >
