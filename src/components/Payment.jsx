@@ -78,19 +78,17 @@ const CheckoutForm = () => {
         if (!error) {
             const { id } = paymentMethod
 
-            sendPurchase(id)
+            await sendPurchase(id)
             dispatch(resetCart())
             notifyOk("Purchase completed successfully! check your mail") //not displaying
             setTimeout(() => navigate("/home"), 4000)
-
 
         } else console.log(error)
     };
 
     return (
         <>
-            {/* <MyNavbar /> */}
-
+            
             <Form onSubmit={handleSubmit} className="card w-50 p-4">
                 {<p>Amount to pay: <b>{totalAmount} €</b></p>}
                 <Form.Group>
