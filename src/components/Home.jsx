@@ -1,18 +1,18 @@
 import { Container, Carousel, Col, Row, Button } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
-import { useEffect } from "react"
+import React, { Suspense, useEffect } from "react";
 import { addItems } from "../slices/items/itemsSlice"
 import MyNavbar from "./MyNavbar"
-import Footer from "./Footer"
 import HomeItem from "./HomeItem"
-import Outlet from "./Outlet"
-import ContactUs from "./ContactUs"
-import SingleItem from "./SingleItem"
 import CategoriesMenu from "./CategoriesMenu"
 import NavFilter from "./NavFilter"
 import CategoriesMenuDropdown from "./CategoriesMenuDropdown"
 import { useState } from "react"
 
+const Outlet = React.lazy(() => import('./Outlet'));
+const ContactUs = React.lazy(() => import('./ContactUs'));
+const SingleItem = React.lazy(() => import('./SingleItem'));
+const Footer = React.lazy(() => import('./SingleItem'));
 
 const Home = () => {
 
@@ -124,21 +124,24 @@ const Home = () => {
                 })}
               </Row>}
 
-              {/* OUTLET */}
-              {isOnOutlet && <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-5"><Outlet /></Row>}
+              <Suspense fallback={<div>Loading...</div>}>
+                {/* OUTLET */}
+                {isOnOutlet && <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-5"><Outlet /></Row>}
 
-              {/* CONTACT US */}
-              {isOnCountactUs && <ContactUs />}
+                {/* CONTACT US */}
+                {isOnCountactUs && <ContactUs />}
 
-              {/* Single Item */}
-              {isOnSingleItem && <SingleItem />}
+                {/* Single Item */}
+                {isOnSingleItem && <SingleItem />}
 
+              </Suspense>
             </Col>
           </Col>
         </Row>
         {/* Footer */}
-        <Footer />
-
+        <Suspense fallback={<div>Loading...</div>}>
+          <Footer />
+        </Suspense>
       </Container>
     </>
   )
