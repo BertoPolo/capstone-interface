@@ -8,10 +8,7 @@ import CartModal from "./CartModal"
 
 
 const MyNavbar = () => {
-  // const handleLogOut = () => {
-  // window.location.href = "/login";
-  //   emptyUser()
-  // };
+
   const { isLogged, name, username, adress, email, isAdmin, token } = useSelector((state) => state.usersSlice);
   const cart = useSelector((state) => state.cartSlice.cart);
   const [show, setShow] = useState(false)

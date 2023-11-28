@@ -1,10 +1,8 @@
 import { Row, Col } from "react-bootstrap"
-// import { Link } from "react-router-dom"
 
 const Footer = () => {
   return (
     <>
-      {/*  d-flex justify-content-center */}
       <Row className="mt-3 footer">
         <Col>
           <h5>

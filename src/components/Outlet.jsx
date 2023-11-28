@@ -1,8 +1,6 @@
-import { Col, Row } from "react-bootstrap"
+import { Col } from "react-bootstrap"
 import { useSelector } from "react-redux"
 import HomeItem from "./HomeItem"
-
-// add something in case of is not there any outlet article available
 
 const Outlet = () => {
   const items = useSelector((state) => state.itemsSlice.items);

@@ -11,7 +11,6 @@ const Login = () => {
   const [passwordInput, setPasswordInput] = useState("")
   const [isCharging, setIsCharging] = useState(false)
   const [isError, setIsError] = useState(false)
-  // const [isRemember, setIsRemember] = useState(false)
 
   const { name, token } = useSelector((state) => state.usersSlice);
   const cart = useSelector((state) => state.cartSlice.cart);

@@ -40,7 +40,6 @@ const BackOficceNewItem = () => {
     const mainCategories = useSelector((state) => state.mainCategoriesSlice.mainCategories);
     const token = useSelector((state) => state.usersSlice.token);
 
-
     const dispatch = useDispatch();
 
     //Modal
@@ -52,7 +51,6 @@ const BackOficceNewItem = () => {
 
     const handleShowMainCategory = () => setShowMainCategory(true);
     const handleCloseMainCategory = () => setShowMainCategory(false);
-    //
 
     // Toasters
     const notifyError = () => toast.error('Check the form again, looks like you forgot something', {
@@ -87,7 +85,7 @@ const BackOficceNewItem = () => {
         progress: undefined,
         theme: "dark",
     });
-    // 
+
 
     const getBrands = async () => {
         try {

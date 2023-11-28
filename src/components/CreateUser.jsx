@@ -2,7 +2,6 @@ import { Form, Button, Spinner } from "react-bootstrap"
 import { Link, useNavigate } from "react-router-dom"
 import { useState, useRef } from "react"
 import { toast } from 'react-toastify';
-// import { useSelector, useDispatch } from "react-redux"
 
 const CreateUser = () => {
   const [nameInput, setNameInput] = useState("")

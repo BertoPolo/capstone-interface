@@ -5,7 +5,6 @@ import { toast } from 'react-toastify';
 import MultiRangeSlider from "multi-range-slider-react";
 import { addItems } from "../slices/items/itemsSlice"
 import { addBrands } from "../slices/brands/brandsSlice"
-// import { toggleIsOnCategory, toggleIsOnBrands } from "../slices/sheets/sheetsSlice"
 
 
 const NavFilter = () => {
@@ -16,9 +15,6 @@ const NavFilter = () => {
     const [brandId, setBrandId] = useState("")
     const [selectedBrand, setSelectedBrand] = useState("")
     const [selectSorting, setSelectSorting] = useState("")
-    // const [minValue, set_minValue] = useState(25);
-    // const [maxValue, set_maxValue] = useState(75);
-
 
     const brands = useSelector((state) => state.brandsSlice.brands);
     const items = useSelector((state) => state.itemsSlice.items);

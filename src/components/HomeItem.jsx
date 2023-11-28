@@ -18,25 +18,6 @@ const HomeItem = ({ currentItem }) => {
   const dispatch = useDispatch();
   const btnRef = useRef()
 
-  // const notifyAlready = () => toast.warn(`Item already in cart :)`, {
-  //   position: "top-center",
-  //   autoClose: 1500,
-  //   hideProgressBar: false,
-  //   closeOnClick: true,
-  //   pauseOnHover: true,
-  //   draggable: true,
-  //   progress: undefined,
-  //   theme: "dark",
-  // });
-
-  // const checkIfIsAlreadyInCart = () => {
-  //   if (!cart.some((element) => element._id === currentItem._id)) {
-  //     // notifyAlready()
-  //     dispatch(addToCart(currentItem))
-  //   } else {
-  //     dispatch(addToCart(currentItem))
-  //   }
-  // }
 
   const ableBtn = e => {
     if (btnRef.current) {

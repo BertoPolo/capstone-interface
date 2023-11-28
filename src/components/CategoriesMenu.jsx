@@ -24,7 +24,6 @@ function CategoriesMenu() {
 
       if (data) dispatch(addMainCategories(data));
       else notifyNotFound()
-      // console.log("Mcat:", data)
 
     } catch (error) {
       console.log(error)
