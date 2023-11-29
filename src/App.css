@@ -123,6 +123,11 @@ small {
 .login-small-font {
   font-size: calc(1px + 2vmin);
 }
+@media (max-width: 575.98px) {
+  .login-small-font {
+    font-size: calc(1px + 3vmin);
+  }
+}
 
 .loginBG {
   background-image: url("../public/Bglogin.avif");

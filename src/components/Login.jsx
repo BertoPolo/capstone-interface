@@ -12,22 +12,18 @@ const Login = () => {
 
   return (
     <>
-      {/*  DO NOT REPEAT CODE!!! */}
+      {/*  REMOVE DUPLICATED CODE! */}
 
       {/* extra-small screens view */}
       <Container fluid className="d-sm-none loginBG">
         <h1 className="h1XsScreen">Stuff to Route</h1>
 
         <div className="transparencywWhiteBox p-3 mt-5">
-
           <FormBox />
-
-          <hr />
-
           {/* option for not registered users */}
           <div className="d-flex justify-content-center">
             <div className="p-4">
-              <p> Aren't you registered yet?</p>
+              <p> <b>Aren't you registered yet?</b></p>
               <Button onClick={() => navigate("/home")}>Take a look without login</Button>
             </div>
           </div>
@@ -38,6 +34,7 @@ const Login = () => {
       {/* since small screens */}
       <Container fluid className="d-none d-sm-block">
         <Row>
+          {/* option for not registered users */}
           <Col className="login-container loginBG">
             <div className="p-4 transparencywWhiteBox">
               <p> Aren't you registered yet?</p>
