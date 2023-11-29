@@ -3,8 +3,8 @@ import { Row, Col } from "react-bootstrap"
 const Footer = () => {
   return (
     <>
-      <Row className="mt-3 footer">
-        <Col>
+      <Row className="mt-5 pt-1 footer text-center">
+        <Col >
           <h5>
             <u>About Us</u>
           </h5>
