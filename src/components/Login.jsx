@@ -6,10 +6,6 @@ const Login = () => {
 
   const navigate = useNavigate()
 
-
-
-
-
   return (
     <>
       {/*  REMOVE DUPLICATED CODE! */}
