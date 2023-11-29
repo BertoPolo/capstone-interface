@@ -20,21 +20,32 @@ const BackOffice = () => {
     return (
         <>
 
-            <Suspense fallback={<div>Loading...</div>}>
-                <MyNavbar />
-                <h1 className=" d-flex justify-content-center">BACKOFFICE</h1>
-                <div className="bOMenu m-3 d-flex justify-content-between mb-4">
+            <MyNavbar />
 
-                    <Button className="searchNSubmitButton" variant="outline" onClick={() => { dispatch(toggleIsOnUserSearch(true)); navigate("/backOfficeMenu/backOfficeUsers") }} ><i className="bi bi-search"></i> Search Users</Button >
-                    <Button className="searchNSubmitButton" variant="outline" onClick={() => { dispatch(toggleIsOnItemSearch(true)); navigate("/backOfficeMenu/backOfficeItems") }} > <i className="bi bi-search"></i> Search Items</Button >
-                    <Button className="searchNSubmitButton" variant="outline" onClick={() => { dispatch(toggleIsOnCreateNewItem(true)); navigate("/backOfficeMenu/backOfficeItems") }}><i className="bi bi-hammer"></i> Create Items</Button >
-                    <Button className="buttonBack" onClick={() => navigate("/home")}><i className="bi bi-box-arrow-in-left"></i></Button >
-                </div>
+            <h1 className=" d-flex justify-content-center">BACKOFFICE</h1>
+            <div className="bOMenu m-3 d-flex justify-content-between mb-4">
 
-                {isOnUserSearch && <BackOfficeUsers />}
-                {isOnItemSearch && <BackOfficeItems />}
-                {isOnCreateNewItem && <BackOfficeNewItem />}
-            </Suspense>
+                <Button className="searchNSubmitButton" variant="outline" onClick={() => { dispatch(toggleIsOnUserSearch(true)); navigate("/backOfficeMenu/backOfficeUsers") }} ><i className="bi bi-search"></i> Search Users</Button >
+                <Button className="searchNSubmitButton" variant="outline" onClick={() => { dispatch(toggleIsOnItemSearch(true)); navigate("/backOfficeMenu/backOfficeItems") }} > <i className="bi bi-search"></i> Search Items</Button >
+                <Button className="searchNSubmitButton" variant="outline" onClick={() => { dispatch(toggleIsOnCreateNewItem(true)); navigate("/backOfficeMenu/backOfficeItems") }}><i className="bi bi-hammer"></i> Create Items</Button >
+                <Button className="buttonBack" onClick={() => navigate("/home")}><i className="bi bi-box-arrow-in-left"></i></Button >
+            </div>
+
+            {isOnUserSearch &&
+                <Suspense fallback={<div>Loading...</div>}>
+                    <BackOfficeUsers />
+                </Suspense>}
+            {isOnItemSearch &&
+                <Suspense fallback={<div>Loading...</div>}>
+                    <BackOfficeItems />
+                </Suspense>
+            }
+            {isOnCreateNewItem &&
+                <Suspense fallback={<div>Loading...</div>}>
+                    <BackOfficeNewItem />
+                </Suspense>
+            }
+
         </>
     )
 }
