@@ -125,17 +125,24 @@ const Home = () => {
                   })}
                 </Row>}
 
-              <Suspense fallback={<div>Loading...</div>}>
-                {/* OUTLET */}
-                {isOnOutlet && <Outlet />}
+              {/* OUTLET */}
+              {isOnOutlet &&
+                <Suspense fallback={<div>Loading...</div>}>
+                  <Outlet />
+                </Suspense>}
 
-                {/* CONTACT US */}
-                {isOnCountactUs && <ContactUs />}
+              {/* CONTACT US */}
+              {isOnCountactUs &&
+                <Suspense fallback={<div>Loading...</div>}>
+                  <ContactUs />
+                </Suspense>}
 
-                {/* Single Item */}
-                {isOnSingleItem && <SingleItem />}
+              {/* Single Item */}
+              {isOnSingleItem &&
+                <Suspense fallback={<div>Loading...</div>}>
+                  <SingleItem />
+                </Suspense>}
 
-              </Suspense>
             </Col>
           </Col>
         </Row>
