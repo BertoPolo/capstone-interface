@@ -12,7 +12,7 @@ import { useState } from "react"
 const Outlet = React.lazy(() => import('./Outlet'));
 const ContactUs = React.lazy(() => import('./ContactUs'));
 const SingleItem = React.lazy(() => import('./SingleItem'));
-const Footer = React.lazy(() => import('./SingleItem'));
+const Footer = React.lazy(() => import('./Footer'));
 
 const Home = () => {
 
@@ -113,20 +113,21 @@ const Home = () => {
             <Col>
 
               {/* HOME */}
-              {isOnHome && <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-5">
+              {isOnHome &&
+                <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-5">
 
-                {items.map((element) => {
-                  return (
-                    <Col key={element._id}>
-                      <HomeItem currentItem={element} />
-                    </Col>
-                  )
-                })}
-              </Row>}
+                  {items.map((element) => {
+                    return (
+                      <Col key={element._id}>
+                        <HomeItem currentItem={element} />
+                      </Col>
+                    )
+                  })}
+                </Row>}
 
               <Suspense fallback={<div>Loading...</div>}>
                 {/* OUTLET */}
-                {isOnOutlet && <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-5"><Outlet /></Row>}
+                {isOnOutlet && <Outlet />}
 
                 {/* CONTACT US */}
                 {isOnCountactUs && <ContactUs />}

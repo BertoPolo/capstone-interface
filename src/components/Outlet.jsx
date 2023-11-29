@@ -1,4 +1,4 @@
-import { Col } from "react-bootstrap"
+import { Col, Row } from "react-bootstrap"
 import { useSelector } from "react-redux"
 import HomeItem from "./HomeItem"
 
@@ -10,14 +10,16 @@ const Outlet = () => {
 
   return (
     <>
-      {items.filter((item) => item.isOutlet === true).map((element) => {
-        return (
-          <Col key={element._id}>
-            <HomeItem currentItem={element} />
-          </Col>
-        )
-      })}
+      <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-5">
+        {items.filter((item) => item.isOutlet === true).map((element) => {
+          return (
+            <Col key={element._id}>
+              <HomeItem currentItem={element} />
+            </Col>
+          )
+        })}
 
+      </Row>
     </>
   )
 }

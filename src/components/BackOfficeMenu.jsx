@@ -17,9 +17,6 @@ const BackOffice = () => {
 
     const { isOnUserSearch, isOnItemSearch, isOnCreateNewItem } = useSelector((state) => state.pagesSlice)
 
-
-
-
     return (
         <>
 
