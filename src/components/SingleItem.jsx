@@ -1,17 +1,24 @@
+import { useEffect, useState } from "react"
 import { Button, Container, Row, Col } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
 import { addToCart } from "../slices/cart/cartSlice"
 import { toggleIsOnHome } from "../slices/pages/pagesSlice"
 
 
-
 const SingleItem = () => {
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+
 
   const cart = useSelector((state) => state.cartSlice.cart);
   const { selectedItem, isOnOutlet, items } = useSelector((state) => state.itemsSlice);
+
   const dispatch = useDispatch();
 
 
+  useEffect(() => {
+    const isItemInCart = cart.some((element) => element._id === selectedItem._id);
+    setIsButtonDisabled(isItemInCart);
+  }, [cart, selectedItem._id])
 
   return (
     <>
@@ -27,7 +34,7 @@ const SingleItem = () => {
             {isOnOutlet ? <h3>{selectedItem.outletPrice}€</h3> : <h3>{selectedItem.price}€</h3>}
 
             <div className="d-flex justify-content-between mt-3">
-              <Button className="addToCartButton w-25 " onClick={() => dispatch(addToCart(selectedItem))}><i className="bi bi-cart-plus"></i></Button>
+              <Button className="addToCartButton w-25 " disabled={isButtonDisabled} onClick={() => dispatch(addToCart(selectedItem))}><i className="bi bi-cart-plus"></i></Button>
               <Button className="w-25 buttonBack" onClick={() => dispatch(toggleIsOnHome(true))}><i className="bi bi-box-arrow-in-left"></i></Button>
             </div>
           </Col>
