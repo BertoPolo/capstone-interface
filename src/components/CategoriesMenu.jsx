@@ -64,7 +64,6 @@ function CategoriesMenu() {
         dispatch(addItems([]))
       }
 
-
     } catch (error) {
       console.log(error)
     }
@@ -97,13 +96,10 @@ function CategoriesMenu() {
 
             <Card key={mainElement._id}>
               <Card.Header>
-                {/* <div className="d-flex"> */}
                 <Accordion.Toggle as={Card.Header} eventKey={mainElement._id} className="pointer d-flex" onClick={() => getByMainCategory(mainElement._id)} >
                   {mainElement.mainCategory}
                 </Accordion.Toggle>
 
-                {/* <i className="bi bi-plus pointer ml-4"></i> */}
-                {/* </div> */}
 
               </Card.Header>
               {mainElement.categories.length > 0 && <Accordion.Collapse eventKey={mainElement._id}>
