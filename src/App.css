@@ -94,7 +94,7 @@ small {
   display: flex;
   justify-content: center;
   font-weight: bolder;
-  margin-top: 1rem;
+  padding-top: 1rem;
   text-shadow: 3px 4px 5px #979296;
 }
 
