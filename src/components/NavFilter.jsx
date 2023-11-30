@@ -44,7 +44,7 @@ const NavFilter = () => {
         else getRandomItems()
     }
 
-    const notifyNotFound = () => toast.warn(`OOPS! looks like we don't anything there`, {
+    const notifyNotFound = () => toast.warn(`OOPS! looks like we don't have anything there`, {
         position: "top-center",
         autoClose: 2500,
         hideProgressBar: false,
@@ -89,17 +89,21 @@ const NavFilter = () => {
 
     const getFilteredItems = async (e, fromResetStates = false) => {
         if (e) e.preventDefault();
+        const fromOutlet = location.pathname === "/home/outlet";
         try {
             let url = fromResetStates
+                //its working but shouldn't be like this? => ? `?isOutlet=true`
                 ? `?outlet=true`
-                : `?price>${minPrice}&price<${maxPrice}&sort=${sorting}&title=/^${searchInput}/&brand=${brandId}`;
+                : `?price>${encodeURIComponent(minPrice)}&price<${encodeURIComponent(maxPrice)}&sort=${encodeURIComponent(sorting)}&title=/^${encodeURIComponent(searchInput)}/i&brand=${encodeURIComponent(brandId)}${fromOutlet ? `&isOutlet="true"` : ""}`
 
             const response = await fetch(`${process.env.REACT_APP_SERVER}items${url}`);
             if (response.ok) {
                 const data = await response.json();
                 dispatch(addItems(data));
+                console.log();
             }
             else notifyNotFound()
+
 
         } catch (error) {
             console.log(error)
