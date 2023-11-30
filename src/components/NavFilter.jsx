@@ -1,5 +1,6 @@
 import { Dropdown, Button, Form, FormControl, Container, Row, Col } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
+import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react"
 import { toast } from 'react-toastify';
 import MultiRangeSlider from "multi-range-slider-react";
@@ -21,7 +22,7 @@ const NavFilter = () => {
     const currentFilters = useSelector((state) => state.itemsSlice.currentFilters)
 
     const dispatch = useDispatch()
-
+    const location = useLocation();
 
     const handleInput = (e) => {
         setMinPrice(e.minValue);
@@ -37,8 +38,10 @@ const NavFilter = () => {
         setSorting("")
         setBrandId("")
 
-        //if params===outlet  then get getFilteredItems( outlet=true)
-        //else getRandomItems
+        if (location.pathname === "/home/outlet") {
+            getFilteredItems(null, true)
+        }
+        else getRandomItems()
     }
 
     const notifyNotFound = () => toast.warn(`OOPS! looks like we don't anything there`, {
@@ -79,14 +82,19 @@ const NavFilter = () => {
 
     // let filterQuery ( example :  if searchInput is true => push " &title=/^${searchInput}/i" to "filterQuery")
     // if filter query is empty then push without &, else push with it 
+    //let filterQuery =""
+    //if (minPrice) filterQuery= filterQuery+"price>"${minPrice}  and so on..
+    // ${filterQuery}
+    // price>${minPrice}&price<${maxPrice}&sort=${sorting}&title=/^${searchInput}/&brand=${brandId}
 
-    const getFilteredItems = async (e) => {
-        e.preventDefault()
+    const getFilteredItems = async (e, fromResetStates = false) => {
+        if (e) e.preventDefault();
         try {
-            const response = await fetch(`${process.env.REACT_APP_SERVER}items?price>${minPrice}&price<${maxPrice}&sort=${sorting}&title=/^${searchInput}/&brand=${brandId}`);
-            // ${filterQuery}
-            // price>${minPrice}&price<${maxPrice}&sort=${sorting}&title=/^${searchInput}/&brand=${brandId}
+            let url = fromResetStates
+                ? `?outlet=true`
+                : `?price>${minPrice}&price<${maxPrice}&sort=${sorting}&title=/^${searchInput}/&brand=${brandId}`;
 
+            const response = await fetch(`${process.env.REACT_APP_SERVER}items${url}`);
             if (response.ok) {
                 const data = await response.json();
                 dispatch(addItems(data));
