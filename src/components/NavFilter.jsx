@@ -36,6 +36,9 @@ const NavFilter = () => {
         setSelectedBrand("")
         setSorting("")
         setBrandId("")
+
+        //if params===outlet  then get getFilteredItems( outlet=true)
+        //else getRandomItems
     }
 
     const notifyNotFound = () => toast.warn(`OOPS! looks like we don't anything there`, {
@@ -52,7 +55,6 @@ const NavFilter = () => {
     const getRandomItems = async () => {
         try {
             const response = await fetch(`${process.env.REACT_APP_SERVER}items/random`,
-
             );
             if (response.ok) {
                 const data = await response.json();
@@ -81,9 +83,9 @@ const NavFilter = () => {
     const getFilteredItems = async (e) => {
         e.preventDefault()
         try {
-            const response = await fetch(`${process.env.REACT_APP_SERVER}items?price>${minPrice}&price<${maxPrice}&sort=${sorting}&title=/^${searchInput}/i&brand=${brandId}`);
+            const response = await fetch(`${process.env.REACT_APP_SERVER}items?price>${minPrice}&price<${maxPrice}&sort=${sorting}&title=/^${searchInput}/&brand=${brandId}`);
             // ${filterQuery}
-            // price>${minPrice}&price<${maxPrice}&sort=${sorting}&title=/^${searchInput}/i&brand=${brandId}
+            // price>${minPrice}&price<${maxPrice}&sort=${sorting}&title=/^${searchInput}/&brand=${brandId}
 
             if (response.ok) {
                 const data = await response.json();
@@ -98,7 +100,6 @@ const NavFilter = () => {
 
 
     useEffect(() => {
-        // getItems()
         getBrands()
     }, [])
 
@@ -178,7 +179,7 @@ const NavFilter = () => {
 
                         {/*submit button  */}
                         <Col className="d-flex justify-content-center">
-                            <Button variant="outline-dark" className="pointer btn-sm" onClick={() => { getRandomItems(); resetStates() }}>Clean filters</Button>
+                            <Button variant="outline-dark" className="pointer btn-sm" onClick={() => { resetStates() }}>Clean filters</Button>
                             <Button type="submit" className="d-flex submitButton ml-3 btn-sm">Enter Filters</Button>
 
                         </Col>

@@ -109,7 +109,7 @@ const Home = () => {
 
           </Col>}
 
-          <Col > {/* xs={9} md={10} */}
+          <Col >
             <Col>
 
               {/* HOME */}

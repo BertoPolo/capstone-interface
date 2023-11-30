@@ -10,7 +10,7 @@ const Login = () => {
     <>
       {/*  REMOVE DUPLICATED CODE! */}
 
-      {/* extra-small screens view */}
+      {/* ONLY extra-small screens */}
       <Container fluid className="d-sm-none loginBG">
         <h1 className="h1XsScreen">Stuff to Route</h1>
 
@@ -27,7 +27,7 @@ const Login = () => {
 
       </Container>
 
-      {/* since small screens */}
+      {/* SINCE small screens */}
       <Container fluid className="d-none d-sm-block">
         <Row>
           {/* option for not registered users */}
@@ -39,7 +39,6 @@ const Login = () => {
           </Col>
 
           <Col className="d-flex flex-column">
-            {/* <h1 className="h1SmScreen ">Stuff to Route</h1> */}
             <Image className="mb-3 mt-2 ml-auto mr-auto " src="/STR_LOGIN.avif" style={{ maxHeight: "36vh", maxWidth: "38vw" }} alt="Login Logo" />
             <FormBox />
           </Col>
