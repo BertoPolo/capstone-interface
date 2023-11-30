@@ -1,23 +1,17 @@
 ## IMPROVEMENTS / TO DO / NICE TO HAVE
 
 - Merge functions ,there are too much wich are similar or equal... to share functions between components
-- (img)placeholder for items with no img // or add option property like : publish = true/false
 - Add breadcrumbs (visual route links) https://react-bootstrap-v4.netlify.app/components/breadcrumb/
 - If you go out from creating new item without uploading an image, get an alert
 - At createitem, when choose main category,should only displays related categories
 - Change the filter query for an array : `${process.env.React_APP_SERVER}items?${filterQuery}`
 - Improve pages changing/navigating. removing functions setting just where you are, without true/false. Do a dictionary with routes
 - URL routes ( single Item done)
-- Avoid repeating route elements
 - Responsive Card payment
-- Styling problem with new spinners Login,createUser => put the spinner in a emergent window?
 - Add "token required" to swagger and finish it
 - BackEnd - don't send all filtered items if not asking
 - SECURITY
-- Use user's bike to tell if it fits on user's bike
 - Show some graphs in the backoffice about sales or whatever you want => https://nivo.rocks/line/
 - Create discount vouchers
 - Link Cart with token/user
 - Spinner --- let a red light if something went wrong and setTimeout to remove it ( only done in Login )
-- Redo Login without duplicating code ( about responsiveness )
-- Filters, change how are working

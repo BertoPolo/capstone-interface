@@ -75,6 +75,10 @@ small {
 /* HomeItem end */
 
 /* Login start */
+.loginTitle {
+  font-size: 1.5rem;
+}
+
 .h1SmScreen {
   display: flex;
   justify-content: center;

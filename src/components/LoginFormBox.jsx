@@ -130,7 +130,7 @@ const FormBox = () => {
       <Form className="login-container" onSubmit={createToken}>
         <div className="login-modal">
 
-          <h4 className="mb-3">Login </h4>
+          <p className="mb-3 loginTitle">Login </p>
           <Form.Group>
             <Form.Control type="text" placeholder="Username" value={usernameInput} onChange={(e) => setUsernameInput(e.target.value)} />
           </Form.Group>

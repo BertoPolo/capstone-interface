@@ -22,8 +22,6 @@ const Home = () => {
 
   const [isCategoriesMenuDropdown, setIsCategoriesDropdown] = useState(false)
 
-
-
   const dispatch = useDispatch();
 
   const getRandomItems = async () => {
