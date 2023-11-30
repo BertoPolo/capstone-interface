@@ -100,7 +100,6 @@ const NavFilter = () => {
             if (response.ok) {
                 const data = await response.json();
                 dispatch(addItems(data));
-                console.log();
             }
             else notifyNotFound()
 

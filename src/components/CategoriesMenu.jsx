@@ -1,6 +1,7 @@
 import { Accordion, Card } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
+import { useLocation } from "react-router-dom";
 import { toggleIsOnCategory } from "../slices/pages/pagesSlice"
 import { addItems } from "../slices/items/itemsSlice"
 import { addMainCategories } from "../slices/mainCategories/mainCategoriesSlice"
@@ -16,6 +17,8 @@ function CategoriesMenu() {
   const mainCategories = useSelector((state) => state.mainCategoriesSlice.mainCategories);
 
   const dispatch = useDispatch()
+  const location = useLocation();
+
 
   const getMainCategories = async () => {
     try {
@@ -47,14 +50,19 @@ function CategoriesMenu() {
   }
 
   const getByCategory = async (categoryId) => {
+    const fromOutlet = location.pathname === "/home/outlet";
     try {
-      const response = await fetch(`${process.env.REACT_APP_SERVER}items?category=${categoryId}`);
+      const response = await fetch(`${process.env.REACT_APP_SERVER}items?category=${categoryId}${fromOutlet ? `&isOutlet="true"` : ""}`);
       if (response.ok) {
         const data = await response.json();
         dispatch(addItems(data))
         toggleIsOnCategory(true)
+        console.log(data.length)
       }
-      else notifyNotFound()
+      else {
+        notifyNotFound()
+        dispatch(addItems([]))
+      }
 
 
     } catch (error) {
