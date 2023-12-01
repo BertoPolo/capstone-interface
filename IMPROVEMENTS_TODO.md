@@ -15,3 +15,6 @@
 - Create discount vouchers
 - Link Cart with token/user
 - Spinner --- let a red light if something went wrong and setTimeout to remove it ( only done in Login )
+- Implement to see filters and items in route/path ( params) => then modify searches to be by params
+- Reset scroll when navigate
+- Add title to /outlet, when you are in, is not visual you are there

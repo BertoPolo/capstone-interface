@@ -55,7 +55,6 @@ const Home = () => {
                 </div>
               </Carousel.Caption>
             </Carousel.Item>
-            {/*  */}
 
             <Carousel.Item>
               <img fluid="true" className="d-block m-auto carouselImg" src="/oilPack.avif" alt="Oil Pack Offer slide" />

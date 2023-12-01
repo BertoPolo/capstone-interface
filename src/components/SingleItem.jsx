@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useNavigate, } from "react-router-dom"
 import { Button, Container, Row, Col } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
 import { addToCart } from "../slices/cart/cartSlice"
@@ -13,6 +14,7 @@ const SingleItem = () => {
   const { selectedItem, isOnOutlet, items } = useSelector((state) => state.itemsSlice);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate()
 
 
   useEffect(() => {
@@ -35,7 +37,7 @@ const SingleItem = () => {
 
             <div className="d-flex justify-content-between mt-3">
               <Button className="addToCartButton w-25 " disabled={isButtonDisabled} onClick={() => dispatch(addToCart(selectedItem))}><i className="bi bi-cart-plus"></i></Button>
-              <Button className="w-25 buttonBack" onClick={() => dispatch(toggleIsOnHome(true))}><i className="bi bi-box-arrow-in-left"></i></Button>
+              <Button className="w-25 buttonBack" onClick={() => { dispatch(toggleIsOnHome(true)); navigate("/home") }}><i className="bi bi-box-arrow-in-left"></i></Button>
             </div>
           </Col>
         </Row>
