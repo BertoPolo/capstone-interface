@@ -20,7 +20,7 @@ const Login = () => {
           <div className="d-flex justify-content-center">
             <div className="p-4">
               <p> <b>Aren't you registered yet?</b></p>
-              <Button onClick={() => navigate("/home")}>Take a look without login</Button>
+              <Button className="addToCartButton border-0" onClick={() => navigate("/home")}>Take a look without login</Button>
             </div>
           </div>
         </div>
@@ -34,7 +34,7 @@ const Login = () => {
           <Col className="login-container loginBG">
             <div className="p-4 transparencywWhiteBox">
               <p> Aren't you registered yet?</p>
-              <Button onClick={() => navigate("/home")}>Take a look without login</Button>
+              <Button className="addToCartButton border-0" onClick={() => navigate("/home")}>Take a look without login</Button>
             </div>
           </Col>
 

@@ -143,7 +143,7 @@ const FormBox = () => {
                   <Form.Check type="checkbox" label="Remember me" className="login-small-font" onClick={() => setIsRemember(!isRemember)} />
                 </Form.Group> */}
 
-          <Button variant="primary" type="submit" ref={btnRef} disabled={(!usernameInput) || (!passwordInput)} >
+          <Button className="addToCartButton border-0" type="submit" ref={btnRef} disabled={(!usernameInput) || (!passwordInput)} >
             Enter
           </Button>
 
