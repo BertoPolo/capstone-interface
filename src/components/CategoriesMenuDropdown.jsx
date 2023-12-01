@@ -70,7 +70,6 @@ const CategoriesMenuDropdown = () => {
                                 <Accordion.Toggle as={Card.Header} eventKey={mainElement._id} className="pointer" onClick={() => getByMainCategory(mainElement._id)} >
                                     {mainElement.mainCategory}
                                 </Accordion.Toggle>
-                                {/* <i className="bi bi-plus pointer ml-4"></i> */}
 
                             </Card.Header>
                             <Accordion.Collapse eventKey={mainElement._id}>
