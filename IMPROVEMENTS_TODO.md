@@ -18,8 +18,6 @@
 ## Actives TO DO
 
 - Change navigation among pages, from states to params
-- From /singleItem, can’t click on categories and move there
-- From /singleItem, in XS screen you can’t see categories
 - Clean unused imports
 - Reset scroll when navigate
 - Implement to see filters and items in route/path ( params ) => then modify searches to be by params

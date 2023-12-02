@@ -17,8 +17,8 @@ function CategoriesMenu() {
   const mainCategories = useSelector((state) => state.mainCategoriesSlice.mainCategories);
 
   const dispatch = useDispatch()
-  const location = useLocation();
   const navigate = useNavigate()
+  const location = useLocation();
 
 
   const getMainCategories = async () => {
