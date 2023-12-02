@@ -1,6 +1,7 @@
 import { Accordion, Card } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
-import { toggleIsOnCategory } from "../slices/pages/pagesSlice"
+import { useNavigate } from "react-router-dom";
+import { toggleIsOnCategory, toggleIsOnHome } from "../slices/pages/pagesSlice"
 import { addItems } from "../slices/items/itemsSlice"
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
@@ -14,6 +15,7 @@ const CategoriesMenuDropdown = () => {
     const mainCategories = useSelector((state) => state.mainCategoriesSlice.mainCategories);
 
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const notifyNotFound = () => toast.warn(`OOPS! looks like we don't have that`, {
         position: "top-center",
@@ -72,12 +74,13 @@ const CategoriesMenuDropdown = () => {
                                 </Accordion.Toggle>
 
                             </Card.Header>
+
                             {mainElement.categories.length > 0 &&
                                 <Accordion.Collapse eventKey={mainElement._id}>
                                     <Card.Body className="p-0 pl-5 pt-1">
                                         {<>
                                             {mainElement.categories.map(category => (
-                                                <p className="pointer" key={category.categories} onClick={() => getByCategory(category._id)} >{category.categories}</p>
+                                                <p className="pointer" key={category.categories} onClick={() => { getByCategory(category._id); navigate("/home"); dispatch(toggleIsOnHome(true)) }} >{category.categories}</p>
                                             ))
                                             }
                                         </>}

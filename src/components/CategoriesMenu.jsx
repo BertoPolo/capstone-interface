@@ -1,8 +1,8 @@
 import { Accordion, Card } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
-import { useLocation } from "react-router-dom";
-import { toggleIsOnCategory } from "../slices/pages/pagesSlice"
+import { useLocation, useNavigate } from "react-router-dom";
+import { toggleIsOnCategory, toggleIsOnHome } from "../slices/pages/pagesSlice"
 import { addItems } from "../slices/items/itemsSlice"
 import { addMainCategories } from "../slices/mainCategories/mainCategoriesSlice"
 import { toast } from 'react-toastify';
@@ -18,6 +18,7 @@ function CategoriesMenu() {
 
   const dispatch = useDispatch()
   const location = useLocation();
+  const navigate = useNavigate()
 
 
   const getMainCategories = async () => {
@@ -107,7 +108,7 @@ function CategoriesMenu() {
                     {mainElement.categories.map(category => {
 
                       return (
-                        <p className="pointer" key={category.categories} onClick={() => getByCategory(category._id)} >{category.categories}</p>
+                        <p className="pointer" key={category.categories} onClick={() => { getByCategory(category._id); navigate("/home"); dispatch(toggleIsOnHome(true)) }} >{category.categories}</p>
                       )
                     })
                     }
