@@ -15,13 +15,15 @@
 - Create discount vouchers
 - Link Cart with token/user
 
-##
+## Actives TO DO
 
 - Change navigation among pages, from states to params
 - From /singleItem, can’t click on categories and move there
 - From /singleItem, in XS screen you can’t see categories
 - Clean unused imports
-- Do a rollback after any admin change after 15min or just create a public admin user to apply the rollback
-- implement to see filters and items in route/path ( params) => then modify searches to be by params
-- /outlet add title , right now is not intuitive that you are there
 - Reset scroll when navigate
+- Implement to see filters and items in route/path ( params ) => then modify searches to be by params
+- Change Readme.md
+- At /outlet add title, right now is not intuitive that you are there
+- Do a rollback after any admin change after 15min or just create a public admin user to apply the rollback
+- Testing
