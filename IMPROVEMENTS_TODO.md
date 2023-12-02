@@ -10,11 +10,18 @@
 - Responsive Card payment
 - Add "token required" to swagger and finish it
 - BackEnd - don't send all filtered items if not asking
-- SECURITY
+- Improve security
 - Show some graphs in the backoffice about sales or whatever you want => https://nivo.rocks/line/
 - Create discount vouchers
 - Link Cart with token/user
-- Spinner --- let a red light if something went wrong and setTimeout to remove it ( only done in Login )
-- Implement to see filters and items in route/path ( params) => then modify searches to be by params
+
+##
+
+- Change navigation among pages, from states to params
+- From /singleItem, can’t click on categories and move there
+- From /singleItem, in XS screen you can’t see categories
+- Clean unused imports
+- Do a rollback after any admin change after 15min or just create a public admin user to apply the rollback
+- implement to see filters and items in route/path ( params) => then modify searches to be by params
+- /outlet add title , right now is not intuitive that you are there
 - Reset scroll when navigate
-- Add title to /outlet, when you are in, is not visual you are there

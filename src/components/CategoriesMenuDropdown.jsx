@@ -5,9 +5,9 @@ import { addItems } from "../slices/items/itemsSlice"
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
+// THIS IS THE CATEGORIES MENU JUST FOR THE XS SCREEN
 
 const CategoriesMenuDropdown = () => {
-
     const items = useSelector((state) => state.itemsSlice.items);
     const brands = useSelector((state) => state.brandsSlice.brands);
     const categories = useSelector((state) => state.categoriesSlice.categories);
