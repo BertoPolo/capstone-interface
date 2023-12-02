@@ -66,23 +66,24 @@ const CategoriesMenuDropdown = () => {
                     return (
 
                         <Card key={mainElement._id}>
-                            <Card.Header>
+                            <Card.Header className="p-0">
                                 <Accordion.Toggle as={Card.Header} eventKey={mainElement._id} className="pointer" onClick={() => getByMainCategory(mainElement._id)} >
                                     {mainElement.mainCategory}
                                 </Accordion.Toggle>
 
                             </Card.Header>
-                            <Accordion.Collapse eventKey={mainElement._id}>
-                                <Card.Body>
-                                    {<>
-                                        {mainElement.categories.map(category => (
-                                            <p className="pointer" key={category.categories} onClick={() => getByCategory(category._id)} >{category.categories}</p>
-                                        ))
-                                        }
-                                    </>}
+                            {mainElement.categories.length > 0 &&
+                                <Accordion.Collapse eventKey={mainElement._id}>
+                                    <Card.Body className="p-0 pl-5 pt-1">
+                                        {<>
+                                            {mainElement.categories.map(category => (
+                                                <p className="pointer" key={category.categories} onClick={() => getByCategory(category._id)} >{category.categories}</p>
+                                            ))
+                                            }
+                                        </>}
 
-                                </Card.Body>
-                            </Accordion.Collapse>
+                                    </Card.Body>
+                                </Accordion.Collapse>}
                         </Card>
                     )
                 })}

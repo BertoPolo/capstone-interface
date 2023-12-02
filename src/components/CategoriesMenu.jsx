@@ -57,7 +57,6 @@ function CategoriesMenu() {
         const data = await response.json();
         dispatch(addItems(data))
         toggleIsOnCategory(true)
-        console.log(data.length)
       }
       else {
         notifyNotFound()
