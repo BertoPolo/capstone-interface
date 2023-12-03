@@ -5,15 +5,14 @@
 - If you go out from creating new item without uploading an image, get an alert
 - At createitem, when choose main category,should only displays related categories
 - Change the filter query for an array : `${process.env.React_APP_SERVER}items?${filterQuery}`
-- Improve pages changing/navigating. removing functions setting just where you are, without true/false. Do a dictionary with routes
-- URL routes ( single Item done)
-- Responsive Card payment
+- Responsive Card payment (Stripe)
 - Add "token required" to swagger and finish it
 - BackEnd - don't send all filtered items if not asking
 - Improve security
 - Show some graphs in the backoffice about sales or whatever you want => https://nivo.rocks/line/
 - Create discount vouchers
 - Link Cart with token/user
+- Improve item's pictures
 
 ## Actives TO DO
 
