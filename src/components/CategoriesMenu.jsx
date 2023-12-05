@@ -89,15 +89,15 @@ function CategoriesMenu() {
     <>
 
       <h4>CATEGORIES</h4>
-      <Accordion>
+      <Accordion className="mb-5">
 
         {mainCategories.map((mainElement) => {
           return (
 
             <Card key={mainElement._id}>
-              <Card.Header className="p-3">
+              <Card.Header className="p-0">
                 <Accordion.Toggle as={Card.Header} eventKey={mainElement._id} className="pointer d-flex text-center" onClick={() => getByMainCategory(mainElement._id)} >
-                  {mainElement.mainCategory}
+                  <b>{mainElement.mainCategory}</b>
                 </Accordion.Toggle>
 
 
