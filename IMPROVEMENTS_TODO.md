@@ -16,6 +16,7 @@
 
 ## Actives TO DO
 
+- /resume dropdown is not behavioring well
 - Change navigation among pages, from states to params
 - Implement to see filters and M/cats in route/path ( params ) => then modify searches to be by params
 - Change range price input
