@@ -96,7 +96,9 @@ function CategoriesMenu() {
 
             <Card key={mainElement._id}>
               <Card.Header className="p-0">
-                <Accordion.Toggle as={Card.Header} eventKey={mainElement._id} className="pointer d-flex text-center" onClick={() => getByMainCategory(mainElement._id)} >
+                <Accordion.Toggle as={Card.Header} eventKey={mainElement._id} className="pointer d-flex text-center" onClick={() => {
+                  getByMainCategory(mainElement._id); navigate(`/home/${mainElement.mainCategory}`)
+                }} >
                   <b>{mainElement.mainCategory}</b>
                 </Accordion.Toggle>
 
@@ -108,7 +110,7 @@ function CategoriesMenu() {
                     {mainElement.categories.map(category => {
 
                       return (
-                        <p className="pointer" key={category.categories} onClick={() => { getByCategory(category._id); navigate("/home"); dispatch(toggleIsOnHome(true)) }} >{category.categories}</p>
+                        <p className="pointer" key={category.categories} onClick={() => { getByCategory(category._id); navigate(`/home/${category.categories}`); dispatch(toggleIsOnHome(true)) }} >{category.categories}</p>
                       )
                     })
                     }

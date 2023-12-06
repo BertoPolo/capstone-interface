@@ -1,6 +1,6 @@
 import { Dropdown, Button, Form, FormControl, Container, Row, Col } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react"
 import { toast } from 'react-toastify';
 import MultiRangeSlider from "multi-range-slider-react";
@@ -23,6 +23,8 @@ const NavFilter = () => {
 
     const dispatch = useDispatch()
     const location = useLocation();
+    const navigate = useNavigate()
+
 
     const handleInput = (e) => {
         setMinPrice(e.minValue);
@@ -41,7 +43,10 @@ const NavFilter = () => {
         if (location.pathname === "/home/outlet") {
             getFilteredItems(null, true)
         }
-        else getRandomItems()
+        else {
+            getRandomItems()
+            navigate("/home")
+        }
     }
 
     const notifyNotFound = () => toast.warn(`OOPS! looks like we don't have anything there`, {

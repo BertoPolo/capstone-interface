@@ -17,12 +17,12 @@
 ## Actives TO DO
 
 - Change navigation among pages, from states to params
+- Implement to see filters and M/cats in route/path ( params ) => then modify searches to be by params
 - Change range price input
 - Change font for categories?
 - Clean unused imports
 - Remove movement from bottom when is there not much items and clicks on M.cats
 - Reset scroll when navigate
-- Implement to see filters and items in route/path ( params ) => then modify searches to be by params
 - Change Readme.md
 - At /outlet add title, right now is not intuitive that you are there
 - Do a rollback after any admin change after 15min or just create a public admin user to apply the rollback
