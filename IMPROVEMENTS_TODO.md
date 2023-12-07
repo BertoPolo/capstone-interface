@@ -12,7 +12,8 @@
 - Show some graphs in the backoffice about sales or whatever you want => https://nivo.rocks/line/
 - Create discount vouchers
 - Link Cart with token/user
-- Improve item's pictures
+- Improve item's pictures and namings
+- Send me a notification email if rollback was unsuccessful
 
 ## Actives TO DO
 
@@ -27,5 +28,5 @@
 - Reset scroll when navigate
 - Change Readme.md
 - At /outlet add title, right now is not intuitive that you are there
-- Do a rollback after any admin change after 15min or just create a public admin user to apply the rollback
-- Testing
+- Testing/Jest
+- Style Stripe component

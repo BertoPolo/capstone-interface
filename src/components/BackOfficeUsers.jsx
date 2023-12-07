@@ -174,7 +174,7 @@ const BackOfficeUsers = () => {
                     </Dropdown>
 
                     <Form.Group >
-                        <Form.Control type="text" className="justify-content-center w-25" placeholder="Who do you want to search?" value={parameterToSearch} onChange={(e) => setParameterToSearch(e.target.value)} />
+                        <Form.Control disabled={!wayToSearch} type="text" className="justify-content-center w-25" placeholder="Who do you want to search?" value={parameterToSearch} onChange={(e) => setParameterToSearch(e.target.value)} />
                     </Form.Group>
                 </div>
 
