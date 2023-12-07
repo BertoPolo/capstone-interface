@@ -83,7 +83,7 @@ const BackOfficeUsers = () => {
         e.preventDefault()
         try {
             const response = await fetch(
-                `${process.env.REACT_APP_SERVER}users?${wayToSearch}=${parameterToSearch}`, {
+                `${process.env.REACT_APP_SERVER}users?${wayToSearch}=/^${parameterToSearch}/i`, {
                 headers: {
                     "Authorization": "Bearer " + token
                 }
