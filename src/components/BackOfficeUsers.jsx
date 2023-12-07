@@ -186,7 +186,7 @@ const BackOfficeUsers = () => {
 
             {editMode ?
 
-                <Form onSubmit={(e) => editUser(e)}>
+                <Form className="mb-4" onSubmit={(e) => editUser(e)}>
                     <h4>Change user's data</h4>
 
                     <Form.Group>
@@ -209,7 +209,7 @@ const BackOfficeUsers = () => {
                         <Form.Control type="text" value={adressInput} onChange={(e) => setAdressInput(e.target.value)} />
                     </Form.Group>
                     <div className="d-flex">
-                        <Button type="submit"> Submit </Button>
+                        <Button className="mr-3" type="submit"> Submit </Button>
                         <Button variant="warning" onClick={() => { if (window.confirm(`Are you sure you don't wish save your changes?`)) { resetStates(); setEditMode(false) } }} >Cancel</Button>
                     </div>
                 </Form>

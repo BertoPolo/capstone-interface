@@ -14,6 +14,7 @@
 - Link Cart with token/user
 - Improve item's pictures and namings
 - Send me a notification email if rollback was unsuccessful
+- Refresh page after deleting users
 
 ## Actives TO DO
 
