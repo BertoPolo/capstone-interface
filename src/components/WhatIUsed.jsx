@@ -7,9 +7,9 @@ const WhatIUsed = () => {
 
     return (
 
-        <Container>
+        <Container className="my-5">
 
-            <h4 className="mt-5"><b>Frontend</b></h4>
+            <h4><b>Frontend</b></h4>
             <ul>
                 <li>Javascript</li>
                 <li>ReactJs</li>

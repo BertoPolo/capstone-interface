@@ -22,7 +22,7 @@ const BackOffice = () => {
 
             <MyNavbar />
 
-            <h1 className=" d-flex justify-content-center">BACKOFFICE</h1>
+            <h1 className=" d-flex justify-content-center pt-4">BACKOFFICE</h1>
             <div className="bOMenu m-3 d-flex justify-content-between mb-4">
 
                 <Button className="searchNSubmitButton" variant="outline" onClick={() => { dispatch(toggleIsOnUserSearch(true)); navigate("/backOfficeMenu/backOfficeUsers") }} ><i className="bi bi-search"></i> Search Users</Button >

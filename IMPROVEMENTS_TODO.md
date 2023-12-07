@@ -19,6 +19,7 @@
 - /resume dropdown is not behavioring well
 - Change navigation among pages, from states to params
 - Implement to see filters and M/cats in route/path ( params ) => then modify searches to be by params
+- Add bg to tab's icon
 - Change range price input
 - Change font for categories?
 - Clean unused imports

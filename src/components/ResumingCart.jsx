@@ -18,7 +18,7 @@ const ResumingCart = () => {
     return (
         <>
             <MyNavbar />
-            <Container>
+            <Container className="pt-4">
                 <Row className="bg-resume d-flex justify-content-around">
                     <Col xs={2}><b>Product</b></Col>
                     <Col xs={4}><b>Description</b></Col>

@@ -8,7 +8,7 @@ const NotFound = () => {
   return (
     <>
       <MyNavbar />
-      <Container className="">
+      <Container className="pt-4">
         <h1 className="d-flex justify-content-center align-content-center">404 NOT FOUND</h1>
         <img src="" alt="" />
         <Button variant="primary" onClick={() => navigate("/home")}> Return home</Button>

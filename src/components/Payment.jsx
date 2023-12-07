@@ -27,7 +27,7 @@ const Payment = () => {
         <>
             {stripeLoaded &&
                 <Elements stripe={stripePromise}>
-                    <Container className="mt-4">
+                    <Container className="mt-5">
                         <Row>
                             <div className="d-flex justify-content-center w-100">
                                 <Suspense fallback={<div>Loading...</div>}>

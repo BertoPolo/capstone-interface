@@ -126,7 +126,7 @@ const MyAccount = () => {
     <>
 
       <MyNavbar />
-      <Container fluid className="myAccountBg ">
+      <Container fluid className="myAccountBg pt-4">
 
         <div className="login-container">
 
