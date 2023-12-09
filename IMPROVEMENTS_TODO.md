@@ -18,14 +18,14 @@
 
 ## Actives TO DO
 
-- /resume dropdown is not behavioring well
+- /resume dropdown is not behavioring well?
 - Change navigation among pages, from states to params
 - Implement to see filters and M/cats in route/path ( params ) => then modify searches to be by params
 - Add bg to tab's icon
 - Change range price input
 - Change font for categories?
 - Clean unused imports
-- Remove movement from bottom when is there not much items and clicks on M.cats
+- not always is displayed "we don't have that item"
 - Reset scroll when navigate
 - Change Readme.md
 - At /outlet add title, right now is not intuitive that you are there
