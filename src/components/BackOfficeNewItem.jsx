@@ -440,9 +440,11 @@ const BackOficceNewItem = () => {
                 </Row>
 
                 <Form.Group >
-                    <Form.Label>Outlet Price</Form.Label>
-                    <Form.Control style={{ "width": "10%" }} type="number" value={outletPrice} min="0" onChange={(e) => setOutletPrice(e.target.value)} />
                     <Form.Check type="checkbox" label=" Is in Outlet?" className="mt-2" value={isItOutlet} onChange={(e) => setIsItOutlet(!isItOutlet)} />
+
+                    {isItOutlet && <>
+                        <Form.Label className="mt-2">Outlet Price</Form.Label>
+                        <Form.Control style={{ "width": "10%" }} type="number" value={outletPrice} min="0" onChange={(e) => setOutletPrice(e.target.value)} /></>}
                 </Form.Group>
 
                 {/* Choose brand,category and M.category */}
