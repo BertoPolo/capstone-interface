@@ -39,7 +39,7 @@ const Login = () => {
           </Col>
 
           <Col className="d-flex flex-column">
-            <Image className="mb-3 mt-2 ml-auto mr-auto " src="/STR_LOGIN.avif" style={{ maxHeight: "36vh", maxWidth: "38vw" }} alt="Login Logo" />
+            <Image className="mb-4 mt-2 ml-auto mr-auto " src="/STR_LOGIN.avif" style={{ maxHeight: "20vh", maxWidth: "25vw" }} alt="Login Logo" />
             <FormBox />
           </Col>
         </Row>

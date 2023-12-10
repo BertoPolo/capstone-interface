@@ -306,7 +306,7 @@ const BackOficceNewItem = () => {
 
 
     return (
-        <Container fluid>
+        <Container fluid className="mb-4">
 
             <h4 className="mb-3" > Add a new article</h4 >
 
