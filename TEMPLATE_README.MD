@@ -104,32 +104,27 @@ This section should list any major frameworks/libraries used to bootstrap your p
 This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
 ### Installation
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. If you don't have any backend you can clone mine at [https://github.com/BertoPolo/capstone_backend](BertoPolo/capstone_backend)
 2. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/BertoPolo/capstone-interface.git
    ```
 3. Install NPM packages
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = "ENTER YOUR API"
-   ```
+4. Get you free API public key from Stripe at [https://stripe.com](https://stripe.com)
+
+5. Set your .env file with these variables
+```sh
+React_APP_SERVER= (localhost or your backend)
+REACT_APP_PERSIST_KEY= (any sentence)
+REACT_APP_STRIPE_PUBLIC_KEY= (public key from fripe)
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -162,19 +157,20 @@ Don't forget to give the project a star! Thanks again!
 
 <!-- LICENSE -->
 
-## License
+<!-- ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+-->
 
 <!-- CONTACT -->
 
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Alberto Polo - [/in/bertopolo](https://linkedin.com/in/bertopolo) - bertopolo91@gmail.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/BertoPolo/capstone-interface](https://github.com/BertoPolo/capstone-interface)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -215,15 +211,25 @@ Use this space to list resources you find helpful and would like to give credit 
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
-[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
-[Vue-url]: https://vuejs.org/
-[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
-[Angular-url]: https://angular.io/
-[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-[Svelte-url]: https://svelte.dev/
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[Laravel-url]: https://laravel.com
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
+
+[Javascript.img]:https://img.shields.io/badge/logo-javascript-blue?logo=javascript
+[Javascript-url]:https://javascript.com
+[Redux.img]:
+[Redux-url]
+[Express.img]
+[Express-url]
+[Mongoose.img]
+[Mongoose-url
+[Swagger.img]
+[Swagger-url
+[Stripe.img]
+[Stripe-url]
+[JsonWebToken.img]
+[JsonWebToken-url
+[Nodemailer.img]
+[Nodemailer-url
+
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com
