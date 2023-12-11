@@ -90,7 +90,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 - [![Express.js][Express.img]][Express-url]
 - [![Mongoose][Mongoose.img]][Mongoose-url]
 - [![Swagger][Swagger.img]][Swagger-url]
-- [![Stripe][Stripe.img][Stripe-url]
+- [![Stripe][Stripe.img]][Stripe-url]
 - [![JsonWebToken][JsonWebToken.img]][JsonWebToken-url]
 - [![Nodemailer][Nodemailer.img]][Nodemailer-url]
 
@@ -214,7 +214,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [Bootstrap.com]: :https://img.shields.io/badge/Bootstrap-blue?logo=Bootstrap
 [Bootstrap-url]: https://getbootstrap.com
 
-[Javascript.img]:https://img.shields.io/badge/javascript-blue?logo=javascript
+[Javascript.img]:https://img.shields.io/badge/javascript-blue?logo=javascript-gray
 [Javascript-url]:https://javascript.com
 [Redux.img]:https://img.shields.io/badge/redux-blue?logo=redux
 [Redux-url]:https://https://redux-toolkit.js.org/
