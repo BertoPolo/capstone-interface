@@ -27,7 +27,7 @@
     <a href="href="https://pagespeed.web.dev/analysis/https-stufftoroute-vercel-app/7hlq5fiq11?form_factor=mobile"     target="_blank" rel="noopener noreferrer">
       SEO score</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/othneildrew/Best-README-Template/issues">Make a sugestion</a>
   </p>
 </div>
 
@@ -57,6 +57,17 @@
   </ol>
 </details>
 
+### Stripe demo payment
+Use this payment method to fake a purchase: 4242 4242 4242 4242 01/28 424 22222
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Demo users
+admin / ***
+user / ***
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project
@@ -77,15 +88,6 @@ description
 - [![Stripe][Stripe.img]][Stripe-url]
 - [![JsonWebToken][JsonWebToken.img]][JsonWebToken-url]
 - [![Nodemailer][Nodemailer.img]][Nodemailer-url]
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-### Stripe demo payment
-Use this payment method to fake a purchase: 4242 4242 4242 4242 01/28 424 22222
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
