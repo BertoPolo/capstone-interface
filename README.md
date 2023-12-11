@@ -64,6 +64,7 @@ Use this payment method to fake a purchase: 4242 4242 4242 4242 01/28 424 22222
 
 ### Demo users
 admin / ***
+<br/>
 user / ***
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -77,18 +78,20 @@ description
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
-
+<span>
 - [![Javascript][Javascript.img]][Javascript-url]
 - [![React.js][React.js]][React-url]
 - [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 - [![Redux][Redux.img]][Redux-url]
 - [![Express.js][Express.img]][Express-url]
+  </span>
+  <span>
 - [![Mongoose][Mongoose.img]][Mongoose-url]
 - [![Swagger][Swagger.img]][Swagger-url]
 - [![Stripe][Stripe.img]][Stripe-url]
 - [![JsonWebToken][JsonWebToken.img]][JsonWebToken-url]
 - [![Nodemailer][Nodemailer.img]][Nodemailer-url]
-
+  </span>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
