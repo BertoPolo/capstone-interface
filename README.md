@@ -62,9 +62,7 @@
 
 ## About The Project
 
-link ?
-
-desription
+description
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
