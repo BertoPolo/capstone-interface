@@ -83,16 +83,16 @@ Of course, no one template will serve all projects since your needs may be diffe
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-- [![Javascript][Javascript]][Javascript-url]
-- [![React][React.js]][React-url]
+- [![Javascript][Javascript.img]][Javascript-url]
+- [![React.js][React.js]][React-url]
 - [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-- [![Redux][Redux]][Redux-url]
-- [![Express][Express.js][Express-url]
-- [![Mongoose][Mongoose][Mongoose-url]
-- [![Swagger][Swagger][Swagger-url]
-- [![Stripe][Stripe][Stripe-url]
-- [![JsonWebToken][JsonWebToken][JsonWebToken-url]
-- [![Nodemailer][Nodemailer][Nodemailer-url]
+- [![Redux][Redux.img]][Redux-url]
+- [![Express.js][Express.img][Express-url]
+- [![Mongoose][Mongoose.img][Mongoose-url]
+- [![Swagger][Swagger.img][Swagger-url]
+- [![Stripe][Stripe.img][Stripe-url]
+- [![JsonWebToken][JsonWebToken.img][JsonWebToken-url]
+- [![Nodemailer][Nodemailer.img][Nodemailer-url]
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -216,9 +216,9 @@ Use this space to list resources you find helpful and would like to give credit 
 
 [Javascript.img]:https://img.shields.io/badge/logo-javascript-blue?logo=javascript
 [Javascript-url]:https://javascript.com
-[Redux.img]:
+[Redux.img]:https://img.shields.io/badge/logo-redux-blue?logo=redux
 [Redux-url]
-[Express.img]
+[Express.img]:
 [Express-url]
 [Mongoose.img]
 [Mongoose-url
