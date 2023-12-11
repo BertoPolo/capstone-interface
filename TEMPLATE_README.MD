@@ -12,8 +12,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template" style="height:25vh">
-    <img src="public/STR_LOGIN.avif" alt="Logo" width="80" height="80">
+  <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="public/STR_LOGIN.avif" alt="Logo" width="25vh" height="28vh">
   </a>
 
   <h3 align="center">Stuff To Route</h3>
