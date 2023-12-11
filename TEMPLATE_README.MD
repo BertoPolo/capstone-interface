@@ -214,22 +214,22 @@ Use this space to list resources you find helpful and would like to give credit 
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
 
-[Javascript.img]:https://img.shields.io/badge/logo-javascript-blue?logo=javascript
+[Javascript.img]:https://img.shields.io/badge/javascript-blue?logo=javascript
 [Javascript-url]:https://javascript.com
-[Redux.img]:https://img.shields.io/badge/logo-redux-blue?logo=redux
-[Redux-url]
-[Express.img]:https://img.shields.io/badge/logo-express-blue?logo=express
-[Express-url]
+[Redux.img]:https://img.shields.io/badge/redux-blue?logo=redux
+[Redux-url]:https://https://redux-toolkit.js.org/
+[Express.img]:https://img.shields.io/badge/express-blue?logo=express
+[Express-url]:https://expressjs.com/
 [Mongoose.img]:https://img.shields.io/badge/logo-mongoose-blue?logo=mongoose
-[Mongoose-url
+[Mongoose-url:https://mongoosejs.com/
 [Swagger.img]:https://img.shields.io/badge/logo-swagger-blue?logo=swagger
-[Swagger-url
+[Swagger-url]:https://swagger.io/
 [Stripe.img]:https://img.shields.io/badge/logo-stripe-blue?logo=stripe
-[Stripe-url]
+[Stripe-url]:https://stripe.com/
 [JsonWebToken.img]:https://img.shields.io/badge/logo-jsonwebtoken-blue?logo=jsonwebtoken
-[JsonWebToken-url
+[JsonWebToken-url]:https://www.npmjs.com/package/jsonwebtoken
 [Nodemailer.img]:https://img.shields.io/badge/logo-nodemailer-blue?logo=nodemailer
-[Nodemailer-url
+[Nodemailer-url]:https://nodemailer.com/
 
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com
