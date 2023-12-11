@@ -1,14 +1,4 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
-
 <a name="readme-top"></a>
-
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
 
 <!-- PROJECT SHIELDS -->
 <!--
@@ -19,9 +9,7 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
+
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- PROJECT LOGO -->
@@ -31,12 +19,12 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">Stuff To Route</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    E-commerce made for bikers to bikers!
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://stufftoroute.vercel.app"><strong>Check the website!</strong></a>
     <br />
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
@@ -95,8 +83,17 @@ Of course, no one template will serve all projects since your needs may be diffe
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
+- [![Javascript][Javascript]][Javascript-url]
 - [![React][React.js]][React-url]
 - [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+- [![Redux][Redux]][Redux-url]
+- [![Express][Express.js][Express-url]
+- [![Mongoose][Mongoose][Mongoose-url]
+- [![Swagger][Swagger][Swagger-url]
+- [![Stripe][Stripe][Stripe-url]
+- [![JsonWebToken][JsonWebToken][JsonWebToken-url]
+- [![Nodemailer][Nodemailer][Nodemailer-url]
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
