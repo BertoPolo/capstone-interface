@@ -165,8 +165,8 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 
 ## Contact
- [![Bertopolo][linkedin.img]][linkedin-url]
-Alberto Polo - [/in/bertopolo](https://linkedin.com/in/bertopolo) - bertopolo91@gmail.com
+ 
+Alberto Polo - [![bertopolo][linkedin.img]][linkedin-url] - bertopolo91@gmail.com
 
 Project Link: [https://github.com/BertoPolo/capstone-interface](https://github.com/BertoPolo/capstone-interface)
 
