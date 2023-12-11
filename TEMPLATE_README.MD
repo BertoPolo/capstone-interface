@@ -12,7 +12,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template" style="height:"25vh">
+  <a href="https://github.com/othneildrew/Best-README-Template" style="height:25vh">
     <img src="public/STR_LOGIN.avif" alt="Logo" width="80" height="80">
   </a>
 
