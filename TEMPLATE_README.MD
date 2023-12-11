@@ -218,17 +218,17 @@ Use this space to list resources you find helpful and would like to give credit 
 [Javascript-url]:https://javascript.com
 [Redux.img]:https://img.shields.io/badge/logo-redux-blue?logo=redux
 [Redux-url]
-[Express.img]:
+[Express.img]:https://img.shields.io/badge/logo-express-blue?logo=express
 [Express-url]
-[Mongoose.img]
+[Mongoose.img]:https://img.shields.io/badge/logo-mongoose-blue?logo=mongoose
 [Mongoose-url
-[Swagger.img]
+[Swagger.img]:https://img.shields.io/badge/logo-swagger-blue?logo=swagger
 [Swagger-url
-[Stripe.img]
+[Stripe.img]:https://img.shields.io/badge/logo-stripe-blue?logo=stripe
 [Stripe-url]
-[JsonWebToken.img]
+[JsonWebToken.img]:https://img.shields.io/badge/logo-jsonwebtoken-blue?logo=jsonwebtoken
 [JsonWebToken-url
-[Nodemailer.img]
+[Nodemailer.img]:https://img.shields.io/badge/logo-nodemailer-blue?logo=nodemailer
 [Nodemailer-url
 
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
