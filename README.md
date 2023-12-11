@@ -23,7 +23,8 @@
     <br />
     <a href="https://stufftoroute.vercel.app"><strong>Check the website!</strong></a>
     <br />
-    <a href="[https://stufftoroute.vercel.app](https://pagespeed.web.dev/analysis/https-stufftoroute-vercel-app/7hlq5fiq11?form_factor=mobile)"><strong>Check the SEO score!</strong></a>
+    <a href="https://pagespeed.web.dev/analysis/https-stufftoroute-vercel-app/7hlq5fiq11?form_factor=mobile"><strong>Check the SEO score!</strong></a>
+    
     <br />
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
