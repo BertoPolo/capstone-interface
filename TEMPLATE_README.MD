@@ -13,7 +13,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="public/STR_LOGIN.avif" alt="Logo" width="25vh" height="28vh">
+    <img src="public/STR_LOGIN.avif" alt="Logo" width="200" height="200">
   </a>
 
   <h3 align="center">Stuff To Route</h3>
