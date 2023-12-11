@@ -16,23 +16,23 @@
     <img src="public/STR_LOGIN.avif" alt="Logo" width="350" height="200">
   </a>
 
-  <h3 align="center">Stuff To Route</h3>
+  <h1 align="center">Stuff To Route</h1>
 
   <p align="center">
     E-commerce made for bikers to bikers!
     <br />
-    <a href="https://stufftoroute.vercel.app" target="_blank" rel="noopener noreferrer"><strong>Check the website!</strong></a>
     <br />
-    <a href="https://pagespeed.web.dev/analysis/https-stufftoroute-vercel-app/7hlq5fiq11?form_factor=mobile" target="_blank" rel="noopener noreferrer"><strong>Check the SEO score!</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://stufftoroute.vercel.app" target="_blank" rel="noopener noreferrer">View Demo</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="href="https://pagespeed.web.dev/analysis/https-stufftoroute-vercel-app/7hlq5fiq11?form_factor=mobile"     target="_blank" rel="noopener noreferrer">
+      SEO score</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/othneildrew/Best-README-Template/issues">Make a sugestion</a>
   </p>
 </div>
+
+### Website and README.md are in construction
+<br/>
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -60,6 +60,18 @@
   </ol>
 </details>
 
+### Stripe demo payment
+Use this payment method to fake a purchase: 4242 4242 4242 4242 01/28 424 22222
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Demo users
+admin / ***
+<br/>
+user / ***
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project
@@ -80,16 +92,6 @@ description
 - [![Stripe][Stripe.img]][Stripe-url]
 - [![JsonWebToken][JsonWebToken.img]][JsonWebToken-url]
 - [![Nodemailer][Nodemailer.img]][Nodemailer-url]
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-### Stripe demo payment
-Use this payment method to fake a purchase: 4242 4242 4242 4242 01/28 424 22222
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -120,7 +122,7 @@ React_APP_SERVER= (localhost or your backend)
 REACT_APP_PERSIST_KEY= (any complex string)
 REACT_APP_STRIPE_PUBLIC_KEY= (public key from fripe)
 ```
-6.Run
+6. Run
 ```sh
 npm start
 ```
@@ -213,7 +215,6 @@ Use this space to list resources you find helpful and would like to give credit 
 [React-url]: https://reactjs.org/
 [Bootstrap.com]:https://img.shields.io/badge/Bootstrap-blue?logo=bootstrap
 [Bootstrap-url]: https://getbootstrap.com
-
 [Javascript.img]:https://img.shields.io/badge/Javascript-blue?logo=javascript
 [Javascript-url]:https://javascript.com
 [Redux.img]:https://img.shields.io/badge/Redux-blue?logo=redux
@@ -230,6 +231,5 @@ Use this space to list resources you find helpful and would like to give credit 
 [JsonWebToken-url]:https://www.npmjs.com/package/jsonwebtoken
 [Nodemailer.img]:https://img.shields.io/badge/Nodemailer-blue?logo=nodemailer
 [Nodemailer-url]:https://nodemailer.com/
-
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com
