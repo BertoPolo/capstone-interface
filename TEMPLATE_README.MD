@@ -9,14 +9,11 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 
-
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="public/STR_LOGIN.avif" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Stuff To Route</h3>
@@ -166,7 +163,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
  
-Alberto Polo - [![bertopolo][linkedin.img]][linkedin-url] - bertopolo91@gmail.com
+[![LinkedIn][linkedin-shield]][linkedin-url] - bertopolo91@gmail.com
 
 Project Link: [https://github.com/BertoPolo/capstone-interface](https://github.com/BertoPolo/capstone-interface)
 
