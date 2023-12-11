@@ -81,8 +81,6 @@ Of course, no one template will serve all projects since your needs may be diffe
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
 - [![Javascript][Javascript.img]][Javascript-url]
 - [![React.js][React.js]][React-url]
 - [![Bootstrap][Bootstrap.com]][Bootstrap-url]
@@ -122,7 +120,7 @@ _Below is an example of how you can instruct your audience on installing and set
 5. Set your .env file with these variables
 ```sh
 React_APP_SERVER= (localhost or your backend)
-REACT_APP_PERSIST_KEY= (any sentence)
+REACT_APP_PERSIST_KEY= (any complex string)
 REACT_APP_STRIPE_PUBLIC_KEY= (public key from fripe)
 ```
 
@@ -167,7 +165,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 
 ## Contact
-
+ [![Bertopolo][linkedin.img]][linkedin-url]
 Alberto Polo - [/in/bertopolo](https://linkedin.com/in/bertopolo) - bertopolo91@gmail.com
 
 Project Link: [https://github.com/BertoPolo/capstone-interface](https://github.com/BertoPolo/capstone-interface)
@@ -205,30 +203,31 @@ Use this space to list resources you find helpful and would like to give credit 
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
+[linkedin-url]: https://linkedin.com/in/bertopolo
+[linkedin-img]:https://img.shields.io/badge/Bertopolo-blue?logo=linkedin
 [product-screenshot]: images/screenshot.png
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
-[React.js]: :https://img.shields.io/badge/react-blue?logo=react.js
+[React.js]:https://img.shields.io/badge/React-blue?logo=react
 [React-url]: https://reactjs.org/
-[Bootstrap.com]:https://img.shields.io/badge/bootstrap-blue?logo=bootstrap
+[Bootstrap.com]:https://img.shields.io/badge/Bootstrap-blue?logo=bootstrap
 [Bootstrap-url]: https://getbootstrap.com
 
-[Javascript.img]:https://img.shields.io/badge/javascript-blue?logo=javascript
+[Javascript.img]:https://img.shields.io/badge/Javascript-blue?logo=javascript
 [Javascript-url]:https://javascript.com
-[Redux.img]:https://img.shields.io/badge/redux-blue?logo=redux
-[Redux-url]:https://https://redux-toolkit.js.org/
-[Express.img]:https://img.shields.io/badge/express-blue?logo=express
+[Redux.img]:https://img.shields.io/badge/Redux-blue?logo=redux
+[Redux-url]:https://https://Redux-toolkit.js.org/
+[Express.img]:https://img.shields.io/badge/Express-blue?logo=express
 [Express-url]:https://expressjs.com/
-[Mongoose.img]:https://img.shields.io/badge/mongoose-blue?logo=mongoose
+[Mongoose.img]:https://img.shields.io/badge/Mongoose-blue?logo=mongoose
 [Mongoose-url]:https://mongoosejs.com/
-[Swagger.img]:https://img.shields.io/badge/swagger-blue?logo=swagger
+[Swagger.img]:https://img.shields.io/badge/Swagger-blue?logo=swagger
 [Swagger-url]:https://swagger.io/
-[Stripe.img]:https://img.shields.io/badge/stripe-blue?logo=stripe
+[Stripe.img]:https://img.shields.io/badge/Stripe-blue?logo=stripe
 [Stripe-url]:https://stripe.com/
-[JsonWebToken.img]:https://img.shields.io/badge/jsonWebToken-blue?logo=jsonwebtoken
+[JsonWebToken.img]:https://img.shields.io/badge/JsonWebToken-blue?logo=jsonwebtoken
 [JsonWebToken-url]:https://www.npmjs.com/package/jsonwebtoken
-[Nodemailer.img]:https://img.shields.io/badge/nodemailer-blue?logo=nodemailer
+[Nodemailer.img]:https://img.shields.io/badge/Nodemailer-blue?logo=nodemailer
 [Nodemailer-url]:https://nodemailer.com/
 
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
