@@ -16,7 +16,7 @@
     <img src="public/STR_LOGIN.avif" alt="Logo" width="350" height="200">
   </a>
 
-  <h3 align="center">Stuff To Route</h3>
+  <h1 align="center">Stuff To Route</h1>
 
   <p align="center">
     E-commerce made for bikers to bikers!
@@ -30,6 +30,9 @@
     <a href="https://github.com/othneildrew/Best-README-Template/issues">Make a sugestion</a>
   </p>
 </div>
+
+### Website and README.md are in construction
+<br/>
 
 <!-- TABLE OF CONTENTS -->
 <details>
