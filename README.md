@@ -78,20 +78,17 @@ description
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
-<span>
+
 - [![Javascript][Javascript.img]][Javascript-url]
 - [![React.js][React.js]][React-url]
 - [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 - [![Redux][Redux.img]][Redux-url]
 - [![Express.js][Express.img]][Express-url]
-  </span>
-  <span>
 - [![Mongoose][Mongoose.img]][Mongoose-url]
 - [![Swagger][Swagger.img]][Swagger-url]
 - [![Stripe][Stripe.img]][Stripe-url]
 - [![JsonWebToken][JsonWebToken.img]][JsonWebToken-url]
 - [![Nodemailer][Nodemailer.img]][Nodemailer-url]
-  </span>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -122,7 +119,7 @@ React_APP_SERVER= (localhost or your backend)
 REACT_APP_PERSIST_KEY= (any complex string)
 REACT_APP_STRIPE_PUBLIC_KEY= (public key from fripe)
 ```
-6.Run
+6. Run
 ```sh
 npm start
 ```
@@ -215,7 +212,6 @@ Use this space to list resources you find helpful and would like to give credit 
 [React-url]: https://reactjs.org/
 [Bootstrap.com]:https://img.shields.io/badge/Bootstrap-blue?logo=bootstrap
 [Bootstrap-url]: https://getbootstrap.com
-
 [Javascript.img]:https://img.shields.io/badge/Javascript-blue?logo=javascript
 [Javascript-url]:https://javascript.com
 [Redux.img]:https://img.shields.io/badge/Redux-blue?logo=redux
@@ -232,6 +228,5 @@ Use this space to list resources you find helpful and would like to give credit 
 [JsonWebToken-url]:https://www.npmjs.com/package/jsonwebtoken
 [Nodemailer.img]:https://img.shields.io/badge/Nodemailer-blue?logo=nodemailer
 [Nodemailer-url]:https://nodemailer.com/
-
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com
