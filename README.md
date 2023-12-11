@@ -13,7 +13,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="public/STR_LOGIN.avif" alt="Logo" width="200" height="200">
+    <img src="public/STR_LOGIN.avif" alt="Logo" width="350" height="200">
   </a>
 
   <h3 align="center">Stuff To Route</h3>
@@ -92,6 +92,14 @@ Of course, no one template will serve all projects since your needs may be diffe
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+
+###Stripe demo payment
+Use this payment method to fake a purchase: 4242 4242 4242 4242 01/28 424 22222
+
+##SEO Score
+https://pagespeed.web.dev/analysis/https-stufftoroute-vercel-app/7hlq5fiq11?form_factor=mobile
+
+
 <!-- GETTING STARTED -->
 
 ## Getting Started
@@ -113,12 +121,15 @@ _Below is an example of how you can instruct your audience on installing and set
    npm install
    ```
 4. Get you free API public key from Stripe at [https://stripe.com](https://stripe.com)
-
 5. Set your .env file with these variables
 ```sh
 React_APP_SERVER= (localhost or your backend)
 REACT_APP_PERSIST_KEY= (any complex string)
 REACT_APP_STRIPE_PUBLIC_KEY= (public key from fripe)
+```
+6.Run
+```sh
+npm start
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
