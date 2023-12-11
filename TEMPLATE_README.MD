@@ -211,7 +211,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [Next-url]: https://nextjs.org/
 [React.js]: :https://img.shields.io/badge/react-blue?logo=react
 [React-url]: https://reactjs.org/
-[Bootstrap.com]: :https://img.shields.io/badge/bootstrap-blue?logo=bootstrap
+[Bootstrap.com]: :https://img.shields.io/badge/Bootstrap-blue?logo=Bootstrap
 [Bootstrap-url]: https://getbootstrap.com
 
 [Javascript.img]:https://img.shields.io/badge/javascript-blue?logo=javascript
@@ -221,7 +221,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [Express.img]:https://img.shields.io/badge/express-blue?logo=express
 [Express-url]:https://expressjs.com/
 [Mongoose.img]:https://img.shields.io/badge/mongoose-blue?logo=mongoose
-[Mongoose-url:https://mongoosejs.com/
+[Mongoose-url]:https://mongoosejs.com/
 [Swagger.img]:https://img.shields.io/badge/swagger-blue?logo=swagger
 [Swagger-url]:https://swagger.io/
 [Stripe.img]:https://img.shields.io/badge/stripe-blue?logo=stripe
