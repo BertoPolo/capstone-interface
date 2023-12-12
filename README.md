@@ -76,7 +76,7 @@ user / ***
 
 ## About The Project
 
-description
+E-commerce for bikers specialized products. You can enjoy an intuitive shopping experience with your computer or your phone. To see all the features you need an admin access.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
