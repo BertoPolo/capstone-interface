@@ -26,8 +26,8 @@
     ·
     <a href="href="https://pagespeed.web.dev/analysis/https-stufftoroute-vercel-app/7hlq5fiq11?form_factor=mobile"     target="_blank" rel="noopener noreferrer">
       SEO score</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Make a sugestion</a>
+  <!--  ·
+    <a href="https://github.com/othneildrew/Best-README-Template/issues">Make a sugestion</a> -->
   </p>
 </div>
 
@@ -169,9 +169,8 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
  
-[![LinkedIn][linkedin-shield]][linkedin-url] - bertopolo91@gmail.com
+[![LinkedIn][linkedin-img]][linkedin-url] - bertopolo91@gmail.com
 
-Project Link: [https://github.com/BertoPolo/capstone-interface](https://github.com/BertoPolo/capstone-interface)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
