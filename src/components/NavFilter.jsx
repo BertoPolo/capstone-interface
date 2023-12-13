@@ -139,7 +139,7 @@ const NavFilter = () => {
                 <Row>
                     <Form className="d-flex justify-content-between w-100 align-items-center" onSubmit={(e) => getFilteredItems(e)}>
                         {/*PRICE SORTING */}
-                        <Col xs={1} sm={3} className="p-0 text-truncate">
+                        <Col xs={1} sm={3} className="p-0 ">
                             <Dropdown >
                                 <Dropdown.Toggle variant="outline" >{selectSorting || "Sorting by"}</Dropdown.Toggle>
                                 <Dropdown.Menu title="Price sorting" id="basic-nav-dropdown">
@@ -151,7 +151,7 @@ const NavFilter = () => {
                         </Col>
                         {/* BY BRAND*/}
                         <Col xs={3} sm={3} className="p-0">
-                            <Dropdown className="text-truncate" >
+                            <Dropdown className="" >
                                 <Dropdown.Toggle className="p-0" variant="outline">{selectedBrand || "Brand"}</Dropdown.Toggle>
 
                                 <Dropdown.Menu>
