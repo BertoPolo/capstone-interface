@@ -139,7 +139,7 @@ const NavFilter = () => {
                 <Row>
                     <Form className="d-flex justify-content-between w-100 align-items-center" onSubmit={(e) => getFilteredItems(e)}>
                         {/*PRICE SORTING */}
-                        <Col xs={3} className="p-0">
+                        <Col xs={1} sm={3} className="p-0 text-truncate">
                             <Dropdown >
                                 <Dropdown.Toggle variant="outline" >{selectSorting || "Sorting by"}</Dropdown.Toggle>
                                 <Dropdown.Menu title="Price sorting" id="basic-nav-dropdown">
@@ -150,9 +150,9 @@ const NavFilter = () => {
 
                         </Col>
                         {/* BY BRAND*/}
-                        <Col xs={2}>
-                            <Dropdown >
-                                <Dropdown.Toggle variant="outline">{selectedBrand || "Brand"}</Dropdown.Toggle>
+                        <Col xs={3} sm={3} className="p-0">
+                            <Dropdown className="text-truncate" >
+                                <Dropdown.Toggle className="p-0" variant="outline">{selectedBrand || "Brand"}</Dropdown.Toggle>
 
                                 <Dropdown.Menu>
                                     {brands.map((element) => {
@@ -164,10 +164,16 @@ const NavFilter = () => {
                             </Dropdown>
 
                         </Col>
+                        {/*submit button  */}
+                        <Col xs={4} sm={3} className="d-flex justify-content-center p-0">
+                            <Button variant="outline-dark" className="pointer btn-sm" onClick={() => { resetStates() }}>Clean filters</Button>
+                            <Button type="submit" className="d-flex submitButton ml-3 btn-sm">Enter Filters</Button>
+
+                        </Col>
                         {/* BY PRICE RANGE */}
-                        <Col xs={3}>
-                            {/* from md screens */}
-                            <MultiRangeSlider
+                        {/* <Col xs={3}> */}
+                        {/* from md screens */}
+                        {/* <MultiRangeSlider
                                 min={0}
                                 max={500}
                                 step={20}
@@ -177,28 +183,22 @@ const NavFilter = () => {
                                     handleInput(e);
                                 }}
                                 className="d-none d-md-block border-0 shadow-none p-0 "
-                            />
+                            /> */}
 
 
-                            {/* <Row className="d-xs-none">
+                        {/* <Row className="d-xs-none">
                                 <Form.Label className="align-center m-0 d-xs-none"> Min Price</Form.Label>
                                 <Form.Control type="number" value={minPrice} min="0" max="500" className="d-xs-none d-md-block w-25 mr-1" onChange={(e) => setMinPrice(e.target.value)} />
                                 <Form.Control type="number" value={maxPrice} min="0" max="500" className="d-xs-none d-md-block w-25" onChange={(e) => setMaxPrice(e.target.value)} />
                                 <Form.Label className="m-0 d-xs-none"> Max Price</Form.Label>
                             </Row> */}
-                            {/*  */}
-                            {/* smaller screns */}
-                            <Form.Control type="number" value={minPrice} min="0" max="500" className="d-md-none mr-1" onChange={(e) => setMinPrice(e.target.value)} />
-                            <Form.Control type="number" value={maxPrice} min="0" max="500" className="d-md-none mr-1" onChange={(e) => setMaxPrice(e.target.value)} />
-                            {/*  */}
-                        </Col>
+                        {/*  */}
+                        {/* smaller screns */}
+                        {/* <Form.Control type="number" value={minPrice} min="0" max="500" className="d-md-none mr-1" onChange={(e) => setMinPrice(e.target.value)} /> */}
+                        {/* <Form.Control type="number" value={maxPrice} min="0" max="500" className="d-md-none mr-1" onChange={(e) => setMaxPrice(e.target.value)} /> */}
+                        {/*  */}
+                        {/* </Col> */}
 
-                        {/*submit button  */}
-                        <Col className="d-flex justify-content-center">
-                            <Button variant="outline-dark" className="pointer btn-sm" onClick={() => { resetStates() }}>Clean filters</Button>
-                            <Button type="submit" className="d-flex submitButton ml-3 btn-sm">Enter Filters</Button>
-
-                        </Col>
                     </Form>
 
                 </Row>

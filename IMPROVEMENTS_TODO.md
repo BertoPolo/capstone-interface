@@ -14,6 +14,7 @@
 - Improve item's pictures and namings
 - Send me a notification email if rollback was unsuccessful
 - Refresh page after deleting users
+- Implement again range price input
 
 ## Actives TO DO
 
@@ -21,11 +22,11 @@
 - Change navigation among pages, from states to params
 - Implement to see filters and M/cats in route/path ( params ) => then modify searches to be by params
 - Add bg to tab's icon
-- Change range price input
 - Clean unused imports
 - Not always is displayed "we don't have that item"
 - Reset scroll when navigate
-- Change Readme.md
 - At /outlet add title, right now is not intuitive that you are there
 - Testing/Jest
 - Responsive Card payment (Stripe)
+- Finish Rollback script
+- NavFilter's responsiveness check
