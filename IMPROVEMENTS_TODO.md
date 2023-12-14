@@ -28,5 +28,5 @@
 - At /outlet add title, right now is not intuitive that you are there
 - Testing/Jest
 - Responsive Card payment (Stripe)
-- Finish Rollback script
-- NavFilter's responsiveness check
+- Schedule Rollback script
+- NavFilter's responsiveness dead

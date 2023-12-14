@@ -14,7 +14,7 @@ const MyAccount = lazy(() => import("./components/MyAccount"))
 const Payment = lazy(() => import("./components/Payment"))
 const ResumingCart = lazy(() => import("./components/ResumingCart"))
 const ForgotPassword = lazy(() => import("./components/ForgotPassword"))
-const WhatIUsed = lazy(() => import("./components/WhatIUsed"))
+// const WhatIUsed = lazy(() => import("./components/WhatIUsed"))
 
 const App = () => (
   <div>
@@ -51,7 +51,7 @@ const App = () => (
           <Route path="/resume" element={<ResumingCart />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/forgotPassword" element={<ForgotPassword />} />
-          <Route path="/whatiused" element={<WhatIUsed />} />
+          {/* <Route path="/whatiused" element={<WhatIUsed />} /> */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
