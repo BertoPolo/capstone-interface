@@ -124,7 +124,10 @@ const BackOfficeUsers = () => {
 
                 }
             );
-            if (response.ok) { notifyOk("Client data changed successfully"); resetStates(); }
+            if (response.ok) {
+                notifyOk("Client data changed successfully")
+                resetStates()
+            }
             else notifyError("oops!something went wrong")
 
         } catch (error) {
@@ -144,7 +147,11 @@ const BackOfficeUsers = () => {
                     },
                 }
             );
-            if (response.ok) notifyOk('Client removed')
+            if (response.ok) {
+                const updatedUsers = foundUsers.filter(user => user._id !== id);
+                setFoundUsers(updatedUsers)
+                notifyOk('Client removed')
+            }
             else notifyError("oops! Something went wrong");
         } catch (error) {
             console.log(error)
