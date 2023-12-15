@@ -191,7 +191,7 @@ const BackOfficeUsers = () => {
                     </div>
 
                     <Form.Group >
-                        <Form.Control disabled={!wayToSearch} type="text" className="justify-content-center w-25" placeholder="Who do you want to search?" value={parameterToSearch} onChange={(e) => setParameterToSearch(e.target.value)} />
+                        <Form.Control disabled={!wayToSearch} type="text" className="justify-content-center w-25" placeholder="Type the user" value={parameterToSearch} onChange={(e) => setParameterToSearch(e.target.value)} />
                     </Form.Group>
                 </div>
 
@@ -199,7 +199,7 @@ const BackOfficeUsers = () => {
 
             </Form >}
 
-            {!editMode && <h4 className=""><u>Results</u></h4>}
+            {!editMode && <h4 className="mb-4"><u>Results</u></h4>}
 
             {editMode ?
 
@@ -240,8 +240,8 @@ const BackOfficeUsers = () => {
                                 <span>Username : <b>{element.username}</b> </span>
                                 <span>Adress : <b>{element.adress}</b></span>
 
-                                <i className="bi bi-pencil pointer mx-3 bg-success p-1 text-white" onClick={() => { setEditMode(true); setUserId(element._id); getUserById(element._id) }}></i>
-                                {element.isAdmin === false && <i className="bi bi-trash3 pointer bg-danger p-1 text-white" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) deleteUser(element._id) }}></i>}
+                                <i className="bi bi-pencil pointer mx-3 bg-success p-1 text-white rounded" onClick={() => { setEditMode(true); setUserId(element._id); getUserById(element._id) }}></i>
+                                {element.isAdmin === false && <i className="bi bi-trash3 pointer bg-danger p-1 text-white rounded" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) deleteUser(element._id) }}></i>}
 
                                 <hr />
                             </div>

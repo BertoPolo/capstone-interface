@@ -60,7 +60,7 @@ const MyNavbar = () => {
               :
               <>
                 <Nav.Link className="d-none d-md-block cart-color" href="" onClick={handleShow}>
-                  <i className="bi bi-cart" />Cart ({cart.length})
+                  <i className="bi bi-cart" /> ({cart.length})
                 </Nav.Link>
                 {isLogged && <Nav.Link href="/myAccount" >My Account</Nav.Link>}
               </>

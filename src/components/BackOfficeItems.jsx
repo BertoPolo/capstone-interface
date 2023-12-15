@@ -303,8 +303,8 @@ const BackOfficeItems = () => {
                                     <div key={element._id}>
                                         <span><b>{element.title}</b></span>
 
-                                        <i className="bi bi-pencil ml-4 mr-3 pointer bg-success p-1 text-white" onClick={() => { setIsEditing(true); getItem(element._id) }}></i>
-                                        <i className="bi bi-trash3 pointer bg-danger p-1 text-white" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) deleteItem(element._id) }}></i>
+                                        <i className="bi bi-pencil ml-4 mr-3 pointer bg-success p-1 text-white rounded" onClick={() => { setIsEditing(true); getItem(element._id) }}></i>
+                                        <i className="bi bi-trash3 pointer bg-danger p-1 text-white rounded" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) deleteItem(element._id) }}></i>
 
                                         <ul>
                                             {/* <li>{element.category}€</li>
