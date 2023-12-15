@@ -22,7 +22,7 @@ const FormBox = () => {
 
   const notifyError = (message) => toast.error(message, {
     position: "top-center",
-    autoClose: 4000,
+    autoClose: 2000,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
@@ -32,7 +32,7 @@ const FormBox = () => {
   })
   const notifyOk = (message) => toast.success(message, {
     position: "top-center",
-    autoClose: 4000,
+    autoClose: 2000,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,

@@ -26,7 +26,7 @@ const BackOfficeUsers = () => {
 
     const notifyError = (message) => toast.error(message, {
         position: "top-center",
-        autoClose: 4000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

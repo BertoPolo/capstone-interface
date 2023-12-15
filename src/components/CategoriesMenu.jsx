@@ -71,7 +71,7 @@ function CategoriesMenu() {
 
   const notifyNotFound = () => toast.warn(`OOPS! looks like we don't have that`, {
     position: "top-center",
-    autoClose: 4000,
+    autoClose: 2000,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,

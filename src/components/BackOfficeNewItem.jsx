@@ -55,7 +55,7 @@ const BackOficceNewItem = () => {
     // Toasters
     const notifyError = () => toast.error('Check the form again, looks like you forgot something', {
         position: "top-center",
-        autoClose: 4000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -66,7 +66,7 @@ const BackOficceNewItem = () => {
 
     const notify = () => toast.success(`Item created!,upload it's image now`, {
         position: "top-center",
-        autoClose: 4000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -77,7 +77,7 @@ const BackOficceNewItem = () => {
 
     const notifyOk = (message) => toast.success(message, {
         position: "top-center",
-        autoClose: 4000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

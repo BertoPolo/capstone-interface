@@ -23,7 +23,7 @@ const App = () => (
         {/* Toaster */}
         <ToastContainer
           position="top-center"
-          autoClose={2500}
+          autoClose={2000}
           limit={1}
           hideProgressBar={false}
           newestOnTop={false}

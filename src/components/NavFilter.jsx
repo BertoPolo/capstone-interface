@@ -51,7 +51,7 @@ const NavFilter = () => {
 
     const notifyNotFound = () => toast.warn(`OOPS! looks like we don't have anything there`, {
         position: "top-center",
-        autoClose: 2500,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
