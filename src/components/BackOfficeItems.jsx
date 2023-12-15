@@ -199,7 +199,7 @@ const BackOfficeItems = () => {
 
         try {
             const response = await fetch(
-                `${process.env.REACT_APP_SERVER}items/delete/${id}`,
+                `${process.env.REACT_APP_SERVER}items/${id}`,
                 {
                     method: "DELETE",
                     headers: {
@@ -208,9 +208,11 @@ const BackOfficeItems = () => {
                     },
                 }
             );
-            if (response.ok)
+            if (response.ok) {
                 notifyOk("client deleted")
-            setFoundItems("")
+                const updatedItems = foundItems.filter(user => user._id !== id);
+                setFoundItems(updatedItems)
+            }
         } catch (error) {
             console.log(error)
         }
@@ -309,7 +311,7 @@ const BackOfficeItems = () => {
                                             <li>{element.mainCategory}€</li>
                                         <li>{element.brand}€</li> */}
                                             <li>{element.price}€</li>
-                                            <li>{element.isOutlet ? <span>it is outlet an item and it's prices is {element.outletPrice}€</span> : <span> it is not outlet an item</span>}</li>
+                                            <li>{element.isOutlet ? <span>It is outlet an item and it's price is <u>{element.outletPrice}€</u></span> : <span> it is not outlet an item</span>}</li>
                                             <li>{element.description}</li>
                                             <li>{element.fullDescription}</li>
                                             <li>{element.image}</li>

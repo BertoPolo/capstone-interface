@@ -13,7 +13,6 @@
 - Link Cart with token/user
 - Improve item's pictures and namings
 - Send me a notification email if rollback was unsuccessful
-- Refresh page after deleting users
 - Implement again range price input
 
 ## Actives TO DO
@@ -28,5 +27,4 @@
 - At /outlet add title, right now is not intuitive that you are there
 - Testing/Jest
 - Responsive Card payment (Stripe)
-- Schedule Rollback script
 - NavFilter's responsiveness dead
