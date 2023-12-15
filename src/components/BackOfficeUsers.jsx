@@ -79,11 +79,16 @@ const BackOfficeUsers = () => {
 
     }
 
-    const searchUserSubmit = async (e) => {
+    const searchUser = async (e) => {
         e.preventDefault()
+        let url = `${process.env.REACT_APP_SERVER}users`;
+
+        if (wayToSearch && parameterToSearch) {
+            url += `?${wayToSearch}=/^${parameterToSearch}/i`;
+        }
+
         try {
-            const response = await fetch(
-                `${process.env.REACT_APP_SERVER}users?${wayToSearch}=/^${parameterToSearch}/i`, {
+            const response = await fetch(url, {
                 headers: {
                     "Authorization": "Bearer " + token
                 }
@@ -162,23 +167,28 @@ const BackOfficeUsers = () => {
         <Container fluid>
 
             {/* Search user */}
-            {!editMode && <Form onSubmit={(e) => searchUserSubmit(e)}>
+            {!editMode && <Form onSubmit={(e) => searchUser(e)}>
 
                 <div className="d-flex justify-content-center flex-column ">
                     <h4 className="mb-3">Search an user</h4>
 
-                    <Dropdown>
-                        <Dropdown.Toggle variant="success" id="dropdown-basic" className="mb-3">
-                            {wayToSearch || "Select way to search"}
-                        </Dropdown.Toggle>
+                    <div className="d-flex " >
+                        <Dropdown>
+                            <Dropdown.Toggle variant="success" id="dropdown-basic" className="mb-3">
+                                {wayToSearch || "Select way to search"}
+                            </Dropdown.Toggle>
 
-                        <Dropdown.Menu>
-                            <Dropdown.Item onClick={() => setWayToSearch("name")}>Name</Dropdown.Item>
-                            <Dropdown.Item onClick={() => setWayToSearch("username")}>Username</Dropdown.Item>
-                            <Dropdown.Item onClick={() => setWayToSearch("email")}>Email</Dropdown.Item>
-                            {/* <Dropdown.Item onClick={() => setWayToSearch("")}>All users</Dropdown.Item> */}
-                        </Dropdown.Menu>
-                    </Dropdown>
+                            <Dropdown.Menu>
+                                <Dropdown.Item onClick={() => setWayToSearch("name")}>Name</Dropdown.Item>
+                                <Dropdown.Item onClick={() => setWayToSearch("username")}>Username</Dropdown.Item>
+                                <Dropdown.Item onClick={() => setWayToSearch("email")}>Email</Dropdown.Item>
+                                {/* <Dropdown.Item onClick={() => setWayToSearch("")}>All users</Dropdown.Item> */}
+                            </Dropdown.Menu>
+                        </Dropdown>
+
+                        <Button className="ml-3 mb-3" variant="warning" onClick={searchUser}> All users </Button>
+
+                    </div>
 
                     <Form.Group >
                         <Form.Control disabled={!wayToSearch} type="text" className="justify-content-center w-25" placeholder="Who do you want to search?" value={parameterToSearch} onChange={(e) => setParameterToSearch(e.target.value)} />
@@ -231,7 +241,7 @@ const BackOfficeUsers = () => {
                                 <span>Adress : <b>{element.adress}</b></span>
 
                                 <i className="bi bi-pencil pointer mx-3 bg-success p-1 text-white" onClick={() => { setEditMode(true); setUserId(element._id); getUserById(element._id) }}></i>
-                                <i className="bi bi-trash3 pointer bg-danger p-1 text-white" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) deleteUser(element._id) }}></i>
+                                {element.isAdmin === false && <i className="bi bi-trash3 pointer bg-danger p-1 text-white" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) deleteUser(element._id) }}></i>}
 
                                 <hr />
                             </div>
