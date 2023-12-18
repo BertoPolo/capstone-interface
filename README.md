@@ -31,7 +31,7 @@
   </p>
 </div>
 
-### Website and README.md are in construction
+## Website and README.md are in construction
 <br/>
 
 <!-- TABLE OF CONTENTS -->
@@ -60,6 +60,8 @@
   </ol>
 </details>
 
+## Usage
+
 ### Stripe demo payment
 Use this payment method to fake a purchase: 4242 4242 4242 4242 01/28 424 22222
 
@@ -74,7 +76,7 @@ user / 123
 
 <!-- ABOUT THE PROJECT -->
 
-## About The Project
+### About The Project
 
 E-commerce for bikers specialized products. You can enjoy an intuitive shopping experience with your computer or your phone. To see all the features you need an admin access.
 
@@ -97,7 +99,7 @@ E-commerce for bikers specialized products. You can enjoy an intuitive shopping 
 
 <!-- GETTING STARTED -->
 
-### Getting Started
+## Getting Started
 
 To get started with this project, follow the steps below:
 
@@ -125,16 +127,6 @@ REACT_APP_STRIPE_PUBLIC_KEY= (public key from fripe)
 ```sh
 npm start
 ```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- USAGE EXAMPLES -->
-
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
