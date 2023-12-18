@@ -66,9 +66,9 @@ Use this payment method to fake a purchase: 4242 4242 4242 4242 01/28 424 22222
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Demo users
-admin / ***
+admin / 123
 <br/>
-user / ***
+user / 123
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
