@@ -7,27 +7,25 @@
 *** See the bottom of this document for the declaration of the reference variables
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
+  <a href="https://github.com/othneildrew/Best-README-Template"></a>
 -->
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
     <img src="public/STR_LOGIN.avif" alt="Logo" width="350" height="200">
-  </a>
-
+  
   <h1 align="center">Stuff To Route</h1>
 
-  <p align="center">
+   <p align="center">
     E-commerce made for bikers to bikers!
     <br />
     <br />
     <a href="https://stufftoroute.vercel.app" target="_blank" rel="noopener noreferrer">View Demo</a>
     ·
     <a href="https://pagespeed.web.dev/analysis/https-stufftoroute-vercel-app/7hlq5fiq11?form_factor=mobile" target="_blank" rel="noopener noreferrer">
-  SEO score</a>
-  <!--  ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Make a sugestion</a> -->
+      SEO score
+    </a>
   </p>
 </div>
 
