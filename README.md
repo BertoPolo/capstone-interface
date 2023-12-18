@@ -24,7 +24,7 @@
     <br />
     <a href="https://stufftoroute.vercel.app" target="_blank" rel="noopener noreferrer">View Demo</a>
     ·
-    <a href="href="https://pagespeed.web.dev/analysis/https-stufftoroute-vercel-app/7hlq5fiq11?form_factor=mobile"     target="_blank" rel="noopener noreferrer">
+    <a href="https://pagespeed.web.dev/analysis/https-stufftoroute-vercel-app/7hlq5fiq11?form_factor=mobile" target="_blank" rel="noopener noreferrer">
       SEO score</a>
   <!--  ·
     <a href="https://github.com/othneildrew/Best-README-Template/issues">Make a sugestion</a> -->
