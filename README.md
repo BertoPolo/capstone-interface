@@ -99,15 +99,14 @@ E-commerce for bikers specialized products. You can enjoy an intuitive shopping 
 
 ### Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+To get started with this project, follow the steps below:
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+Follow these instructions to clone and set up the application on your local machine:
 
 1. If you don't have any backend you can clone mine at [https://github.com/BertoPolo/capstone_backend](BertoPolo/capstone_backend)
-2. Clone the repo
+2. Clone the repository
    ```sh
    git clone https://github.com/BertoPolo/capstone-interface.git
    ```
@@ -177,7 +176,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- ACKNOWLEDGMENTS -->
 
 ## Acknowledgments
-
+<!--
 Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
 
 - [Choose an Open Source License](https://choosealicense.com)
@@ -188,7 +187,7 @@ Use this space to list resources you find helpful and would like to give credit 
 - [GitHub Pages](https://pages.github.com)
 - [Font Awesome](https://fontawesome.com)
 - [React Icons](https://react-icons.github.io/react-icons/search)
-
+-->
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
