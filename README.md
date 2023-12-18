@@ -41,7 +41,7 @@
     <li>
       <a href="#usage">Usage</a>
       <ul>
-      <li><a href="#stripe-payment">Stripe demo payment</a></li>
+      <li><a href="#stripe-demo-payment">Stripe demo payment</a></li>
       <li><a href="#demo-users">Demo Users</a></li>
       <li><a href="#about-the-project">About The Project</a></li>
         <li><a href="#built-with">Built With</a></li>
@@ -149,12 +149,12 @@ Don't forget to give the project a star! Thanks again!
 
 <!-- LICENSE -->
 
-<!-- ## License
-
+## License
+<!--
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 -->
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTACT -->
 
