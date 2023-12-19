@@ -119,7 +119,7 @@ Follow these instructions to clone and set up the application on your local mach
 ```sh
 React_APP_SERVER= (localhost or your backend)
 REACT_APP_PERSIST_KEY= (any complex string)
-REACT_APP_STRIPE_PUBLIC_KEY= (public key from fripe)
+REACT_APP_STRIPE_PUBLIC_KEY= (public key from Stripe)
 ```
 6. Run
 ```sh
