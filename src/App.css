@@ -14,6 +14,7 @@ body {
 
 .submitButton {
   background-color: #32663b !important ;
+  border: none !important;
 }
 /* Global end */
 /* Home start */
