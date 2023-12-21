@@ -1,13 +1,13 @@
 import { Container, Carousel, Col, Row, Button } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
-import React, { Suspense, useEffect } from "react";
+import React, { Suspense, useEffect, useState } from "react";
+import { useLocation } from 'react-router-dom';
 import { addItems } from "../slices/items/itemsSlice"
 import MyNavbar from "./MyNavbar"
 import HomeItem from "./HomeItem"
 import CategoriesMenu from "./CategoriesMenu"
 import NavFilter from "./NavFilter"
 import CategoriesMenuDropdown from "./CategoriesMenuDropdown"
-import { useState } from "react"
 
 const Outlet = React.lazy(() => import('./Outlet'));
 const ContactUs = React.lazy(() => import('./ContactUs'));
@@ -20,9 +20,12 @@ const Home = () => {
   const brands = useSelector((state) => state.brandsSlice.brands);
   const { isOnHome, isOnOutlet, isOnCountactUs, isOnSingleItem, isOnCategory, isOnBrands } = useSelector(state => state.pagesSlice)
 
-  const [isCategoriesMenuDropdown, setIsCategoriesDropdown] = useState(false)
 
   const dispatch = useDispatch();
+  const location = useLocation();
+
+  const [currentFilter, setCurrentFilter] = useState({});
+  const [isCategoriesMenuDropdown, setIsCategoriesDropdown] = useState(false)
 
   const getRandomItems = async () => {
     try {
@@ -34,9 +37,49 @@ const Home = () => {
     }
   }
 
+  //get filtered items or RANDOM items if no filters 
+  const fetchFilteredItems = async (filterCriteria) => {
+    let url = `${process.env.REACT_APP_SERVER}items/`;
+
+    if (filterCriteria) {
+      // Construct URL with filter criteria
+      // Example: filterCriteria = { category: "electronics", priceRange: "0-100" }
+      const queryString = Object.entries(filterCriteria)
+        .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+        .join('&');
+      url += `filter?${queryString}`;
+    } else {
+      // No filter criteria, fetch random items
+      url += 'random';
+    }
+
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      if (response.ok) {
+        dispatch(addItems(data)); // Assuming you are using Redux dispatch
+      } else console.error('Failed to fetch items:', data.message);
+
+    } catch (error) {
+      console.error('Error fetching items:', error);
+    }
+  };
+
+
+
+  // useEffect(() => {
+  //   getRandomItems()
+  // }, [])
+
+
+  // Parse query parameters
   useEffect(() => {
-    getRandomItems()
-  }, [])
+    const params = new URLSearchParams(location.search);
+    const filter = params.get('filter');
+    setCurrentFilter(filter);
+    // Fetch items based on filter
+    fetchFilteredItems(filter);
+  }, [location])
 
   return (
     <>
