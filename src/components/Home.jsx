@@ -27,59 +27,55 @@ const Home = () => {
   const [currentFilter, setCurrentFilter] = useState({});
   const [isCategoriesMenuDropdown, setIsCategoriesDropdown] = useState(false)
 
-  const getRandomItems = async () => {
-    try {
-      const response = await fetch(`${process.env.REACT_APP_SERVER}items/random`);
-      const data = await response.json();
-      if (response.ok) dispatch(addItems(data));
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
   //get filtered items or RANDOM items if no filters 
   const fetchFilteredItems = async (filterCriteria) => {
     let url = `${process.env.REACT_APP_SERVER}items/`;
 
     if (filterCriteria) {
-      // Construct URL with filter criteria
-      // Example: filterCriteria = { category: "electronics", priceRange: "0-100" }
       const queryString = Object.entries(filterCriteria)
         .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
         .join('&');
       url += `filter?${queryString}`;
     } else {
-      // No filter criteria, fetch random items
+      // if No filter criteria, fetch random items
       url += 'random';
     }
 
     try {
-      const response = await fetch(url);
-      const data = await response.json();
+      const response = await fetch(url)
+      const data = await response.json()
       if (response.ok) {
-        dispatch(addItems(data)); // Assuming you are using Redux dispatch
-      } else console.error('Failed to fetch items:', data.message);
+        dispatch(addItems(data))
+
+      } else console.error('Failed to fetch items:', data.message)
 
     } catch (error) {
-      console.error('Error fetching items:', error);
+      console.error('Error fetching items:', error)
     }
   };
 
 
-
-  // useEffect(() => {
-  //   getRandomItems()
-  // }, [])
-
-
-  // Parse query parameters
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    const filter = params.get('filter');
-    setCurrentFilter(filter);
-    // Fetch items based on filter
-    fetchFilteredItems(filter);
-  }, [location])
+    const filterCriteria = {};
+
+    params.forEach((value, key) => {
+      if (key in filterCriteria) {
+        // If the key already exists, convert it into an array
+        if (typeof filterCriteria[key] === 'string') {
+          filterCriteria[key] = [filterCriteria[key], value];
+        } else {
+          filterCriteria[key].push(value);
+        }
+      } else {
+        filterCriteria[key] = value;
+      }
+    });
+
+    fetchFilteredItems(Object.keys(filterCriteria).length > 0 ? filterCriteria : null);
+  }, [location]);
+
 
   return (
     <>
