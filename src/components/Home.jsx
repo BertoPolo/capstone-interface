@@ -30,29 +30,40 @@ const Home = () => {
 
   //get filtered items or RANDOM items if no filters 
   const fetchFilteredItems = async (filterCriteria) => {
-    let url = `${process.env.REACT_APP_SERVER}items/`;
-
-    if (filterCriteria) {
-      const queryString = Object.entries(filterCriteria)
-        .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
-        .join('&');
-      url += `filter?${queryString}`;
-    } else {
-      // if No filter criteria, fetch random items
-      url += 'random';
-    }
-
+    const url = constructFetchUrl(filterCriteria);
     try {
-      const response = await fetch(url)
-      const data = await response.json()
+      const response = await fetch(url);
+      const data = await response.json();
       if (response.ok) {
-        dispatch(addItems(data))
-
-      } else console.error('Failed to fetch items:', data.message)
-
+        dispatch(addItems(data));
+      } else {
+        console.error('Failed to fetch items:', data.message);
+      }
     } catch (error) {
-      console.error('Error fetching items:', error)
+      console.error('Error fetching items:', error);
     }
+  };
+
+  const constructFetchUrl = (filterCriteria) => {
+    let baseUrl = `${process.env.REACT_APP_SERVER}items/`;
+    if (!filterCriteria) {
+      return baseUrl + 'random';
+    }
+
+    const queryString = constructQueryString(filterCriteria);
+    return baseUrl + `filter?${queryString}`;
+  };
+
+  const constructQueryString = (filterCriteria) => {
+    return Object.entries(filterCriteria)
+      .flatMap(([key, value]) => {
+        if (Array.isArray(value)) {
+          // Handle multiple values for the same key (e.g., 'price')
+          return value.map(val => `${encodeURIComponent(key)}=${encodeURIComponent(val)}`);
+        }
+        return `${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
+      })
+      .join('&');
   };
 
 
@@ -75,7 +86,6 @@ const Home = () => {
 
     fetchFilteredItems(Object.keys(filterCriteria).length > 0 ? filterCriteria : null);
   }, [location]);
-
 
   return (
     <>
