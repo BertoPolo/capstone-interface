@@ -18,7 +18,7 @@ const Home = () => {
 
   const items = useSelector((state) => state.itemsSlice.items);
   const brands = useSelector((state) => state.brandsSlice.brands);
-  const { isOnHome, isOnOutlet, isOnCountactUs, isOnSingleItem, isOnCategory, isOnBrands } = useSelector(state => state.pagesSlice)
+  const { isOnHome, isOnOutlet, isOnCountactUs, isOnSingleItem, isOnCategory, isOnBrands, addFiltersPath, removeFiltersPath, cleanFiltersPath } = useSelector(state => state.pagesSlice)
 
 
   const dispatch = useDispatch();

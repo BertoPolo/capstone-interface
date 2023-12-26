@@ -26,6 +26,5 @@
 ## Actives TO DO
 
 - Implement to see filters and M/cats in route/path ( params ) => then modify searches to be by params
-- Responsive Card payment (Stripe)
-- NavFilter's responsiveness is DEAD
-- Check all responsiveness
+- Wait for the new design to check all responsiveness
+- Fix rollback, since updates, is not working properly
