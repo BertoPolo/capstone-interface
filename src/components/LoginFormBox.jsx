@@ -143,17 +143,23 @@ const FormBox = () => {
                   <Form.Check type="checkbox" label="Remember me" className="login-small-font" onClick={() => setIsRemember(!isRemember)} />
                 </Form.Group> */}
 
+          <Link className="login-small-font d-block my-2" to="/forgotPassword">
+            <span className="text-red">Forgot password?</span>
+          </Link>
+
           <Button className="addToCartButton border-0" type="submit" ref={btnRef} disabled={(!usernameInput) || (!passwordInput)} >
             Enter
           </Button>
 
-          <Link className="login-small-font d-block mb-3 mt-3" to="/forgotPassword">
-            <b className="text-danger"> Forgot the password?</b>
+          <small className="d-block my-3">Aren't you registered yet?
+            <Link className="login-small-font d-block" to="/newUser">
+              Join Us!
+            </Link>
+          </small>
+          <Link className="login-small-font d-block" to="/home">
+            Take a look without login
           </Link>
 
-          <Link className="login-small-font d-block" to="/newUser">
-            <b> Join Us!</b>
-          </Link>
         </div>
         {isCharging && <Spinner className="position-absolute" animation="border" variant="success" />}
         {isError && <Spinner className="position-absolute" animation="grow" variant="danger" />}

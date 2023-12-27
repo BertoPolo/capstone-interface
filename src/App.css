@@ -1,9 +1,18 @@
 /* Global start */
 
+/* 
+root{
+dark blue #052F48 
+red #DB4444
+}
+*/
+
 body {
   background: #c6c1c11c !important;
 }
-
+.text-red {
+  color: #db4444;
+}
 .pointer {
   cursor: pointer;
 }
@@ -66,7 +75,7 @@ small {
   font-size: 15px !important;
 }
 .addToCartButton {
-  background-color: rgb(52, 52, 151) !important;
+  background-color: #052f48 !important;
   width: 80%;
 }
 .grayOnHover:hover {
