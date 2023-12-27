@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 /* Global start */
 
 /* 
@@ -8,7 +9,12 @@ red #DB4444
 */
 
 body {
-  background: #c6c1c11c !important;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Montserrat", sans-serif !important;
+  background-color: #ffffff !important;
+  /* background: #c6c1c11c !important; */
 }
 .text-red {
   color: #db4444;
@@ -117,8 +123,6 @@ small {
 }
 
 .login-container {
-  /* min-height: 100vh; */
-  /* margin-top: 10%; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -127,9 +131,9 @@ small {
   text-align: center;
 }
 .login-modal {
-  border: 2px solid rgba(0, 0, 0, 0.089);
-  padding-left: 3rem;
-  padding-right: 3rem;
+  border: 1px solid #bdbdbd47;
+  padding-left: 4rem;
+  padding-right: 4rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
 }

@@ -130,12 +130,18 @@ const FormBox = () => {
       <Form className="login-container" onSubmit={createToken}>
         <div className="login-modal">
 
-          <p className="mb-3 loginTitle">Login </p>
+          <p className="mb-3 loginTitle">Welcome back 👋</p>
+          <div className="">
+            <p>Saddle up!</p>
+            <p>Your moto essentials are just a login away.</p>
+          </div>
           <Form.Group>
+            <Form.Label>Username</Form.Label>
             <Form.Control type="text" placeholder="Username" value={usernameInput} onChange={(e) => setUsernameInput(e.target.value)} />
           </Form.Group>
 
           <Form.Group>
+            <Form.Label>Password</Form.Label>
             <Form.Control type="password" placeholder="Password" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
           </Form.Group>
 
@@ -143,7 +149,7 @@ const FormBox = () => {
                   <Form.Check type="checkbox" label="Remember me" className="login-small-font" onClick={() => setIsRemember(!isRemember)} />
                 </Form.Group> */}
 
-          <Link className="login-small-font d-block my-2" to="/forgotPassword">
+          <Link className="login-small-font d-block my-2 mr-auto" to="/forgotPassword">
             <span className="text-red">Forgot password?</span>
           </Link>
 
