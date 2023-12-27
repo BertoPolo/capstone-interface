@@ -22,6 +22,7 @@
 - At /outlet add title, right now is not intuitive that you are there
 - Change navigation among pages, from states to params
 - Testing/Jest
+- Params is getting filters from \_id but it's better to get them from the name
 
 ## Actives TO DO
 

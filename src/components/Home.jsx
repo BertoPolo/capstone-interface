@@ -2,12 +2,13 @@ import { Container, Carousel, Col, Row, Button } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
 import React, { Suspense, useEffect, useState } from "react";
 import { useLocation } from 'react-router-dom';
-import { addItems } from "../slices/items/itemsSlice"
+import { toast } from 'react-toastify';
 import MyNavbar from "./MyNavbar"
 import HomeItem from "./HomeItem"
 import CategoriesMenu from "./CategoriesMenu"
 import NavFilter from "./NavFilter"
 import CategoriesMenuDropdown from "./CategoriesMenuDropdown"
+import { addItems } from "../slices/items/itemsSlice"
 import { setFilter, removeFilter, clearFilters } from "../slices/pages/pagesSlice"
 
 const Outlet = React.lazy(() => import('./Outlet'));
@@ -26,6 +27,16 @@ const Home = () => {
 
   const [isCategoriesMenuDropdown, setIsCategoriesDropdown] = useState(false)
 
+  const notifyNotFound = () => toast.warn(`OOPS! looks like we don't have anything there`, {
+    position: "top-center",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+  });
 
   //get filtered items or RANDOM items if no filters 
   const fetchFilteredItems = async (filterCriteria) => {
@@ -36,6 +47,7 @@ const Home = () => {
       if (response.ok) {
         dispatch(addItems(data));
       } else {
+        notifyNotFound()
         console.error('Failed to fetch items:', data.message);
       }
     } catch (error) {
@@ -44,20 +56,20 @@ const Home = () => {
   };
 
   const constructFetchUrl = (filterCriteria) => {
-    let baseUrl = `${process.env.REACT_APP_SERVER}items/`;
+    let baseUrl = `${process.env.REACT_APP_SERVER}items`;
     if (!filterCriteria) {
-      return baseUrl + 'random';
+      return baseUrl + '/random';
     }
 
     const queryString = constructQueryString(filterCriteria);
-    return baseUrl + `filter?${queryString}`;
+    return baseUrl + `?${queryString}`;
   };
 
 
   const constructQueryString = (filterCriteria) => {
     return Object.entries(filterCriteria)
       .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
-      .join('&');
+      .join('&')
   };
 
 
