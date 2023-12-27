@@ -8,6 +8,7 @@ import HomeItem from "./HomeItem"
 import CategoriesMenu from "./CategoriesMenu"
 import NavFilter from "./NavFilter"
 import CategoriesMenuDropdown from "./CategoriesMenuDropdown"
+import { setFilter, removeFilter, clearFilters } from "../slices/pages/pagesSlice"
 
 const Outlet = React.lazy(() => import('./Outlet'));
 const ContactUs = React.lazy(() => import('./ContactUs'));
@@ -18,13 +19,11 @@ const Home = () => {
 
   const items = useSelector((state) => state.itemsSlice.items);
   const brands = useSelector((state) => state.brandsSlice.brands);
-  const { isOnHome, isOnOutlet, isOnCountactUs, isOnSingleItem, isOnCategory, isOnBrands, addFiltersPath, removeFiltersPath, cleanFiltersPath } = useSelector(state => state.pagesSlice)
-
+  const { isOnHome, isOnOutlet, isOnCountactUs, isOnSingleItem, isOnCategory, isOnBrands } = useSelector(state => state.pagesSlice)
 
   const dispatch = useDispatch();
   const location = useLocation();
 
-  const [currentFilter, setCurrentFilter] = useState({});
   const [isCategoriesMenuDropdown, setIsCategoriesDropdown] = useState(false)
 
 
@@ -54,15 +53,10 @@ const Home = () => {
     return baseUrl + `filter?${queryString}`;
   };
 
+
   const constructQueryString = (filterCriteria) => {
     return Object.entries(filterCriteria)
-      .flatMap(([key, value]) => {
-        if (Array.isArray(value)) {
-          // Handle multiple values for the same key (e.g., 'price')
-          return value.map(val => `${encodeURIComponent(key)}=${encodeURIComponent(val)}`);
-        }
-        return `${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
-      })
+      .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
       .join('&');
   };
 
@@ -70,22 +64,13 @@ const Home = () => {
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const filterCriteria = {};
-
     params.forEach((value, key) => {
-      if (key in filterCriteria) {
-        // If the key already exists, convert it into an array
-        if (typeof filterCriteria[key] === 'string') {
-          filterCriteria[key] = [filterCriteria[key], value];
-        } else {
-          filterCriteria[key].push(value);
-        }
-      } else {
-        filterCriteria[key] = value;
-      }
+      filterCriteria[key] = value;
+      dispatch(setFilter({ key, value })); // Update Redux state with URL parameters
     });
 
     fetchFilteredItems(Object.keys(filterCriteria).length > 0 ? filterCriteria : null);
-  }, [location]);
+  }, [location, dispatch])
 
   return (
     <>
