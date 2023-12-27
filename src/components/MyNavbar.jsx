@@ -36,9 +36,8 @@ const MyNavbar = () => {
   return (
     <>
       <Navbar expand="lg" className="sticky-top navbarBg">
-        <Navbar.Brand className="pointer" href="/home" onClick={() => dispatch(toggleIsOnHome(true))}>
-          Stuff To Route
-          <Image src={`${process.env.PUBLIC_URL}/mbIcon.png`} alt="Main logo" style={{ width: "1.5rem", marginLeft: "1rem" }} />
+        <Navbar.Brand className="pointer" onClick={() => { navigate("/home"); dispatch(toggleIsOnHome(true)) }}>
+          <Image src={`${process.env.PUBLIC_URL}/mbIcon.png`} alt="Nav logo" style={{ width: "1.5rem" }} />
         </Navbar.Brand>
 
         <Nav.Link className="d-md-none cart-color" onClick={handleShow}>
@@ -49,6 +48,7 @@ const MyNavbar = () => {
         <Navbar.Collapse>
           <Nav className="mr-auto">
             {/* could be better do an if statement like : if params !/home => go home  ?? to do not navigate always*/}
+            <Nav.Link onClick={() => { navigate("/home"); dispatch(toggleIsOnHome(true)) }}>Home</Nav.Link>
             <Nav.Link onClick={() => { navigate("/home/outlet"); dispatch(toggleIsOnOutlet(true)) }}>Outlet</Nav.Link>
             <Nav.Link onClick={() => { navigate("/home/contactUs"); dispatch(toggleIsCountactUs(true)) }}>Contact Us</Nav.Link>
             {/* <Nav.Link onClick={() => { navigate("/whatiused") }}>What I Used</Nav.Link> */}
