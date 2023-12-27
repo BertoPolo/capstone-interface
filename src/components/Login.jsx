@@ -31,17 +31,12 @@ const Login = () => {
       <Container fluid className="d-none d-sm-block">
         <Row>
           {/* option for not registered users */}
-          <Col className="login-container loginBG">
-            <div className="p-4 transparencywWhiteBox">
-              <p> Aren't you registered yet?</p>
-              <Button className="addToCartButton border-0" onClick={() => navigate("/home")}>Take a look without login</Button>
-            </div>
-          </Col>
-
           <Col className="d-flex flex-column">
             <Image className="mb-4 mt-2 ml-auto mr-auto " src="/STR_LOGIN.avif" style={{ maxHeight: "20vh", maxWidth: "25vw" }} alt="Login Logo" />
             <FormBox />
           </Col>
+
+          <Col className="login-container loginBG"></Col>
         </Row>
       </Container>
 

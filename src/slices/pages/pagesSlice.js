@@ -12,6 +12,7 @@ const pagesSlice = createSlice({
     isOnUserSearch: false,
     isOnItemSearch: false,
     isOnCreateNewItem: false,
+    filters: {},
   },
 
   reducers: {
@@ -125,6 +126,20 @@ const pagesSlice = createSlice({
         isOnUserSearch: false,
       }
     },
+
+    setFilter: (state, action) => {
+      const { key, value } = action.payload // Payload should be an object { key, value }!
+      state.filters[key] = value
+    },
+
+    removeFilter: (state, action) => {
+      const key = action.payload
+      delete state.filters[key]
+    },
+
+    clearFilters: (state) => {
+      state.filters = {}
+    },
   },
 })
 
@@ -139,4 +154,7 @@ export const {
   toggleIsOnBrands,
   toggleIsOnItemSearch,
   toggleIsOnCreateNewItem,
+  setFilter,
+  removeFilter,
+  clearFilters,
 } = pagesSlice.actions

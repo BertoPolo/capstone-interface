@@ -14,17 +14,18 @@
 - Improve item's pictures and namings
 - Send me a notification email if rollback was unsuccessful
 - Implement again range price input
-
-## Actives TO DO
-
 - is /resume dropdown behavioring well?
-- Change navigation among pages, from states to params
-- Implement to see filters and M/cats in route/path ( params ) => then modify searches to be by params
 - Add bg to tab's icon
 - Clean unused imports
 - Not always is displayed "we don't have that item"
 - Reset scroll when navigate
 - At /outlet add title, right now is not intuitive that you are there
+- Change navigation among pages, from states to params
 - Testing/Jest
-- Responsive Card payment (Stripe)
-- NavFilter's responsiveness dead
+- Params is getting filters from \_id but it's better to get them from the name
+
+## Actives TO DO
+
+- Implement to see filters and M/cats in route/path ( params ) => then modify searches to be by params
+- Wait for the new design to check all responsiveness
+- Fix rollback, since updates, is not working properly

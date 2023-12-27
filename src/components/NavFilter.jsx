@@ -150,7 +150,7 @@ const NavFilter = () => {
 
                         </Col>
                         {/* BY BRAND*/}
-                        <Col xs={3} sm={3} className="p-0">
+                        <Col xs={1} sm={3} className="p-0">
                             <Dropdown className="" >
                                 <Dropdown.Toggle className="p-0" variant="outline">{selectedBrand || "Brand"}</Dropdown.Toggle>
 

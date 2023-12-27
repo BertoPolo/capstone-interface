@@ -1,13 +1,15 @@
 import { Container, Carousel, Col, Row, Button } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
-import React, { Suspense, useEffect } from "react";
-import { addItems } from "../slices/items/itemsSlice"
+import React, { Suspense, useEffect, useState } from "react";
+import { useLocation } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import MyNavbar from "./MyNavbar"
 import HomeItem from "./HomeItem"
 import CategoriesMenu from "./CategoriesMenu"
 import NavFilter from "./NavFilter"
 import CategoriesMenuDropdown from "./CategoriesMenuDropdown"
-import { useState } from "react"
+import { addItems } from "../slices/items/itemsSlice"
+import { setFilter, removeFilter, clearFilters } from "../slices/pages/pagesSlice"
 
 const Outlet = React.lazy(() => import('./Outlet'));
 const ContactUs = React.lazy(() => import('./ContactUs'));
@@ -20,23 +22,67 @@ const Home = () => {
   const brands = useSelector((state) => state.brandsSlice.brands);
   const { isOnHome, isOnOutlet, isOnCountactUs, isOnSingleItem, isOnCategory, isOnBrands } = useSelector(state => state.pagesSlice)
 
+  const dispatch = useDispatch();
+  const location = useLocation();
+
   const [isCategoriesMenuDropdown, setIsCategoriesDropdown] = useState(false)
 
-  const dispatch = useDispatch();
+  const notifyNotFound = () => toast.warn(`OOPS! looks like we don't have anything there`, {
+    position: "top-center",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+  });
 
-  const getRandomItems = async () => {
+  //get filtered items or RANDOM items if no filters 
+  const fetchFilteredItems = async (filterCriteria) => {
+    const url = constructFetchUrl(filterCriteria);
     try {
-      const response = await fetch(`${process.env.REACT_APP_SERVER}items/random`);
+      const response = await fetch(url);
       const data = await response.json();
-      if (response.ok) dispatch(addItems(data));
+      if (response.ok) {
+        dispatch(addItems(data));
+      } else {
+        notifyNotFound()
+        console.error('Failed to fetch items:', data.message);
+      }
     } catch (error) {
-      console.log(error)
+      console.error('Error fetching items:', error);
     }
-  }
+  };
+
+  const constructFetchUrl = (filterCriteria) => {
+    let baseUrl = `${process.env.REACT_APP_SERVER}items`;
+    if (!filterCriteria) {
+      return baseUrl + '/random';
+    }
+
+    const queryString = constructQueryString(filterCriteria);
+    return baseUrl + `?${queryString}`;
+  };
+
+
+  const constructQueryString = (filterCriteria) => {
+    return Object.entries(filterCriteria)
+      .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+      .join('&')
+  };
+
 
   useEffect(() => {
-    getRandomItems()
-  }, [])
+    const params = new URLSearchParams(location.search);
+    const filterCriteria = {};
+    params.forEach((value, key) => {
+      filterCriteria[key] = value;
+      dispatch(setFilter({ key, value })); // Update Redux state with URL parameters
+    });
+
+    fetchFilteredItems(Object.keys(filterCriteria).length > 0 ? filterCriteria : null);
+  }, [location, dispatch])
 
   return (
     <>

@@ -130,30 +130,45 @@ const FormBox = () => {
       <Form className="login-container" onSubmit={createToken}>
         <div className="login-modal">
 
-          <p className="mb-3 loginTitle">Login </p>
+          <p className="mb-3 loginTitle">Welcome back 👋</p>
+
+          <p className="d-flex">Saddle up!</p>
+          <p className="d-flex">Your moto essentials are just a login away.</p>
           <Form.Group>
-            <Form.Control type="text" placeholder="Username" value={usernameInput} onChange={(e) => setUsernameInput(e.target.value)} />
+            <div className="d-flex"><Form.Label>Username</Form.Label></div>
+            <Form.Control type="text" placeholder="JohnDoe123" value={usernameInput} onChange={(e) => setUsernameInput(e.target.value)} />
           </Form.Group>
 
           <Form.Group>
-            <Form.Control type="password" placeholder="Password" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
+            <div className="d-flex"><Form.Label>Password</Form.Label></div>
+            <Form.Control type="password" placeholder="****" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
           </Form.Group>
 
           {/* <Form.Group>
                   <Form.Check type="checkbox" label="Remember me" className="login-small-font" onClick={() => setIsRemember(!isRemember)} />
                 </Form.Group> */}
 
+          <div className="my-2 d-flex justify-content-end">
+            <Link className="login-small-font d-block " to="/forgotPassword">
+              <span className="text-red">Forgot password?</span>
+            </Link>
+          </div>
+
           <Button className="addToCartButton border-0" type="submit" ref={btnRef} disabled={(!usernameInput) || (!passwordInput)} >
             Enter
           </Button>
 
-          <Link className="login-small-font d-block mb-3 mt-3" to="/forgotPassword">
-            <b className="text-danger"> Forgot the password?</b>
+          <small className="d-flex justify-content-center my-3">Aren't you registered yet?
+            <Link className="login-small-font d-block ml-1" to="/newUser">
+              Join Us!
+            </Link>
+          </small>
+          <Link className="login-small-font d-block" to="/home">
+            Take a look without login
           </Link>
 
-          <Link className="login-small-font d-block" to="/newUser">
-            <b> Join Us!</b>
-          </Link>
+          <small className="text-muted">© 2023 ALL RIGHTS RESERVED</small>
+
         </div>
         {isCharging && <Spinner className="position-absolute" animation="border" variant="success" />}
         {isError && <Spinner className="position-absolute" animation="grow" variant="danger" />}

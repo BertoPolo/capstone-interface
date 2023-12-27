@@ -41,7 +41,6 @@ const App = () => (
           <Route path="/home" element={<Home />}>
             <Route path=":itemTitle" element={<Home />} />
             <Route path="contactUs" element={<Home />} />
-            <Route path="outlet" element={<Home />} />
           </Route>
           <Route path="/backOfficeMenu" element={<BackOfficeMenu />}>
             <Route path="backOfficeUsers" element={<BackOfficeMenu />} />
@@ -51,7 +50,6 @@ const App = () => (
           <Route path="/resume" element={<ResumingCart />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/forgotPassword" element={<ForgotPassword />} />
-          {/* <Route path="/whatiused" element={<WhatIUsed />} /> */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
