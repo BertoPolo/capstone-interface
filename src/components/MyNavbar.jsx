@@ -69,7 +69,12 @@ const MyNavbar = () => {
 
             {isLogged ? <Nav.Link href="/" onClick={emptyUser}>Log Out</Nav.Link>
               :
-              <Nav.Link href="/" className="">Login</Nav.Link>
+              <Nav.Link href="/" className="">
+                <b>
+                  <i class="bi bi-person mr-1"></i>
+                  Login / Sign up
+                </b>
+              </Nav.Link>
             }
 
           </Nav>
