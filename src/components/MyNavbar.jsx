@@ -41,13 +41,13 @@ const MyNavbar = () => {
         </Navbar.Brand>
 
         <Nav.Link className="d-md-none cart-color" onClick={handleShow}>
-          <i className="bi bi-cart" /> ({cart.length})
+          <i className="bi bi-cart"></i>
+          <span className="cart-counter bg-warning">{cart.length}</span>
         </Nav.Link>
 
         <Navbar.Toggle />
         <Navbar.Collapse>
           <Nav className="mr-auto">
-            {/* could be better do an if statement like : if params !/home => go home  ?? to do not navigate always*/}
             <Nav.Link onClick={() => { navigate("/home"); dispatch(toggleIsOnHome(true)) }}>Home</Nav.Link>
             <Nav.Link onClick={() => { navigate("/home/outlet"); dispatch(toggleIsOnOutlet(true)) }}>Outlet</Nav.Link>
             <Nav.Link onClick={() => { navigate("/home/contactUs"); dispatch(toggleIsCountactUs(true)) }}>Contact Us</Nav.Link>
@@ -59,8 +59,9 @@ const MyNavbar = () => {
               <Nav.Link href="/backOfficeMenu">BackOffice</Nav.Link>
               :
               <>
-                <Nav.Link className="d-none d-md-block cart-color" href="" onClick={handleShow}>
-                  <i className="bi bi-cart" /> ({cart.length})
+                <Nav.Link className="d-none d-md-block cart-color mr-2" onClick={handleShow}>
+                  <i className="bi bi-cart"></i>
+                  <span className="cart-counter bg-warning">{cart.length}</span>
                 </Nav.Link>
                 {isLogged && <Nav.Link href="/myAccount" >My Account</Nav.Link>}
               </>

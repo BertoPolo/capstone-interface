@@ -13,6 +13,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Montserrat", sans-serif !important;
+  font-size: medium !important;
   background-color: #ffffff !important;
   /* background: #c6c1c11c !important; */
 }
@@ -165,6 +166,21 @@ small {
 }
 .cart-color {
   color: #2692e7 !important;
+  position: relative;
+}
+
+.cart-counter {
+  position: absolute;
+  top: 0;
+  right: -5px;
+  color: black;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
 }
 
 /* Navbar end */
