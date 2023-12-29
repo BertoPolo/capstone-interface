@@ -167,7 +167,7 @@ const FormBox = () => {
             Take a look without login
           </Link>
 
-          <small className="text-muted">© 2023 ALL RIGHTS RESERVED</small>
+          <small className="text-muted mb-3">© 2023 ALL RIGHTS RESERVED</small>
 
         </div>
         {isCharging && <Spinner className="position-absolute" animation="border" variant="success" />}
