@@ -3,19 +3,19 @@ import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import MyNavbar from "./MyNavbar"
-import { addName, addUserName, addAdress, addEmail, } from "../slices/users/usersSlice"
+import { addName, addUserName, addAddress, addEmail, } from "../slices/users/usersSlice"
 import { toast } from 'react-toastify';
 
 const MyAccount = () => {
   const navigate = useNavigate("")
   const dispatch = useDispatch()
 
-  const { name, username, adress, email, token } = useSelector((state) => state.usersSlice);
+  const { name, username, address, email, token } = useSelector((state) => state.usersSlice);
 
   const [nameInput, setNameInput] = useState(name)
   const [userNameInput, setUserNameInput] = useState(username)
   const [emailInput, setEmailInput] = useState(email)
-  const [adressInput, setAdressInput] = useState(adress)
+  const [addressInput, setAddressInput] = useState(address)
   const [passwordInput, setPasswordInput] = useState("")
   const [passwordAgainInput, setPasswordAgainInput] = useState("")
 
@@ -48,7 +48,7 @@ const MyAccount = () => {
       name: nameInput,
       username: userNameInput,
       email: emailInput,
-      adress: adressInput,
+      address: addressInput,
     }
 
     try {
@@ -69,7 +69,7 @@ const MyAccount = () => {
         navigate("/home")
         dispatch(addName(nameInput))
         dispatch(addUserName(userNameInput))
-        dispatch(addAdress(adressInput))
+        dispatch(addAddress(addressInput))
         dispatch(addEmail(emailInput))
         notifyOk("your data has been updated successfully")
 
@@ -106,7 +106,7 @@ const MyAccount = () => {
           navigate("/")
           dispatch(addName(nameInput))
           dispatch(addUserName(userNameInput))
-          dispatch(addAdress(adressInput))
+          dispatch(addAddress(addressInput))
           dispatch(addEmail(emailInput))
           notifyOk("your password has been updated")
           // empty user and set login to off
@@ -146,7 +146,7 @@ const MyAccount = () => {
             </Form.Group>
 
             {<Form.Group>
-              <Form.Control type="text" placeholder="Shipping Adress" value={adressInput} onChange={(e) => setAdressInput(e.target.value)} />
+              <Form.Control type="text" placeholder="Shipping Address" value={addressInput} onChange={(e) => setAddressInput(e.target.value)} />
             </Form.Group>}
 
             <div className="d-flex justify-content-between">

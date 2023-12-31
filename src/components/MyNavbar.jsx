@@ -3,13 +3,13 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs } from "../slices/pages/pagesSlice"
-import { changeIsLogged, addName, addUserName, addAdress, addEmail, addIsAdmin, changeToken } from "../slices/users/usersSlice"
+import { changeIsLogged, addName, addUserName, addAddress, addEmail, addIsAdmin, changeToken } from "../slices/users/usersSlice"
 import CartModal from "./CartModal"
 
 
 const MyNavbar = () => {
 
-  const { isLogged, name, username, adress, email, isAdmin, token } = useSelector((state) => state.usersSlice);
+  const { isLogged, name, username, address, email, isAdmin, token } = useSelector((state) => state.usersSlice);
   const cart = useSelector((state) => state.cartSlice.cart);
   const [show, setShow] = useState(false)
 
@@ -24,7 +24,7 @@ const MyNavbar = () => {
   const emptyUser = () => {
     dispatch(addName(""))
     dispatch(addUserName(""))
-    dispatch(addAdress(""))
+    dispatch(addAddress(""))
     dispatch(addEmail(""))
     dispatch(addIsAdmin(false))
     dispatch(changeIsLogged(false))

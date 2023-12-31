@@ -20,7 +20,7 @@ const BackOfficeUsers = () => {
     const [nameInput, setNameInput] = useState("")
     const [userNameInput, setUserNameInput] = useState("")
     const [emailInput, setEmailInput] = useState("")
-    const [adressInput, setAdressInput] = useState("")
+    const [addressInput, setAddressInput] = useState("")
 
 
 
@@ -50,7 +50,7 @@ const BackOfficeUsers = () => {
         setNameInput("")
         setUserNameInput("")
         setEmailInput("")
-        setAdressInput("")
+        setAddressInput("")
         setFoundUsers([])
         setParameterToSearch("")
         setUserId("")
@@ -70,7 +70,7 @@ const BackOfficeUsers = () => {
                 setNameInput(data[0].name)
                 setUserNameInput(data[0].username)
                 setEmailInput(data[0].email)
-                setAdressInput(data[0].adress)
+                setAddressInput(data[0].address)
             }
 
         } catch (error) {
@@ -113,7 +113,7 @@ const BackOfficeUsers = () => {
             name: nameInput,
             username: userNameInput,
             email: emailInput,
-            adress: adressInput
+            address: addressInput
         }
 
         try {
@@ -222,8 +222,8 @@ const BackOfficeUsers = () => {
                     </Form.Group>
 
                     <Form.Group>
-                        <Form.Label>Adress</Form.Label>
-                        <Form.Control type="text" value={adressInput} onChange={(e) => setAdressInput(e.target.value)} />
+                        <Form.Label>Address</Form.Label>
+                        <Form.Control type="text" value={addressInput} onChange={(e) => setAddressInput(e.target.value)} />
                     </Form.Group>
                     <div className="d-flex">
                         <Button className="mr-3" type="submit"> Submit </Button>
@@ -238,7 +238,7 @@ const BackOfficeUsers = () => {
                             <div key={element._id}>
                                 <span>Name : <b>{element.name}</b> </span>
                                 <span>Username : <b>{element.username}</b> </span>
-                                <span>Adress : <b>{element.adress}</b></span>
+                                <span>Address : <b>{element.address}</b></span>
 
                                 <i className="bi bi-pencil pointer mx-3 bg-success p-1 text-white rounded" onClick={() => { setEditMode(true); setUserId(element._id); getUserById(element._id) }}></i>
                                 {element.isAdmin === false && <i className="bi bi-trash3 pointer bg-danger p-1 text-white rounded" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) deleteUser(element._id) }}></i>}

@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom"
 import { useState, useRef } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { toast } from 'react-toastify';
-import { changeIsLogged, addName, addUserName, addAdress, addEmail, addIsAdmin, changeToken } from "../slices/users/usersSlice"
+import { changeIsLogged, addName, addUserName, addAddress, addEmail, addIsAdmin, changeToken } from "../slices/users/usersSlice"
 import { resetCart } from "../slices/cart/cartSlice";
 
 const FormBox = () => {
@@ -61,7 +61,7 @@ const FormBox = () => {
         const data = await res.json()
         dispatch(addName(data.name))
         dispatch(addUserName(data.username))
-        dispatch(addAdress(data.adress))
+        dispatch(addAddress(data.address))
         dispatch(addEmail(data.email))
         dispatch(addIsAdmin(data.isAdmin))
         dispatch(changeIsLogged(true))
