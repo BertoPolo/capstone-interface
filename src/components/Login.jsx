@@ -17,12 +17,7 @@ const Login = () => {
         <div className="transparencywWhiteBox p-3 mt-5">
           <FormBox />
           {/* option for not registered users */}
-          <div className="d-flex justify-content-center text-center">
-            <div className="p-4">
-              <p> <b>Aren't you registered yet?</b></p>
-              <Button className="addToCartButton border-0" onClick={() => navigate("/home")}>Take a look without login</Button>
-            </div>
-          </div>
+
         </div>
 
       </Container>
