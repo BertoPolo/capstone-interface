@@ -22,9 +22,10 @@
 - At /outlet add title, right now is not intuitive that you are there
 - Change navigation among pages, from states to params
 - Testing/Jest
-- Params is getting filters from \_id but it's better to get them from the name
+- Params is getting filters from \_id but it's better to get them from the name?
 
 ## Actives TO DO
 
 - Implement to see filters and M/cats in route/path ( params ) => then modify searches to be by params
-- Wait for the new design to check all responsiveness
+- Adapt the new design
+- Prevent login vertical scroll
