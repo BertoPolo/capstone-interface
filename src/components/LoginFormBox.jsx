@@ -130,9 +130,9 @@ const FormBox = () => {
       <Form className="login-container" onSubmit={createToken}>
         <div className="login-modal">
 
-          <p className="mb-3 d-flex">Welcome back 👋</p>
+          <h3 className="mb-3 d-flex">Welcome back 👋</h3> {/* is SEO ok? */}
 
-          <p className="d-flex">Saddle up!</p>
+          <p className="d-flex m-0">Saddle up!</p>
           <p className="d-flex justify-content-start ">Your moto essentials are just a login away.</p>
           <Form.Group>
             <div className="d-flex"><Form.Label>Username</Form.Label></div>
@@ -150,13 +150,13 @@ const FormBox = () => {
 
           <div className="text-center">
             <div className="my-2 d-flex justify-content-end">
-              <Link className="login-small-font d-block " to="/forgotPassword">
+              <Link className="login-small-font d-block mb-1" to="/forgotPassword">
                 <small className="text-red">Forgot password?</small>
               </Link>
             </div>
 
             <Button className="addToCartButton border-0" type="submit" ref={btnRef} disabled={(!usernameInput) || (!passwordInput)} >
-              Enter
+              Login
             </Button>
 
             <small className="d-flex justify-content-center my-3">Aren't you registered yet?
@@ -170,7 +170,7 @@ const FormBox = () => {
               </Link>
             </small>
 
-            <small className="text-muted">© 2023 ALL RIGHTS RESERVED</small>
+            <small className="text-muted login-small-font">© 2023 ALL RIGHTS RESERVED</small>
           </div>
 
         </div >
