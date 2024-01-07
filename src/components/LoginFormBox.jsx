@@ -148,28 +148,30 @@ const FormBox = () => {
                   <Form.Check type="checkbox" label="Remember me" className="login-small-font" onClick={() => setIsRemember(!isRemember)} />
                 </Form.Group> */}
 
-          <div className="my-2 d-flex justify-content-end">
-            <Link className="login-small-font d-block " to="/forgotPassword">
-              <small className="text-red">Forgot password?</small>
-            </Link>
+          <div className="text-center">
+            <div className="my-2 d-flex justify-content-end">
+              <Link className="login-small-font d-block " to="/forgotPassword">
+                <small className="text-red">Forgot password?</small>
+              </Link>
+            </div>
+
+            <Button className="addToCartButton border-0" type="submit" ref={btnRef} disabled={(!usernameInput) || (!passwordInput)} >
+              Enter
+            </Button>
+
+            <small className="d-flex justify-content-center my-3">Aren't you registered yet?
+              <Link className="login-small-font d-block ml-1" to="/newUser">
+                Join Us!
+              </Link>
+            </small>
+            <small className="d-flex justify-content-center my-3">
+              <Link className="login-small-font d-block mb-3" to="/home">
+                Take a look without login
+              </Link>
+            </small>
+
+            <small className="text-muted">© 2023 ALL RIGHTS RESERVED</small>
           </div>
-
-          <Button className="addToCartButton border-0" type="submit" ref={btnRef} disabled={(!usernameInput) || (!passwordInput)} >
-            Enter
-          </Button>
-
-          <small className="d-flex justify-content-center my-3">Aren't you registered yet?
-            <Link className="login-small-font d-block ml-1" to="/newUser">
-              Join Us!
-            </Link>
-          </small>
-          <small className="d-flex justify-content-center my-3">
-            <Link className="login-small-font d-block" to="/home">
-              Take a look without login
-            </Link>
-          </small>
-
-          <small className="text-muted mb-3">© 2023 ALL RIGHTS RESERVED</small>
 
         </div >
         {isCharging && <Spinner className="position-absolute" animation="border" variant="success" />
