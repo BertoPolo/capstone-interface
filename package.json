@@ -13,6 +13,7 @@
     "bootstrap-icons": "^1.8.2",
     "fast-equals": "^4.0.1",
     "fs": "^0.0.1-security",
+    "jest": "^27.5.1",
     "multi-range-slider-react": "^2.0.2",
     "path": "^0.12.7",
     "prop-types": "^15.8.1",
