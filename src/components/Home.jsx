@@ -92,15 +92,15 @@ const Home = () => {
         {/* CAROUSEL */}
         {!isOnSingleItem && !isOnCountactUs && <div>
           <Carousel className="mt-3">
-            {/*  */}
-            <Carousel.Item>
+
+            {/* <Carousel.Item>
               <img fluid="true" className="d-block m-auto carouselImg" src="https://images.unsplash.com/photo-1548880021-76c14b1f6602?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Under construction" />
               <Carousel.Caption className="d-flex justify-content-center">
                 <div className="transparencywWhiteBox p-3">
                   <h2 className="mb-0" >This website is not finished</h2 >
                 </div>
               </Carousel.Caption>
-            </Carousel.Item>
+            </Carousel.Item> */}
 
             <Carousel.Item>
               <img fluid="true" className="d-block m-auto carouselImg" src="/oilPack.avif" alt="Oil Pack Offer slide" />
