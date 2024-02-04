@@ -22,10 +22,8 @@
 - At /outlet add title, right now is not intuitive that you are there
 - Change navigation among pages, from states to params
 - Testing/Jest
-- Params is getting filters from \_id but it's better to get them from the name?
-
-## Actives TO DO
-
+- Params is getting filters from \_id but it's better to get them from the name
+- Move token from redux to sessionStorage or localStorage
 - Implement to see filters and M/cats in route/path ( params ) => then modify searches to be by params
 - Adapt the new design
 - Prevent login vertical scroll

@@ -172,17 +172,10 @@ const FormBox = () => {
 
             <small className="text-muted login-small-font">© 2023 ALL RIGHTS RESERVED</small>
           </div>
-
         </div >
-        {isCharging && <Spinner className="position-absolute" animation="border" variant="success" />
-        }
+        {isCharging && <Spinner className="position-absolute" animation="border" variant="success" />}
         {isError && <Spinner className="position-absolute" animation="grow" variant="danger" />}
       </Form >
-
-
-
-
-
     </>
   )
 }
