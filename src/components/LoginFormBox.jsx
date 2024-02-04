@@ -163,11 +163,12 @@ const FormBox = () => {
               Join Us!
             </Link>
           </small>
+
           <Link className="login-small-font d-block" to="/home">
             Take a look without login
           </Link>
 
-          <small className="text-muted">© 2023 ALL RIGHTS RESERVED</small>
+          <small className="text-muted mt-4 d-block">© 2023 ALL RIGHTS RESERVED</small>
 
         </div>
         {isCharging && <Spinner className="position-absolute" animation="border" variant="success" />}
