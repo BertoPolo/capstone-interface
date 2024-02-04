@@ -25,5 +25,5 @@
 - Params is getting filters from \_id but it's better to get them from the name
 - Move token from redux to sessionStorage or localStorage
 - Implement to see filters and M/cats in route/path ( params ) => then modify searches to be by params
-- Wait for the new design to check all responsiveness
-- Fix rollback, since updates, is not working properly
+- Adapt the new design
+- Prevent login vertical scroll

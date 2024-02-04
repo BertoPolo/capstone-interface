@@ -7,7 +7,7 @@ const CreateUser = () => {
   const [nameInput, setNameInput] = useState("")
   const [userNameInput, setUserNameInput] = useState("")
   const [emailInput, setEmailInput] = useState("")
-  const [adressInput, setAdressInput] = useState("")
+  const [addressInput, setAddressInput] = useState("")
   const [passwordInput, setPasswordInput] = useState("")
   const [isCharging, setIsCharging] = useState(false)
 
@@ -57,7 +57,7 @@ const CreateUser = () => {
       name: nameInput,
       username: userNameInput,
       email: emailInput,
-      adress: adressInput,
+      address: addressInput,
       password: passwordInput,
     };
 
@@ -101,13 +101,13 @@ const CreateUser = () => {
             <Form.Control type="text" placeholder="Full name" onChange={(e) => setNameInput(e.target.value)} />
             <Form.Control type="text" placeholder="User Name" onChange={(e) => setUserNameInput(e.target.value)} />
             <Form.Control type="email" placeholder="Email" onChange={(e) => setEmailInput(e.target.value)} />
-            <Form.Control type="text" placeholder="Shipping Adress" onChange={(e) => setAdressInput(e.target.value)} />
+            <Form.Control type="text" placeholder="Shipping Address" onChange={(e) => setAddressInput(e.target.value)} />
             <Form.Control type="password" placeholder="Password" onChange={(e) => setPasswordInput(e.target.value)} />
           </Form.Group>
 
           <div>
 
-            <Button variant="success" type="submit" ref={registerBtnRef} disabled={!adressInput || !passwordInput || !nameInput || !emailInput}>
+            <Button variant="success" type="submit" ref={registerBtnRef} disabled={!addressInput || !passwordInput || !nameInput || !emailInput}>
               Register
             </Button>
 

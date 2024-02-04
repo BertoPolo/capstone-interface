@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 const ForgotPassword = () => {
 
     const navigate = useNavigate("")
-    const { name, username, adress, email, token } = useSelector((state) => state.usersSlice);
+    const { name, username, address, email, token } = useSelector((state) => state.usersSlice);
 
     const [nameInput, setNameInput] = useState("")
     const [userNameInput, setUserNameInput] = useState("")

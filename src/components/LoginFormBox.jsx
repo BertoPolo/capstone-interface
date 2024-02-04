@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom"
 import { useState, useRef } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { toast } from 'react-toastify';
-import { changeIsLogged, addName, addUserName, addAdress, addEmail, addIsAdmin, changeToken } from "../slices/users/usersSlice"
+import { changeIsLogged, addName, addUserName, addAddress, addEmail, addIsAdmin, changeToken } from "../slices/users/usersSlice"
 import { resetCart } from "../slices/cart/cartSlice";
 
 const FormBox = () => {
@@ -61,7 +61,7 @@ const FormBox = () => {
         const data = await res.json()
         dispatch(addName(data.name))
         dispatch(addUserName(data.username))
-        dispatch(addAdress(data.adress))
+        dispatch(addAddress(data.address))
         dispatch(addEmail(data.email))
         dispatch(addIsAdmin(data.isAdmin))
         dispatch(changeIsLogged(true))
@@ -130,10 +130,10 @@ const FormBox = () => {
       <Form className="login-container" onSubmit={createToken}>
         <div className="login-modal">
 
-          <p className="mb-3 loginTitle">Welcome back 👋</p>
+          <h3 className="mb-3 d-flex">Welcome back 👋</h3> {/* is SEO ok? */}
 
-          <p className="d-flex">Saddle up!</p>
-          <p className="d-flex">Your moto essentials are just a login away.</p>
+          <p className="d-flex m-0">Saddle up!</p>
+          <p className="d-flex justify-content-start ">Your moto essentials are just a login away.</p>
           <Form.Group>
             <div className="d-flex"><Form.Label>Username</Form.Label></div>
             <Form.Control type="text" placeholder="JohnDoe123" value={usernameInput} onChange={(e) => setUsernameInput(e.target.value)} />
@@ -148,37 +148,34 @@ const FormBox = () => {
                   <Form.Check type="checkbox" label="Remember me" className="login-small-font" onClick={() => setIsRemember(!isRemember)} />
                 </Form.Group> */}
 
-          <div className="my-2 d-flex justify-content-end">
-            <Link className="login-small-font d-block " to="/forgotPassword">
-              <span className="text-red">Forgot password?</span>
-            </Link>
+          <div className="text-center">
+            <div className="my-2 d-flex justify-content-end">
+              <Link className="login-small-font d-block mb-1" to="/forgotPassword">
+                <small className="text-red">Forgot password?</small>
+              </Link>
+            </div>
+
+            <Button className="addToCartButton border-0" type="submit" ref={btnRef} disabled={(!usernameInput) || (!passwordInput)} >
+              Login
+            </Button>
+
+            <small className="d-flex justify-content-center my-3">Aren't you registered yet?
+              <Link className="login-small-font d-block ml-1" to="/newUser">
+                Join Us!
+              </Link>
+            </small>
+            <small className="d-flex justify-content-center my-3">
+              <Link className="login-small-font d-block mb-3" to="/home">
+                Take a look without login
+              </Link>
+            </small>
+
+            <small className="text-muted login-small-font">© 2023 ALL RIGHTS RESERVED</small>
           </div>
-
-          <Button className="addToCartButton border-0" type="submit" ref={btnRef} disabled={(!usernameInput) || (!passwordInput)} >
-            Enter
-          </Button>
-
-          <small className="d-flex justify-content-center my-3">Aren't you registered yet?
-            <Link className="login-small-font d-block ml-1" to="/newUser">
-              Join Us!
-            </Link>
-          </small>
-
-          <Link className="login-small-font d-block" to="/home">
-            Take a look without login
-          </Link>
-
-          <small className="text-muted mt-4 d-block">© 2023 ALL RIGHTS RESERVED</small>
-
-        </div>
+        </div >
         {isCharging && <Spinner className="position-absolute" animation="border" variant="success" />}
         {isError && <Spinner className="position-absolute" animation="grow" variant="danger" />}
-      </Form>
-
-
-
-
-
+      </Form >
     </>
   )
 }

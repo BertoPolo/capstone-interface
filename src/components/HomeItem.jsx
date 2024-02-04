@@ -43,13 +43,13 @@ const HomeItem = ({ currentItem }) => {
           className="pointer"
           onClick={() => { dispatch(toggleIsOnSingleItem(true)); dispatch(changeSelectedItem(currentItem)); navigate(`/home/${currentItem.title}`) }}
         />
-        <Card.Body style={{ padding: "15px" }}>
+        <Card.Body className="" style={{ padding: "15px" }}>
           <Card.Title className="pointer twoLines" onClick={() => { dispatch(toggleIsOnSingleItem(true)); dispatch(changeSelectedItem(currentItem)) }} >
             {currentItem.title}
           </Card.Title>
-          <Card.Text className="line-clamp">{currentItem.description}</Card.Text>
+          {/* <Card.Text className="line-clamp">{currentItem.description}</Card.Text> */}
 
-          {currentItem.isOutlet ? <Card.Title className="twoLines "> <b>{currentItem.outletPrice} €</b> <br /> <small><s>{currentItem.price}€</s></small> </Card.Title> : <Card.Title className="twoLines">{currentItem.price}€ </Card.Title>}
+          {currentItem.isOutlet ? <Card.Title className="twoLines "> <b>{currentItem.outletPrice} €</b> <br /> <small className="text-red" ><s>{currentItem.price}€</s></small> </Card.Title> : <Card.Title className="twoLines">{currentItem.price}€ </Card.Title>}
 
           {!isAdmin && <div className="d-flex justify-content-center"><Button className="px-1 mt-2 addToCartButton" ref={btnRef} onClick={() => dispatch(addToCart(currentItem))}><i className="bi bi-cart-plus"></i></Button></div>}
 
