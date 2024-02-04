@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux"
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react"
 import { toast } from 'react-toastify';
-import MultiRangeSlider from "multi-range-slider-react";
 import { addItems } from "../slices/items/itemsSlice"
 import { addBrands } from "../slices/brands/brandsSlice"
 
