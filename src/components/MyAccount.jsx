@@ -159,7 +159,7 @@ const MyAccount = () => {
           <Form className=" transparency-box p-4 mt-4 rounded" onSubmit={(e) => changePass(e)}>
 
             <Form.Group>
-              <Form.Control type="password" required placeholder="Password" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
+              <Form.Control type="password" required placeholder="New password" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
             </Form.Group>
 
             <Form.Group>
