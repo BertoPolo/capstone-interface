@@ -88,29 +88,32 @@ const CreateUser = () => {
   }
 
 
-
   return (
     <>
 
       <div className=" login-container bgRegistration">
 
         <Form className=" transparency-box p-4 mt-4 rounded" onSubmit={(e) => handleSubmit(e)}>
-          <h4 className="mb-3">Create Account</h4>
+          <h4 className="mb-3 text-center font-weight-bolder">Create Account</h4>
 
           <Form.Group>
             <Form.Label>Full Name</Form.Label>
             <Form.Control type="text" placeholder="John Doe" onChange={(e) => setNameInput(e.target.value)} />
+
             <Form.Label>User Name</Form.Label>
             <Form.Control type="text" placeholder="JohnDoe123" onChange={(e) => setUserNameInput(e.target.value)} />
+
             <Form.Label>Email</Form.Label>
             <Form.Control type="email" placeholder="rommy@gmail.com" onChange={(e) => setEmailInput(e.target.value)} />
+
             <Form.Label>Shipping Adress</Form.Label>
             <Form.Control type="text" placeholder="21 Rue la jolie" onChange={(e) => setAddressInput(e.target.value)} />
+
             <Form.Label>Password</Form.Label>
             <Form.Control type="password" placeholder="*****" onChange={(e) => setPasswordInput(e.target.value)} />
           </Form.Group>
 
-          <div>
+          <div className="text-center">
 
             <Button className="submitButton" type="submit" ref={registerBtnRef} disabled={!addressInput || !passwordInput || !nameInput || !emailInput}>
               Register

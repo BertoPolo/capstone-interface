@@ -31,6 +31,10 @@ body {
   border: none !important;
 }
 
+label {
+  font-weight: 600;
+}
+
 /* Global end */
 /* Home start */
 
@@ -121,6 +125,7 @@ small {
 
 .transparency-box {
   background-color: #e9e3e3a6;
+  /* width: 70vw; */
 }
 
 .login-container {
