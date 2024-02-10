@@ -27,3 +27,4 @@
 - Implement to see filters and M/cats in route/path ( params ) => then modify searches to be by params
 - Adapt the new design
 - Prevent login vertical scroll
+- Remove !important for several CSS classes

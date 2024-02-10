@@ -87,7 +87,7 @@ const Home = () => {
   return (
     <>
       <MyNavbar />
-
+      {/* header */}
       <Container>
         {/* CAROUSEL */}
         {!isOnSingleItem && !isOnCountactUs && <div>

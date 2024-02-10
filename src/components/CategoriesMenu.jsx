@@ -95,8 +95,8 @@ function CategoriesMenu() {
           return (
 
             <Card key={mainElement._id}>
-              <Card.Header className="p-0">
-                <Accordion.Toggle as={Card.Header} eventKey={mainElement._id} className="pointer d-flex text-center" onClick={() => {
+              <Card.Header className="p-0 ">
+                <Accordion.Toggle as={Card.Header} eventKey={mainElement._id} className="pointer d-flex text-center softGrayBg" onClick={() => {
                   getByMainCategory(mainElement._id); navigate(`/home/${mainElement.mainCategory}`)
                 }} >
                   <b>{mainElement.mainCategory}</b>
