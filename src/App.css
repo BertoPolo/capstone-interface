@@ -1,12 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 /* Global start */
 
-/* 
-root{
-dark blue #052F48 
-red #DB4444
+root {
+  --darkBlue: #052f48;
+  --redMat: #db4444;
 }
-*/
 
 body {
   margin: 0;
@@ -18,13 +16,13 @@ body {
   /* background: #c6c1c11c !important; */
 }
 .text-red {
-  color: #db4444;
+  color: redMat;
 }
 .pointer {
   cursor: pointer;
 }
 .buttonBack {
-  background-color: #b41414 !important ;
+  background-color: redMat !important ;
   border: none !important;
 }
 
@@ -82,7 +80,7 @@ small {
   font-size: 15px !important;
 }
 .addToCartButton {
-  background-color: #052f48 !important;
+  background-color: darkBlue !important;
   width: 80%;
 }
 .grayOnHover:hover {
