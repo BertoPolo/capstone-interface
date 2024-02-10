@@ -160,7 +160,7 @@ const FormBox = () => {
             </Button>
 
             <small className="d-flex justify-content-center my-3">Aren't you registered yet?
-              <Link className="login-small-font d-block ml-1" to="/newUser">
+              <Link className="login-small-font d-block ml-1" to="/register">
                 Join Us!
               </Link>
             </small>
