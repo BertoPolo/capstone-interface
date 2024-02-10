@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 /* Global start */
 
-root {
+:root {
   --darkBlue: #052f48;
   --redMat: #db4444;
 }
@@ -13,23 +13,24 @@ body {
   font-family: "Montserrat", sans-serif !important;
   font-size: medium !important;
   background-color: #ffffff !important;
-  /* background: #c6c1c11c !important; */
 }
 .text-red {
-  color: redMat;
+  color: var(--redMat);
 }
 .pointer {
   cursor: pointer;
 }
 .buttonBack {
-  background-color: redMat !important ;
+  background-color: var(--redMat) !important ;
   border: none !important;
+  color: white !important;
 }
 
 .submitButton {
-  background-color: #32663b !important ;
+  background-color: var(--darkBlue) !important ;
   border: none !important;
 }
+
 /* Global end */
 /* Home start */
 
@@ -80,9 +81,10 @@ small {
   font-size: 15px !important;
 }
 .addToCartButton {
-  background-color: darkBlue !important;
+  background-color: var(--darkBlue) !important;
   width: 80%;
 }
+
 .grayOnHover:hover {
   background-color: #f0ebeb67;
 }
@@ -221,10 +223,6 @@ small {
   background-color: #294b66;
   padding: 1rem;
 }
-.searchNSubmitButton {
-  background: #476d8b !important;
-  color: white !important;
-}
 
 /* backoffice end*/
 
@@ -253,8 +251,6 @@ small {
   background: #32663b4d;
 }
 
-/* .paymentForm {
-} */
 /* Payment % resume end */
 
 /* forgotPass start */

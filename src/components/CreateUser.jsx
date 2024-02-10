@@ -112,12 +112,12 @@ const CreateUser = () => {
 
           <div>
 
-            <Button variant="success" type="submit" ref={registerBtnRef} disabled={!addressInput || !passwordInput || !nameInput || !emailInput}>
+            <Button className="submitButton" type="submit" ref={registerBtnRef} disabled={!addressInput || !passwordInput || !nameInput || !emailInput}>
               Register
             </Button>
 
             <Link className="ml-2" to="/">
-              <Button variant="danger" ref={backBtnRef}>
+              <Button className="buttonBack" ref={backBtnRef}>
                 Go Back
               </Button>
             </Link>

@@ -326,7 +326,7 @@ const BackOficceNewItem = () => {
                         <Modal.Body>
                             <Form onSubmit={(e) => createNewBrand(e)}>
                                 <Form.Control type="text" placeholder="New brand" value={newBrandInput} onChange={(e) => setNewBrandInput(e.target.value)} />
-                                <Button className="searchNSubmitButton mt-2 submitButton" type="submit">Create</Button>
+                                <Button className="submitButton mt-2 submitButton" type="submit">Create</Button>
                                 {/* createdBrand && <span className="text-success">{createdBrand}</span> */}
 
                             </Form>
@@ -353,7 +353,7 @@ const BackOficceNewItem = () => {
                         <Modal.Body>
                             <Form onSubmit={(e) => createNewMainCategory(e)}>
                                 <Form.Control type="text" placeholder="New main category" value={newMainCategoryInput} onChange={(e) => setNewMainCategoryInput(e.target.value)} />
-                                <Button className="searchNSubmitButton mt-2" variant="outline" type="submit">Create</Button>
+                                <Button className="submitButton mt-2" variant="outline" type="submit">Create</Button>
                                 {/* createdMainCategory && <span className="text-success">{createdMainCategory}</span> */}
 
                             </Form>
@@ -391,7 +391,7 @@ const BackOficceNewItem = () => {
                                         })}
                                     </Dropdown.Menu>
                                 </Dropdown>
-                                <Button className="searchNSubmitButton mt-2" variant="outline" type="submit">Create</Button>
+                                <Button className="submitButton mt-2" variant="outline" type="submit">Create</Button>
                                 {/* createdCategory && <span className="text-success">{createdCategory}</span> */}
 
                             </Form>
@@ -491,14 +491,14 @@ const BackOficceNewItem = () => {
                     </Form.Group>
                 </Container>
 
-                <Button className="searchNSubmitButton" variant="outline" type="submit"> Submit </Button>
+                <Button className="submitButton" variant="outline" type="submit"> Submit </Button>
             </Form >
             <hr />
             {/* Post item's image */}
             <Form onSubmit={(e) => postImg(e)} className="mt-3">
                 <Form.Label> Set an image</Form.Label>
                 <Form.Control type="file" accept=",.jpg,.jpeg,.png" onChange={(e) => setImage(e.target.files[0])} />
-                <Button className="searchNSubmitButton mt-3" variant="outline" type="submit" disabled={!image && !itemId}>Upload</Button>
+                <Button className="submitButton mt-3" variant="outline" type="submit" disabled={!image && !itemId}>Upload</Button>
             </Form>
 
         </Container >
