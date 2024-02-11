@@ -46,8 +46,6 @@ const CreateUser = () => {
     }
   }
 
-
-
   const handleSubmit = async (e) => {
     e.preventDefault()
     registerBtnRef.current.setAttribute("disabled", "disabled");
@@ -114,7 +112,6 @@ const CreateUser = () => {
           </Form.Group>
 
           <div className="text-center">
-
             <Button className="submitButton" type="submit" ref={registerBtnRef} disabled={!addressInput || !passwordInput || !nameInput || !emailInput}>
               Register
             </Button>

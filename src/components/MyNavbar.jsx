@@ -71,7 +71,7 @@ const MyNavbar = () => {
               :
               <Nav.Link href="/" className="">
                 <b>
-                  <i class="bi bi-person mr-1"></i>
+                  <i className="bi bi-person mr-1"></i>
                   Login / Sign up
                 </b>
               </Nav.Link>
