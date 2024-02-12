@@ -1,4 +1,4 @@
-import { Container, Button, Form } from "react-bootstrap"
+import { Container, Button, Form, Row, Col } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
@@ -50,6 +50,7 @@ const MyAccount = () => {
       email: emailInput,
       address: addressInput,
     }
+    // if (passwordInput) body["password"] = passwordInput;  join backend or if password call changePassword()
 
     try {
       const res = await fetch(
@@ -81,7 +82,7 @@ const MyAccount = () => {
 
   }
 
-  const changePass = async (e) => {
+  const changePassword = async (e) => {
     e.preventDefault()
     if (passwordInput === passwordAgainInput) {
       let body = {
@@ -126,27 +127,31 @@ const MyAccount = () => {
     <>
 
       <MyNavbar />
-      <Container fluid className="myAccountBg pt-4">
+      <Container className="pt-4">
 
-        <div className="login-container">
+        <Col className="">
 
           {/* Data Form */}
-          <Form className=" transparency-box p-4 mt-4 rounded" onSubmit={(e) => changeData(e)}>
-            <h4 className="mb-3">Modify your data</h4>
+          <Form className=" p-4 " onSubmit={(e) => changeData(e)}>
+            <h4 className="my -3">Edit your profile</h4>
 
             {<Form.Group>
-              <Form.Control type="text" placeholder="Full Name" value={nameInput} onChange={(e) => setNameInput(e.target.value)} />
+              <Form.Label>Full Name</Form.Label>
+              <Form.Control type="text" placeholder="Thomas" value={nameInput} onChange={(e) => setNameInput(e.target.value)} />
             </Form.Group>}
 
             <Form.Group>
-              <Form.Control type="text" placeholder="User name" value={userNameInput} onChange={(e) => setUserNameInput(e.target.value)} />
+              <Form.Label>User Name</Form.Label>
+              <Form.Control type="text" placeholder="Thomas_93" value={userNameInput} onChange={(e) => setUserNameInput(e.target.value)} />
             </Form.Group>
             <Form.Group>
-              <Form.Control type="email" placeholder="Email" value={emailInput} onChange={(e) => setEmailInput(e.target.value)} />
+              <Form.Label>Email</Form.Label>
+              <Form.Control type="email" placeholder="thomas_bernard@gmail.com" value={emailInput} onChange={(e) => setEmailInput(e.target.value)} />
             </Form.Group>
 
             {<Form.Group>
-              <Form.Control type="text" placeholder="Shipping Address" value={addressInput} onChange={(e) => setAddressInput(e.target.value)} />
+              <Form.Label>Adress</Form.Label>
+              <Form.Control type="text" placeholder="21 Rue Rivoli" value={addressInput} onChange={(e) => setAddressInput(e.target.value)} />
             </Form.Group>}
 
             <div className="d-flex justify-content-between">
@@ -156,7 +161,7 @@ const MyAccount = () => {
           </Form>
 
           {/* password form */}
-          <Form className=" transparency-box p-4 mt-4 rounded" onSubmit={(e) => changePass(e)}>
+          <Form className=" transparency-box p-4 mt-4 rounded" onSubmit={(e) => changePassword(e)}>
 
             <Form.Group>
               <Form.Control type="password" required placeholder="New password" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
@@ -178,7 +183,8 @@ const MyAccount = () => {
             </div>
           </Form>
 
-        </div>
+        </Col>
+        <Col></Col>
 
       </Container>
     </>
