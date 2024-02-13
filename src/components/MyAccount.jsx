@@ -50,7 +50,7 @@ const MyAccount = () => {
       email: emailInput,
       address: addressInput,
     }
-    // if (passwordInput) body["password"] = passwordInput;  join backend or if password call changePassword()
+    if (passwordInput) changePassword()
 
     try {
       const res = await fetch(
@@ -82,8 +82,7 @@ const MyAccount = () => {
 
   }
 
-  const changePassword = async (e) => {
-    e.preventDefault()
+  const changePassword = async () => {
     if (passwordInput === passwordAgainInput) {
       let body = {
         password: passwordInput,

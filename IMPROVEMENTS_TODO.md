@@ -28,3 +28,4 @@
 - Adapt the new design
 - Prevent login vertical scroll
 - Remove !important for several CSS classes
+- Protect /myAccount if not registered
