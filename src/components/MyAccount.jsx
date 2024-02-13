@@ -158,15 +158,7 @@ const MyAccount = () => {
                 </Col>
               </Row>
 
-              <div className="d-flex justify-content-end mt-5">
-                <Button className="ml-3 bg-transparent text-dark border-0" onClick={() => navigate("/home")}>Cancel</Button>
-                <Button className="submitButton" type="submit"> Submit </Button>
-              </div>
-            </Form>
-
-            {/* password form */}
-            <Form className=" transparency-box p-4 mt-4 rounded" onSubmit={(e) => changePassword(e)}>
-
+              {/* password form */}
               <Form.Label>Password Changes</Form.Label>
 
               <Form.Control type="password" placeholder="New password" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
@@ -179,11 +171,32 @@ const MyAccount = () => {
                 onChange={(e) => setPasswordAgainInput(e.target.value)}
               />
 
-              {/* <div className="d-flex justify-content-between">
+              <div className="d-flex justify-content-end mt-5">
+                <Button className="ml-3 bg-transparent text-dark border-0" onClick={() => navigate("/home")}>Cancel</Button>
+                <Button className="submitButton" type="submit"> Submit </Button>
+              </div>
+            </Form>
+
+            {/* password form */}
+            {/* <Form className=" transparency-box p-4 mt-4 rounded" onSubmit={(e) => changePassword(e)}>
+
+              <Form.Label>Password Changes</Form.Label>
+
+              <Form.Control type="password" placeholder="New password" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
+
+              <Form.Control
+                type="password"
+                required={passwordInput} //only required if user filled the other input
+                placeholder="Repeat your new pass"
+                value={passwordAgainInput}
+                onChange={(e) => setPasswordAgainInput(e.target.value)}
+              /> */}
+
+            {/* <div className="d-flex justify-content-between">
                 <Button type="submit" className="submitButton" disabled={(passwordInput !== passwordAgainInput) || (!passwordInput || !passwordAgainInput)} > Submit </Button>
                 <Button className="buttonBack" onClick={() => navigate("/home")}>Back</Button>
               </div> */}
-            </Form>
+            {/* </Form> */}
 
           </Col>
           {/* right part with BG */}
