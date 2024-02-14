@@ -94,16 +94,6 @@ const Home = () => {
           <Carousel className="mt-3">
 
             <Carousel.Item>
-              <img fluid="true" className="d-block m-auto carouselImg" src="/oilPack.avif" alt="Oil Pack Offer slide" />
-              <Carousel.Caption className="d-flex justify-content-center">
-                {/* <div className="transparencywWhiteBox p-3">
-                  <h2 className="mb-0">Oil Pack Offer</h2 >
-                  <p className="mb-0">from 50€ </p>
-                </div> */}
-              </Carousel.Caption>
-            </Carousel.Item>
-
-            <Carousel.Item>
               <img fluid="true" className="d-block m-auto carouselImg " src="/shipping.avif" alt="National shipping slide" />
               <Carousel.Caption className="d-flex justify-content-center">
                 {/* <div className="transparencywWhiteBox p-3 ">
@@ -112,15 +102,6 @@ const Home = () => {
               </Carousel.Caption>
             </Carousel.Item>
 
-            <Carousel.Item>
-              <img fluid="true" className="d-block m-auto carouselImg objectPosition" src="/ask-us.avif" alt="Send us a message slide" />
-              <Carousel.Caption className="d-flex justify-content-center">
-                {/* <div className="transparencywWhiteBox p-2">
-                  <h2 className="">Send us a message!</h2 >
-                  <p className="mb-0">8.00 to 13.00 / 15.30 to 20.00 Mon-Fri</p>
-                </div> */}
-              </Carousel.Caption>
-            </Carousel.Item>
           </Carousel>
         </div>}
 
