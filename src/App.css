@@ -12,7 +12,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Montserrat", sans-serif !important;
-  font-size: medium !important;
+  font-size: medium;
   background-color: #ffffff;
 }
 
@@ -251,8 +251,19 @@ small {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  min-height: 100vh;
+  height: 84vh;
+  overflow: hidden;
 }
+
+.myAccountinputs {
+  border: none;
+  background-color: #f5f5f5;
+}
+
+.myAccountinputs:focus {
+  background-color: #f5f5f5;
+}
+
 /* Myaccount end */
 
 /*  CreateUser start*/

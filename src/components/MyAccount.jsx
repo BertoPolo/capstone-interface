@@ -125,84 +125,64 @@ const MyAccount = () => {
   return (
     <>
       <MyNavbar />
-      <Container className="pt-4">
+      <Container className="pt-4" fluid>
 
         <Row>
-          <Col className="">
+          <Col md={8}>
 
             {/* Data Form */}
-            <Form className=" p-4 " onSubmit={(e) => changeData(e)}>
-              <h4 className="my -3">Edit your profile</h4>
+            <Form className="p-4" onSubmit={(e) => changeData(e)}>
+              <h4 >Edit your profile</h4>
 
-              <Row>
+              <Row className="mb-3">
                 <Col>
                   <Form.Label>Full Name</Form.Label>
-                  <Form.Control type="text" placeholder="Thomas" value={nameInput} onChange={(e) => setNameInput(e.target.value)} />
+                  <Form.Control className="myAccountinputs" type="text" placeholder="Thomas" value={nameInput} onChange={(e) => setNameInput(e.target.value)} />
                 </Col>
 
                 <Col>
                   <Form.Label>User Name</Form.Label>
-                  <Form.Control type="text" placeholder="Thomas_93" value={userNameInput} onChange={(e) => setUserNameInput(e.target.value)} />
+                  <Form.Control className="myAccountinputs" type="text" placeholder="Thomas_93" value={userNameInput} onChange={(e) => setUserNameInput(e.target.value)} />
                 </Col>
               </Row>
 
-              <Row className="mt-2">
+              <Row className="mt-3">
+
                 <Col>
                   <Form.Label>Email</Form.Label>
-                  <Form.Control type="email" placeholder="thomas_bernard@gmail.com" value={emailInput} onChange={(e) => setEmailInput(e.target.value)} />
+                  <Form.Control className="myAccountinputs" type="email" placeholder="thomas_bernard@gmail.com" value={emailInput} onChange={(e) => setEmailInput(e.target.value)} />
                 </Col>
 
                 <Col>
                   <Form.Label>Adress</Form.Label>
-                  <Form.Control type="text" placeholder="21 Rue Rivoli" value={addressInput} onChange={(e) => setAddressInput(e.target.value)} />
+                  <Form.Control className="myAccountinputs" type="text" placeholder="21 Rue Rivoli" value={addressInput} onChange={(e) => setAddressInput(e.target.value)} />
                 </Col>
               </Row>
 
               {/* password form */}
-              <Form.Label>Password Changes</Form.Label>
+              <Form.Group className="mt-3">
+                <Form.Label>Password Changes</Form.Label>
 
-              <Form.Control type="password" placeholder="New password" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
+                <Form.Control className="myAccountinputs mb-2" type="password" placeholder="New password" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
 
-              <Form.Control
-                type="password"
-                required={passwordInput} //only required if user filled the other input
-                placeholder="Repeat your new pass"
-                value={passwordAgainInput}
-                onChange={(e) => setPasswordAgainInput(e.target.value)}
-              />
+                <Form.Control
+                  className="myAccountinputs"
+                  type="password"
+                  required={passwordInput} //only required if user filled the other input
+                  placeholder="Repeat your new pass"
+                  value={passwordAgainInput}
+                  onChange={(e) => setPasswordAgainInput(e.target.value)}
+                />
+              </Form.Group>
 
               <div className="d-flex justify-content-end mt-5">
                 <Button className="ml-3 bg-transparent text-dark border-0" onClick={() => navigate("/home")}>Cancel</Button>
                 <Button className="submitButton" type="submit"> Submit </Button>
               </div>
             </Form>
-
-            {/* password form */}
-            {/* <Form className=" transparency-box p-4 mt-4 rounded" onSubmit={(e) => changePassword(e)}>
-
-              <Form.Label>Password Changes</Form.Label>
-
-              <Form.Control type="password" placeholder="New password" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
-
-              <Form.Control
-                type="password"
-                required={passwordInput} //only required if user filled the other input
-                placeholder="Repeat your new pass"
-                value={passwordAgainInput}
-                onChange={(e) => setPasswordAgainInput(e.target.value)}
-              /> */}
-
-            {/* <div className="d-flex justify-content-between">
-                <Button type="submit" className="submitButton" disabled={(passwordInput !== passwordAgainInput) || (!passwordInput || !passwordAgainInput)} > Submit </Button>
-                <Button className="buttonBack" onClick={() => navigate("/home")}>Back</Button>
-              </div> */}
-            {/* </Form> */}
-
           </Col>
           {/* right part with BG */}
-          <Col>
-
-            BackGround</Col>
+          <Col md={4} className="myAccountBg pr-4"></Col>
 
         </Row>
       </Container>
