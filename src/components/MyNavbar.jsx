@@ -37,7 +37,7 @@ const MyNavbar = () => {
     <>
       <Navbar expand="md" className="sticky-top navbarBg">
         <Navbar.Brand className="pointer" onClick={() => { navigate("/home"); dispatch(toggleIsOnHome(true)) }}>
-          <Image src={`${process.env.PUBLIC_URL}/mbIcon.png`} alt="Nav logo" style={{ width: "1.5rem" }} />
+          <Image src={`${process.env.PUBLIC_URL}/assets/mbIcon.png`} alt="Nav logo" style={{ width: "1.5rem" }} />
         </Navbar.Brand>
 
         <Nav.Link className="d-md-none cart-color" onClick={handleShow}>

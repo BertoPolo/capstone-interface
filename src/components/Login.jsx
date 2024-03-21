@@ -27,7 +27,7 @@ const Login = () => {
         <Row>
           {/* option for not registered users */}
           <Col className="d-flex flex-column">
-            <Image className="mb-4 mt-2 ml-auto mr-auto " src="/STR_LOGIN.avif" style={{ maxHeight: "20vh", maxWidth: "25vw" }} alt="Login Logo" />
+            <Image className="mb-4 mt-2 ml-auto mr-auto " src="/assets/STR_LOGIN.avif" style={{ maxHeight: "20vh", maxWidth: "25vw" }} alt="Login Logo" />
             <FormBox />
           </Col>
 
