@@ -1,4 +1,4 @@
-import { Accordion, Card } from "react-bootstrap"
+import { Accordion, Card, Image } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
 import { useLocation, useNavigate } from "react-router-dom";
@@ -99,7 +99,7 @@ function CategoriesMenu() {
                 <Accordion.Toggle as={Card.Header} eventKey={mainElement._id} className="pointer d-flex text-center softGrayBg" onClick={() => {
                   getByMainCategory(mainElement._id); navigate(`/home/${mainElement.mainCategory}`)
                 }} >
-                  <b>{mainElement.mainCategory}</b>
+                  <Image src={`${process.env.PUBLIC_URL}/assets/mainCategories/${mainElement.mainCategory}.svg`} alt="" style={{ width: "1rem", marginRight: "4px" }} />  <b>{mainElement.mainCategory}</b>
                 </Accordion.Toggle>
 
 

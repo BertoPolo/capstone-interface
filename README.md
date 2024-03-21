@@ -13,7 +13,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-    <img src="public/STR_LOGIN.avif" alt="Logo" width="350" height="200">
+    <img src="public/assets/STR_LOGIN.avif" alt="Logo" width="350" height="200">
   
   <h1 align="center">Stuff To Route</h1>
 
@@ -30,6 +30,7 @@
 </div>
 
 ## Website and README.md are in construction
+
 <br/>
 
 <!-- TABLE OF CONTENTS -->
@@ -61,11 +62,13 @@
 ## Usage
 
 ### Stripe demo payment
+
 Use this payment method to fake a purchase: 4242 4242 4242 4242 01/28 424 22222
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Demo users
+
 admin / 123
 <br/>
 user / 123
@@ -116,12 +119,15 @@ Follow these instructions to clone and set up the application on your local mach
    ```
 4. Get you free API public key from Stripe at [https://stripe.com](https://stripe.com)
 5. Set your .env file with these variables
+
 ```sh
 React_APP_SERVER= (localhost or your backend)
 REACT_APP_PERSIST_KEY= (any complex string)
 REACT_APP_STRIPE_PUBLIC_KEY= (public key from Stripe)
 ```
+
 6. Run
+
 ```sh
 npm start
 ```
@@ -148,6 +154,7 @@ Don't forget to give the project a star! Thanks again!
 <!-- LICENSE -->
 
 ## License
+
 <!--
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
@@ -157,15 +164,15 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 
 ## Contact
- 
-[![LinkedIn][linkedin-img]][linkedin-url] - bertopolo91@gmail.com
 
+[![LinkedIn][linkedin-img]][linkedin-url] - bertopolo91@gmail.com
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGMENTS -->
 
 ## Acknowledgments
+
 <!--
 Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
 
@@ -177,6 +184,7 @@ Use this space to list resources you find helpful and would like to give credit 
 - [GitHub Pages](https://pages.github.com)
 - [Font Awesome](https://fontawesome.com)
 -->
+
 - [Bootstrap Icons](https://icons.getbootstrap.com/)
 - ...
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -196,29 +204,29 @@ Use this space to list resources you find helpful and would like to give credit 
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/bertopolo
-[linkedin-img]:https://img.shields.io/badge/Bertopolo-blue?logo=linkedin
+[linkedin-img]: https://img.shields.io/badge/Bertopolo-blue?logo=linkedin
 [product-screenshot]: images/screenshot.png
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
-[React.js]:https://img.shields.io/badge/React-blue?logo=react
+[React.js]: https://img.shields.io/badge/React-blue?logo=react
 [React-url]: https://reactjs.org/
-[Bootstrap.com]:https://img.shields.io/badge/Bootstrap-blue?logo=bootstrap
+[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-blue?logo=bootstrap
 [Bootstrap-url]: https://getbootstrap.com
-[Javascript.img]:https://img.shields.io/badge/Javascript-blue?logo=javascript
-[Javascript-url]:https://javascript.com
-[Redux.img]:https://img.shields.io/badge/Redux-blue?logo=redux
-[Redux-url]:https://https://Redux-toolkit.js.org/
-[Express.img]:https://img.shields.io/badge/Express-blue?logo=express
-[Express-url]:https://expressjs.com/
-[Mongoose.img]:https://img.shields.io/badge/Mongoose-blue?logo=mongoose
-[Mongoose-url]:https://mongoosejs.com/
-[Swagger.img]:https://img.shields.io/badge/Swagger-blue?logo=swagger
-[Swagger-url]:https://swagger.io/
-[Stripe.img]:https://img.shields.io/badge/Stripe-blue?logo=stripe
-[Stripe-url]:https://stripe.com/
-[JsonWebToken.img]:https://img.shields.io/badge/JsonWebToken-blue?logo=jsonwebtoken
-[JsonWebToken-url]:https://www.npmjs.com/package/jsonwebtoken
-[Nodemailer.img]:https://img.shields.io/badge/Nodemailer-blue?logo=nodemailer
-[Nodemailer-url]:https://nodemailer.com/
+[Javascript.img]: https://img.shields.io/badge/Javascript-blue?logo=javascript
+[Javascript-url]: https://javascript.com
+[Redux.img]: https://img.shields.io/badge/Redux-blue?logo=redux
+[Redux-url]: https://https://Redux-toolkit.js.org/
+[Express.img]: https://img.shields.io/badge/Express-blue?logo=express
+[Express-url]: https://expressjs.com/
+[Mongoose.img]: https://img.shields.io/badge/Mongoose-blue?logo=mongoose
+[Mongoose-url]: https://mongoosejs.com/
+[Swagger.img]: https://img.shields.io/badge/Swagger-blue?logo=swagger
+[Swagger-url]: https://swagger.io/
+[Stripe.img]: https://img.shields.io/badge/Stripe-blue?logo=stripe
+[Stripe-url]: https://stripe.com/
+[JsonWebToken.img]: https://img.shields.io/badge/JsonWebToken-blue?logo=jsonwebtoken
+[JsonWebToken-url]: https://www.npmjs.com/package/jsonwebtoken
+[Nodemailer.img]: https://img.shields.io/badge/Nodemailer-blue?logo=nodemailer
+[Nodemailer-url]: https://nodemailer.com/
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com

@@ -94,14 +94,16 @@ const Home = () => {
           <Carousel className="mt-3">
 
             <Carousel.Item>
-              <img fluid="true" className="d-block m-auto carouselImg " src="/assets/shipping.avif" alt="National shipping slide" />
+              <img fluid="true" className="d-block m-auto carouselImg " src="/assets/motorbikes.avif" alt="National shipping slide" />
               <Carousel.Caption className="d-flex justify-content-center">
-                {/* <div className="transparencywWhiteBox p-3 ">
-                  <h2 className="mb-0">National shipping for just 7€ !!</h2 >
-                </div> */}
               </Carousel.Caption>
             </Carousel.Item>
 
+            <Carousel.Item>
+              <img fluid="true" className="d-block m-auto carouselImg " src="/assets/motorbikes.avif" alt="National shipping slide" />
+              <Carousel.Caption className="d-flex justify-content-center">
+              </Carousel.Caption>
+            </Carousel.Item>
           </Carousel>
         </div>}
 
