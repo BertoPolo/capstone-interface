@@ -241,7 +241,9 @@ small {
 
 /* item start */
 .card.item {
-  box-shadow: rgba(78, 78, 78, 0.671) 1px 10px 20px;
+  padding: 24px, 16px, 24px, 16px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
 }
 
 /* item end */

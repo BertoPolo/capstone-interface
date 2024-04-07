@@ -34,9 +34,9 @@ const HomeItem = ({ currentItem }) => {
   return (
     <>
 
-      <Card className="item mt-3 grayOnHover" >
+      <Card className="item mt-3" >
         <Card.Img
-          style={{ height: "9rem", objectFit: "contain" }}
+          style={{ height: "9rem", objectFit: "contain", marginTop: "1rem" }}
           variant="top"
           src={currentItem.image}
           alt={currentItem.title}
