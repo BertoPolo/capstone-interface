@@ -35,25 +35,27 @@ const HomeItem = ({ currentItem }) => {
     <>
 
       <Card className="item mt-3" >
-        <Card.Img
-          style={{ height: "9rem", objectFit: "contain", marginTop: "1rem" }}
-          variant="top"
-          src={currentItem.image}
-          alt={currentItem.title}
-          className="pointer"
-          onClick={() => { dispatch(toggleIsOnSingleItem(true)); dispatch(changeSelectedItem(currentItem)); navigate(`/home/${currentItem.title}`) }}
-        />
-        <Card.Body style={{ padding: "15px" }}>
-          <Card.Title className="pointer twoLines" onClick={() => { dispatch(toggleIsOnSingleItem(true)); dispatch(changeSelectedItem(currentItem)) }} >
-            {currentItem.title.charAt(0).toUpperCase() + currentItem.title.slice(1).toLowerCase()}
-          </Card.Title>
-          {/* <Card.Text className="line-clamp">{currentItem.description}</Card.Text> */}
+        <div className="mx-2">
+          <Card.Img
+            style={{ height: "9rem", objectFit: "contain", marginTop: "1rem" }}
+            variant="top"
+            src={currentItem.image}
+            alt={currentItem.title}
+            className="pointer"
+            onClick={() => { dispatch(toggleIsOnSingleItem(true)); dispatch(changeSelectedItem(currentItem)); navigate(`/home/${currentItem.title}`) }}
+          />
+          <Card.Body style={{ padding: "15px" }}>
+            <Card.Title className="pointer twoLines" onClick={() => { dispatch(toggleIsOnSingleItem(true)); dispatch(changeSelectedItem(currentItem)) }} >
+              {currentItem.title.charAt(0).toUpperCase() + currentItem.title.slice(1).toLowerCase()}
+            </Card.Title>
+            {/* <Card.Text className="line-clamp">{currentItem.description}</Card.Text> */}
 
-          {currentItem.isOutlet ? <Card.Title className="twoLines "> <b>{currentItem.outletPrice} €</b> <br /> <small className="text-red" ><s>{currentItem.price}€</s></small> </Card.Title> : <Card.Title className="twoLines">{currentItem.price}€ </Card.Title>}
+            {currentItem.isOutlet ? <Card.Title className="twoLines "> <b>{currentItem.outletPrice} €</b> <br /> <small className="text-red" ><s>{currentItem.price}€</s></small> </Card.Title> : <Card.Title className="twoLines">{currentItem.price}€ </Card.Title>}
 
-          {!isAdmin && <div className="d-flex justify-content-center"><Button className="px-1 mt-2 addToCartButton" ref={btnRef} onClick={() => dispatch(addToCart(currentItem))}><i className="bi bi-cart-plus"></i></Button></div>}
+            {!isAdmin && <div className="d-flex justify-content-center"><Button className="px-1 mt-2 addToCartButton" ref={btnRef} onClick={() => dispatch(addToCart(currentItem))}><i className="bi bi-cart-plus"></i></Button></div>}
 
-        </Card.Body>
+          </Card.Body>
+        </div>
       </Card >
     </>
   )
