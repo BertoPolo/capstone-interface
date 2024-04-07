@@ -45,7 +45,7 @@ const HomeItem = ({ currentItem }) => {
         />
         <Card.Body style={{ padding: "15px" }}>
           <Card.Title className="pointer twoLines" onClick={() => { dispatch(toggleIsOnSingleItem(true)); dispatch(changeSelectedItem(currentItem)) }} >
-            {currentItem.title}
+            {currentItem.title.charAt(0).toUpperCase() + currentItem.title.slice(1).toLowerCase()}
           </Card.Title>
           {/* <Card.Text className="line-clamp">{currentItem.description}</Card.Text> */}
 
