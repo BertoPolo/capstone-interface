@@ -99,7 +99,7 @@ function CategoriesMenu() {
                 <Accordion.Toggle as={Card.Header} eventKey={mainElement._id} className="pointer d-flex text-center softGrayBg" onClick={() => {
                   getByMainCategory(mainElement._id); navigate(`/home/${mainElement.mainCategory}`)
                 }} >
-                  <Image src={`${process.env.PUBLIC_URL}/assets/mainCategories/${mainElement.mainCategory}.svg`} alt="" style={{ width: "1rem", marginRight: "4px" }} />  <b>{mainElement.mainCategory}</b>
+                  <Image src={`${process.env.PUBLIC_URL}/assets/mainCategories/${mainElement.mainCategory}.svg`} alt="" style={{ width: "1rem", marginRight: "7px" }} />  <b>{mainElement.mainCategory}</b>
                 </Accordion.Toggle>
 
 

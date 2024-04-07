@@ -94,13 +94,19 @@ const Home = () => {
           <Carousel className="mt-3">
 
             <Carousel.Item>
-              <img fluid="true" className="d-block m-auto carouselImg " src="/assets/motorbikes.avif" alt="National shipping slide" />
+              <img fluid="true" className="d-block m-auto carouselImg" src="/assets/carousel/1.png" alt="Girl Street Bob" />
               <Carousel.Caption className="d-flex justify-content-center">
               </Carousel.Caption>
             </Carousel.Item>
 
             <Carousel.Item>
-              <img fluid="true" className="d-block m-auto carouselImg " src="/assets/motorbikes.avif" alt="National shipping slide" />
+              <img fluid="true" className="d-block m-auto carouselImg" src="/assets/carousel/2.png" alt="Waiting guy" />
+              <Carousel.Caption className="d-flex justify-content-center">
+              </Carousel.Caption>
+            </Carousel.Item>
+
+            <Carousel.Item>
+              <img fluid="true" className="d-block m-auto carouselImgReversed" src="/assets/carousel/motorbikes.avif" alt="Three Baggers" />
               <Carousel.Caption className="d-flex justify-content-center">
               </Carousel.Caption>
             </Carousel.Item>

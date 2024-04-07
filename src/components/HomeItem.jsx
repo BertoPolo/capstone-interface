@@ -43,7 +43,7 @@ const HomeItem = ({ currentItem }) => {
           className="pointer"
           onClick={() => { dispatch(toggleIsOnSingleItem(true)); dispatch(changeSelectedItem(currentItem)); navigate(`/home/${currentItem.title}`) }}
         />
-        <Card.Body className="" style={{ padding: "15px" }}>
+        <Card.Body style={{ padding: "15px" }}>
           <Card.Title className="pointer twoLines" onClick={() => { dispatch(toggleIsOnSingleItem(true)); dispatch(changeSelectedItem(currentItem)) }} >
             {currentItem.title}
           </Card.Title>

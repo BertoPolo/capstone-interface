@@ -207,11 +207,20 @@ small {
 /* carousel start*/
 
 .carouselImg {
-  width: 80vw !important;
-  height: 50vh !important;
-  object-fit: cover !important;
-  overflow: hidden !important;
+  width: 80vw;
+  height: 50vh;
+  object-fit: cover;
+  overflow: hidden;
 }
+
+.carouselImgReversed {
+  width: 80vw;
+  height: 50vh;
+  object-fit: cover;
+  overflow: hidden;
+  transform: scaleX(-1);
+}
+
 .transparencywWhiteBox {
   background-color: #e9e3e3a6;
   color: black;
