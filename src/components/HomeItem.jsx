@@ -48,7 +48,9 @@ const HomeItem = ({ currentItem }) => {
               {currentItem.title.charAt(0).toUpperCase() + currentItem.title.slice(1).toLowerCase()}
             </Card.Title>
 
-            {/* <Card.Text className="text-muted">{currentItem.brand}</Card.Text>   i need the brand name, not the ID */}
+            {/* <Card.Text className="text-muted">{currentItem.brand}</Card.Text>  
+            fetch all the brands and then filter by the brandId
+            */}
             <hr />
 
             {currentItem.isOutlet ? <Card.Title className="twoLines "> <b>{currentItem.outletPrice} €</b> <br /> <small className="text-red" ><s><b>{currentItem.price}€</b></s></small> </Card.Title> : <Card.Title className="twoLines"><b>{currentItem.price}€</b> </Card.Title>}

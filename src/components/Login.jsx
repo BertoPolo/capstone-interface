@@ -1,10 +1,8 @@
 import { Container, Button, Col, Row, Image } from "react-bootstrap"
-import { useNavigate, } from "react-router-dom"
 import FormBox from "./LoginFormBox";
 
 const Login = () => {
 
-  const navigate = useNavigate()
 
   return (
     <>
