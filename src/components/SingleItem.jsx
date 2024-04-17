@@ -25,7 +25,6 @@ const SingleItem = () => {
   }
 
   useEffect(() => {
-    console.log(selectedItem)
     const isItemInCart = cart.some((element) => element._id === selectedItem._id);
     setIsButtonDisabled(isItemInCart);
   }, [cart, selectedItem._id])
@@ -42,7 +41,14 @@ const SingleItem = () => {
 
             <h2>{selectedItem.title}</h2>
             <p>{selectedItem.fullDescription}</p>
-            {isOnOutlet ? <h3>{selectedItem.outletPrice}€</h3> : <h3>{selectedItem.price}€</h3>}
+
+            {/* not working as expected */}
+            {/* {isOnOutlet ? <div>
+              <h3>{selectedItem.outletPrice}€</h3>
+              <h4 className="text-red"><s>{selectedItem.price}€</s></h4>
+            </div>
+              : <h3>{selectedItem.price}€</h3>} */}
+            <h3>solving a bug</h3>
 
             <div className="d-flex justify-content-between mt-3">
               <Button className="addToCartButton w-25 " disabled={isButtonDisabled} onClick={() => dispatch(addToCart(selectedItem))}><i className="bi bi-cart-plus"></i></Button>
