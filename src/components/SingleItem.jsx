@@ -9,7 +9,7 @@ import { toggleIsOnHome } from "../slices/pages/pagesSlice"
 const SingleItem = () => {
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
-
+  const brands = useSelector((state) => state.brandsSlice.brands);
   const cart = useSelector((state) => state.cartSlice.cart);
   const { selectedItem, isOnOutlet, items } = useSelector((state) => state.itemsSlice);
 
@@ -17,7 +17,15 @@ const SingleItem = () => {
   const navigate = useNavigate()
 
 
+  const getCurrentBrandName = (brandID) => {
+    const brandObject = brands.find(brand => brand._id === brandID)
+    if (brandObject) {
+      return brandObject.brands
+    }
+  }
+
   useEffect(() => {
+    console.log(selectedItem)
     const isItemInCart = cart.some((element) => element._id === selectedItem._id);
     setIsButtonDisabled(isItemInCart);
   }, [cart, selectedItem._id])
@@ -30,6 +38,7 @@ const SingleItem = () => {
             <img src={selectedItem.image} alt={selectedItem.title} style={{ height: "35vh", objectFit: "contain" }} />
           </Col>
           <Col>
+            <p className="text-muted" >{getCurrentBrandName(selectedItem.brand)}</p>
 
             <h2>{selectedItem.title}</h2>
             <p>{selectedItem.fullDescription}</p>
