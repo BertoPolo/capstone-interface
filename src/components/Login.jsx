@@ -15,7 +15,6 @@ const Login = () => {
         <div className="transparencywWhiteBox p-3 mt-5">
           <FormBox />
           {/* option for not registered users */}
-
         </div>
 
       </Container>

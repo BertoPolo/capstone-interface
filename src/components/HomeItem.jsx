@@ -13,6 +13,7 @@ const HomeItem = ({ currentItem }) => {
   const selectedItem = useSelector((state) => state.itemsSlice.selectedItem);
   const { isOnHome, isOnOutlet, isOnCountactUs, isOnSingleItem } = useSelector(state => state.pagesSlice)
   const isAdmin = useSelector((state) => state.usersSlice.isAdmin);
+  const brands = useSelector((state) => state.brandsSlice.brands);
 
   const navigate = useNavigate()
   const dispatch = useDispatch();
@@ -29,6 +30,13 @@ const HomeItem = ({ currentItem }) => {
     if (cart.some((element) => element._id === currentItem._id)) btnRef.current.setAttribute("disabled", "disabled")
     else ableBtn()
   }, [cart])
+
+  const getCurrentBrandName = (brandID) => {
+    const brandObject = brands.find(brand => brand._id === brandID)
+    if (brandObject) {
+      return brandObject.brands
+    }
+  }
 
   return (
     <>
@@ -48,9 +56,8 @@ const HomeItem = ({ currentItem }) => {
               {currentItem.title.charAt(0).toUpperCase() + currentItem.title.slice(1).toLowerCase()}
             </Card.Title>
 
-            {/* <Card.Text className="text-muted">{currentItem.brand}</Card.Text>  
-            fetch all the brands and then filter by the brandId
-            */}
+            <Card.Text className="text-muted" >{getCurrentBrandName(currentItem.brand)}</Card.Text>
+
             <hr />
 
             {currentItem.isOutlet ? <Card.Title className="twoLines "> <b>{currentItem.outletPrice} €</b> <br /> <small className="text-red" ><s><b>{currentItem.price}€</b></s></small> </Card.Title> : <Card.Title className="twoLines"><b>{currentItem.price}€</b> </Card.Title>}
