@@ -11,12 +11,13 @@ const SingleItem = () => {
 
   const brands = useSelector((state) => state.brandsSlice.brands);
   const cart = useSelector((state) => state.cartSlice.cart);
-  const { selectedItem, isOnOutlet, items } = useSelector((state) => state.itemsSlice);
+  const { selectedItem } = useSelector((state) => state.itemsSlice);
 
   const dispatch = useDispatch();
   const navigate = useNavigate()
 
 
+  console.log("is on outlet?: ", selectedItem.isOutlet)
   const getCurrentBrandName = (brandID) => {
     const brandObject = brands.find(brand => brand._id === brandID)
     if (brandObject) {
@@ -42,13 +43,12 @@ const SingleItem = () => {
             <h2>{selectedItem.title}</h2>
             <p>{selectedItem.fullDescription}</p>
 
-            {/* not working as expected */}
-            {/* {isOnOutlet ? <div>
+
+            {selectedItem.isOutlet ? <div>
               <h3>{selectedItem.outletPrice}€</h3>
               <h4 className="text-red"><s>{selectedItem.price}€</s></h4>
             </div>
-              : <h3>{selectedItem.price}€</h3>} */}
-            <h3>solving a bug</h3>
+              : <h3>{selectedItem.price}€</h3>}
 
             <div className="d-flex justify-content-between mt-3">
               <Button className="addToCartButton w-25 " disabled={isButtonDisabled} onClick={() => dispatch(addToCart(selectedItem))}><i className="bi bi-cart-plus"></i></Button>
