@@ -121,9 +121,9 @@ Follow these instructions to clone and set up the application on your local mach
 5. Set your .env file with these variables
 
 ```sh
-React_APP_SERVER= (localhost or your backend)
-REACT_APP_PERSIST_KEY= (any complex string)
-REACT_APP_STRIPE_PUBLIC_KEY= (public key from Stripe)
+React_APP_SERVER (localhost or your backend)
+REACT_APP_PERSIST_KEY (any complex string)
+REACT_APP_STRIPE_PUBLIC_KEY (public key from Stripe)
 ```
 
 6. Run
