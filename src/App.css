@@ -58,10 +58,10 @@ small {
 /* Home start */
 
 .searchBar {
-  background-color: var(--softGray) !important;
-  border: none !important;
-  border-radius: 5px !important;
-  height: 20px !important;
+  background-color: var(--softGray);
+  border: none;
+  border-radius: 5px;
+  height: 20px;
 }
 
 /* Custom classes for centering placeholder in searchBar */
@@ -100,7 +100,7 @@ small {
 .addToCartButton {
   background-color: var(--darkBlue) !important;
   width: 80%;
-  border: none !important;
+  border: none;
 }
 
 .grayOnHover:hover {

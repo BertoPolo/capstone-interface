@@ -50,7 +50,7 @@ const SingleItem = () => {
 
             <hr />
 
-            <p>{selectedItem.fullDescription}</p>
+            <p>{selectedItem.fullDescription}ass</p>
 
 
             <div className="d-flex justify-content-between mt-3">
