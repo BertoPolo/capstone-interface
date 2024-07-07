@@ -123,7 +123,7 @@ const FormBox = () => {
 
     } catch (error) {
       console.log(error)
-      notifyError("Check your credentials again")
+      notifyError("An error from server side occurred while logging in");
       ableBtn()
       setIsCharging(false)
       setIsError(true)
