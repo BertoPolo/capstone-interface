@@ -61,10 +61,17 @@ body {
 .submitButton {
   background-color: var(--darkBlue);
   border: none !important;
+  box-shadow: none !important;
 }
 
-.submitButton:hover {
+.submitButton:hover,
+.submitButton:active,
+.submitButton:focus {
+  background-color: #002337 !important;
+}
+.submitButton:disabled {
   background-color: #002337;
+  cursor: not-allowed;
 }
 
 label {

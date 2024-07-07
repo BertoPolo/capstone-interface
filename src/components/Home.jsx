@@ -82,6 +82,7 @@ const Home = () => {
     });
 
     fetchFilteredItems(Object.keys(filterCriteria).length > 0 ? filterCriteria : null);
+    window.scrollTo(0, 0);
   }, [location, dispatch])
 
   return (

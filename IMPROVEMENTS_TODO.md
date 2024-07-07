@@ -1,6 +1,6 @@
 ## IMPROVEMENTS / TO DO / NICE TO HAVE
 
-- Centralize functions, there are much of them wich are similar or equal.
+- Fix Button colors
 - Add breadcrumbs (visual route links) https://react-bootstrap-v4.netlify.app/components/breadcrumb/
 - If you go out from creating new item without uploading an image, get an alert
 - At /createitem, when choose main category, should only displays related categories
@@ -16,7 +16,6 @@
 - is /resume dropdown behavioring well?
 - Clean unused imports
 - Not always is displayed "we don't have that item"
-- Reset scroll when navigate
 - At /outlet add title, right now is not intuitive that you are there
 - Change navigation among pages, from states to params
 - Testing/Jest
