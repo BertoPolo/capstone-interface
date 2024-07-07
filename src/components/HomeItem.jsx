@@ -49,7 +49,7 @@ const HomeItem = ({ currentItem }) => {
             src={currentItem.image}
             alt={currentItem.title}
             className="pointer"
-            onClick={() => { dispatch(toggleIsOnSingleItem(true)); dispatch(changeSelectedItem(currentItem)); navigate(`/home/${currentItem.title}`) }}
+            onClick={() => { dispatch(toggleIsOnSingleItem(true)); dispatch(changeSelectedItem(currentItem)); navigate(`/home/${currentItem.title}`); window.scrollTo(0, 0); }}
           />
           <Card.Body style={{ padding: "15px" }}>
             <Card.Title className="pointer twoLines" onClick={() => { dispatch(toggleIsOnSingleItem(true)); dispatch(changeSelectedItem(currentItem)) }} >

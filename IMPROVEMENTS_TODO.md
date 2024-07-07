@@ -8,7 +8,6 @@
 - Add "token required" to swagger and finish it
 - BackEnd - don't send all filtered items if not asking
 - Show some graphs in the backoffice about sales or whatever you want => https://nivo.rocks/line/
-- Create discount vouchers
 - Link Cart with token/user
 - Improve item's pictures and namings
 - Send me a notification email if rollback was unsuccessful
@@ -16,7 +15,7 @@
 - is /resume dropdown behavioring well?
 - Clean unused imports
 - Not always is displayed "we don't have that item"
-- At /outlet add title, right now is not intuitive that you are there
+- At /outlet add title, is not intuitive that you are there
 - Change navigation among pages, from states to params
 - Testing/Jest
 - Params is getting filters from \_id but it's better to get them from the name

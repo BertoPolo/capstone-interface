@@ -82,32 +82,32 @@ const Home = () => {
     });
 
     fetchFilteredItems(Object.keys(filterCriteria).length > 0 ? filterCriteria : null);
-    window.scrollTo(0, 0);
-  }, [location, dispatch])
+
+  }, [location, dispatch]);
 
   return (
     <>
       <MyNavbar />
-      {/* header */}
+      {/* Header */}
       <Container>
         {/* CAROUSEL */}
         {!isOnSingleItem && !isOnCountactUs && <div>
           <Carousel className="mt-3">
 
             <Carousel.Item>
-              <img fluid="true" className="d-block m-auto carouselImg" src="/assets/carousel/1.png" alt="Girl Street Bob" />
+              <img className="d-block m-auto carouselImg" src="/assets/carousel/1.png" alt="Girl Street Bob" />
               <Carousel.Caption className="d-flex justify-content-center">
               </Carousel.Caption>
             </Carousel.Item>
 
             <Carousel.Item>
-              <img fluid="true" className="d-block m-auto carouselImg" src="/assets/carousel/2.png" alt="Waiting guy" />
+              <img className="d-block m-auto carouselImg" src="/assets/carousel/2.png" alt="Waiting guy" />
               <Carousel.Caption className="d-flex justify-content-center">
               </Carousel.Caption>
             </Carousel.Item>
 
             <Carousel.Item>
-              <img fluid="true" className="d-block m-auto carouselImgReversed" src="/assets/carousel/motorbikes.avif" alt="Three Baggers" />
+              <img className="d-block m-auto carouselImgReversed" src="/assets/carousel/motorbikes.avif" alt="Three Baggers" />
               <Carousel.Caption className="d-flex justify-content-center">
               </Carousel.Caption>
             </Carousel.Item>
