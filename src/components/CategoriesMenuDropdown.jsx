@@ -70,7 +70,7 @@ const CategoriesMenuDropdown = () => {
                         <Card key={mainElement._id}>
                             <Card.Header className="p-0">
                                 <Accordion.Toggle as={Card.Header} eventKey={mainElement._id} className="pointer" onClick={() => getByMainCategory(mainElement._id)} >
-                                    <Image src={`${process.env.PUBLIC_URL}/assets/mainCategories/${mainElement.mainCategory}.svg`} alt="" style={{ width: "1rem", marginRight: "7px" }} />
+                                    <Image src={`${process.env.PUBLIC_URL}/assets/mainCategories/${mainElement.mainCategory}.svg`} alt="main category visual reference" style={{ width: "1rem", marginRight: "7px" }} />
                                     {mainElement.mainCategory}
                                 </Accordion.Toggle>
 
