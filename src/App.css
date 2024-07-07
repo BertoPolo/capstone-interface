@@ -30,11 +30,32 @@ body {
 
 .buttonBack {
   background-color: var(--redMat);
-  border: none !important;
-  color: white !important;
+  border: none;
+  color: white;
 }
+
 .buttonBack:hover {
-  background-color: #c82a2a;
+  background-color: #ca3838;
+}
+
+.buttonBack:active {
+  background-color: #aa2b2b !important;
+  border: none;
+  outline: 0;
+  box-shadow: none !important;
+}
+
+.buttonBack:focus {
+  box-shadow: none;
+  background-color: #aa2b2b;
+  border: none;
+  box-shadow: none;
+}
+
+.buttonBack:disabled {
+  background-color: #f9cfcf !important;
+  color: #eb7e7e;
+  cursor: not-allowed;
 }
 
 .submitButton {
@@ -51,7 +72,7 @@ label {
 }
 
 small {
-  font-size: 15px !important;
+  font-size: 0.9375rem !important;
 }
 
 /* Global end */
@@ -60,8 +81,8 @@ small {
 .searchBar {
   background-color: var(--softGray);
   border: none;
-  border-radius: 5px;
-  height: 20px;
+  border-radius: 0.3125rem;
+  height: 1.25rem;
 }
 
 /* Custom classes for centering placeholder in searchBar */
@@ -79,6 +100,7 @@ small {
 /*  */
 
 /* Home end */
+
 /* HomeItem start */
 .line-clamp {
   display: -webkit-box;
@@ -98,9 +120,30 @@ small {
 }
 
 .addToCartButton {
-  background-color: var(--darkBlue) !important;
+  background-color: var(--darkBlue);
   width: 80%;
   border: none;
+}
+
+.addToCartButton:hover {
+  background-color: #042538;
+  border: none;
+}
+.addToCartButton:focus {
+  border: none;
+  background-color: #042538;
+  box-shadow: none !important;
+}
+.addToCartButton:active {
+  background-color: #042538 !important;
+  border: none;
+  box-shadow: none !important;
+  outline: 0;
+}
+
+.addToCartButton:disabled {
+  border: none;
+  cursor: not-allowed;
 }
 
 .grayOnHover:hover {
@@ -241,9 +284,9 @@ small {
 
 /* item start */
 .card.item {
-  padding: 24px, 16px, 24px, 16px;
+  padding: 1.5rem, 1rem, 1.5rem, 1rem;
   border: 1px solid #d9d9d9;
-  border-radius: 4px;
+  border-radius: 0.25rem;
 }
 
 /* item end */

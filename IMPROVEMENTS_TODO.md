@@ -7,7 +7,6 @@
 - Change the filter query for an array : `${process.env.React_APP_SERVER}items?${filterQuery}`
 - Add "token required" to swagger and finish it
 - BackEnd - don't send all filtered items if not asking
-- Improve security
 - Show some graphs in the backoffice about sales or whatever you want => https://nivo.rocks/line/
 - Create discount vouchers
 - Link Cart with token/user
@@ -15,7 +14,6 @@
 - Send me a notification email if rollback was unsuccessful
 - Implement again range price input
 - is /resume dropdown behavioring well?
-- Add bg to tab's icon
 - Clean unused imports
 - Not always is displayed "we don't have that item"
 - Reset scroll when navigate

@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap-icons/font/bootstrap-icons.css"
-import "./App.css"
 import "react-toastify/dist/ReactToastify.css"
+import "./App.css"
 import React, { Suspense, lazy } from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { ToastContainer } from "react-toastify"

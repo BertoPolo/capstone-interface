@@ -95,13 +95,13 @@ function CategoriesMenu() {
           return (
 
             <Card key={mainElement._id}>
-              <Card.Header className="p-0 ">
+              <Card.Header className="p-0">
                 <Accordion.Toggle as={Card.Header} eventKey={mainElement._id} className="pointer d-flex text-center softGrayBg" onClick={() => {
                   getByMainCategory(mainElement._id); navigate(`/home/${mainElement.mainCategory}`)
                 }} >
-                  <Image src={`${process.env.PUBLIC_URL}/assets/mainCategories/${mainElement.mainCategory}.svg`} alt="" style={{ width: "1rem", marginRight: "7px" }} />  <b>{mainElement.mainCategory}</b>
+                  <Image src={`${process.env.PUBLIC_URL}/assets/mainCategories/${mainElement.mainCategory}.svg`} alt="" style={{ width: "1rem", marginRight: "7px" }} />
+                  {mainElement.mainCategory}
                 </Accordion.Toggle>
-
 
               </Card.Header>
               {mainElement.categories.length > 0 && <Accordion.Collapse eventKey={mainElement._id}>
