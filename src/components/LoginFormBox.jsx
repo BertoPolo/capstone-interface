@@ -79,7 +79,9 @@ const FormBox = () => {
       }
     } catch (error) {
       console.log(error)
-
+      setIsCharging(false)
+      notifyError("An error occurred while logging in");
+      ableBtn();
     }
   }
 
@@ -121,6 +123,11 @@ const FormBox = () => {
 
     } catch (error) {
       console.log(error)
+      notifyError("Check your credentials again")
+      ableBtn()
+      setIsCharging(false)
+      setIsError(true)
+      setTimeout(() => setIsError(false), 3000)
     }
 
   }
