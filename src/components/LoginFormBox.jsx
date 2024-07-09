@@ -140,14 +140,14 @@ const FormBox = () => {
           <h3 className="mb-3 d-flex">Welcome back 👋</h3> {/* is SEO ok? */}
 
           <p className="d-flex m-0">Saddle up!</p>
-          <p className="d-flex justify-content-start ">Your moto essentials are just a login away.</p>
+          <p className="d-flex justify-content-start">Your moto essentials are just a login away.</p>
           <Form.Group>
-            <div className="d-flex"><Form.Label>Username</Form.Label></div>
+            <div className="d-flex">Username</div>
             <Form.Control type="text" placeholder="JohnDoe123" value={usernameInput} onChange={(e) => setUsernameInput(e.target.value)} />
           </Form.Group>
 
           <Form.Group>
-            <div className="d-flex"><Form.Label>Password</Form.Label></div>
+            <div className="d-flex">Password</div>
             <Form.Control type="password" placeholder="****" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
           </Form.Group>
 
@@ -157,7 +157,7 @@ const FormBox = () => {
 
           <div className="text-center">
             <div className="my-2 d-flex justify-content-end">
-              <Link className="login-small-font d-block mb-1" to="/forgotPassword">
+              <Link className="oneRem-font d-block mb-1" to="/forgotPassword">
                 <small className="text-red">Forgot password?</small>
               </Link>
             </div>
@@ -166,21 +166,22 @@ const FormBox = () => {
               Login
             </Button>
 
-            <small className="d-flex justify-content-center my-3">Aren't you registered yet?
-              <Link className="login-small-font d-block ml-1" to="/register">
+            <span className="eighteen-font d-flex justify-content-center my-3">Aren't you registered yet?
+              <Link className="eighteen-font d-block ml-1" to="/register">
                 Join Us!
               </Link>
-            </small>
+            </span>
             <small className="d-flex justify-content-center my-3">
-              <Link className="login-small-font d-block mb-3" to="/home">
+              <Link className="eighteen-font d-block mb-3" to="/home">
                 Take a look without login
               </Link>
             </small>
 
-            <small className="text-muted login-small-font">© 2023 ALL RIGHTS RESERVED</small>
+            <small className="text-muted oneRem-font">© 2023 ALL RIGHTS RESERVED</small>
           </div>
         </div >
-        {isCharging && <Spinner className="position-absolute" animation="border" variant="success" />}
+        {isCharging && <Spinner className="position-absolute" animation="border" variant="success" />
+        }
         {isError && <Spinner className="position-absolute" animation="grow" variant="danger" />}
       </Form >
     </>

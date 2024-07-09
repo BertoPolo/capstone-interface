@@ -24,6 +24,14 @@ body {
   cursor: pointer;
 }
 
+.oneRem-font {
+  font-size: 1rem;
+}
+
+.eighteen-font {
+  font-size: 1.125rem;
+}
+
 .softGrayBg {
   background-color: var(--softGray) !important;
 }
@@ -206,15 +214,6 @@ small {
   padding-right: 4rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
-}
-
-.login-small-font {
-  font-size: calc(1px + 2vmin);
-}
-@media (max-width: 575.98px) {
-  .login-small-font {
-    font-size: calc(1px + 3vmin);
-  }
 }
 
 .loginBG {
