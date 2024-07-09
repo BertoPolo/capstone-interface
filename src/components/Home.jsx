@@ -89,7 +89,7 @@ const Home = () => {
     <>
       <MyNavbar />
       {/* Header */}
-      <Container>
+      <Container className="p-0">
         {/* CAROUSEL */}
         {!isOnSingleItem && !isOnCountactUs && <div>
           <Carousel className="mt-3">
@@ -101,7 +101,7 @@ const Home = () => {
             </Carousel.Item>
 
             <Carousel.Item>
-              <img className="d-block m-auto carouselImg" src="/assets/carousel/2.png" alt="Waiting guy" />
+              <img className="d-block m-auto w-100 carouselImg" src="/assets/carousel/2.png" alt="Waiting guy" />
               <Carousel.Caption className="d-flex justify-content-center">
               </Carousel.Caption>
             </Carousel.Item>
@@ -114,10 +114,10 @@ const Home = () => {
           </Carousel>
         </div>}
 
-        {/* FILTERING BAR*/}
-        {(isOnOutlet || isOnHome) && <NavFilter />}
 
       </Container>
+      {/* FILTERING BAR*/}
+      {(isOnOutlet || isOnHome) && <NavFilter />}
 
       <Container fluid >
         {/* categories displayed in SM screens */}

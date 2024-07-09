@@ -106,7 +106,7 @@ const NavFilter = () => {
 
     return (
         <>
-            <Container className="mt-3 mb-5">
+            <Container fluid className="mt-3 mb-5">
                 {/*<--- XS - SM SCREENS --->*/}
                 <Form className="d-flex d-md-none justify-content-center w-100 align-items-center mb-3" onSubmit={(e) => getFilteredItems(e)}>
                     {/* Search bar */}
@@ -183,7 +183,7 @@ const NavFilter = () => {
                         </Col>
 
                         {/* PRICE SORTING */}
-                        <Col md={2} className="p-0 mb-2 mb-md-0">
+                        <Col md={{ span: 1, offset: 2 }} className="p-0 mb-2 mb-md-0">
                             <Dropdown>
                                 <Dropdown.Toggle variant="outline" className=" p-0 filterDropdown custom-dropdown-toggle w-100 boxShadowblue" drop="up">
                                     {selectSorting || "Sort by"}
@@ -196,7 +196,7 @@ const NavFilter = () => {
                         </Col>
 
                         {/* BY BRAND */}
-                        <Col md={2} className="p-0 mb-2 mb-md-0">
+                        <Col md={1} className="p-0 mb-2 mb-md-0">
                             <Dropdown>
                                 <Dropdown.Toggle className="p-0 filterDropdown w-100 boxShadowblue" variant="outline">
                                     {selectedBrand || "Brand"}
@@ -212,7 +212,7 @@ const NavFilter = () => {
                         </Col>
 
                         {/* Submit buttons */}
-                        <Col md={4} className="d-flex justify-content-center p-0">
+                        <Col className="d-flex justify-content-center p-0">
                             <Button type="submit" className="d-flex submitButton mr-2 btn-sm py-2 px-3 boxShadowblue"><b>Enter</b></Button>
                             <Button variant="outline-dark" className="pointer btn-sm py-2 px-3" onClick={() => { resetStates() }}><b>Clean</b></Button>
                         </Col>
