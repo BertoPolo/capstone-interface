@@ -40,8 +40,7 @@ const HomeItem = ({ currentItem }) => {
 
   return (
     <>
-
-      <Card className="item mt-3" >
+      <Card className="item mb-3" >
         <div className="mx-2">
           <Card.Img
             style={{ height: "9rem", objectFit: "contain", marginTop: "1rem" }}
