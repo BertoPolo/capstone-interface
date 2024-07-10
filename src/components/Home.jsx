@@ -127,14 +127,13 @@ const Home = () => {
 
         {/* left column, categories MD screens */}
         <Row className="ml-2 mt-4">
-          {!isOnCountactUs && <Col className="d-none col-md-3 col-lg-2 d-md-block">
-            <CategoriesMenu />
-
-          </Col>}
+          {!isOnCountactUs &&
+            <Col className="d-none col-md-3 col-lg-2 d-md-block">
+              <CategoriesMenu />
+            </Col>}
 
           <Col >
             <Col>
-
               {/* HOME */}
               {isOnHome &&
                 <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-5">

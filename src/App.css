@@ -331,16 +331,22 @@ small {
   background-color: #fafafa;
   line-height: 1.5rem;
   letter-spacing: 0.0125rem;
+  padding-top: 1.5rem;
+  padding-bottom: 3rem;
+}
+.footerText {
+  color: #343434;
 }
 /* footer end*/
 
 /* item start */
 .card.item {
-  padding: 1.5rem, 1rem, 1.5rem, 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   border: 1px solid #d9d9d9;
   border-radius: 0.25rem;
 }
-
 /* item end */
 
 /* backoffice start*/
@@ -348,7 +354,6 @@ small {
   background-color: #294b66;
   padding: 1rem;
 }
-
 /* backoffice end*/
 
 /* Myaccount start */
