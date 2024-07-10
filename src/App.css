@@ -274,12 +274,13 @@ small {
 /* Login end */
 
 /* Navbar start */
-.navbarBg {
-  background: #cdcdcdfc !important;
-}
-.cart-color {
-  /* color: #2692e7 !important; */
-  position: relative;
+.navbar {
+  background: #fff;
+  color: #343434;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  letter-spacing: 0.0125rem;
 }
 
 .cart-counter {
