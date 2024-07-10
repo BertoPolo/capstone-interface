@@ -15,18 +15,18 @@ const CartModal = ({ handleClose, show }) => {
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-                <Modal.Title>CART</Modal.Title>
+                <Modal.Title>Cart</Modal.Title>
             </Modal.Header>
 
-            <Modal.Body>
+            <Modal.Body className="cartText">
                 {cart.map((element) => {
                     totalCartAmount += element.price * element.quantity
 
                     return (
                         <div key={element._id} className="d-flex justify-content-between">
-                            <span ><b>{element.title}</b></span>
+                            <span>{element.title}</span>
                             <div className="d-flex">
-                                <span className="mx-3"> {element.price}€</span>
+                                <span className="mx-3">{element.price}€</span>
 
                                 <Dropdown>
                                     <Dropdown.Toggle size="sm" variant="outline-dark" id="dropdown-basic">
@@ -52,7 +52,7 @@ const CartModal = ({ handleClose, show }) => {
                 })}
             </Modal.Body>
             <Modal.Footer>
-                <u className="mr-auto">{totalCartAmount.toFixed(2)}€</u>
+                <span className="mr-auto">{totalCartAmount.toFixed(2)}€</span>
                 <Button variant="secondary" onClick={handleClose}>
                     Close
                 </Button>

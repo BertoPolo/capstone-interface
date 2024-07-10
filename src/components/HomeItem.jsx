@@ -55,7 +55,7 @@ const HomeItem = ({ currentItem }) => {
               {currentItem.title.charAt(0).toUpperCase() + currentItem.title.slice(1).toLowerCase()}
             </Card.Title>
 
-            <Card.Text className="text-muted" >{getCurrentBrandName(currentItem.brand)}</Card.Text>
+            <Card.Text className="text-muted twoLines" >{getCurrentBrandName(currentItem.brand)}</Card.Text>
 
             <hr />
 

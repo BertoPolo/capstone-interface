@@ -402,7 +402,7 @@ small {
   height: 100vh;
   background-position: center;
 }
-/* forgotPass end */
+/* ForgotPass end */
 
 /* Categories accordion */
 .mainCatTitle {
@@ -413,4 +413,19 @@ small {
   letter-spacing: 0.0125rem;
   margin-bottom: 1.06rem;
 }
+/*  */
+/* cart modal */
+.cartTitle {
+  color: #343434;
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 1.75rem;
+}
+
+/* .cartText {
+  color: #000;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+} */
 /*  */
