@@ -1,4 +1,4 @@
-import { Container, Row } from "react-bootstrap"
+import { Container, Row, Col } from "react-bootstrap"
 import React, { Suspense, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Elements } from '@stripe/react-stripe-js';
@@ -25,19 +25,19 @@ const Payment = () => {
     return (
 
         <>
-            {stripeLoaded &&
+            {stripeLoaded && (
                 <Elements stripe={stripePromise}>
                     <Container className="mt-5">
-                        <Row>
-                            <div className="d-flex justify-content-center w-100">
+                        <Row className="justify-content-center">
+                            <Col xs={12} md={8} lg={6}>
                                 <Suspense fallback={<div>Loading...</div>}>
                                     <LazyCheckoutForm />
                                 </Suspense>
-
-                            </div>
+                            </Col>
                         </Row>
                     </Container>
-                </Elements>}
+                </Elements>
+            )}
         </>
     )
 };

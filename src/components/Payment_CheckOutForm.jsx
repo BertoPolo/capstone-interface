@@ -1,4 +1,4 @@
-import { Button, Form, Spinner } from "react-bootstrap"
+import { Button, Form, Spinner, Container, Card } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
@@ -84,21 +84,27 @@ const CheckOutForm = () => {
     };
 
     return (
-        <>
+        <Container className="d-flex justify-content-center mt-5">
+            <Card className="w-100 p-4 shadow-sm" style={{ maxWidth: '500px' }}>
+                <Form onSubmit={handleSubmit}>
+                    <h4 className="mb-3">Payment Details</h4>
+                    <p>Amount to pay: <b>{totalAmount} €</b></p>
+                    <Form.Group className="mb-3">
+                        <CardElement className="form-control p-2" />
+                    </Form.Group>
 
-            <Form onSubmit={handleSubmit} className="card w-50 p-4">
-                {<p>Amount to pay: <b>{totalAmount} €</b></p>}
-                <Form.Group>
-                    <CardElement className="form-control" />
-                </Form.Group>
-                <Button variant="success" type="submit" disabled={!stripe || !elements}>
-                    Pay
-                </Button>
-                <Button variant="danger" onClick={() => navigate("/resume")}>Cancel</Button>
-            </Form>
-            {isCharging && <Spinner animation="border" variant="success" className="position-absolute" />}
-
-        </>
+                    <div className="d-flex justify-content-around">
+                        <Button variant="success" type="submit" disabled={!stripe || !elements}>
+                            Pay
+                        </Button>
+                        <Button variant="danger" onClick={() => navigate("/resume")}>
+                            Cancel
+                        </Button>
+                    </div>
+                </Form>
+                {isCharging && <Spinner animation="border" variant="success" className="position-absolute" />}
+            </Card>
+        </Container>
     );
 };
 export default CheckOutForm
