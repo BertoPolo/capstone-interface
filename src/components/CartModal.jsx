@@ -1,69 +1,72 @@
-import { Modal, Button, Dropdown } from "react-bootstrap"
-import { useSelector, useDispatch } from "react-redux"
+import { Modal, Button, Dropdown } from "react-bootstrap";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { removeItem, setItemsQuantity } from "../slices/cart/cartSlice";
-
 
 const CartModal = ({ handleClose, show }) => {
     const cart = useSelector((state) => state.cartSlice.cart);
     const isLogged = useSelector((state) => state.usersSlice.isLogged);
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    let totalCartAmount = 0
+    let totalCartAmount = 0;
     return (
         <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
-                <Modal.Title>Cart</Modal.Title>
-            </Modal.Header>
+            <div className="cartModal">
+                <Modal.Header closeButton>
+                    <Modal.Title>Cart</Modal.Title>
+                </Modal.Header>
 
-            <Modal.Body className="cartText">
-                {cart.map((element) => {
-                    totalCartAmount += element.price * element.quantity
+                <Modal.Body className="cartText">
+                    {cart.map((element) => {
+                        totalCartAmount += element.price * element.quantity;
+                        return (
+                            <div key={element._id} className="cart-item">
+                                <div className="d-flex justify-content-between align-items-center">
+                                    <span>{element.title}</span>
+                                    <div className="d-flex align-items-center">
+                                        <span className="mx-3">{element.price}€</span>
 
-                    return (
-                        <div key={element._id} className="d-flex justify-content-between">
-                            <span>{element.title}</span>
-                            <div className="d-flex">
-                                <span className="mx-3">{element.price}€</span>
+                                        <Dropdown>
+                                            <Dropdown.Toggle size="sm" variant="outline-dark" id="dropdown-basic">
+                                                {element.quantity}
+                                            </Dropdown.Toggle>
 
-                                <Dropdown>
-                                    <Dropdown.Toggle size="sm" variant="outline-dark" id="dropdown-basic">
-                                        {element.quantity}
-                                    </Dropdown.Toggle>
-
-                                    <Dropdown.Menu>
-                                        <Dropdown.Item onClick={() => dispatch(setItemsQuantity([element._id, 1]))}>1</Dropdown.Item>
-                                        <Dropdown.Item onClick={() => dispatch(setItemsQuantity([element._id, 2]))}>2</Dropdown.Item>
-                                        <Dropdown.Item onClick={() => dispatch(setItemsQuantity([element._id, 3]))}>3</Dropdown.Item>
-                                        <Dropdown.Item onClick={() => dispatch(setItemsQuantity([element._id, 4]))}>4</Dropdown.Item>
-                                        <Dropdown.Item onClick={() => dispatch(setItemsQuantity([element._id, 5]))}>5</Dropdown.Item>
-                                        <Dropdown.Item onClick={() => dispatch(setItemsQuantity([element._id, 6]))}>6</Dropdown.Item>
-                                        <Dropdown.Item onClick={() => dispatch(setItemsQuantity([element._id, 7]))}>7</Dropdown.Item>
-                                        <Dropdown.Item onClick={() => dispatch(setItemsQuantity([element._id, 8]))}>8</Dropdown.Item>
-                                        <Dropdown.Item onClick={() => dispatch(setItemsQuantity([element._id, 9]))}>9</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                                <i className="bi bi-trash3 pointer ml-3 text-danger" onClick={() => dispatch(removeItem(element._id))}></i>
+                                            <Dropdown.Menu>
+                                                {[...Array(9).keys()].map(i => (
+                                                    <Dropdown.Item key={i + 1} onClick={() => dispatch(setItemsQuantity([element._id, i + 1]))}>
+                                                        {i + 1}
+                                                    </Dropdown.Item>
+                                                ))}
+                                            </Dropdown.Menu>
+                                        </Dropdown>
+                                        <i className="bi bi-trash3 pointer ml-3 text-danger" onClick={() => dispatch(removeItem(element._id))}></i>
+                                    </div>
+                                </div>
+                                <hr />
                             </div>
-                        </div>
-                    )
-                })}
-            </Modal.Body>
-            <Modal.Footer>
-                <span className="mr-auto">{totalCartAmount.toFixed(2)}€</span>
-                <Button variant="secondary" onClick={handleClose}>
-                    Close
-                </Button>
-                {isLogged ? <Button className="submitButton" disabled={cart.length === 0} onClick={() => { handleClose(); navigate("/resume") }}>
-                    See your cart
-                </Button> : <Button variant="warning" onClick={() => { handleClose(); navigate("/") }}>
-                    Go login first
-                </Button>}
-            </Modal.Footer>
-        </Modal >
-    )
+                        );
+                    })}
+                    <div className="d-flex justify-content-between mt-3 totalCart">
+                        <span>Total</span>
+                        <span>{totalCartAmount.toFixed(2)}€</span>
+                    </div>
+                    <div className="d-flex justify-content-end mt-4">
+                        {isLogged ? (
+                            <Button className="submitButton fourteen-font" disabled={cart.length === 0} onClick={() => { handleClose(); navigate("/resume"); }}>
+                                Go to checkout
+                            </Button>
+                        ) : (
+                            <Button variant="warning" onClick={() => { handleClose(); navigate("/"); }}>
+                                Go login first
+                            </Button>
+                        )}
+                    </div>
+                </Modal.Body>
+            </div>
+        </Modal>
+    );
 }
 
-export default CartModal
+export default CartModal;
