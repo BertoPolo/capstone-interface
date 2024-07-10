@@ -180,6 +180,7 @@ small {
 }
 
 .addToCartButton:disabled {
+  background-color: #324d5d;
   border: none;
   cursor: not-allowed;
 }

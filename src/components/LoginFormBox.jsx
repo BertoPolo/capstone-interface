@@ -1,6 +1,6 @@
-import { Container, Form, Button, Col, Row, Spinner, Image } from "react-bootstrap"
+import { Form, Button, Spinner } from "react-bootstrap"
 import { useNavigate, Link } from "react-router-dom"
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { toast } from 'react-toastify';
 import { changeIsLogged, addName, addUserName, addAddress, addEmail, addIsAdmin, changeToken } from "../slices/users/usersSlice"
@@ -150,10 +150,6 @@ const FormBox = () => {
             <div className="d-flex">Password</div>
             <Form.Control type="password" placeholder="****" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
           </Form.Group>
-
-          {/* <Form.Group>
-                  <Form.Check type="checkbox" label="Remember me" className="login-small-font" onClick={() => setIsRemember(!isRemember)} />
-                </Form.Group> */}
 
           <div className="text-center">
             <div className="my-2 d-flex justify-content-end">
