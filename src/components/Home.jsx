@@ -89,19 +89,19 @@ const Home = () => {
     <>
       <MyNavbar />
       {/* Header */}
-      <Container className="p-0">
+      <Container fluid className="bg-softGray-carousel">
         {/* CAROUSEL */}
         {!isOnSingleItem && !isOnCountactUs && <div>
           <Carousel className="mt-3">
 
             <Carousel.Item>
-              <img className="d-block m-auto carouselImg" src="/assets/carousel/1.png" alt="Girl Street Bob" />
+              <img className="d-block m-auto carouselImg" src="/assets/carousel/1.avif" alt="Girl Street Bob" />
               <Carousel.Caption className="d-flex justify-content-center">
               </Carousel.Caption>
             </Carousel.Item>
 
             <Carousel.Item>
-              <img className="d-block m-auto w-100 carouselImg" src="/assets/carousel/2.png" alt="Waiting guy" />
+              <img className="d-block m-auto w-100 carouselImg" src="/assets/carousel/2.avif" alt="Waiting guy" />
               <Carousel.Caption className="d-flex justify-content-center">
               </Carousel.Caption>
             </Carousel.Item>
@@ -119,7 +119,7 @@ const Home = () => {
       {/* FILTERING BAR*/}
       {(isOnOutlet || isOnHome) && <NavFilter />}
 
-      <Container fluid >
+      <Container fluid  >
         {/* categories displayed in SM screens */}
         {/* if isOnHome dont display cats and button */}
         {(isOnHome || isOnSingleItem) && !isOnCountactUs && <> <Button variant="outline-dark" className="d-md-none" onClick={() => setIsCategoriesDropdown(!isCategoriesMenuDropdown)}>Show categories menu </Button>

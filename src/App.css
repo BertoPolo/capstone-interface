@@ -70,6 +70,7 @@ body {
 .submitButton {
   background-color: var(--darkBlue);
   border: none !important;
+  color: #ffffff;
 }
 
 .submitButton:hover,
@@ -134,6 +135,14 @@ small {
 .boxShadowblue:focus {
   outline: 0;
   box-shadow: 0 0 0 0.2rem var(--darkBlueShadow);
+}
+
+.bg-softGray-carousel {
+  background-color: #fafafae5;
+  padding-left: 6.19rem;
+  padding-bottom: 3.56rem;
+  padding-top: 2.81rem;
+  padding-right: 6.13rem;
 }
 
 /* Home end */
