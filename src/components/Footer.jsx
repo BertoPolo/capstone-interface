@@ -6,28 +6,28 @@ const Footer = () => {
     <Container fluid>
       <Row className="mt-5 footer px-auto">
         <Col className="pl-5">
-          <h6>Account</h6>
-          <p>My Account</p>
-          <p>Login / Register</p>
-          <p>Cart</p>
+          <p className="footerTitle">Account</p>
+          <p className="footerTet">My Account</p>
+          <p className="footerText">Login / Register</p>
+          <p className="footerText">Cart</p>
         </Col>
 
         <Col className="pl-5">
-          <h6>Ordering Information</h6>
-          <p>Delivery</p>
-          <p>Changes and Returns</p>
-          <p>Guarantee</p>
-          <p>Order tracking</p>
+          <p className="footerTitle">Ordering Information</p>
+          <p className="footerText">Delivery</p>
+          <p className="footerText">Changes and Returns</p>
+          <p className="footerText">Guarantee</p>
+          <p className="footerText">Order tracking</p>
         </Col>
 
         <Col className="pl-5">
-          <h6>About Stuff to Route</h6>
-          <p>About us</p>
-          <p>Contact us</p>
+          <p className="footerTitle">About Stuff to Route</p>
+          <p className="footerText">About us</p>
+          <p className="footerText">Contact us</p>
         </Col>
 
         <Col className="pl-5">
-          <h6>Social Networks</h6>
+          <p className="footerTitle">Social Networks</p>
           <Link className="d-block mb-3 footerText" target="_blank" to="https://www.instagram.com/polodelevas/" rel="noopener noreferrer">
             <span className="mr-1">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">

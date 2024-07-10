@@ -339,6 +339,15 @@ small {
   padding-top: 1.5rem;
   padding-bottom: 3rem;
 }
+
+.footerTitle {
+  color: var(--darkBlue);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  letter-spacing: 0.00625rem;
+}
+
 .footerText {
   color: #343434;
 }
@@ -451,8 +460,8 @@ small {
 
 .softBolding {
   color: #000;
-  font-size: 1.25rem;
-  font-weight: 600;
-  line-height: 1.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
 }
 /* Payment % resume end */

@@ -2,6 +2,7 @@ import { Button, Dropdown, Container, Row, Col, Image } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import MyNavbar from "./MyNavbar"
+import Footer from "./Footer"
 import { setItemsQuantity, removeItem, setTotalAmount } from "../slices/cart/cartSlice";
 
 
@@ -67,45 +68,51 @@ const ResumingCart = () => {
                 </Row>
 
 
-                <Container className="d-flex flex-column mb-2 mt-4 p-4 border rounded" style={{ maxWidth: '300px', position: 'fixed', bottom: '20px', right: '20px', backgroundColor: 'white' }}>
-                    <Row className="w-100">
-                        <Col xs={6}>
-                            <h6>Cart total</h6>
-                        </Col>
-                    </Row>
-                    <hr className="w-100" />
+                <Row className="d-flex justify-content-end">
+                    <Col xs={12} md={6} lg={4}>
+                        <Container className="d-flex flex-column mb-2 mt-4 p-4 border rounded ">
+                            <Row className="w-100">
+                                <Col xs={6}>
+                                    <h6>Cart total</h6>
+                                </Col>
+                            </Row>
 
-                    <Row className="w-100">
-                        <Col xs={6}>
-                            <p>Subtotal</p>
-                        </Col>
-                        <Col xs={6} className="text-right">
-                            <p>{totalCartAmount.toFixed(2)}€</p>
-                        </Col>
-                    </Row>
-                    <hr className="w-100" />
+                            <Row className="my-2"></Row> {/* Empty Row */}
 
-                    <Row className="w-100">
-                        <Col xs={6}>
-                            <p>Shipping</p>
-                        </Col>
-                        <Col xs={6} className="text-right">
-                            <p>{shippingFees === 0 ? "Free" : shippingFees + "€"}</p>
-                        </Col>
-                    </Row>
-                    <hr className="w-100" />
+                            <Row className="w-100">
+                                <Col xs={6}>
+                                    <p>Subtotal</p>
+                                </Col>
+                                <Col xs={6} className="text-right p-0">
+                                    <p>{totalCartAmount.toFixed(2)}€</p>
+                                </Col>
+                            </Row>
+                            <hr className="w-100" />
 
-                    <Row className="w-100">
-                        <Col xs={6}>
-                            <span className="softBolding">TOTAL</span>
-                        </Col>
-                        <Col xs={6} className="text-right">
-                            <span className="softBolding">{(totalCartAmount + shippingFees).toFixed(2)}€</span>
-                        </Col>
-                    </Row>
-                    <Button className="w-100 mt-3 submitButton" onClick={() => { navigate("/payment"); dispatch(setTotalAmount(totalCartAmount.toFixed(2))) }}>Checkout</Button>
-                </Container>
+                            <Row className="w-100">
+                                <Col xs={6}>
+                                    <p>Shipping</p>
+                                </Col>
+                                <Col xs={6} className="text-right p-0">
+                                    <p>{shippingFees === 0 ? "Free" : shippingFees + "€"}</p>
+                                </Col>
+                            </Row>
+                            <hr className="w-100" />
+
+                            <Row className="w-100">
+                                <Col xs={6}>
+                                    <span className="softBolding">TOTAL</span>
+                                </Col>
+                                <Col xs={6} className="text-right p-0">
+                                    <span className="softBolding">{(totalCartAmount + shippingFees).toFixed(2)}€</span>
+                                </Col>
+                            </Row>
+                            <div className="mx-auto"><Button className=" text-center mt-3 submitButton fourteen-font" onClick={() => { navigate("/payment"); dispatch(setTotalAmount(totalCartAmount.toFixed(2))) }}>Checkout</Button></div>
+                        </Container>
+                    </Col>
+                </Row>
             </Container>
+            <Footer />
         </>
     )
 }
