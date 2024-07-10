@@ -4,16 +4,16 @@ import { Link } from "react-router-dom"
 const Footer = () => {
   return (
     <>
-      <Row className="mt-5 pt-1 footer text-center">
-        <Col className="">
-          <h5 className="">Account</h5>
+      <Row className="mt-5 pt-1 footer">
+        <Col>
+          <h6>Account</h6>
           <p>My Account</p>
           <p>Login / Register</p>
           <p>Cart</p>
         </Col>
 
         <Col>
-          <h5>Ordering Information</h5>
+          <h6>Ordering Information</h6>
           <p>Delivery</p>
           <p>Changes and Returns</p>
           <p>Guarantee</p>
@@ -21,13 +21,13 @@ const Footer = () => {
         </Col>
 
         <Col>
-          <h5>About Stuff to Route</h5>
+          <h6>About Stuff to Route</h6>
           <p>About us</p>
           <p>Contact us</p>
         </Col>
 
         <Col>
-          <h5>Social Networks</h5>
+          <h6>Social Networks</h6>
           <Link className="d-block mb-3" target="_blank" to="https://www.instagram.com" rel="noopener noreferrer">
             <i className="bi bi-instagram mr-1"></i>
             We are on Instagram!

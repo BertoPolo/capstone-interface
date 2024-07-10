@@ -169,11 +169,12 @@ const Home = () => {
             </Col>
           </Col>
         </Row>
-        {/* Footer */}
-        <Suspense fallback={<div>Loading...</div>}>
-          <Footer />
-        </Suspense>
+
       </Container>
+      {/* Footer */}
+      <Suspense fallback={<div>Loading...</div>}>
+        <Footer />
+      </Suspense>
     </>
   )
 }

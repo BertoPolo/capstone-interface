@@ -137,14 +137,6 @@ small {
   box-shadow: 0 0 0 0.2rem var(--darkBlueShadow);
 }
 
-.bg-softGray-carousel {
-  background-color: #fafafae5;
-  padding-left: 6.19rem;
-  padding-bottom: 3.56rem;
-  padding-top: 2.81rem;
-  padding-right: 6.13rem;
-}
-
 /* Home end */
 
 /* HomeItem start */
@@ -268,7 +260,6 @@ small {
   background-position: center;
   background-color: #cccccc;
   min-height: 100vh;
-  /* overflow: hidden; */
 }
 
 /* Login end */
@@ -325,12 +316,20 @@ small {
 .objectPosition {
   object-position: 50% 7%;
 }
+
+.bg-softGray-carousel {
+  background-color: #fafafae5;
+  padding-bottom: 3.56rem;
+  padding-top: 2.81rem;
+}
 /* carousel end*/
 
 /* footer start*/
 .footer {
-  font-size: small;
+  font-size: 0.875rem;
   background-color: #fafafa;
+  line-height: 1.5rem;
+  letter-spacing: 0.0125rem;
 }
 /* footer end*/
 
