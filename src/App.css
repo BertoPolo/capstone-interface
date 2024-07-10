@@ -403,3 +403,14 @@ small {
   background-position: center;
 }
 /* forgotPass end */
+
+/* Categories accordion */
+.mainCatTitle {
+  color: #343434;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  letter-spacing: 0.0125rem;
+  margin-bottom: 1.06rem;
+}
+/*  */

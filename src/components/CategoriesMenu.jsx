@@ -87,8 +87,7 @@ function CategoriesMenu() {
 
   return (
     <>
-
-      <h4>CATEGORIES</h4>
+      <p className="mainCatTitle">Product categories</p>
       <Accordion className="mb-5">
 
         {mainCategories.map((mainElement) => {
@@ -105,7 +104,7 @@ function CategoriesMenu() {
 
               </Card.Header>
               {mainElement.categories.length > 0 && <Accordion.Collapse eventKey={mainElement._id}>
-                <Card.Body>
+                <Card.Body className="pb-0">
                   {<>
                     {mainElement.categories.map(category => {
 
