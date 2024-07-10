@@ -89,33 +89,35 @@ const Home = () => {
     <>
       <MyNavbar />
       {/* Header */}
-      <Container fluid className="bg-softGray-carousel">
-        {/* CAROUSEL */}
-        {!isOnSingleItem && !isOnCountactUs && <div>
-          <Carousel className="mt-3">
 
-            <Carousel.Item>
-              <img className="d-block m-auto carouselImg" src="/assets/carousel/1.avif" alt="Girl Street Bob" />
-              <Carousel.Caption className="d-flex justify-content-center">
-              </Carousel.Caption>
-            </Carousel.Item>
+      {/* CAROUSEL */}
+      {!isOnSingleItem && !isOnCountactUs && <Container fluid className="bg-softGray-carousel">
+        {/* <div> */}
+        <Carousel className="mt-3">
 
-            <Carousel.Item>
-              <img className="d-block m-auto w-100 carouselImg" src="/assets/carousel/2.avif" alt="Waiting guy" />
-              <Carousel.Caption className="d-flex justify-content-center">
-              </Carousel.Caption>
-            </Carousel.Item>
+          <Carousel.Item>
+            <img className="d-block m-auto carouselImg" src="/assets/carousel/1.avif" alt="Girl Street Bob" />
+            <Carousel.Caption className="d-flex justify-content-center">
+            </Carousel.Caption>
+          </Carousel.Item>
 
-            <Carousel.Item>
-              <img className="d-block m-auto carouselImgReversed" src="/assets/carousel/motorbikes.avif" alt="Three Baggers" />
-              <Carousel.Caption className="d-flex justify-content-center">
-              </Carousel.Caption>
-            </Carousel.Item>
-          </Carousel>
-        </div>}
+          <Carousel.Item>
+            <img className="d-block m-auto w-100 carouselImg" src="/assets/carousel/2.avif" alt="Waiting guy" />
+            <Carousel.Caption className="d-flex justify-content-center">
+            </Carousel.Caption>
+          </Carousel.Item>
 
-
+          <Carousel.Item>
+            <img className="d-block m-auto carouselImgReversed" src="/assets/carousel/motorbikes.avif" alt="Three Baggers" />
+            <Carousel.Caption className="d-flex justify-content-center">
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
+        {/* </div> */}
       </Container>
+      }
+
+
       {/* FILTERING BAR*/}
       {(isOnOutlet || isOnHome) && <NavFilter />}
 
