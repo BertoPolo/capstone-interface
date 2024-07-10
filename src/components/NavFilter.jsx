@@ -118,7 +118,7 @@ const NavFilter = () => {
                                     type="text"
                                     value={searchInput}
                                     placeholder="Check if we have it"
-                                    className="searchBar pl-5"
+                                    className="searchBar pl-5 py-3"
                                     onChange={(e) => setSearchinput(e.target.value)}
                                 />
                             </div>
@@ -169,21 +169,21 @@ const NavFilter = () => {
                 <Row>
                     <Form className="d-none d-md-flex justify-content-between w-100 align-items-center" onSubmit={(e) => getFilteredItems(e)}>
                         {/* Search bar */}
-                        <Col md={4} className="mb-2 mb-md-0">
+                        <Col md={4} className="mb-md-0">
                             <div className="position-relative">
                                 <i className="bi bi-search position-absolute search-icon"></i>
                                 <FormControl
                                     type="text"
                                     value={searchInput}
                                     placeholder="Check if we have it"
-                                    className="searchBar pl-5"
+                                    className="searchBar pl-5 py-3"
                                     onChange={(e) => setSearchinput(e.target.value)}
                                 />
                             </div>
                         </Col>
 
                         {/* PRICE SORTING */}
-                        <Col md={{ span: 1, offset: 2 }} className="p-0 mb-2 mb-md-0">
+                        <Col md={{ span: 1, offset: 2 }} className="p-0 mb-md-0">
                             <Dropdown>
                                 <Dropdown.Toggle variant="outline" className=" p-0 filterDropdown custom-dropdown-toggle w-100 boxShadowblue" drop="up">
                                     {selectSorting || "Sort by"}
@@ -196,7 +196,7 @@ const NavFilter = () => {
                         </Col>
 
                         {/* BY BRAND */}
-                        <Col md={1} className="p-0 mb-2 mb-md-0">
+                        <Col md={1} className="p-0 mb-md-0">
                             <Dropdown>
                                 <Dropdown.Toggle className="p-0 filterDropdown w-100 boxShadowblue" variant="outline">
                                     {selectedBrand || "Brand"}
