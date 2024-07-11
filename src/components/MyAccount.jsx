@@ -125,13 +125,13 @@ const MyAccount = () => {
   return (
     <>
       <MyNavbar />
-      <Container className="pt-4" fluid>
+      <Container className="pt-4">
 
         <Row>
           <Col md={8}>
 
             {/* Data Form */}
-            <Form className="p-4" onSubmit={(e) => changeData(e)}>
+            <Form className="py-4 accountBoxShadow pl-4" onSubmit={(e) => changeData(e)}>
               <h4 >Edit your profile</h4>
 
               <Row className="mb-3">
@@ -177,7 +177,7 @@ const MyAccount = () => {
 
               <div className="d-flex justify-content-end mt-5">
                 <Button className="ml-3 bg-transparent text-dark border-0" onClick={() => navigate("/home")}>Cancel</Button>
-                <Button className="submitButton" type="submit"> Submit </Button>
+                <Button className="submitButton px-4 py-2" type="submit">Save Changes</Button>
               </div>
             </Form>
           </Col>

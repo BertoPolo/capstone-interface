@@ -55,7 +55,7 @@ const ResumingCart = () => {
                                         </Dropdown.Menu>
                                     </Dropdown></span></Col>
                                     {/* Delete icon*/}  <Col xs={1}><span><i className="bi bi-trash3 pointer bg-danger p-1 text-white rounded" onClick={() => dispatch(removeItem(element._id))}></i></span></Col>
-                                    {/* Total  */} <Col ><span>{(element.price * element.quantity).toFixed(2)}</span></Col>
+                                    {/* Subtotal  */} <Col><span className="softBolding">{(element.price * element.quantity).toFixed(2)}€</span></Col>
                                 </Row>
                             </Container>
                         )
