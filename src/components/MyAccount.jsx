@@ -128,10 +128,10 @@ const MyAccount = () => {
       <Container className="pt-4">
 
         <Row>
-          <Col md={8}>
+          <Col md={8} className="accountBoxShadow">
 
             {/* Data Form */}
-            <Form className="py-4 accountBoxShadow pl-4" onSubmit={(e) => changeData(e)}>
+            <Form className="py-4  pl-4 mr-2" onSubmit={(e) => changeData(e)}>
               <h4 >Edit your profile</h4>
 
               <Row className="mb-3">
