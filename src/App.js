@@ -38,7 +38,7 @@ const App = () => (
           <Route path="/register" element={<CreateUser />} />
           <Route path="/myAccount" element={<MyAccount />} />
 
-          <Route path="/home" element={<Home />}>
+          <Route path="/home/*" element={<Home />}>
             <Route path="contactUs" element={<Home />} />
             <Route path="outlet" element={<Home />} />
             <Route path=":mainCategory" element={<Home />} />

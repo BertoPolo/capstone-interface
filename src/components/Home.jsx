@@ -11,8 +11,10 @@ import NavFilter from "./NavFilter"
 import CategoriesMenuDropdown from "./CategoriesMenuDropdown"
 
 import { changeSelectedItem } from "../slices/items/itemsSlice"
-import { addItems } from "../slices/items/itemsSlice"
-import { setFilter, removeFilter, clearFilters } from "../slices/pages/pagesSlice"
+import { toggleIsOnSingleItem } from "../slices/pages/pagesSlice"
+
+// import { addItems } from "../slices/items/itemsSlice"
+// import { setFilter, removeFilter, clearFilters } from "../slices/pages/pagesSlice"
 
 const Outlet = React.lazy(() => import('./Outlet'));
 const ContactUs = React.lazy(() => import('./ContactUs'));
@@ -28,7 +30,7 @@ const Home = () => {
   const dispatch = useDispatch();
   const location = useLocation();
 
-  const { itemTitle } = useParams();
+  const { itemTitle: paramsItemTitle } = useParams();
 
   const [isCategoriesMenuDropdown, setIsCategoriesDropdown] = useState(false)
 
@@ -43,12 +45,47 @@ const Home = () => {
     theme: "dark",
   });
 
+  const fetchItemByTitle = async (title) => {
+    try {
+      const response = await fetch(`${process.env.REACT_APP_SERVER}items/title/${title}`);
+      if (response.ok) {
+        const data = await response.json();
+        dispatch(changeSelectedItem(data));
+        dispatch(toggleIsOnSingleItem(true));
+      } else {
+        toast.warn('Item not found', {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      }
+    } catch (error) {
+      console.error('Error fetching item:', error);
+    }
+  };
+
 
   useEffect(() => {
-    // dispatch(changeSelectedItem(null))
-    console.log("selecteditem", selectedItem);
-  }, []);
+    dispatch(changeSelectedItem(null))
+  }, [dispatch]);
 
+
+  useEffect(() => {
+    const itemInStore = items.find(item => item.title === paramsItemTitle);
+    if (selectedItem && selectedItem.title === paramsItemTitle) {
+      return;
+    } else if (itemInStore) {
+      dispatch(changeSelectedItem(itemInStore));
+      dispatch(toggleIsOnSingleItem(true));
+    } else if (!selectedItem || selectedItem.title !== paramsItemTitle) {
+      fetchItemByTitle(paramsItemTitle);
+    }
+  }, [paramsItemTitle, selectedItem, items, dispatch]);
 
   return (
     <>

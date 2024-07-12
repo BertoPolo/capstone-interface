@@ -5,20 +5,16 @@ import { useSelector, useDispatch } from "react-redux"
 
 import { addToCart } from "../slices/cart/cartSlice"
 import { toggleIsOnHome, toggleIsOnSingleItem } from "../slices/pages/pagesSlice"
-import { changeSelectedItem } from "../slices/items/itemsSlice"
-
-
-
-
+// import { changeSelectedItem } from "../slices/items/itemsSlice"
 
 const SingleItem = () => {
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-  const { itemTitle: paramsItemTitle } = useParams();//
+  // const { itemTitle: paramsItemTitle } = useParams();
 
   const brands = useSelector((state) => state.brandsSlice.brands);
   const cart = useSelector((state) => state.cartSlice.cart);
   const { selectedItem, items } = useSelector((state) => state.itemsSlice);
-  const isOnSingleItem = useSelector(state => state.pagesSlice.isOnSingleItem)
+  // const isOnSingleItem = useSelector(state => state.pagesSlice.isOnSingleItem)
 
   const dispatch = useDispatch();
   const navigate = useNavigate()
@@ -31,49 +27,47 @@ const SingleItem = () => {
     }
   }
 
-  const fetchItemByTitle = async (title) => {
-    try {
-      const response = await fetch(`${process.env.REACT_APP_SERVER}items/title/${title}`);
-      if (response.ok) {
-        const data = await response.json();
-        dispatch(changeSelectedItem(data)); // Dispatch the fetched item as selectedItem
-      } else {
-        // toast.warn('Item not found', {
-        //   position: "top-center",
-        //   autoClose: 2000,
-        //   hideProgressBar: false,
-        //   closeOnClick: true,
-        //   pauseOnHover: true,
-        //   draggable: true,
-        //   progress: undefined,
-        //   theme: "dark",
-        // });
-        console.log("Item not found");
-      }
-    } catch (error) {
-      console.error('Error fetching item:', error);
-    }
-  };
+  // const fetchItemByTitle = async (title) => {
+  //   dispatch(toggleIsOnSingleItem(true));
+  //   try {
+  //     const response = await fetch(`${process.env.REACT_APP_SERVER}items/title/${title}`);
+  //     if (response.ok) {
+  //       const data = await response.json();
+  //       dispatch(changeSelectedItem(data)); // Dispatch the fetched item as selectedItem
+  //     } else {
+  //       // toast.warn('Item not found', {
+  //       //   position: "top-center",
+  //       //   autoClose: 2000,
+  //       //   hideProgressBar: false,
+  //       //   closeOnClick: true,
+  //       //   pauseOnHover: true,
+  //       //   draggable: true,
+  //       //   progress: undefined,
+  //       //   theme: "dark",
+  //       // });
+  //       console.log("Item not found");
+  //     }
+  //   } catch (error) {
+  //     console.error('Error fetching item:', error);
+  //   }
+  // };
 
-  useEffect(() => {
-    // all PARAMS related cases
-    const itemInStore = items.find(item => item.title === paramsItemTitle);
-    if (selectedItem && selectedItem.title === paramsItemTitle) {
-      // este caso, si no es util, puedes borrarlo
-      // Caso 4: El item es seleccionado desde home y selectedItem tiene objeto (no hay que hacer nada)
-      return;
+  // useEffect(() => {
+  //   // all PARAMS related cases
+  //   const itemInStore = items.find(item => item.title === paramsItemTitle);
+  //   if (selectedItem && selectedItem.title === paramsItemTitle) {
+  //     // Caso 4: El item es seleccionado desde home y selectedItem tiene objeto (no hay que hacer nada)
+  //     return;
 
-    } else if (itemInStore) {
-      // Caso 1: El item existe en items e igualmente se busca desde params
-
-      dispatch(changeSelectedItem(itemInStore));
-      dispatch(toggleIsOnSingleItem(true));
-    } else if (!selectedItem || selectedItem.title !== paramsItemTitle) {
-      // Caso 2 y 3: El item no existe en items y se busca desde params. Hay un selectedItem pero introducen un nuevo item en el params.
-      dispatch(toggleIsOnSingleItem(true));
-      fetchItemByTitle(paramsItemTitle);
-    }
-  }, [paramsItemTitle, selectedItem, items, dispatch]);
+  //   } else if (itemInStore) {
+  //     // Caso 1: El item existe en items e igualmente se busca desde params
+  //     dispatch(changeSelectedItem(itemInStore));
+  //     dispatch(toggleIsOnSingleItem(true));
+  //   } else if (!selectedItem || selectedItem.title !== paramsItemTitle) {
+  //     // Caso 2 y 3: El item no existe en items y se busca desde params. Hay un selectedItem pero introducen un nuevo item en el params.
+  //     fetchItemByTitle(paramsItemTitle);
+  //   }
+  // }, [paramsItemTitle, selectedItem, items, dispatch]);
 
   useEffect(() => {
     const isItemInCart = cart.some((element) => element._id === selectedItem?._id);
