@@ -51,9 +51,8 @@ function CategoriesMenu() {
   }
 
   const getByCategory = async (categoryId) => {
-    const fromOutlet = location.pathname === "/home/outlet";
     try {
-      const response = await fetch(`${process.env.REACT_APP_SERVER}items?category=${categoryId}${fromOutlet ? `&isOutlet="true"` : ""}`);
+      const response = await fetch(`${process.env.REACT_APP_SERVER}items?category=${categoryId}`);
       if (response.ok) {
         const data = await response.json();
         dispatch(addItems(data))
