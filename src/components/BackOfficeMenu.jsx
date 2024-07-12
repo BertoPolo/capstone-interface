@@ -25,9 +25,9 @@ const BackOffice = () => {
             <h1 className=" d-flex justify-content-center pt-4">BACKOFFICE</h1>
             <div className="bOMenu m-3 d-flex justify-content-between mb-4">
 
-                <Button className="submitButton" variant="outline" onClick={() => { dispatch(toggleIsOnUserSearch(true)); navigate("/backOfficeMenu/backOfficeUsers") }} ><i className="bi bi-search"></i> Search Users</Button >
-                <Button className="submitButton" variant="outline" onClick={() => { dispatch(toggleIsOnItemSearch(true)); navigate("/backOfficeMenu/backOfficeItems") }} > <i className="bi bi-search"></i> Search Items</Button >
-                <Button className="submitButton" variant="outline" onClick={() => { dispatch(toggleIsOnCreateNewItem(true)); navigate("/backOfficeMenu/backOfficeItems") }}><i className="bi bi-hammer"></i> Create Items</Button >
+                <Button className="submitButton" variant="outline" onClick={() => { dispatch(toggleIsOnUserSearch(true)); navigate("/backOffice/backOfficeUsers") }} ><i className="bi bi-search"></i> Search Users</Button >
+                <Button className="submitButton" variant="outline" onClick={() => { dispatch(toggleIsOnItemSearch(true)); navigate("/backOffice/backOfficeItems") }} > <i className="bi bi-search"></i> Search Items</Button >
+                <Button className="submitButton" variant="outline" onClick={() => { dispatch(toggleIsOnCreateNewItem(true)); navigate("/backOffice/backOfficeItems") }}><i className="bi bi-hammer"></i> Create Items</Button >
                 <Button className="buttonBack" onClick={() => navigate("/home")}><i className="bi bi-box-arrow-in-left"></i></Button >
             </div>
 

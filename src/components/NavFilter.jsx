@@ -106,7 +106,7 @@ const NavFilter = () => {
 
     return (
         <>
-            <Container className="mt-3 mb-5">
+            <Container className="mt-3 mb-5" id="searchbar">
                 {/*<--- XS - SM SCREENS --->*/}
                 <Form className="d-flex d-md-none justify-content-center w-100 align-items-center mb-3" onSubmit={(e) => getFilteredItems(e)}>
                     {/* Search bar */}

@@ -48,15 +48,14 @@ const MyNavbar = () => {
         <Navbar.Toggle />
         <Navbar.Collapse>
           <Nav className="mr-auto text-start">
-            <Nav.Link onClick={() => { navigate("/home"); dispatch(toggleIsOnHome(true)); window.scrollTo(0, 0); }}>Home</Nav.Link>
-            <Nav.Link onClick={() => { navigate("/home/outlet"); dispatch(toggleIsOnOutlet(true)); window.scrollTo(0, 0); }}>Outlet</Nav.Link>
-            <Nav.Link onClick={() => { navigate("/home/contactUs"); dispatch(toggleIsCountactUs(true)); window.scrollTo(0, 0); }}>Contact Us</Nav.Link>
-            {/* <Nav.Link onClick={() => { navigate("/whatiused") }}>What I Used</Nav.Link> */}
+            <Nav.Link onClick={() => { navigate("/home"); dispatch(toggleIsOnHome(true)); window.scrollTo(0, 0) }}>Home</Nav.Link>
+            <Nav.Link onClick={() => { navigate("/home/outlet"); dispatch(toggleIsOnOutlet(true)) }} href="#searchbar">Outlet</Nav.Link>
+            <Nav.Link onClick={() => { navigate("/home/contactUs"); dispatch(toggleIsCountactUs(true)); window.scrollTo(0, 0) }}>Contact Us</Nav.Link>
           </Nav>
           <Nav className="ml-auto mr-4">
 
             {isAdmin ?
-              <Nav.Link href="/backOfficeMenu">BackOffice</Nav.Link>
+              <Nav.Link href="/backOffice">BackOffice</Nav.Link>
               :
               <>
                 <Nav.Link className="d-none d-md-block position-relative mr-2" onClick={handleShow}>

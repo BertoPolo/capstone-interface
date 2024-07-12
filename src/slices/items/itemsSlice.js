@@ -4,20 +4,14 @@ const itemsSlice = createSlice({
   name: "items",
   initialState: {
     items: [],
-    selectedItem: {},
+    selectedItem: null,
   },
   reducers: {
     addItems: (state, action) => {
-      return {
-        ...state,
-        items: action.payload,
-      }
+      state.items = action.payload
     },
     changeSelectedItem: (state, action) => {
-      return {
-        ...state,
-        selectedItem: action.payload,
-      }
+      state.selectedItem = action.payload
     },
   },
 })

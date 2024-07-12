@@ -205,23 +205,12 @@ small {
 /* HomeItem end */
 
 /* Login start */
-.loginTitle {
-  font-size: 1.5rem;
-}
-
-.h1SmScreen {
-  display: flex;
-  justify-content: center;
-  font-weight: bolder;
-  font-size: 500% !important;
-  margin-bottom: 3rem !important;
-  margin-top: 1rem;
-  text-shadow: 3px 4px 5px #000000c2;
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .h1SmScreen {
-    font-size: 400% !important;
-  }
+.welcome {
+  color: #0c1421;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: 0.02rem;
 }
 
 .h1XsScreen {
@@ -234,7 +223,6 @@ small {
 
 .transparency-box {
   background-color: #e9e3e3a6;
-  /* width: 70vw; */
 }
 
 .login-container {
@@ -242,9 +230,8 @@ small {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* font-size: calc(8px + 2vmin); */
-  /* text-align: center; */
 }
+
 .login-modal {
   border: 1px solid #bdbdbd47;
   padding-left: 4rem;
@@ -267,7 +254,6 @@ small {
   background-color: #cccccc;
   min-height: 100vh;
 }
-
 /* Login end */
 
 /* Navbar start */
@@ -297,7 +283,6 @@ small {
 /* Navbar end */
 
 /* carousel start*/
-
 .carouselImg {
   width: 80vw;
   height: 50vh;

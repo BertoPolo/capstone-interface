@@ -14,7 +14,6 @@ const MyAccount = lazy(() => import("./components/MyAccount"))
 const Payment = lazy(() => import("./components/Payment"))
 const ResumingCart = lazy(() => import("./components/ResumingCart"))
 const ForgotPassword = lazy(() => import("./components/ForgotPassword"))
-// const WhatIUsed = lazy(() => import("./components/WhatIUsed"))
 
 const App = () => (
   <div>
@@ -38,15 +37,22 @@ const App = () => (
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<CreateUser />} />
           <Route path="/myAccount" element={<MyAccount />} />
+
           <Route path="/home" element={<Home />}>
-            <Route path=":itemTitle" element={<Home />} />
             <Route path="contactUs" element={<Home />} />
+            <Route path="outlet" element={<Home />} />
+            <Route path=":mainCategory" element={<Home />} />
+            <Route path=":mainCategory/:category" element={<Home />} />
           </Route>
-          <Route path="/backOfficeMenu" element={<BackOfficeMenu />}>
+
+          <Route path="item/:itemTitle" element={<Home />} />
+
+          <Route path="/backOffice" element={<BackOfficeMenu />}>
             <Route path="backOfficeUsers" element={<BackOfficeMenu />} />
             <Route path="backOfficeItems" element={<BackOfficeMenu />} />
             <Route path="backOfficeNewItem" element={<BackOfficeMenu />} />
           </Route>
+
           <Route path="/resume" element={<ResumingCart />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/forgotPassword" element={<ForgotPassword />} />

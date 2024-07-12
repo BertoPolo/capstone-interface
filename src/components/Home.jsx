@@ -3,11 +3,14 @@ import { useSelector, useDispatch } from "react-redux"
 import React, { Suspense, useEffect, useState } from "react";
 import { useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { useParams } from 'react-router-dom';
 import MyNavbar from "./MyNavbar"
 import HomeItem from "./HomeItem"
 import CategoriesMenu from "./CategoriesMenu"
 import NavFilter from "./NavFilter"
 import CategoriesMenuDropdown from "./CategoriesMenuDropdown"
+
+import { changeSelectedItem } from "../slices/items/itemsSlice"
 import { addItems } from "../slices/items/itemsSlice"
 import { setFilter, removeFilter, clearFilters } from "../slices/pages/pagesSlice"
 
@@ -18,12 +21,14 @@ const Footer = React.lazy(() => import('./Footer'));
 
 const Home = () => {
 
-  const items = useSelector((state) => state.itemsSlice.items);
+  const { items, selectedItem } = useSelector((state) => state.itemsSlice);
   const brands = useSelector((state) => state.brandsSlice.brands);
-  const { isOnHome, isOnOutlet, isOnCountactUs, isOnSingleItem, isOnCategory, isOnBrands } = useSelector(state => state.pagesSlice)
+  const { isOnHome, isOnOutlet, isOnCountactUs, isOnSingleItem, isOnCategory, isOnBrands, filters } = useSelector(state => state.pagesSlice)
 
   const dispatch = useDispatch();
   const location = useLocation();
+
+  const { itemTitle } = useParams();
 
   const [isCategoriesMenuDropdown, setIsCategoriesDropdown] = useState(false)
 
@@ -38,52 +43,12 @@ const Home = () => {
     theme: "dark",
   });
 
-  //get filtered items or RANDOM items if no filters 
-  const fetchFilteredItems = async (filterCriteria) => {
-    const url = constructFetchUrl(filterCriteria);
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      if (response.ok) {
-        dispatch(addItems(data));
-      } else {
-        notifyNotFound()
-        console.error('Failed to fetch items:', data.message);
-      }
-    } catch (error) {
-      console.error('Error fetching items:', error);
-    }
-  };
-
-  const constructFetchUrl = (filterCriteria) => {
-    let baseUrl = `${process.env.REACT_APP_SERVER}items`;
-    if (!filterCriteria) {
-      return baseUrl + '/random';
-    }
-
-    const queryString = constructQueryString(filterCriteria);
-    return baseUrl + `?${queryString}`;
-  };
-
-
-  const constructQueryString = (filterCriteria) => {
-    return Object.entries(filterCriteria)
-      .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
-      .join('&')
-  };
-
 
   useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const filterCriteria = {};
-    params.forEach((value, key) => {
-      filterCriteria[key] = value;
-      dispatch(setFilter({ key, value })); // Update Redux state with URL parameters
-    });
+    // dispatch(changeSelectedItem(null))
+    console.log("selecteditem", selectedItem);
+  }, []);
 
-    fetchFilteredItems(Object.keys(filterCriteria).length > 0 ? filterCriteria : null);
-
-  }, [location, dispatch]);
 
   return (
     <>
@@ -91,12 +56,12 @@ const Home = () => {
       {/* Header */}
 
       {/* CAROUSEL */}
-      {!isOnSingleItem && !isOnCountactUs && <Container fluid className="bg-softGray-carousel">
+      {!isOnSingleItem && !isOnCountactUs && <Container fluid className="bg-softGray-carousel px-0">
         {/* <div> */}
-        <Carousel className="mt-3">
+        <Carousel className="mt-3 px-0">
 
           <Carousel.Item>
-            <img className="d-block m-auto carouselImg" src="/assets/carousel/1.avif" alt="Girl Street Bob" />
+            <img className="d-block m-auto w-100 carouselImg" src="/assets/carousel/1.avif" alt="Girl Street Bob" />
             <Carousel.Caption className="d-flex justify-content-center">
             </Carousel.Caption>
           </Carousel.Item>
@@ -108,7 +73,7 @@ const Home = () => {
           </Carousel.Item>
 
           <Carousel.Item>
-            <img className="d-block m-auto carouselImgReversed" src="/assets/carousel/motorbikes.avif" alt="Three Baggers" />
+            <img className="d-block m-auto w-100 carouselImgReversed" src="/assets/carousel/motorbikes.avif" alt="Three Baggers" />
             <Carousel.Caption className="d-flex justify-content-center">
             </Carousel.Caption>
           </Carousel.Item>

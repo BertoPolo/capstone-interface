@@ -137,7 +137,7 @@ const FormBox = () => {
       <Form className="login-container" onSubmit={createToken}>
         <div className="login-modal">
 
-          <h3 className="mb-3 d-flex">Welcome back 👋</h3> {/* is SEO ok? */}
+          <h1 className="mb-3 d-flex welcome">Welcome back 👋</h1>
 
           <p className="d-flex m-0">Saddle up!</p>
           <p className="d-flex justify-content-start">Your moto essentials are just a login away.</p>

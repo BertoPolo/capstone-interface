@@ -48,11 +48,11 @@ const HomeItem = ({ currentItem }) => {
             src={currentItem.image}
             alt={currentItem.title}
             className="pointer"
-            onClick={() => { dispatch(toggleIsOnSingleItem(true)); dispatch(changeSelectedItem(currentItem)); navigate(`/home/${currentItem.title}`); window.scrollTo(0, 0); }}
+            onClick={() => { dispatch(toggleIsOnSingleItem(true)); dispatch(changeSelectedItem(currentItem)); navigate(`/item/${currentItem.title}`); window.scrollTo(0, 0) }}
           />
           <Card.Body className="p-1">
             <Card.Title className="pointer twoLines homeItemTitle" onClick={() => { dispatch(toggleIsOnSingleItem(true)); dispatch(changeSelectedItem(currentItem)) }} >
-              {currentItem.title.charAt(0).toUpperCase() + currentItem.title.slice(1).toLowerCase()}
+              {/* {currentItem.title.charAt(0).toUpperCase() + currentItem.title.slice(1).toLowerCase()} */}{currentItem.title}
             </Card.Title>
 
             <Card.Text className="text-muted twoLines" >{getCurrentBrandName(currentItem.brand)}</Card.Text>
