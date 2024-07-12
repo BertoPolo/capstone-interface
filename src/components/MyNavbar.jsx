@@ -2,7 +2,7 @@ import { Navbar, Nav, Image } from "react-bootstrap"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
-import { toggleIsOnHome, toggleIsOnOutlet, toggleIsCountactUs } from "../slices/pages/pagesSlice"
+import { toggleIsOnHome, toggleIsOnCountactUs } from "../slices/pages/pagesSlice"
 import { changeIsLogged, addName, addUserName, addAddress, addEmail, addIsAdmin, changeToken } from "../slices/users/usersSlice"
 import CartModal from "./CartModal"
 
@@ -30,7 +30,6 @@ const MyNavbar = () => {
     dispatch(changeIsLogged(false))
     dispatch(changeToken(""))
     localStorage.removeItem("token");
-
   }
 
   return (
@@ -49,8 +48,8 @@ const MyNavbar = () => {
         <Navbar.Collapse>
           <Nav className="mr-auto text-start">
             <Nav.Link onClick={() => { navigate("/home"); dispatch(toggleIsOnHome(true)); window.scrollTo(0, 0) }}>Home</Nav.Link>
-            <Nav.Link onClick={() => { navigate("/home/outlet"); dispatch(toggleIsOnOutlet(true)) }} href="#searchbar">Outlet</Nav.Link>
-            <Nav.Link onClick={() => { navigate("/home/contactUs"); dispatch(toggleIsCountactUs(true)); window.scrollTo(0, 0) }}>Contact Us</Nav.Link>
+            {/* <Nav.Link onClick={() => { navigate("/home/outlet"); dispatch(toggleIsOnOutlet(true)) }} href="#searchbar">Outlet</Nav.Link> */}
+            <Nav.Link onClick={() => { navigate("/home/contactUs"); dispatch(toggleIsOnCountactUs(true)); window.scrollTo(0, 0) }}>Contact Us</Nav.Link>
           </Nav>
           <Nav className="ml-auto mr-4">
 

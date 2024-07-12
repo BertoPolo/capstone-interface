@@ -11,12 +11,12 @@ import NavFilter from "./NavFilter"
 import CategoriesMenuDropdown from "./CategoriesMenuDropdown"
 
 import { changeSelectedItem } from "../slices/items/itemsSlice"
-import { toggleIsOnSingleItem } from "../slices/pages/pagesSlice"
+import { toggleIsOnSingleItem, toggleIsOnCountactUs, toggleIsOnHome } from "../slices/pages/pagesSlice";
 
 // import { addItems } from "../slices/items/itemsSlice"
 // import { setFilter, removeFilter, clearFilters } from "../slices/pages/pagesSlice"
 
-const Outlet = React.lazy(() => import('./Outlet'));
+// const Outlet = React.lazy(() => import('./Outlet'));
 const ContactUs = React.lazy(() => import('./ContactUs'));
 const SingleItem = React.lazy(() => import('./SingleItem'));
 const Footer = React.lazy(() => import('./Footer'));
@@ -74,18 +74,43 @@ const Home = () => {
     dispatch(changeSelectedItem(null))
   }, [dispatch]);
 
+  // ESTE FUNCIONA SIN CONTACTUS ETC 
+  // useEffect(() => {
+  //   if (paramsItemTitle) {
+  //     const itemInStore = items.find(item => item.title === paramsItemTitle);
+  //     if (selectedItem && selectedItem.title === paramsItemTitle) {
+  //       return;
+  //     } else if (itemInStore) {
+  //       dispatch(changeSelectedItem(itemInStore));
+  //       dispatch(toggleIsOnSingleItem(true));
+  //     } else if (!selectedItem || selectedItem.title !== paramsItemTitle) {
+  //       fetchItemByTitle(paramsItemTitle);
+  //     }
+  //   }
+  // }, [paramsItemTitle, selectedItem, items, dispatch]);
+
 
   useEffect(() => {
-    const itemInStore = items.find(item => item.title === paramsItemTitle);
-    if (selectedItem && selectedItem.title === paramsItemTitle) {
-      return;
-    } else if (itemInStore) {
-      dispatch(changeSelectedItem(itemInStore));
-      dispatch(toggleIsOnSingleItem(true));
-    } else if (!selectedItem || selectedItem.title !== paramsItemTitle) {
-      fetchItemByTitle(paramsItemTitle);
+    if (paramsItemTitle) {
+      const itemInStore = items.find(item => item.title === paramsItemTitle);
+      if (selectedItem && selectedItem.title === paramsItemTitle) {
+        return;
+      } else if (itemInStore) {
+        dispatch(changeSelectedItem(itemInStore));
+        dispatch(toggleIsOnSingleItem(true));
+      } else if (!selectedItem || selectedItem.title !== paramsItemTitle) {
+        fetchItemByTitle(paramsItemTitle);
+      }
+    } else {
+      if (location.pathname.includes('contactUs')) {
+        dispatch(toggleIsOnCountactUs(true));
+        // } else if (location.pathname.includes('outlet')) {
+        //   dispatch(toggleIsOnOutlet(true));
+      } else {
+        dispatch(toggleIsOnHome(true));
+      }
     }
-  }, [paramsItemTitle, selectedItem, items, dispatch]);
+  }, [paramsItemTitle, selectedItem, items, dispatch, location.pathname]);
 
   return (
     <>
@@ -121,7 +146,7 @@ const Home = () => {
 
 
       {/* FILTERING BAR*/}
-      {(isOnOutlet || isOnHome) && <NavFilter />}
+      {(isOnHome) && <NavFilter />}
 
       <Container fluid  >
         {/* categories displayed in SM screens */}
@@ -152,10 +177,10 @@ const Home = () => {
                 </Row>}
 
               {/* OUTLET */}
-              {isOnOutlet &&
+              {/* {isOnOutlet &&
                 <Suspense fallback={<div>Loading...</div>}>
                   <Outlet />
-                </Suspense>}
+                </Suspense>} */}
 
               {/* CONTACT US */}
               {isOnCountactUs &&

@@ -13,9 +13,7 @@
 - Send me a notification email if rollback was unsuccessful
 - Implement again range price input
 - is /resume dropdown behavioring well?
-- Clean unused imports
 - Not always is displayed "we don't have that item"
-- At /outlet add title, is not intuitive that you are there
 - Change navigation among pages, from states to params
 - Testing/Jest
 - Params is getting filters from \_id but it's better to get them from the name

@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from "react-redux"
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react"
 import { toast } from 'react-toastify';
+import { toggleIsOnHome } from "../slices/pages/pagesSlice";
 import { addItems } from "../slices/items/itemsSlice"
 import { addBrands } from "../slices/brands/brandsSlice"
 
 
 const NavFilter = () => {
     const [searchInput, setSearchinput] = useState("")
-    const [maxPrice, setMaxPrice] = useState(1000)
     const [sorting, setSorting] = useState("")
     const [brandId, setBrandId] = useState("")
     const [selectedBrand, setSelectedBrand] = useState("")
@@ -17,7 +17,7 @@ const NavFilter = () => {
 
     const brands = useSelector((state) => state.brandsSlice.brands);
     const items = useSelector((state) => state.itemsSlice.items);
-    const currentFilters = useSelector((state) => state.itemsSlice.currentFilters)
+    // const currentFilters = useSelector((state) => state.itemsSlice.currentFilters)
 
     const dispatch = useDispatch()
     const location = useLocation();
@@ -26,20 +26,16 @@ const NavFilter = () => {
 
     const resetStates = () => {
         setSearchinput("")
-        setMaxPrice(1000)
         setSelectSorting("")
         setSelectedBrand("")
         setSorting("")
         setBrandId("")
-        // setMinPrice(0)
-
-        if (location.pathname === "/home/outlet") {
-            getFilteredItems(null, true)
-        }
-        else {
-            getRandomItems()
-            navigate("/home")
-        }
+        // if (location.pathname === "/home/outlet") {
+        //     getFilteredItems(null, true)
+        // }
+        // else {
+        getRandomItems()
+        // }
     }
 
     const notifyNotFound = () => toast.warn(`OOPS! looks like we don't have anything there`, {
@@ -54,6 +50,8 @@ const NavFilter = () => {
     });
 
     const getRandomItems = async () => {
+        dispatch(toggleIsOnHome(true));
+        navigate("/home")
         try {
             const response = await fetch(`${process.env.REACT_APP_SERVER}items/random`,
             );
@@ -77,15 +75,10 @@ const NavFilter = () => {
         }
     }
 
-    const getFilteredItems = async (e, fromResetStates = false) => {
+    const getFilteredItems = async (e) => {
         if (e) e.preventDefault();
-        const fromOutlet = location.pathname === "/home/outlet";
         try {
-            let url = fromResetStates
-                //its working but shouldn't be like this? => ? `?isOutlet=true`
-                ? `?outlet=true`
-                : `?&sort=${encodeURIComponent(sorting)}&title=/^${encodeURIComponent(searchInput)}/i&brand=${encodeURIComponent(brandId)}${fromOutlet ? `&isOutlet="true"` : ""}`
-            // price>${encodeURIComponent(minPrice)}&price<${encodeURIComponent(maxPrice)}
+            let url = `?&sort=${encodeURIComponent(sorting)}&title=/^${encodeURIComponent(searchInput)}/i&brand=${encodeURIComponent(brandId)}`
 
             const response = await fetch(`${process.env.REACT_APP_SERVER}items${url}`);
             if (response.ok) {

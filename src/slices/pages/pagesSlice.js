@@ -4,7 +4,7 @@ const pagesSlice = createSlice({
   name: "pages",
   initialState: {
     isOnHome: true,
-    isOnOutlet: false,
+    // isOnOutlet: false,
     isOnCountactUs: false,
     isOnSingleItem: false,
     isOnCategory: false,
@@ -20,7 +20,7 @@ const pagesSlice = createSlice({
       return {
         ...state,
         isOnHome: action.payload,
-        isOnOutlet: false,
+        // isOnOutlet: false,
         isOnCountactUs: false,
         isOnSingleItem: false,
         isOnCategory: false,
@@ -30,26 +30,26 @@ const pagesSlice = createSlice({
         isOnCreateNewItem: false,
       }
     },
-    toggleIsOnOutlet: (state, action) => {
-      return {
-        ...state,
-        isOnOutlet: action.payload,
-        isOnHome: false,
-        isOnCountactUs: false,
-        isOnSingleItem: false,
-        isOnCategory: false,
-        isOnBrands: false,
-        isOnUserSearch: false,
-        isOnItemSearch: false,
-        isOnCreateNewItem: false,
-      }
-    },
-    toggleIsCountactUs: (state, action) => {
+    // toggleIsOnOutlet: (state, action) => {
+    //   return {
+    //     ...state,
+    //     isOnOutlet: action.payload,
+    //     isOnHome: false,
+    //     isOnCountactUs: false,
+    //     isOnSingleItem: false,
+    //     isOnCategory: false,
+    //     isOnBrands: false,
+    //     isOnUserSearch: false,
+    //     isOnItemSearch: false,
+    //     isOnCreateNewItem: false,
+    //   }
+    // },
+    toggleIsOnCountactUs: (state, action) => {
       return {
         ...state,
         isOnCountactUs: action.payload,
         isOnHome: false,
-        isOnOutlet: false,
+        // isOnOutlet: false,
         isOnSingleItem: false,
         isOnCategory: false,
         isOnBrands: false,
@@ -63,7 +63,7 @@ const pagesSlice = createSlice({
         ...state,
         isOnSingleItem: action.payload,
         isOnHome: false,
-        isOnOutlet: false,
+        // isOnOutlet: false,
         isOnCountactUs: false,
         isOnCategory: false,
         isOnBrands: false,
@@ -77,7 +77,7 @@ const pagesSlice = createSlice({
         ...state,
         isOnCategory: action.payload,
         isOnHome: false,
-        isOnOutlet: false,
+        // isOnOutlet: false,
         isOnCountactUs: false,
         isOnSingleItem: false,
         isOnBrands: false,
@@ -91,7 +91,7 @@ const pagesSlice = createSlice({
         ...state,
         isOnBrands: action.payload,
         isOnHome: false,
-        isOnOutlet: false,
+        // isOnOutlet: false,
         isOnCountactUs: false,
         isOnSingleItem: false,
         isOnCategory: false,
@@ -147,7 +147,7 @@ export default pagesSlice.reducer
 export const {
   toggleIsOnHome,
   toggleIsOnOutlet,
-  toggleIsCountactUs,
+  toggleIsOnCountactUs,
   toggleIsOnSingleItem,
   toggleIsOnCategory,
   toggleIsOnUserSearch,
